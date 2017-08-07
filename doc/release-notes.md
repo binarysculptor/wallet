@@ -1,5 +1,3 @@
-(note: this is a temporary file, to be added-to by anybody, and moved to release-notes at release time)
-
 PIVX Core version 2.3.0 is now available from:
 
   <https://github.com/pivx-project/pivx/releases>
@@ -147,7 +145,7 @@ git merge commit are mentioned.
 - #211 `b8c110b` [RPC] Refactor & JSONify results from masternode command(s) (Fuzzbawls)
 - #201 `f0e87b1` [RPC] Add active/incative flag to getstakingstatus RPC call (Mrs-X)
 
-###Configuration and command-line options
+### Configuration and command-line options
 - #180 `16b8601` [Wallet] Add parameter interaction between -disablewallet and -staking (Aaron Miller)
 - #208 `5f494c4` [Qt] Fix segfault when running with `-help` (Fuzzbawls)
 - #193 `ac7590b` [Output] Reformat help messages (Fuzzbawls)
@@ -170,7 +168,7 @@ git merge commit are mentioned.
 - #225 `02209ec` [Qt] Add autocomplete to Qt client's debug console (Fuzzbawls)
 - #233 `2921a4d` [Qt] Enable support for Qt's HighDpiScaling (Fuzzbawls)
 
-###Tests and QA
+### Tests and QA
 - #191 `3a778c3` [Tests] Fix the unit test suite for use with PIVX (Fuzzbawls)
 - #122 `7d135a1` [Utils] updated netmagic/port for linearize script (Satoshi Ninja)
 
