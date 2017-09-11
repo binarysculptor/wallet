@@ -358,7 +358,7 @@ int CMasternodeMan::stable_size ()
             continue; // Skip obsolete versions
         }
         if (IsSporkActive (SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) {
-            nMasternode_Age = mn.lastPing.sigTime - mn.sigTime;
+            nMasternode_Age = GetAdjustedTime() - mn.sigTime;
             if ((nMasternode_Age) < nMasternode_Min_Age) {
                 continue; // Skip masternodes younger than (default) 8000 sec (MUST be > MASTERNODE_REMOVAL_SECONDS)
             }
@@ -385,6 +385,31 @@ int CMasternodeMan::CountEnabled(int protocolVersion)
     }
 
     return i;
+}
+
+void CMasternodeMan::CountNetworks(int protocolVersion, int& ipv4, int& ipv6, int& onion)
+{
+    protocolVersion = protocolVersion == -1 ? masternodePayments.GetMinMasternodePaymentsProto() : protocolVersion;
+
+    BOOST_FOREACH (CMasternode& mn, vMasternodes) {
+        mn.Check();
+        std::string strHost;
+        int port;
+        SplitHostPort(mn.addr.ToString(), port, strHost);
+        CNetAddr node = CNetAddr(strHost, false);
+        int nNetwork = node.GetNetwork();
+        switch (nNetwork) {
+            case 1 :
+                ipv4++;
+                break;
+            case 2 :
+                ipv6++;
+                break;
+            case 3 :
+                onion++;
+                break;
+        }
+    }
 }
 
 void CMasternodeMan::DsegUpdate(CNode* pnode)
@@ -582,10 +607,12 @@ int CMasternodeMan::GetMasternodeRank(const CTxIn& vin, int64_t nBlockHeight, in
         }
 
         if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) {
-            nMasternode_Age = mn.lastPing.sigTime - mn.sigTime;
+            nMasternode_Age = GetAdjustedTime() - mn.sigTime;
             if ((nMasternode_Age) < nMasternode_Min_Age) {
-                LogPrintf("Skipping just activated Masternode. Age: %ld\n", nMasternode_Age);
-                continue;                                                   // Skip masternodes younger than (default) 1 hour
+                if (fDebug){
+                    LogPrintf("Skipping just activated Masternode. Age: %ld\n", nMasternode_Age);
+                }
+                continue;  // Skip masternodes younger than (default) 8000 sec
             }
         }
         if (fOnlyActive) {
