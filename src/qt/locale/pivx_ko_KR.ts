@@ -691,7 +691,7 @@
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to PIVX network</source>
-        <translation><numerusform>PIVX 네트워크에  %n 연결</numerusform></translation>
+        <translation><numerusform>PIVX 네트워크에  %n 연결됨</numerusform></translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -735,7 +735,7 @@
     </message>
     <message>
         <source>%1 behind</source>
-        <translation>%1 뒤</translation>
+        <translation>%1 남음</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -2206,6 +2206,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>네트워크</translation>
     </message>
     <message>
+        <source>BLOOM</source>
+        <translation>BLOOM</translation>
+    </message>
+    <message>
         <source>UNKNOWN</source>
         <translation>UNKNOWN</translation>
     </message>
@@ -2988,6 +2992,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
         <translation>KB당 %1보다 %2배 많은 수수료는 너무 높은 수수료입니다.</translation>
     </message>
+    <message numerus="yes">
+        <source>Estimated to begin confirmation within %n block(s).</source>
+        <translation><numerusform>%n 블록내에서 확인 시작될 예정</numerusform></translation>
+    </message>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
         <translation>수신자 주소가 유효하지 않습니다. 다시 확인해주세요.</translation>
@@ -3031,6 +3039,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>Error: The wallet was unlocked only to anonymize coins.</source>
         <translation>오류: 지갑이 코인 익명 처리를 위해 잠금해제 되었습니다.</translation>
+    </message>
+    <message>
+        <source>Error: The wallet was unlocked only to anonymize coins. Unlock canceled.</source>
+        <translation>에러 : 현재 지갑은 코인 익명화를 위해서만 잠금해제되었습니다. 잠금해제가 취소됩니다.</translation>
     </message>
     <message>
         <source>Pay only the minimum fee of %1</source>
@@ -3306,6 +3318,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
 </context>
 <context>
     <name>TransactionDesc</name>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>%n 개의 다른 블록 열기</numerusform></translation>
+    </message>
     <message>
         <source>Open until %1</source>
         <translation>%1까지 열기</translation>
@@ -3367,6 +3383,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <source>, has not been successfully broadcast yet</source>
         <translation>, 아직 성공적으로 브로드캐스트되지 않았습니다</translation>
     </message>
+    <message numerus="yes">
+        <source>, broadcast through %n node(s)</source>
+        <translation><numerusform>, %n 노드를 통해 브로드캐스트</numerusform></translation>
+    </message>
     <message>
         <source>Date</source>
         <translation>날짜</translation>
@@ -3406,6 +3426,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>Credit</source>
         <translation>크레딧</translation>
+    </message>
+    <message numerus="yes">
+        <source>matures in %n more block(s)</source>
+        <translation><numerusform>%n 블록안에 완료</numerusform></translation>
     </message>
     <message>
         <source>not accepted</source>
@@ -3504,6 +3528,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>Address</source>
         <translation>주소</translation>
+    </message>
+    <message numerus="yes">
+        <source>Open for %n more block(s)</source>
+        <translation><numerusform>%n 개의 다른 블록 열기</numerusform></translation>
     </message>
     <message>
         <source>Open until %1</source>
@@ -3920,6 +3948,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>MIT 소프트웨어 라이센스에 따라 배포, 첨부 파일 COPYING 또는 &lt;http://www.opensource.org/licenses/mit-license.php&gt; 를 참조하십시오.</translation>
     </message>
     <message>
+        <source>Enable spork administration functionality with the appropriate private key.</source>
+        <translation>올바른 개인키로 spork 관리 기능을 사용 가능</translation>
+    </message>
+    <message>
         <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
         <translation>swiftTX 활성화, 잠긴 트랜잭션들에 대한 확인 표시 (bool, 기본값: %s)</translation>
     </message>
@@ -3984,6 +4016,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>-maxtxfee=&lt;amount&gt;에 대한 잘못된 금액: '%s' (트랜잭션 정지를 막을려면 적어도 %s의 minrelay 수수료가 있어야 합니다)</translation>
     </message>
     <message>
+        <source>Keep the specified amount available for spending at all times (default: 0)</source>
+        <translation>항상 송금할수 있도록 지정된 수량 유지 (기본값 : 0)</translation>
+    </message>
+    <message>
         <source>Log transaction priority and fee per kB when mining blocks (default: %u)</source>
         <translation>블록을 채굴 할 때 트랜잭션 우선 순위 및 kB 당 수수료를 기록합니다 (기본값: %u)</translation>
     </message>
@@ -4042,6 +4078,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>Show N confirmations for a successfully locked transaction (0-9999, default: %u)</source>
         <translation>성공적으로 잠긴 트랜잭션에 대한 확인을 N으로 나타냅니다 (0-9999, 기본값: %u)</translation>
+    </message>
+    <message>
+        <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
+        <translation>bloom필터를 사용한 블록 및 트랜잭션 필터링 지원 (기본값 : %u)</translation>
     </message>
     <message>
         <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
@@ -4150,6 +4190,10 @@ rpcpassword=%s
     <message>
         <source>(must be 51472 for mainnet)</source>
         <translation>(메인넷 일경우 51472)</translation>
+    </message>
+    <message>
+        <source>Accept command line and JSON-RPC commands</source>
+        <translation> command line 과 JSON-RPC 적용</translation>
     </message>
     <message>
         <source>Accept connections from outside (default: 1 if no -proxy or -connect)</source>
@@ -4494,6 +4538,50 @@ rpcpassword=%s
     <message>
         <source>Invalid script detected.</source>
         <translation>유효하지 않은 스크립트가 발견되었습니다.</translation>
+    </message>
+    <message>
+        <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
+        <translation>이것은 사전 릴리스 테스트 빌드입니다 - 사용상 책임은 귀하에게 있습니다. - staking이나 상업적인 용도로는 절대 사용하지 마십시오!</translation>
+    </message>
+    <message>
+        <source>&lt;category&gt; can be:</source>
+        <translation>&lt;category&gt; 가능함 :</translation>
+    </message>
+    <message>
+        <source>Attempt to force blockchain corruption recovery</source>
+        <translation>블록체인 손상 복구 시도</translation>
+    </message>
+    <message>
+        <source>Display the stake modifier calculations in the debug.log file.</source>
+        <translation>debug.log에 stake 수정 계산 기록</translation>
+    </message>
+    <message>
+        <source>Display verbose coin stake messages in the debug.log file.</source>
+        <translation>debug.log 에 코인 stake 메시지를 자세히 기록</translation>
+    </message>
+    <message>
+        <source>Enable publish hash block in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 해시 블록 게시 가능</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction (locked via SwiftTX) in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 해시 전송 게시 가능 (SwiftTX로 설정된)</translation>
+    </message>
+    <message>
+        <source>Enable publish hash transaction in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 해시 불록 게시 가능</translation>
+    </message>
+    <message>
+        <source>Enable publish raw block in &lt;address&gt;</source>
+        <translation>&lt;address&gt;에서 Raw 블록 게시 가능</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction (locked via SwiftTX) in &lt;address&gt;</source>
+        <translation>&lt;address&gt;에서 Raw 트랜잭션 게시 지원 (SwiftTX를 통해 잠겨진)</translation>
+    </message>
+    <message>
+        <source>Enable publish raw transaction in &lt;address&gt;</source>
+        <translation>&lt;address&gt; 에서 Raw 트랜잭션 게시 지원</translation>
     </message>
     <message>
         <source>Enable staking functionality (0-1, default: %u)</source>

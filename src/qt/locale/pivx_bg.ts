@@ -266,6 +266,18 @@
         <source>Encrypted Key:</source>
         <translation>Криптиращ ключ:</translation>
     </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Копирай сегашния подпис в системния буфер</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this PIVX address</source>
+        <translation>Подпишете съобщението, за да докажете, че притежавате този PIVX адрес</translation>
+    </message>
+    <message>
+        <source>Encrypt &amp;Key</source>
+        <translation>Криптиращ ключ</translation>
+    </message>
     </context>
 <context>
     <name>BitcoinGUI</name>
@@ -419,6 +431,14 @@
     <message>
         <source>Alt+P</source>
         <translation>Алт+П</translation>
+    </message>
+    <message>
+        <source>Copy the current signature to the system clipboard</source>
+        <translation>Копирай сегашния подпис в системния буфер</translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this PIVX address</source>
+        <translation>Подпишете съобщението, за да докажете, че притежавате този PIVX адрес</translation>
     </message>
     </context>
 <context>

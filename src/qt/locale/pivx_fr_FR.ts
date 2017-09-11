@@ -1629,9 +1629,49 @@ Veuillez vérifier l'adresse et réessayer.</translation>
         <source>Address</source>
         <translation>Adresse</translation>
     </message>
-    </context>
+    <message>
+        <source>Date and time that the transaction was received.</source>
+        <translation>Date et heure a laquelle la transaction fut reçue</translation>
+    </message>
+    <message>
+        <source>Type of transaction.</source>
+        <translation>Type de transaction.</translation>
+    </message>
+    <message>
+        <source>Destination address of transaction.</source>
+        <translation>Adresse destinataire de la transaction.</translation>
+    </message>
+    <message>
+        <source>Amount removed from or added to balance.</source>
+        <translation>Montant retiré ou ajouté a la balance.</translation>
+    </message>
+</context>
 <context>
     <name>TransactionView</name>
+    <message>
+        <source>All</source>
+        <translation>Tous</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Aujourd'hui</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Cette semaine</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Ce mois</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Le mois dernier</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Cette année</translation>
+    </message>
     <message>
         <source>Copy address</source>
         <translation>Copier l'adresse</translation>
