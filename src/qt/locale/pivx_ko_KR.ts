@@ -566,6 +566,30 @@
         <translation>입금 된 주소 및 라벨 목록 표시</translation>
     </message>
     <message>
+        <source>&amp;Multisignature creation...</source>
+        <translation>&amp;멀티시그너쳐 생성...</translation>
+    </message>
+    <message>
+        <source>Create a new multisignature address and add it to this wallet</source>
+        <translation>신규 멀티시그너쳐 주소 생성 및 전송</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature spending...</source>
+        <translation>&amp;멀티시그너쳐 전송중...</translation>
+    </message>
+    <message>
+        <source>Spend from a multisignature address</source>
+        <translation>멀티시그너쳐 주소에서 전송</translation>
+    </message>
+    <message>
+        <source>&amp;Multisignature signing...</source>
+        <translation>&amp;멀티시그너쳐 서명중...</translation>
+    </message>
+    <message>
+        <source>Sign with a multisignature address</source>
+        <translation>멀티시그너쳐 주소로 서명</translation>
+    </message>
+    <message>
         <source>Open &amp;URI...</source>
         <translation>&amp;URI 열기...</translation>
     </message>
@@ -580,6 +604,10 @@
     <message>
         <source>Synchronizing additional data: %p%</source>
         <translation>추가 데이터 동기화: %p%</translation>
+    </message>
+    <message>
+        <source>%1 behind. Scanning block %2</source>
+        <translation>%1 남음. %2 블록 스캔중...</translation>
     </message>
     <message>
         <source>&amp;File</source>
@@ -616,10 +644,6 @@
     <message>
         <source>&amp;Privacy</source>
         <translation>&amp;프라이버시</translation>
-    </message>
-    <message>
-        <source>Privacy Action for zPIV and Obfuscation</source>
-        <translation>zPIV와 난독화를 위한 프라이버스 작업</translation>
     </message>
     <message>
         <source>&amp;Masternodes</source>
@@ -742,10 +766,6 @@
         <translation><numerusform>%n 년</numerusform></translation>
     </message>
     <message>
-        <source>%1 behind</source>
-        <translation>%1 남음</translation>
-    </message>
-    <message>
         <source>Catching up...</source>
         <translation>동기화 중...</translation>
     </message>
@@ -861,7 +881,7 @@ Address: %4
     <name>ClientModel</name>
     <message>
         <source>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</source>
-        <translation>Total: %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / Unknown: %5)</translation>
+        <translation>전체 : %1 (IPv4: %2 / IPv6: %3 / Tor: %4 / 미확인: %5)</translation>
     </message>
     <message>
         <source>Network Alert</source>
@@ -937,6 +957,10 @@ Address: %4
     <message>
         <source>Received with address</source>
         <translation>수신 된 주소</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>분류</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1299,11 +1323,11 @@ Address: %4
     </message>
     <message>
         <source>Alias</source>
-        <translation>별명</translation>
+        <translation>이름</translation>
     </message>
     <message>
         <source>Address</source>
-        <translation>주소</translation>
+        <translation>마스터노드 주소</translation>
     </message>
     <message>
         <source>Protocol</source>
@@ -1315,11 +1339,11 @@ Address: %4
     </message>
     <message>
         <source>Active</source>
-        <translation>활성</translation>
+        <translation>누적 활성 시간</translation>
     </message>
     <message>
         <source>Last Seen (UTC)</source>
-        <translation>최근 본 (UTC)</translation>
+        <translation>최근 업데이트 (UTC)</translation>
     </message>
     <message>
         <source>Pubkey</source>
@@ -1327,7 +1351,7 @@ Address: %4
     </message>
     <message>
         <source>S&amp;tart alias</source>
-        <translation>별명 시&amp;작</translation>
+        <translation>마스트노드 시&amp;작</translation>
     </message>
     <message>
         <source>Start &amp;all</source>
@@ -1335,7 +1359,7 @@ Address: %4
     </message>
     <message>
         <source>Start &amp;MISSING</source>
-        <translation>시작 &amp;종료</translation>
+        <translation>누락된 마스트노드 시&amp;작</translation>
     </message>
     <message>
         <source>&amp;Update status</source>
@@ -1343,7 +1367,7 @@ Address: %4
     </message>
     <message>
         <source>Status will be updated automatically in (sec):</source>
-        <translation>상태가 (초) 단위로 자동 업데이트됩니다:</translation>
+        <translation>마스터노드 상태는 자동 업데이트됩니다:</translation>
     </message>
     <message>
         <source>0</source>
@@ -1351,7 +1375,7 @@ Address: %4
     </message>
     <message>
         <source>Start alias</source>
-        <translation>별명 시작</translation>
+        <translation>선택 시작</translation>
     </message>
     <message>
         <source>Confirm masternode start</source>
@@ -1525,6 +1549,85 @@ Please check the address and try again.</source>
 </translation>
     </message>
 </context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Create MultiSignature &amp;Address</source>
+        <translation>&amp;멀티시그너쳐 주소 생성</translation>
+    </message>
+    <message>
+        <source>Address Label:</source>
+        <translation>주소 이름:</translation>
+    </message>
+    <message>
+        <source>&amp;Add Address / Key</source>
+        <translation>&amp;주소 / 키 추가</translation>
+    </message>
+    <message>
+        <source>Create a new multisig address</source>
+        <translation>신규 멀티시그 주소 생성</translation>
+    </message>
+    <message>
+        <source>C&amp;reate</source>
+        <translation>&amp;생성</translation>
+    </message>
+    <message>
+        <source>Status:</source>
+        <translation>상태:</translation>
+    </message>
+    <message>
+        <source>&amp;Import Redeem</source>
+        <translation>&amp;리딤코드 가져오기</translation>
+    </message>
+    <message>
+        <source>Inputs:</source>
+        <translation>입력:</translation>
+    </message>
+    <message>
+        <source>Coin Control</source>
+        <translation>코인 설정</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>선택된 수량 :</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>금액:</translation>
+    </message>
+    <message>
+        <source>Add a Raw Input</source>
+        <translation> Raw 입력</translation>
+    </message>
+    <message>
+        <source>Address / Amount:</source>
+        <translation>주소 / 금액:</translation>
+    </message>
+    <message>
+        <source>Cr&amp;eate</source>
+        <translation>&amp;생성</translation>
+    </message>
+    <message>
+        <source>Transaction Hex:</source>
+        <translation>Transaction Hex:</translation>
+    </message>
+    <message>
+        <source>S&amp;ign</source>
+        <translation>&amp;서명</translation>
+    </message>
+    <message>
+        <source>Add Private &amp;Key</source>
+        <translation>&amp;개인키 추가</translation>
+    </message>
+    <message>
+        <source>Invalid Tx Hash.</source>
+        <translation>맞지 않는 Tx Hash.</translation>
+    </message>
+    </context>
 <context>
     <name>ObfuscationConfig</name>
     <message>
@@ -1927,10 +2030,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>출금 가능 액수:</translation>
     </message>
     <message>
-        <source>Combined Balances (including immature coins)</source>
-        <translation>전체 잔액 (대기중 코인 포함)</translation>
-    </message>
-    <message>
         <source>PIV:</source>
         <translation>PIV:</translation>
     </message>
@@ -1943,8 +2042,28 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>0 %</translation>
     </message>
     <message>
+        <source>0.000 000 00 PIV</source>
+        <translation>0.000 000 00 PIV</translation>
+    </message>
+    <message>
+        <source>Locked:</source>
+        <translation>잠김:</translation>
+    </message>
+    <message>
+        <source>Unlocked:</source>
+        <translation>사용가능 : </translation>
+    </message>
+    <message>
         <source>Zerocoin Balance</source>
         <translation>제로코인 잔액</translation>
+    </message>
+    <message>
+        <source>Mature:</source>
+        <translation>생성:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>미승인:</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -1954,7 +2073,15 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <source>out of sync</source>
         <translation>동기화되지 않음</translation>
     </message>
-</context>
+    <message>
+        <source>AutoMint is currently enabled and set to </source>
+        <translation>자동 생성기능이 현재 작동중 그리고 </translation>
+    </message>
+    <message>
+        <source>To disable AutoMint add 'enablezeromint=0' in pivx.conf.</source>
+        <translation>자동생성 기능을 사용하지 않으시려면, pivx.conf 화일에 enablezeromint=0 를 추가하세요.</translation>
+    </message>
+    </context>
 <context>
     <name>PaymentServer</name>
     <message>
@@ -2156,6 +2283,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>제로코인 보내기</translation>
     </message>
     <message>
+        <source>Available (mature and spendable) zPIV for spending</source>
+        <translation>전송 가능한 zPIV</translation>
+    </message>
+    <message>
         <source>Available Balance:</source>
         <translation>가능한 잔액:</translation>
     </message>
@@ -2232,12 +2363,12 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>제로코인 상태 :</translation>
     </message>
     <message>
-        <source>Available Funds</source>
-        <translation>사용가는한 펀드</translation>
+        <source>Total Balance including unconfirmed and immature zPIV</source>
+        <translation>승인중이거나, 생성중인 제로코인도 포함된 전체 잔액입니다.</translation>
     </message>
     <message>
-        <source>Available Zerocoin  Balance:</source>
-        <translation>사용가능한 제로코인 잔액:</translation>
+        <source>Total Zerocoin  Balance:</source>
+        <translation>제로코인 잔액 :</translation>
     </message>
     <message>
         <source>Denominations with value 1:</source>
@@ -2380,8 +2511,12 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>금액 복사</translation>
     </message>
     <message>
-        <source>Zerocoin functionality is not enabled on the PIVX network yet.</source>
-        <translation>제로 코인 기능 상태가 PIVX 네트워크 상에서 이루어지지 않습니다.</translation>
+        <source>zPIV is currently disabled due to maintenance.</source>
+        <translation>zPIV는 현재 점검중이라 사용하실수 없습니다.</translation>
+    </message>
+    <message>
+        <source>zPIV is currently undergoing maintenance.</source>
+        <translation>zPIV는 현재 점검중입니다.</translation>
     </message>
     <message>
         <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
@@ -2454,10 +2589,6 @@ Please be patient...</source>
         <translation>주소로</translation>
     </message>
     <message>
-        <source> to a newly generated (unused and therefor anonymous) local address &lt;br /&gt;</source>
-        <translation>새로 생성된 개인 지갑 주소(미사용된 익명의) &lt;br /&gt; 로</translation>
-    </message>
-    <message>
         <source>with Security Level </source>
         <translation>시큐리티 레벨</translation>
     </message>
@@ -2472,6 +2603,21 @@ Please be patient...</source>
         <translation>제로코인 전송중입니다.
 시큐리티 레벨과 여러분의 하드웨어에 따라 수 분이 걸립니다.
 조금만 기다려주세요...</translation>
+    </message>
+    <message>
+        <source>Too much inputs (</source>
+        <translation>너무나 많은 입력 (</translation>
+    </message>
+    <message>
+        <source>) needed. 
+Maximum allowed: </source>
+        <translation>) 가 필요함.
+가능한 최대값 :</translation>
+    </message>
+    <message>
+        <source>
+Either mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.</source>
+        <translation>높은 디노미네션 값으로 생성하거나, 보내실 금액을 줄여주세요.</translation>
     </message>
     <message>
         <source>Spend Zerocoin failed with status = </source>
@@ -2763,6 +2909,10 @@ Please be patient...</source>
         <translation>&amp;지갑 복구</translation>
     </message>
     <message>
+        <source>Delete local Blockchain Folders</source>
+        <translation>자신의 컴퓨터의 블록체인 폴더 삭제</translation>
+    </message>
+    <message>
         <source>Wallet In Use:</source>
         <translation>사용중인 지갑:</translation>
     </message>
@@ -2808,6 +2958,14 @@ Please be patient...</source>
         <translation>현재 blk000??.dat로 부터 블록체인 인덱스 재작성</translation>
     </message>
     <message>
+        <source>-resync:</source>
+        <translation>-resync:</translation>
+    </message>
+    <message>
+        <source>Deletes all local blockchain folders so the wallet synchronizes from scratch.</source>
+        <translation>블록체인을 재동기화를 위해 모든 블록체인 폴더 삭제</translation>
+    </message>
+    <message>
         <source>The buttons below will restart the wallet with command-line options to repair the wallet, fix issues with corrupt blockhain files or missing/obsolete transactions.</source>
         <translation>아래 버튼들은 지갑을 고치기 위한 명령어 옵션들로 실행시 지갑을 재시작합니다, 손상된 블록체인 파일 또는 누락되었거나 오래된 트랜잭션들에 대한 문제를 해결합니다.</translation>
     </message>
@@ -2834,6 +2992,14 @@ Please be patient...</source>
     <message>
         <source>Welcome to the PIVX RPC console.</source>
         <translation>PIVX RPC 콘솔에 오신 것을 환영합니다.</translation>
+    </message>
+    <message>
+        <source>Do you want to continue?.&lt;br /&gt;</source>
+        <translation>계속 진행하겠습니까?&lt;br /&gt;</translation>
+    </message>
+    <message>
+        <source>Confirm resync Blockchain</source>
+        <translation>블록체인 동기화를 다시 하시겠습니까?</translation>
     </message>
     <message>
         <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
@@ -3172,6 +3338,10 @@ Please be patient...</source>
         <translation>(스마트 수수료가 아직 초기화 되지 않았습니다. 일반적으로 몇 블록이 지나야됩니다...)</translation>
     </message>
     <message>
+        <source>SwiftX</source>
+        <translation>SwiftX</translation>
+    </message>
+    <message>
         <source>Confirmation time:</source>
         <translation>승인 시간:</translation>
     </message>
@@ -3244,10 +3414,6 @@ Please be patient...</source>
         <translation>익명화 PIV</translation>
     </message>
     <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
-    </message>
-    <message>
         <source>Balance:</source>
         <translation>잔액:</translation>
     </message>
@@ -3308,10 +3474,6 @@ Please be patient...</source>
         <translation>사용 가능한 자금 (권장하지 않음)</translation>
     </message>
     <message>
-        <source>and SwiftTX</source>
-        <translation>그리고 SwiftTX</translation>
-    </message>
-    <message>
         <source>%1 to %2</source>
         <translation>%1 에서 %2</translation>
     </message>
@@ -3342,6 +3504,10 @@ Please be patient...</source>
     <message>
         <source>The recipient address is not valid, please recheck.</source>
         <translation>수신자 주소가 유효하지 않습니다. 다시 확인해주세요.</translation>
+    </message>
+    <message>
+        <source>and SwiftX</source>
+        <translation>그리고 SwiftX</translation>
     </message>
     <message>
         <source> split into %1 outputs using the UTXO splitter.</source>
@@ -3670,18 +3836,6 @@ Please be patient...</source>
         <translation>충돌됨</translation>
     </message>
     <message>
-        <source>%1/offline (verified via swifttx)</source>
-        <translation>%1/오프라인 (swifttx를 통해 확인 됨)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (verified via swifttx)</source>
-        <translation>%1/확인 됨 (swifttx를 통해 확인 됨)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (verified via swifttx)</source>
-        <translation>%1 확인 (swifttx를 통해 확인 됨)</translation>
-    </message>
-    <message>
         <source>%1/offline</source>
         <translation>%1/오프라인</translation>
     </message>
@@ -3692,27 +3846,6 @@ Please be patient...</source>
     <message>
         <source>%1 confirmations</source>
         <translation>%1 확인</translation>
-    </message>
-    <message>
-        <source>%1/offline (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1/오프라인 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification in progress - %2 of %3 signatures )</source>
-        <translation>%1/확인 됨 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1 확인 (SwiftTX 확인 진행 중 - %2 중 %3 서명)</translation>
-    </message>
-    <message>
-        <source>%1/offline (SwiftTX verification failed)</source>
-        <translation>%1/오프라인 (SwiftTX 확인 실패)
-</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification failed)</source>
-        <translation>%1/확인 됨 (SwiftTX 확인 실패)</translation>
     </message>
     <message>
         <source>Status</source>
@@ -4232,11 +4365,7 @@ Please be patient...</source>
         <source>Send Coins</source>
         <translation>코인 전송 </translation>
     </message>
-    <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 PIV.</source>
-        <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 PIV로 제한됩니다.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletView</name>
     <message>
@@ -4300,7 +4429,7 @@ Please be patient...</source>
     </message>
     <message>
         <source>Is Spendable</source>
-        <translation>전송가능합니다.</translation>
+        <translation>전송가능한 코인수</translation>
     </message>
 </context>
 <context>
@@ -4354,20 +4483,12 @@ Please be patient...</source>
         <translation>지갑의 모든 트랜잭션들을 삭제하고 오직 블록체인을 통한 트랜잭션 부분들만 복구합니다 -시작 시 다시 스캔</translation>
     </message>
     <message>
-        <source>Disable all PIVX specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>PIVX의 모든 특정 기능들을 비활성화합니다(마스터노드, 난독화, SwiftTX, Budgeting) (0-1, 기본값: %u)</translation>
-    </message>
-    <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation>MIT 소프트웨어 라이센스에 따라 배포, 첨부 파일 COPYING 또는 &lt;http://www.opensource.org/licenses/mit-license.php&gt; 를 참조하십시오.</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
         <translation>올바른 개인키로 spork 관리 기능을 사용 가능</translation>
-    </message>
-    <message>
-        <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
-        <translation>swiftTX 활성화, 잠긴 트랜잭션들에 대한 확인 표시 (bool, 기본값: %s)</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
@@ -4484,10 +4605,6 @@ Please be patient...</source>
     <message>
         <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
         <translation>bloom필터를 사용한 블록 및 트랜잭션 필터링 지원 (기본값 : %u)</translation>
-    </message>
-    <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>SwiftTX는 최소 6회 확인이 필요한 입력으로 몇 분 후에 다시 시도해야 할 수 있습니다.</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
@@ -4966,6 +5083,10 @@ rpcpassword=%s
         <translation>유효하지 않은 스크립트가 발견되었습니다.</translation>
     </message>
     <message>
+        <source>SwiftX options:</source>
+        <translation>SwiftX 옵션:</translation>
+    </message>
+    <message>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
         <translation>이것은 사전 릴리스 테스트 빌드입니다 - 사용상 책임은 귀하에게 있습니다. - staking이나 상업적인 용도로는 절대 사용하지 마십시오!</translation>
     </message>
@@ -5022,20 +5143,12 @@ rpcpassword=%s
         <translation>&lt;address&gt; 에서 해시 블록 게시 가능</translation>
     </message>
     <message>
-        <source>Enable publish hash transaction (locked via SwiftTX) in &lt;address&gt;</source>
-        <translation>&lt;address&gt; 에서 해시 전송 게시 가능 (SwiftTX로 설정된)</translation>
-    </message>
-    <message>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
         <translation>&lt;address&gt; 에서 해시 불록 게시 가능</translation>
     </message>
     <message>
         <source>Enable publish raw block in &lt;address&gt;</source>
         <translation>&lt;address&gt;에서 Raw 블록 게시 가능</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction (locked via SwiftTX) in &lt;address&gt;</source>
-        <translation>&lt;address&gt;에서 Raw 트랜잭션 게시 지원 (SwiftTX를 통해 잠겨진)</translation>
     </message>
     <message>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
@@ -5056,10 +5169,6 @@ rpcpassword=%s
     <message>
         <source>Last successful Obfuscation action was too recent.</source>
         <translation>최근에 마지막으로 성공한 난독화 작업이 있습니다.</translation>
-    </message>
-    <message>
-        <source>Less than 3 mints added, unable to create spend</source>
-        <translation>3 미만 추가, 송금 불가능함</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
@@ -5226,6 +5335,10 @@ rpcpassword=%s
         <translation>자동 생성 제로코인 퍼센트 (10-100, 기본값: %u)</translation>
     </message>
     <message>
+        <source>Preparing for resync...</source>
+        <translation>재동기화 준비중...</translation>
+    </message>
+    <message>
         <source>Prepend debug output with timestamp (default: %u)</source>
         <translation>디버그 출력 앞에 타임스탬프를 추가합니다. (기본값: %u)</translation>
     </message>
@@ -5256,6 +5369,10 @@ rpcpassword=%s
     <message>
         <source>Rebuild block chain index from current blk000??.dat files</source>
         <translation>현재 blk000??.dat 파일의 블록체인 인덱스를 다시 구축합니다</translation>
+    </message>
+    <message>
+        <source>Recalculating coin supply may take 30-60 minutes...</source>
+        <translation>코인 공급량 재계산중입니다. 30-60분 정도 소요됩니다.</translation>
     </message>
     <message>
         <source>Receive and display P2P network alerts (default: %u)</source>
@@ -5416,10 +5533,6 @@ rpcpassword=%s
     <message>
         <source>Submitted to masternode, waiting in queue %s</source>
         <translation>마스터노드에 제출했습니다, 대기열을 기다리는 중 %s</translation>
-    </message>
-    <message>
-        <source>SwiftTX options:</source>
-        <translation>SwiftTX 옵션:</translation>
     </message>
     <message>
         <source>Synchronization failed</source>

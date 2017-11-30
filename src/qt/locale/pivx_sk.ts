@@ -710,10 +710,6 @@
         <translation>%1 a %2</translation>
     </message>
     <message>
-        <source>%1 behind</source>
-        <translation>%1 pozadu</translation>
-    </message>
-    <message>
         <source>Catching up...</source>
         <translation>Dobieham...</translation>
     </message>
@@ -939,6 +935,13 @@ MultiSend: %1</translation>
     <message>
         <source>Address:</source>
         <translation>Adresa:</translation>
+    </message>
+    </context>
+<context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
     </message>
     </context>
 <context>

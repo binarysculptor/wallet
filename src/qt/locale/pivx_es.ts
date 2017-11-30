@@ -47,7 +47,7 @@
     </message>
     <message>
         <source>Choose the address to receive coins with</source>
-        <translation>Escoja la dirección con las cual recibirá las monedas</translation>
+        <translation>Escoja la dirección en la cual recibirá las monedas</translation>
     </message>
     <message>
         <source>C&amp;hoose</source>
@@ -618,10 +618,6 @@
         <translation>&amp;Privacidad</translation>
     </message>
     <message>
-        <source>Privacy Action for zPIV and Obfuscation</source>
-        <translation>Privacidad con zPIV y Ofuscación</translation>
-    </message>
-    <message>
         <source>&amp;Masternodes</source>
         <translation>Nodos &amp;Maestros</translation>
     </message>
@@ -740,10 +736,6 @@
     <message numerus="yes">
         <source>%n year(s)</source>
         <translation><numerusform>%n año</numerusform><numerusform>%n años</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 detrás</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -937,6 +929,10 @@ MultiEnvío: %1</translation>
     <message>
         <source>Received with address</source>
         <translation>Recibido con dirección</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1526,6 +1522,25 @@ Por favor compruebe la dirección e inténtelo de nuevo.</translation>
     </message>
 </context>
 <context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Status:</source>
+        <translation>Estado:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Cantidad Seleccionada:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Cantidad:</translation>
+    </message>
+    </context>
+<context>
     <name>ObfuscationConfig</name>
     <message>
         <source>Configure Obfuscation</source>
@@ -1927,10 +1942,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Disponible:</translation>
     </message>
     <message>
-        <source>Combined Balances (including immature coins)</source>
-        <translation>Balances Combinados (incluyendo monedas inmaduras)</translation>
-    </message>
-    <message>
         <source>PIV:</source>
         <translation>PIV:</translation>
     </message>
@@ -1941,6 +1952,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>0 %</source>
         <translation>0 %</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 PIV</source>
+        <translation>0.000 000 00 PIV</translation>
     </message>
     <message>
         <source>Zerocoin Balance</source>
@@ -1954,7 +1969,7 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <source>out of sync</source>
         <translation>desincronizado</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>PaymentServer</name>
     <message>
@@ -2232,14 +2247,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Estadísticas Zerocoin:</translation>
     </message>
     <message>
-        <source>Available Funds</source>
-        <translation>Fondos Disponibles</translation>
-    </message>
-    <message>
-        <source>Available Zerocoin  Balance:</source>
-        <translation>Balance Zerocoin Disponible:</translation>
-    </message>
-    <message>
         <source>Denominations with value 1:</source>
         <translation>Billetes con valor 1:</translation>
     </message>
@@ -2380,10 +2387,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Copiar cantidad</translation>
     </message>
     <message>
-        <source>Zerocoin functionality is not enabled on the PIVX network yet.</source>
-        <translation>La funcionalidad Zerocoin todavía no está habilitada en la red PIVX.</translation>
-    </message>
-    <message>
         <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
         <translation>Error: Tu monedero está bloqueado. Por favor, primero introduzca la clave de desbloqueo.</translation>
     </message>
@@ -2452,10 +2455,6 @@ Por favor espere...</translation>
     <message>
         <source> to address </source>
         <translation>a la dirección</translation>
-    </message>
-    <message>
-        <source> to a newly generated (unused and therefor anonymous) local address &lt;br /&gt;</source>
-        <translation> a una dirección local recién generada (sin usar todavía y por lo tanto, anónima) &lt;br /&gt;</translation>
     </message>
     <message>
         <source>with Security Level </source>
@@ -3243,10 +3242,6 @@ Por favor tenga paciencia...</translation>
         <translation>PIV anonimizados</translation>
     </message>
     <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
-    </message>
-    <message>
         <source>Balance:</source>
         <translation>Saldo:</translation>
     </message>
@@ -3305,10 +3300,6 @@ Por favor tenga paciencia...</translation>
     <message>
         <source>any available funds (not recommended)</source>
         <translation>cualquier fondo disponible (no recomendado)</translation>
-    </message>
-    <message>
-        <source>and SwiftTX</source>
-        <translation>y SwiftTX</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -3669,18 +3660,6 @@ Por favor tenga paciencia...</translation>
         <translation>conflictivo (bloque huérfano?)</translation>
     </message>
     <message>
-        <source>%1/offline (verified via swifttx)</source>
-        <translation>%1/offline (verificado via swifttx)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (verified via swifttx)</source>
-        <translation>%1/confirmado (verificado via swifttx)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (verified via swifttx)</source>
-        <translation>%1 confirmaciones (verificado via swifttx)</translation>
-    </message>
-    <message>
         <source>%1/offline</source>
         <translation>%1/offline</translation>
     </message>
@@ -3691,26 +3670,6 @@ Por favor tenga paciencia...</translation>
     <message>
         <source>%1 confirmations</source>
         <translation>%1 confirmaciones</translation>
-    </message>
-    <message>
-        <source>%1/offline (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1/offline (verificación SwiftTX en marcha - %2 de %3 firmas)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification in progress - %2 of %3 signatures )</source>
-        <translation>%1/confirmado (verificación SwiftTX en marcha - %2 de %3 firmas)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1 confirmaciones (verificación SwiftTX en marcha - %2 de %3 firmas)</translation>
-    </message>
-    <message>
-        <source>%1/offline (SwiftTX verification failed)</source>
-        <translation>%1/offline (falló la verificación SwiftTX)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification failed)</source>
-        <translation>%1/confirmado (falló la verificación SwiftTX)</translation>
     </message>
     <message>
         <source>Status</source>
@@ -4230,11 +4189,7 @@ Por favor tenga paciencia...</translation>
         <source>Send Coins</source>
         <translation>Enviar Monedas</translation>
     </message>
-    <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 PIV.</source>
-        <translation>SwiftTX no soporta el envío de importes tan altos todavía. Las transacciones están actualmente limitadas a %1 PIV.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletView</name>
     <message>
@@ -4352,20 +4307,12 @@ Por favor tenga paciencia...</translation>
         <translation>Borrar todas las transacciones del monedero y solo recuperar partes de la cadena de bloque a traves de -rescan al inicio.</translation>
     </message>
     <message>
-        <source>Disable all PIVX specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>Desabilitar toda la funcionalidad especifica PIVX (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, predeterminado: %u)</translation>
-    </message>
-    <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation>Distribuido bajo licencia MIT software license, ver el archivo adjunto COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
         <translation>Activar la función de administración de sporks con la llave privada apropiada.</translation>
-    </message>
-    <message>
-        <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
-        <translation>Activar swifttx, mostrar confirmaciones para transacciones bloqueadas (bool, predeterminado: %s)</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
@@ -4486,10 +4433,6 @@ Por favor tenga paciencia...</translation>
     <message>
         <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
         <translation>Soportar filtrado de bloques y transacciones con filtros bloom (por defecto: %u)</translation>
-    </message>
-    <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>SwiftTX requiere entradas con hasta 6 confirmaciones, es posible que debas esperar unos minutos e intentar nuevamente.</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
@@ -5024,20 +4967,12 @@ por ejemplo: alertnotify=echo %%s | mail -s "PIVX Alert" admin@foo.com
         <translation>Activar inclusión del hash del bloque en &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish hash transaction (locked via SwiftTX) in &lt;address&gt;</source>
-        <translation>Activar inclusión del hash de la transacción (fijada mediante SwiftTX) en &lt;address&gt;</translation>
-    </message>
-    <message>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
         <translation>Activar inclusión del hash de la transacción en &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw block in &lt;address&gt;</source>
         <translation>Activar inclusión del bloque en bruto en &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction (locked via SwiftTX) in &lt;address&gt;</source>
-        <translation>Activar inclusión de la transacción en bruto (fijada mediante SwiftTX) en &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
@@ -5058,10 +4993,6 @@ por ejemplo: alertnotify=echo %%s | mail -s "PIVX Alert" admin@foo.com
     <message>
         <source>Last successful Obfuscation action was too recent.</source>
         <translation>La última acción de Ofuscación exitosa fue demasiado reciente.</translation>
-    </message>
-    <message>
-        <source>Less than 3 mints added, unable to create spend</source>
-        <translation>Menos de 3 creaciones de moneda añadidas, no podemos generar pago</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
@@ -5420,10 +5351,6 @@ por ejemplo: alertnotify=echo %%s | mail -s "PIVX Alert" admin@foo.com
         <translation>Enviado a masternode, quedando en espera %s</translation>
     </message>
     <message>
-        <source>SwiftTX options:</source>
-        <translation>Opciones SwiftTX:</translation>
-    </message>
-    <message>
         <source>Synchronization failed</source>
         <translation>Falló la sincronización</translation>
     </message>
@@ -5637,7 +5564,7 @@ por ejemplo: alertnotify=echo %%s | mail -s "PIVX Alert" admin@foo.com
     </message>
     <message>
         <source>wallet.dat corrupt, salvage failed</source>
-        <translation>wallet.dat esta corrupto, guardado falló</translation>
+        <translation>wallet.dat esta corrupto, fallo al guardar</translation>
     </message>
 </context>
 </TS>

@@ -610,10 +610,6 @@
         <translation>&amp;Конфиденциальность</translation>
     </message>
     <message>
-        <source>Privacy Action for zPIV and Obfuscation</source>
-        <translation>Конфиденциальное действие и обфускация</translation>
-    </message>
-    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;Мастерноды</translation>
     </message>
@@ -712,10 +708,6 @@
     <message>
         <source>%1 and %2</source>
         <translation>%1 и %2</translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 позади</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -905,6 +897,10 @@ MultiSend: %1</translation>
     <message>
         <source>Received with address</source>
         <translation>Полученно на адрес</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1494,6 +1490,21 @@ Please check the address and try again.</source>
     </message>
 </context>
 <context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Status:</source>
+        <translation>Статус:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Сумма:</translation>
+    </message>
+    </context>
+<context>
     <name>ObfuscationConfig</name>
     <message>
         <source>Configure Obfuscation</source>
@@ -1914,7 +1925,7 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <source>out of sync</source>
         <translation>несинронизировано</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>PaymentServer</name>
     <message>
@@ -2074,10 +2085,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>Alt+P</source>
         <translation>Alt+P</translation>
-    </message>
-    <message>
-        <source>Available Zerocoin  Balance:</source>
-        <translation>Доступный Баланс в Zerocoin </translation>
     </message>
     <message>
         <source>Denominations with value 1:</source>
@@ -2746,10 +2753,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Очистить &amp;Все</translation>
     </message>
     <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
-    </message>
-    <message>
         <source>Balance:</source>
         <translation>Баланс:</translation>
     </message>
@@ -2788,10 +2791,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>Warning: Invalid PIVX address</source>
         <translation>Предупреждение: неправильный PIVX адрес</translation>
-    </message>
-    <message>
-        <source>and SwiftTX</source>
-        <translation>и SwiftTX</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -3206,10 +3205,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     </context>
 <context>
     <name>pivx-core</name>
-    <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>Для SwiftTX требуется как минимум 6 подтверждений, Вам нужно подождать несколько минут и попытаться снова.</translation>
-    </message>
     <message>
         <source>Block creation options:</source>
         <translation>Варианты создания блока:</translation>

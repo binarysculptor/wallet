@@ -618,10 +618,6 @@
         <translation>&amp;Privacy</translation>
     </message>
     <message>
-        <source>Privacy Action for zPIV and Obfuscation</source>
-        <translation>Privacy Actie voor zPIV en verduistering</translation>
-    </message>
-    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;Masternodes</translation>
     </message>
@@ -736,10 +732,6 @@
     <message numerus="yes">
         <source>%n year(s)</source>
         <translation><numerusform>%n jaar</numerusform><numerusform>%n jaren</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 achter</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -933,6 +925,10 @@ MultiSend: %1</translation>
     <message>
         <source>Received with address</source>
         <translation>Ontvangen met adres</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1509,6 +1505,25 @@ Controleer het adres alsjeblieft en probeer het opnieuw.</translation>
     </message>
 </context>
 <context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Status:</source>
+        <translation>Status:</translation>
+    </message>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Hoeveelheid geselecteerd:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Hoeveelheid:</translation>
+    </message>
+    </context>
+<context>
     <name>ObfuscationConfig</name>
     <message>
         <source>Configure Obfuscation</source>
@@ -1910,10 +1925,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Uitgeefbaar:</translation>
     </message>
     <message>
-        <source>Combined Balances (including immature coins)</source>
-        <translation>Gecombineerde Saldi (inclusief onvolwassen munten)</translation>
-    </message>
-    <message>
         <source>PIV:</source>
         <translation>PIV:</translation>
     </message>
@@ -1924,6 +1935,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>0 %</source>
         <translation>0 %</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 PIV</source>
+        <translation>0.000 000 00 PIV</translation>
     </message>
     <message>
         <source>Zerocoin Balance</source>
@@ -1937,7 +1952,7 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <source>out of sync</source>
         <translation>niet gesynchroniseerd</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>PaymentServer</name>
     <message>
@@ -2215,14 +2230,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Zerocoin Statistieken:</translation>
     </message>
     <message>
-        <source>Available Funds</source>
-        <translation>Beschikbare Fondsen</translation>
-    </message>
-    <message>
-        <source>Available Zerocoin  Balance:</source>
-        <translation>Beschikbaar Zerocoin saldo:</translation>
-    </message>
-    <message>
         <source>Denominations with value 1:</source>
         <translation>Denominaties met waarde 1:</translation>
     </message>
@@ -2363,10 +2370,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Kopieer hoeveelheid</translation>
     </message>
     <message>
-        <source>Zerocoin functionality is not enabled on the PIVX network yet.</source>
-        <translation>Zerocoin functionaliteit is nog niet ingeschakeld op het PIVX netwerk.</translation>
-    </message>
-    <message>
         <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
         <translation>Fout: Je portemonnee is vergrendeld. Voer alsjeblieft de wachtwoord zin voor de portemonnee in.</translation>
     </message>
@@ -2435,10 +2438,6 @@ Wees alsjeblieft geduldig...</translation>
     <message>
         <source> to address </source>
         <translation>naar adres</translation>
-    </message>
-    <message>
-        <source> to a newly generated (unused and therefor anonymous) local address &lt;br /&gt;</source>
-        <translation>naar een nieuw gegenereerd (ongebruikt en dus anoniem) lokaal adres&lt;br /&gt;</translation>
     </message>
     <message>
         <source>with Security Level </source>
@@ -3204,7 +3203,7 @@ Wees alsjeblieft geduldig...</translation>
     </message>
     <message>
         <source>S&amp;end</source>
-        <translation>V&amp;erzonden</translation>
+        <translation>V&amp;erzenden</translation>
     </message>
     <message>
         <source>Clear all fields of the form.</source>
@@ -3225,10 +3224,6 @@ Wees alsjeblieft geduldig...</translation>
     <message>
         <source>Anonymized PIV</source>
         <translation>Geanonimiseerde PIV</translation>
-    </message>
-    <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -3289,10 +3284,6 @@ Wees alsjeblieft geduldig...</translation>
     <message>
         <source>any available funds (not recommended)</source>
         <translation>elke beschikbare fonds (niet aanbevolen)</translation>
-    </message>
-    <message>
-        <source>and SwiftTX</source>
-        <translation>en SwiftTX</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -3653,18 +3644,6 @@ Wees alsjeblieft geduldig...</translation>
         <translation>conflicteert</translation>
     </message>
     <message>
-        <source>%1/offline (verified via swifttx)</source>
-        <translation>%1/offline (geverifieerd via swifttx)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (verified via swifttx)</source>
-        <translation>%1/bevestigd (geverifieerd via swifttx)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (verified via swifttx)</source>
-        <translation>%1 confirmaties (geverifieerd via swifttx)</translation>
-    </message>
-    <message>
         <source>%1/offline</source>
         <translation>%1/offline</translation>
     </message>
@@ -3675,22 +3654,6 @@ Wees alsjeblieft geduldig...</translation>
     <message>
         <source>%1 confirmations</source>
         <translation>%1 bevestigingen</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification in progress - %2 of %3 signatures )</source>
-        <translation>%1/bevestigd (SwiftTX verificatie in uitvoering - %2 van %3 handtekeningen)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1 bevestigingen (SwiftTX verificatie in uitvoering - %2 van %3 handtekeningen)</translation>
-    </message>
-    <message>
-        <source>%1/offline (SwiftTX verification failed)</source>
-        <translation>%1/offline (SwiftTX verificatie mislukt)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification failed)</source>
-        <translation>%1/bevestigd (SwiftTX verificatie mislukt)</translation>
     </message>
     <message>
         <source>Status</source>
@@ -4210,11 +4173,7 @@ Wees alsjeblieft geduldig...</translation>
         <source>Send Coins</source>
         <translation>Verzend Munten</translation>
     </message>
-    <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 PIV.</source>
-        <translation>SwiftTX ondersteunt geen verzendwaarden die zo hoog zijn. Transacties zijn momenteel beperkt tot %1 PIV.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletView</name>
     <message>
@@ -4332,20 +4291,12 @@ Wees alsjeblieft geduldig...</translation>
         <translation>Verwijder alle portemonnee transacties en herstel alleen die delen van de blockchain via -rescan bij opstarten</translation>
     </message>
     <message>
-        <source>Disable all PIVX specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>Schakel alle PIVX specifieke functionaliteit uit (Masternodes, Verduistering, SwiftTX, Budgeting) (0-1, standaard: %u)</translation>
-    </message>
-    <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation>Gedistribueerd onder de MIT software licentie, zie het bijgevoegde bestand COPYING of &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
         <translation>Activeer de spork administratie functionaliteit met de juiste private sleutel.</translation>
-    </message>
-    <message>
-        <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
-        <translation>Schakel swifttx in, laat bevestigingen zien voor gesloten transacties (bool, standaard: %s)</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
@@ -4466,10 +4417,6 @@ Wees alsjeblieft geduldig...</translation>
     <message>
         <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
         <translation>Ondersteun filteren van blokken en transactie met bloom filters (standaard: %u)</translation>
-    </message>
-    <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>SwiftTX vereist inputs met tenminste 6 bevestigingen, je dient wellicht een paar minuten te wachten en probeer het opnieuw.</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>
@@ -5004,20 +4951,12 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "PIVX Alert" admin@foo.com
         <translation>Activeer publicatie hash blok in &lt;address&gt;</translation>
     </message>
     <message>
-        <source>Enable publish hash transaction (locked via SwiftTX) in &lt;address&gt;</source>
-        <translation>Activeer publicatie hash transactie (vergrendeld via SwiftTX) in &lt;address&gt;</translation>
-    </message>
-    <message>
         <source>Enable publish hash transaction in &lt;address&gt;</source>
         <translation>Activeer publicatie has transactie in &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw block in &lt;address&gt;</source>
         <translation>Activeer publicatie raw block in &lt;address&gt;</translation>
-    </message>
-    <message>
-        <source>Enable publish raw transaction (locked via SwiftTX) in &lt;address&gt;</source>
-        <translation>Activeer publicatie raw transactie (vergrendeld via SwiftTX) in &lt;address&gt;</translation>
     </message>
     <message>
         <source>Enable publish raw transaction in &lt;address&gt;</source>
@@ -5038,10 +4977,6 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "PIVX Alert" admin@foo.com
     <message>
         <source>Last successful Obfuscation action was too recent.</source>
         <translation>Laatste succesvolle verduistering actie was te recent.</translation>
-    </message>
-    <message>
-        <source>Less than 3 mints added, unable to create spend</source>
-        <translation>Minder dan 3 mints toegevoegd, niet in staat om uitgave te creëren</translation>
     </message>
     <message>
         <source>Limit size of signature cache to &lt;n&gt; entries (default: %u)</source>
@@ -5398,10 +5333,6 @@ bijvoorbeeld: alertnotify = echo %%s | mail -s "PIVX Alert" admin@foo.com
     <message>
         <source>Submitted to masternode, waiting in queue %s</source>
         <translation>Ingediend naar masternode, wachten in de wachtrij %s</translation>
-    </message>
-    <message>
-        <source>SwiftTX options:</source>
-        <translation>SwiftTX opties:</translation>
     </message>
     <message>
         <source>Synchronization failed</source>

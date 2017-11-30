@@ -618,10 +618,6 @@
         <translation>&amp;Поверителност</translation>
     </message>
     <message>
-        <source>Privacy Action for zPIV and Obfuscation</source>
-        <translation>Поверителни действия за zPIV и Обфускация</translation>
-    </message>
-    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;Мастърноуд</translation>
     </message>
@@ -740,10 +736,6 @@
     <message numerus="yes">
         <source>%n year(s)</source>
         <translation><numerusform>%n година</numerusform><numerusform>%n години</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 изостанал</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -937,6 +929,10 @@ Address: %4
     <message>
         <source>Received with address</source>
         <translation>Получени с адрес</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Вид</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1526,6 +1522,21 @@ Please check the address and try again.</source>
     </message>
 </context>
 <context>
+    <name>MultisigDialog</name>
+    <message>
+        <source>Quantity Selected:</source>
+        <translation>Избратно Количество:</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation>0</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Сума:</translation>
+    </message>
+    </context>
+<context>
     <name>ObfuscationConfig</name>
     <message>
         <source>Configure Obfuscation</source>
@@ -1923,10 +1934,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Налични за харчене:</translation>
     </message>
     <message>
-        <source>Combined Balances (including immature coins)</source>
-        <translation>Комбиниран общ баланс (само озрелите монети)</translation>
-    </message>
-    <message>
         <source>PIV:</source>
         <translation>PIV:</translation>
     </message>
@@ -1937,6 +1944,10 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
     <message>
         <source>0 %</source>
         <translation>0 %</translation>
+    </message>
+    <message>
+        <source>0.000 000 00 PIV</source>
+        <translation>0.000 000 00 PIV</translation>
     </message>
     <message>
         <source>Zerocoin Balance</source>
@@ -1950,7 +1961,7 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <source>out of sync</source>
         <translation>не е синхронизиран</translation>
     </message>
-</context>
+    </context>
 <context>
     <name>PaymentServer</name>
     <message>
@@ -2228,14 +2239,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Zerocoin статистика:</translation>
     </message>
     <message>
-        <source>Available Funds</source>
-        <translation>Налични средства</translation>
-    </message>
-    <message>
-        <source>Available Zerocoin  Balance:</source>
-        <translation>Наличен Zerocoin баланс:</translation>
-    </message>
-    <message>
         <source>Denominations with value 1:</source>
         <translation>Деноминации от 1:</translation>
     </message>
@@ -2376,10 +2379,6 @@ https://www.transifex.com/pivx-project/pivx-project-translations</translation>
         <translation>Копирай сумата</translation>
     </message>
     <message>
-        <source>Zerocoin functionality is not enabled on the PIVX network yet.</source>
-        <translation>Zerocoin функцията все още не е активирана в PIVX мрежата.</translation>
-    </message>
-    <message>
         <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
         <translation>Грешка: Портфейла е заключен. Моля първо въведете Вашата парола.</translation>
     </message>
@@ -2448,10 +2447,6 @@ Please be patient...</source>
     <message>
         <source> to address </source>
         <translation>на адрес</translation>
-    </message>
-    <message>
-        <source> to a newly generated (unused and therefor anonymous) local address &lt;br /&gt;</source>
-        <translation>на ново-генериран (неизползван до сега и поради това - анонимен) локален адрес &lt;br /&gt;</translation>
     </message>
     <message>
         <source>with Security Level </source>
@@ -3239,10 +3234,6 @@ Please be patient...</source>
         <translation>Анонимизиран PIV</translation>
     </message>
     <message>
-        <source>SwiftTX</source>
-        <translation>SwiftTX</translation>
-    </message>
-    <message>
         <source>Balance:</source>
         <translation>Наличност:</translation>
     </message>
@@ -3301,10 +3292,6 @@ Please be patient...</source>
     <message>
         <source>any available funds (not recommended)</source>
         <translation>всички налични средства (не се препоръчва)</translation>
-    </message>
-    <message>
-        <source>and SwiftTX</source>
-        <translation>и SwiftTX</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -3665,18 +3652,6 @@ Please be patient...</source>
         <translation>конфликтен</translation>
     </message>
     <message>
-        <source>%1/offline (verified via swifttx)</source>
-        <translation>%1 офлайн (потвърдени чрез swiftTx)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (verified via swifttx)</source>
-        <translation>%1 потвърдени (потвърдени чрез swiftTx)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (verified via swifttx)</source>
-        <translation>%1 потвърждения (потвърдени чрез swiftTx)</translation>
-    </message>
-    <message>
         <source>%1/offline</source>
         <translation>%1/офлайн</translation>
     </message>
@@ -3687,26 +3662,6 @@ Please be patient...</source>
     <message>
         <source>%1 confirmations</source>
         <translation>%1 потвърждения</translation>
-    </message>
-    <message>
-        <source>%1/offline (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1/офлайн (SwiftTX потвърждение в процес - %2 от %3 подписа)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification in progress - %2 of %3 signatures )</source>
-        <translation>%1/потвърдени (SwiftTX потвърждение в процес - %2 от %3 подписа)</translation>
-    </message>
-    <message>
-        <source>%1 confirmations (SwiftTX verification in progress - %2 of %3 signatures)</source>
-        <translation>%1 потвърждения  (SwiftTX потвърждение в процес - %2 от %3 подписа)</translation>
-    </message>
-    <message>
-        <source>%1/offline (SwiftTX verification failed)</source>
-        <translation>%1/офлайн (Неуспешно SwiftTX потвърждние)</translation>
-    </message>
-    <message>
-        <source>%1/confirmed (SwiftTX verification failed)</source>
-        <translation>%1/потвърдени (Неуспешно SwiftTX потвърждние)</translation>
     </message>
     <message>
         <source>Status</source>
@@ -4214,11 +4169,7 @@ Please be patient...</source>
         <source>Send Coins</source>
         <translation>Изпрати Монети</translation>
     </message>
-    <message>
-        <source>SwiftTX doesn't support sending values that high yet. Transactions are currently limited to %1 PIV.</source>
-        <translation>SwiftTX не подържа изпращането на толкова големи суми. Превода е ограничен до %1 PIV.</translation>
-    </message>
-</context>
+    </context>
 <context>
     <name>WalletView</name>
     <message>
@@ -4304,20 +4255,12 @@ Please be patient...</source>
         <translation>Изтрий всички преводи от портфейла и възстанови само тези части от блокчейна - сканира при стартиране.</translation>
     </message>
     <message>
-        <source>Disable all PIVX specific functionality (Masternodes, Obfuscation, SwiftTX, Budgeting) (0-1, default: %u)</source>
-        <translation>Изключи всякаква PIVX функционалност (Мастърноудове, Обфускация, SwiftTX, Бюджетиране) (0-1 default: %u)</translation>
-    </message>
-    <message>
         <source>Distributed under the MIT software license, see the accompanying file COPYING or &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</source>
         <translation>Разпространява се пот MIT софтуерен лиценз, виж съпровождащия файл от &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
         <translation>Включете функцията за spork администрация с подходящия личен ключ.</translation>
-    </message>
-    <message>
-        <source>Enable swifttx, show confirmations for locked transactions (bool, default: %s)</source>
-        <translation>Включи SwiftTX, показвай потвърждения за заключени преводи (bool, default: %s)</translation>
     </message>
     <message>
         <source>Enter regression test mode, which uses a special chain in which blocks can be solved instantly.</source>
@@ -4438,10 +4381,6 @@ Please be patient...</source>
     <message>
         <source>Support filtering of blocks and transaction with bloom filters (default: %u)</source>
         <translation>Поддържай филтрирането на блокове и преводи с bloom филтри (default: %u)</translation>
-    </message>
-    <message>
-        <source>SwiftTX requires inputs with at least 6 confirmations, you might need to wait a few minutes and try again.</source>
-        <translation>SwiftTX изисква входящи преводи с поне 6 потвърждения. Може да се наложи да изчакате още преди да опитате отново.</translation>
     </message>
     <message>
         <source>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit &lt;https://www.openssl.org/&gt; and cryptographic software written by Eric Young and UPnP software written by Thomas Bernard.</source>

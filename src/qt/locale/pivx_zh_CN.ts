@@ -618,10 +618,6 @@
         <translation>&amp;P隐私</translation>
     </message>
     <message>
-        <source>Privacy Action for zPIV and Obfuscation</source>
-        <translation>zPIV和混淆的隐私操作</translation>
-    </message>
-    <message>
         <source>&amp;Masternodes</source>
         <translation>&amp;M主节点</translation>
     </message>
@@ -737,10 +733,6 @@
     <message numerus="yes">
         <source>%n year(s)</source>
         <translation><numerusform>%n 年</numerusform></translation>
-    </message>
-    <message>
-        <source>%1 behind</source>
-        <translation>%1 落后</translation>
     </message>
     <message>
         <source>Catching up...</source>
@@ -941,6 +933,9 @@ Address: %4
         <source>Address:</source>
         <translation>地址：</translation>
     </message>
+    </context>
+<context>
+    <name>MultisigDialog</name>
     </context>
 <context>
     <name>ObfuscationConfig</name>
