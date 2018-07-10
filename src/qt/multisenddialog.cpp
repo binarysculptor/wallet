@@ -16,7 +16,7 @@
 using namespace std;
 using namespace boost;
 
-MultiSendDialog::MultiSendDialog(QWidget* parent) : QDialog(parent),
+MultiSendDialog::MultiSendDialog(QWidget* parent) : QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
                                                     ui(new Ui::MultiSendDialog),
                                                     model(0)
 {
@@ -74,9 +74,11 @@ void MultiSendDialog::on_viewButton_clicked()
     std::pair<std::string, int> pMultiSend;
     std::string strMultiSendPrint = "";
     if (pwalletMain->isMultiSendEnabled()) {
-        if (pwalletMain->fMultiSendStake)
-            strMultiSendPrint += "MultiSend Active for Stakes\n";
+        if (pwalletMain->fMultiSendStake && pwalletMain->fMultiSendMasternodeReward)
+            strMultiSendPrint += "MultiSend Active for Stakes and Masternode Rewards\n";
         else if (pwalletMain->fMultiSendStake)
+            strMultiSendPrint += "MultiSend Active for Stakes\n";
+        else if (pwalletMain->fMultiSendMasternodeReward)
             strMultiSendPrint += "MultiSend Active for Masternode Rewards\n";
     } else
         strMultiSendPrint += "MultiSend Not Active\n";
