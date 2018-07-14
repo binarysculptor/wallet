@@ -6,20 +6,6 @@ bin_PROGRAMS += test/test_liberty
 TEST_SRCDIR = test
 TEST_BINARY=test/test_liberty$(EXEEXT)
 
-
-EXTRA_DIST += \
-	test/bctest.py \
-	test/bitcoin-util-test.py \
-	test/data/bitcoin-util-test.json \
-	test/data/blanktx.hex \
-	test/data/tt-delin1-out.hex \
-	test/data/tt-delout1-out.hex \
-	test/data/tt-locktime317000-out.hex \
-	test/data/tx394b54bb.hex \
-	test/data/txcreate1.hex \
-	test/data/txcreate2.hex \
-	test/data/txcreatesign.hex
-
 JSON_TEST_FILES = \
   test/data/script_valid.json \
   test/data/base58_keys_valid.json \
@@ -36,7 +22,13 @@ RAW_TEST_FILES = test/data/alertTests.raw
 
 GENERATED_TEST_FILES = $(JSON_TEST_FILES:.json=.json.h) $(RAW_TEST_FILES:.raw=.raw.h)
 
+<<<<<<< HEAD
 # test_liberty binary #
+=======
+BITCOIN_TEST_SUITE = \
+  test/test_pivx.cpp
+# test_pivx binary #
+>>>>>>> 0fc2f832f... Build: utility test updates
 BITCOIN_TESTS =\
   test/zerocoin_implementation_tests.cpp\
   test/zerocoin_denomination_tests.cpp\
@@ -75,7 +67,10 @@ BITCOIN_TESTS =\
   test/sighash_tests.cpp \
   test/sigopcount_tests.cpp \
   test/skiplist_tests.cpp \
+<<<<<<< HEAD
   test/test_liberty.cpp \
+=======
+>>>>>>> 0fc2f832f... Build: utility test updates
   test/timedata_tests.cpp \
   test/torcontrol_tests.cpp \
   test/transaction_tests.cpp \
@@ -90,14 +85,24 @@ BITCOIN_TESTS += \
   test/rpc_wallet_tests.cpp
 endif
 
+<<<<<<< HEAD
 test_test_liberty_SOURCES = $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
 test_test_liberty_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS)
 test_test_liberty_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) \
+=======
+test_test_pivx_SOURCES = $(BITCOIN_TEST_SUITE) $(BITCOIN_TESTS) $(JSON_TEST_FILES) $(RAW_TEST_FILES)
+test_test_pivx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) -I$(builddir)/test/ $(TESTDEFS) $(EVENT_FLAGS)
+test_test_pivx_LDADD = $(LIBBITCOIN_SERVER) $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBBITCOIN_ZEROCOIN) \
+>>>>>>> 0fc2f832f... Build: utility test updates
   $(LIBLEVELDB) $(LIBLEVELDB_SSE42) $(LIBMEMENV) $(BOOST_LIBS) $(BOOST_UNIT_TEST_FRAMEWORK_LIB) $(LIBSECP256K1) $(EVENT_LIBS) $(EVENT_PTHREADS_LIBS)
 if ENABLE_WALLET
 test_test_liberty_LDADD += $(LIBBITCOIN_WALLET)
 endif
+<<<<<<< HEAD
 test_test_bitcoin_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+=======
+test_test_pivx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+>>>>>>> 0fc2f832f... Build: utility test updates
 
 test_test_liberty_LDADD += $(LIBBITCOIN_CONSENSUS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
 test_test_liberty_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS) -static
@@ -122,12 +127,27 @@ liberty_test_check: $(TEST_BINARY) FORCE
 liberty_test_clean : FORCE
 	rm -f $(CLEAN_BITCOIN_TEST) $(test_test_liberty_OBJECTS) $(TEST_BINARY)
 
+<<<<<<< HEAD
 check-local:
+=======
+check-local: $(BITCOIN_TESTS:.cpp=.cpp.test)
+	@echo "Running test/util/bitcoin-util-test.py..."
+	$(PYTHON) $(top_builddir)/test/util/bitcoin-util-test.py
+	@echo "Running test/util/rpcauth-test.py..."
+	$(PYTHON) $(top_builddir)/test/util/rpcauth-test.py
+>>>>>>> 0fc2f832f... Build: utility test updates
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C secp256k1 check
 if EMBEDDED_UNIVALUE
 	$(AM_V_at)$(MAKE) $(AM_MAKEFLAGS) -C univalue check
 endif
 
+<<<<<<< HEAD
+=======
+%.cpp.test: %.cpp
+	@echo Running tests: `cat $< | grep -E "(BOOST_FIXTURE_TEST_SUITE\\(|BOOST_AUTO_TEST_SUITE\\()" | cut -d '(' -f 2 | cut -d ',' -f 1 | cut -d ')' -f 1` from $<
+	$(AM_V_at)$(TEST_BINARY) -l test_suite -t "`cat $< | grep -E "(BOOST_FIXTURE_TEST_SUITE\\(|BOOST_AUTO_TEST_SUITE\\()" | cut -d '(' -f 2 | cut -d ',' -f 1 | cut -d ')' -f 1`" > $<.log 2>&1 || (cat $<.log && false)
+
+>>>>>>> 0fc2f832f... Build: utility test updates
 %.json.h: %.json
 	@$(MKDIR_P) $(@D)
 	@echo "namespace json_tests{" > $@
