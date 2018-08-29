@@ -62,12 +62,12 @@
         <translation>받을 주소</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>이 주소들은 송금할 RUPAYA 주소입니다. 송금하기 전 항상 금액과 주소를 확인해주세요.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>이 주소들은 송금할 Liberty 주소입니다. 송금하기 전 항상 금액과 주소를 확인해주세요.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>이 주소들은 입금 받을 RUPAYA 주소입니다. 매 거래마다 새로운 입금 주소를 사용하는 것이 좋습니다.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>이 주소들은 입금 받을 Liberty 주소입니다. 매 거래마다 새로운 입금 주소를 사용하는 것이 좋습니다.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -176,7 +176,7 @@
         <translation>지갑 암호화 확인</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
         <translation>RUPAYA는 이제 암호화 프로세스를 마치기 위해 닫힐것입니다. 지갑을 암호화하더라도 맬웨어로 인한 RUPAYAs 의 도난당하는 것을 완벽하게 보호 할 수는 없습니다.</translation>
     </message>
     <message>
@@ -184,7 +184,7 @@
         <translation>지갑을 암호화 하시겠습니까?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
         <translation>경고: 지갑 암호화 후 암호를 분실하게 되면 &lt;b&gt;모든 RUPAYA를 잃게 됩니다&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -254,12 +254,12 @@
         <translation>주소:</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>BIP 38 알고리즘으로 암호화할 RUPAYA 지갑 주소를 입력. 중간박스에 암호구절 입력. 암호화된 개인키를 계산하시려면 암호화 클릭</translation>
+        <source>Enter a Liberty Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>BIP 38 알고리즘으로 암호화할 Liberty 지갑 주소를 입력. 중간박스에 암호구절 입력. 암호화된 개인키를 계산하시려면 암호화 클릭</translation>
     </message>
     <message>
-        <source>The RUPAYA address to encrypt</source>
-        <translation>암호화할 RUPAYA 주소</translation>
+        <source>The Liberty address to encrypt</source>
+        <translation>암호화할 Liberty 주소</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -290,8 +290,8 @@
         <translation>현재 서명을 시스템 클립 보드에 복사</translation>
     </message>
     <message>
-        <source>Encrypt the private key for this RUPAYA address</source>
-        <translation>이 RUPAYA 주소의 개인키 암호화</translation>
+        <source>Encrypt the private key for this Liberty address</source>
+        <translation>이 Liberty 주소의 개인키 암호화</translation>
     </message>
     <message>
         <source>Reset all fields</source>
@@ -433,8 +433,8 @@
         <translation>겨래내역 보기</translation>
     </message>
     <message>
-        <source>Privacy Actions for zRUPX</source>
-        <translation>zRUPX 생성 및 관리</translation>
+        <source>Privacy Actions for XLIBz</source>
+        <translation>XLIBz 생성 및 관리</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -645,12 +645,12 @@
         <translation>탭 도구 모음</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>RUPAYA 주소로 입금하기</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Liberty 주소로 입금하기</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
@@ -669,24 +669,24 @@
         <translation>마스터노드 검색</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>RUPAYA Core &amp;정보</translation>
+        <source>&amp;About Liberty Core</source>
+        <translation>Liberty Core &amp;정보</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>RUPAYA Core에 대한 정보 표시</translation>
+        <source>Show information about Liberty Core</source>
+        <translation>Liberty Core에 대한 정보 표시</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
+        <source>Modify configuration options for Liberty</source>
         <translation>RUPAYA에 대한 구성 옵션 수정</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>RUPAYA 주소로 메시지에 서명하여 소유하고 있음을 증명하십시오.</translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Liberty 주소로 메시지에 서명하여 소유하고 있음을 증명하십시오.</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>메시지가 지정된 RUPAYA 주소로 서명되었는지 확인합니다.</translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>메시지가 지정된 Liberty 주소로 서명되었는지 확인합니다.</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -717,8 +717,8 @@
         <translation>마스터노드 구성 파일 열기</translation>
     </message>
     <message>
-        <source>Open a RUPAYA: URI or payment request</source>
-        <translation>RUPAYA: URI 또는 ​​결제 요청 열기</translation>
+        <source>Open a Liberty: URI or payment request</source>
+        <translation>Liberty: URI 또는 ​​결제 요청 열기</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -729,16 +729,16 @@
         <translation>블록 탐색 창</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>RUPAYA Core 도움말 메세지를 표시하여 사용 가능한 RUPAYA 명령행 옵션 목록 표시</translation>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
+        <translation>Liberty Core 도움말 메세지를 표시하여 사용 가능한 Liberty 명령행 옵션 목록 표시</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core 클라이언트</translation>
+        <source>Liberty Core client</source>
+        <translation>Liberty Core 클라이언트</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to RUPAYA network</source>
-        <translation><numerusform>%n 개의 RUPAYA 네트웍에 연결됨</numerusform></translation>
+        <source>%n active connection(s) to Liberty network</source>
+        <translation><numerusform>%n 개의 Liberty 네트웍에 연결됨</numerusform></translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1130,8 +1130,8 @@ Address: %4
         <translation>받는 사람이 %1 보다 작은 금액을 받으면 라벨이 빨간색으로 변경됩니다.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 urupx per input.</source>
-        <translation>Can vary +/- %1 urupx per input.</translation>
+        <source>Can vary +/- %1 uXLIB per input.</source>
+        <translation>Can vary +/- %1 uXLIB per input.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1185,8 +1185,8 @@ Address: %4
         <translation>보내는 주소 수정</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid RUPAYA address.</source>
-        <translation>입력된 주소 "%1"는 올바른 RUPAYA 주소가 아닙니다.</translation>
+        <source>The entered address "%1" is not a valid Liberty address.</source>
+        <translation>입력된 주소 "%1"는 올바른 Liberty 주소가 아닙니다.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1231,16 +1231,16 @@ Address: %4
         <translation>버전</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>RUPAYA Core 정보</translation>
+        <source>About Liberty Core</source>
+        <translation>Liberty Core 정보</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1286,16 +1286,16 @@ Address: %4
         <translation>환영합니다</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>RUPAYA Core에 오신 것을 환영합니다.</translation>
+        <source>Welcome to Liberty Core.</source>
+        <translation>Liberty Core에 오신 것을 환영합니다.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>이 프로그램이 처음 실행되었으므로 RUPAYA Core가 데이터를 저장할 위치를 선택할 수 있습니다.</translation>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
+        <translation>이 프로그램이 처음 실행되었으므로 Liberty Core가 데이터를 저장할 위치를 선택할 수 있습니다.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core는 RUPAYA 블록체인을 다운로드하여 저장합니다. 최소 %1GB의 데이터가 디렉토리에 저장되며 시간이 지날수록 증가합니다. 또한 지갑도 해당 디렉토리에 저장됩니다.</translation>
+        <source>Liberty Core will download and store a copy of the Liberty block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Liberty Core는 Liberty 블록체인을 다운로드하여 저장합니다. 최소 %1GB의 데이터가 디렉토리에 저장되며 시간이 지날수록 증가합니다. 또한 지갑도 해당 디렉토리에 저장됩니다.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1306,8 +1306,8 @@ Address: %4
         <translation>사용자 지정 데이터 디렉토리 사용:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1448,12 +1448,12 @@ Address: %4
         <translation>보낼 주소 입력</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other RUPAYA addresses after it matures.
-To Add: enter percentage to give and RUPAYA address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Liberty addresses after it matures.
+To Add: enter percentage to give and Liberty address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
-        <translation>다중전송을 사용하면 성취 한 뒤 다른 RUPAYA 주소 목록에 최대 100% 스테이크 또는 마스터노드 보상을 자동으로 보낼 수 있습니다.
-추가하려면 : 부여 할 백분율과 다중전송 벡터에 추가 할 RUPAYA 주소를 입력하십시오.
+        <translation>다중전송을 사용하면 성취 한 뒤 다른 Liberty 주소 목록에 최대 100% 스테이크 또는 마스터노드 보상을 자동으로 보낼 수 있습니다.
+추가하려면 : 부여 할 백분율과 다중전송 벡터에 추가 할 Liberty 주소를 입력하십시오.
 삭제하려면 삭제할 주소를 입력하고 삭제를 누릅니다.
 활성화를 클릭하지 않으면 다중전송이 활성화되지 않습니다.</translation>
     </message>
@@ -1681,7 +1681,7 @@ Please be patient after clicking import.</source>
         <translation>주소 / 금액:</translation>
     </message>
     <message>
-        <source>Add destinations to send RUPAYA to</source>
+        <source>Add destinations to send Liberty to</source>
         <translation>RUPAYA를 보낼 목적지 추가</translation>
     </message>
     <message>
@@ -1780,47 +1780,47 @@ Please be patient after clicking import.</source>
         <translation>익명화 레벨을 선택해주세요.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 RUPAYA 를 섞을 수 있습니다.</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>2개의 개별 마스터노드를 이용하여 최대 10000 Liberty 를 섞을 수 있습니다.</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 RUPAYA 를 섞을 수 있습니다.</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>8개의 개별 마스터노드를 이용하여 최대 10000 Liberty 를 섞을 수 있습니다.</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16개의 개별 마스터노드를 사용</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>이 옵션은 가장 빠르게 전송되며 10000 RUPAYA 익명화에 약 ~0.025 RUPAYA의 비용이 들어갑니다.</translation>
+        <source>This option is the quickest and will cost about ~0.025 Liberty to anonymize 10000 Liberty</source>
+        <translation>이 옵션은 가장 빠르게 전송되며 10000 Liberty 익명화에 약 ~0.025 RUPAYA의 비용이 들어갑니다.</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 RUPAYA 익명화에 약 0.05 RUPAYA의 비용이 들어갑니다.</translation>
+        <source>This option is moderately fast and will cost about 0.05 Liberty to anonymize 10000 Liberty</source>
+        <translation>이 옵션은 중간 정도의 속도로 전송되며 10000 Liberty 익명화에 약 0.05 RUPAYA의 비용이 들어갑니다.</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>이것은 가장 느리고 안전한 옵션입니다. 최고 익명성을 사용하면 비용이 발생합니다.</translation>
     </message>
     <message>
-        <source>0.1 RUPAYA per 10000 RUPAYA you anonymize.</source>
-        <translation>10000 RUPAYA 익명화에 0.1 RUPAYA 가 듭니다.</translation>
+        <source>0.1 Liberty per 10000 Liberty you anonymize.</source>
+        <translation>10000 Liberty 익명화에 0.1 Liberty 가 듭니다.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
         <translation>난독화 구성</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
         <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 2 rounds) RUPAYA의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
         <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 8 rounds) RUPAYA의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
         <translation>난독화가 성공적으로 높게 설정되었습니다.(%1 및 16 rounds) RUPAYA의 설정 화면을 열어 언제든지 다시 변경할 수 있습니다.</translation>
     </message>
 </context>
@@ -1882,8 +1882,8 @@ Please be patient after clicking import.</source>
         <translation>확인되지 않은 변경사항을 사용하지 않도록 설정하면 해당 트랜잭션에 하나 이상의 컨펌이 진행되야&lt;br/&gt;트랜잭션에 변경사항을 적용할 수 있습니다.&lt;br/&gt;또한 이것은 잔액 계산 방식에도 영향을 줍니다.</translation>
     </message>
     <message>
-        <source>Automatically open the RUPAYA client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>라우터에서 RUPAYA 클라이언트 포트를 자동으로 엽니다. 이 기능은 라우터가 UPnP를 지원하고 활성화 된 경우에만 사용할 수 있습니다.</translation>
+        <source>Automatically open the Liberty client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>라우터에서 Liberty 클라이언트 포트를 자동으로 엽니다. 이 기능은 라우터가 UPnP를 지원하고 활성화 된 경우에만 사용할 수 있습니다.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1902,12 +1902,12 @@ Please be patient after clicking import.</source>
         <translation>전문적</translation>
     </message>
     <message>
-        <source>Automatically start RUPAYA after logging in to the system.</source>
+        <source>Automatically start Liberty after logging in to the system.</source>
         <translation>시스템 로그인 후 RUPAYA을 자동으로 시작합니다.</translation>
     </message>
     <message>
-        <source>&amp;Start RUPAYA on system login</source>
-        <translation>&amp;시스템 로그인시 RUPAYA 시작</translation>
+        <source>&amp;Start Liberty on system login</source>
+        <translation>&amp;시스템 로그인시 Liberty 시작</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1934,50 +1934,50 @@ Please be patient after clicking import.</source>
         <translation>&amp;네트워크</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting RUPAYA.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting Liberty.</source>
         <translation>사용자 인터페이스 언어를 설정할 수 있습니다. 이 설정은 RUPAYA을 다시 시작한 후에 적용됩니다.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
+https://www.transifex.com/liberty-project/liberty-project-translations</source>
         <translation>지원 언어가 없거나 번역이 불완전한가요? 번역을 도와주세요 :
-https://www.transifex.com/rupaya-project/rupaya-project-translations</translation>
+https://www.transifex.com/liberty-project/liberty-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>&amp;UPnp를 사용하여 포트 매핑</translation>
     </message>
     <message>
-        <source>Enable automatic minting of RUPAYA units to zRUPX</source>
-        <translation>보상받은 RUPAYA를 zRUPX로 자동변환 활성화</translation>
+        <source>Enable automatic minting of Liberty units to XLIBz</source>
+        <translation>보상받은 RUPAYA를 XLIBz로 자동변환 활성화</translation>
     </message>
     <message>
-        <source>Enable zRUPX Automint</source>
-        <translation>zRUPX 자동생성 활성화</translation>
+        <source>Enable XLIBz Automint</source>
+        <translation>XLIBz 자동생성 활성화</translation>
     </message>
     <message>
-        <source>Percentage of incoming RUPAYA which get automatically converted to zRUPX via Zerocoin Protocol (min: 10%)</source>
-        <translation>RUPAYA수신시 자동변환 zRUPX 비율 (최소값:10%)</translation>
+        <source>Percentage of incoming Liberty which get automatically converted to XLIBz via Zerocoin Protocol (min: 10%)</source>
+        <translation>RUPAYA수신시 자동변환 XLIBz 비율 (최소값:10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zRUPX</source>
-        <translation>자동 변환되는 zRUPX 비율</translation>
+        <source>Percentage of autominted XLIBz</source>
+        <translation>자동 변환되는 XLIBz 비율</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough RUPAYA for this denomination is available</source>
+        <source>Wait with automatic conversion to Zerocoin until enough Liberty for this denomination is available</source>
         <translation>이 디노미네이션의 RUPAYA가 충분해질 때까지 Zerocoin으로 자동전환은 보류됩니다.</translation>
     </message>
     <message>
-        <source>Preferred Automint zRUPX Denomination</source>
-        <translation>선호하는 자동생성 zRUPX 디노미네이션 </translation>
+        <source>Preferred Automint XLIBz Denomination</source>
+        <translation>선호하는 자동생성 XLIBz 디노미네이션 </translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
         <translation>Stake split threshold:</translation>
     </message>
     <message>
-        <source>Connect to the RUPAYA network through a SOCKS5 proxy.</source>
-        <translation>SOCKS5 프록시를 통해 RUPAYA 네트워크에 연결해주세요.</translation>
+        <source>Connect to the Liberty network through a SOCKS5 proxy.</source>
+        <translation>SOCKS5 프록시를 통해 Liberty 네트워크에 연결해주세요.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -2131,8 +2131,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>전체 잔액, (현재 전송이 불가능한 코인 포함)</translation>
     </message>
     <message>
-        <source>RUPAYA Balance</source>
-        <translation>RUPAYA 잔액</translation>
+        <source>Liberty Balance</source>
+        <translation>Liberty 잔액</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -2155,18 +2155,18 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>현재 보기전용 주소의 잠긴 잔액 </translation>
     </message>
     <message>
-        <source>Your current RUPAYA balance, unconfirmed and immature transactions included</source>
-        <translation>현재 RUPAYA 잔액, 미확정, 생성중인 코인 포함</translation>
+        <source>Your current Liberty balance, unconfirmed and immature transactions included</source>
+        <translation>현재 Liberty 잔액, 미확정, 생성중인 코인 포함</translation>
     </message>
     <message>
-        <source>zRUPX Balance</source>
-        <translation>zRUPX 잔액</translation>
+        <source>XLIBz Balance</source>
+        <translation>XLIBz 잔액</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zRUPX are spendable.</source>
+These XLIBz are spendable.</source>
         <translation>성숙한 : 그것이 발행 된 후 같은 명칭의 20 개 이상의 확인 및 1 개 민트.
-이 zRUPX는 쓸만합니다.</translation>
+이 XLIBz는 쓸만합니다.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2175,8 +2175,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 RUPAYA 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 Liberty 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
     </message>
     <message>
         <source>OVERVIEW</source>
@@ -2219,8 +2219,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>출금 가능 액수:</translation>
     </message>
     <message>
-        <source>Locked RUPAYA or Masternode collaterals. These are excluded from zRUPX minting.</source>
-        <translation>잠금 RUPAYA 또는 Masternode collaterals. 이들은 zRUPX minting에서 제외됩니다.</translation>
+        <source>Locked Liberty or Masternode collaterals. These are excluded from XLIBz minting.</source>
+        <translation>잠금 Liberty 또는 Masternode collaterals. 이들은 XLIBz minting에서 제외됩니다.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2231,8 +2231,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>미승인:</translation>
     </message>
     <message>
-        <source>Your current zRUPX balance, unconfirmed and immature zRUPX included.</source>
-        <translation>zRUPX 잔액, 미확정, 생성중인 zRUPX 포함.</translation>
+        <source>Your current XLIBz balance, unconfirmed and immature XLIBz included.</source>
+        <translation>XLIBz 잔액, 미확정, 생성중인 XLIBz 포함.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2243,10 +2243,10 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>동기화되지 않음</translation>
     </message>
     <message>
-        <source>Current percentage of zRUPX.
+        <source>Current percentage of XLIBz.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>현재 zRUPX의 백분율 .
+        <translation>현재 XLIBz의 백분율 .
 자동 저장 기능이 활성화 된 경우이 비율은 구성된 자동 저장 비율 (기본값 = 10 %)을 기준으로 정해집니다.</translation>
     </message>
     <message>
@@ -2261,7 +2261,7 @@ If AutoMint is enabled this percentage will settle around the configured AutoMin
         <source>AutoMint is currently disabled.
 To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.conf</source>
         <translation>자동 저장 기능이 현재 사용 중지되었습니다 .
-자동 변환을 사용하려면 rupxotx.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
+자동 변환을 사용하려면 XLIBotx.conf에서 'enablezeromint = 0'에서 'enablezeromint = 1'로 변경하십시오.</translation>
     </message>
 </context>
 <context>
@@ -2291,8 +2291,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>RUPAYA을 시작할 수 없습니다: 결제하기 위한 클릭 처리</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid RUPAYA address or malformed URI parameters.</source>
-        <translation>URI를 분석할 수 없습니다! 이는 잘못된 RUPAYA 주소 또는 URI 매개변수 손상으로 인해 발생할 수 있습니다.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Liberty address or malformed URI parameters.</source>
+        <translation>URI를 분석할 수 없습니다! 이는 잘못된 Liberty 주소 또는 URI 매개변수 손상으로 인해 발생할 수 있습니다.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -2377,8 +2377,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>제로코인 관리:</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 RUPAYA 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>표시된 정보가 오래되었을 수 있습니다. 연결이 완료되면 지갑이 Liberty 네트워크와 자동으로 동기화될 예정이지만, 아직 해당 프로세스가 완료되지 않았습니다.</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2389,8 +2389,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
         <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
@@ -2401,8 +2401,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>생성 가능한 수량:</translation>
     </message>
     <message>
-        <source>0.000 000 00 RUPAYA</source>
-        <translation>0.000 000 00 RUPAYA</translation>
+        <source>0.000 000 00 Liberty</source>
+        <translation>0.000 000 00 Liberty</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2441,16 +2441,16 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>프라이버시</translation>
     </message>
     <message>
-        <source>Enter an amount of Rupx to convert to zRUPX</source>
-        <translation>zRUPX로 변환할 RUPAYA 수량을 입력하세요.</translation>
+        <source>Enter an amount of XLIB to convert to XLIBz</source>
+        <translation>XLIBz로 변환할 Liberty 수량을 입력하세요.</translation>
     </message>
     <message>
-        <source>zRUPX Control</source>
-        <translation>zRUPX 컨트롤</translation>
+        <source>XLIBz Control</source>
+        <translation>XLIBz 컨트롤</translation>
     </message>
     <message>
-        <source>zRUPX Selected:</source>
-        <translation>선택된 zRUPX :</translation>
+        <source>XLIBz Selected:</source>
+        <translation>선택된 XLIBz :</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2465,24 +2465,24 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>제로코인 보내기</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending</source>
-        <translation>전송 가능한 zRUPX</translation>
+        <source>Available (mature and spendable) XLIBz for spending</source>
+        <translation>전송 가능한 XLIBz</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>가능한 잔액:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending
+        <source>Available (mature and spendable) XLIBz for spending
 
-zRUPX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>지출에 사용할 수있는 성숙한 소비재 zRUPX
+XLIBz are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>지출에 사용할 수있는 성숙한 소비재 XLIBz
 
-zRUPX는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
+XLIBz는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 이상의 민트가 작성되었을 때 성숙합니다.</translation>
     </message>
     <message>
-        <source>0 zRUPX</source>
-        <translation>0 zRUPX</translation>
+        <source>0 XLIBz</source>
+        <translation>0 XLIBz</translation>
     </message>
     <message>
         <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
@@ -2501,8 +2501,8 @@ zRUPX는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 �
         <translation>지불 &amp;대상:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>RUPAYA를 전송할 RUPAYA 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
+        <source>The Liberty address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>RUPAYA를 전송할 Liberty 주소입니다. 비어있을 때 자신에게 지불할 주소를 생성합니다.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2553,7 +2553,7 @@ zRUPX는 성명서가 20 개 이상 있고 명칭이 동일하지 않은 2 개 �
         <translation>제로코인 상태 :</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zRUPX</source>
+        <source>Total Balance including unconfirmed and immature XLIBz</source>
         <translation>승인중이거나, 생성중인 제로코인도 포함된 전체 잔액입니다.</translation>
     </message>
     <message>
@@ -2575,24 +2575,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 미성숙 : 확인되었지만 발행 된 후 같은 종파 1 개 미만</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zRUPX minting.
+        <source>Show the current status of automatic XLIBz minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to rupaya.conf
 - disable: add 'enablezeromint=0' to rupaya.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zRUPX
+- menu Settings-&gt;Options-&gt;Percentage of autominted XLIBz
 
 </source>
-        <translation>현재 zRUPX 자동 생성 상태를 보여줍니다.
+        <translation>현재 XLIBz 자동 생성 상태를 보여줍니다.
 
 자동생성 상태를 변경하시려면 (지갑 재시작 필요함):
 - 활성화: 'enablezeromint=1' 를 rupaya.conf 파일에 추가
 - 비활성화: 'enablezeromint=0' 를 rupaya.conf 파일에 추가
 
 자동 생성 비율 변경하시려면 (지갑 재시작 필요없음):
-- 메뉴 설정-&gt;옵션-&gt;zRUPX 자동생성 비율
+- 메뉴 설정-&gt;옵션-&gt;XLIBz 자동생성 비율
 
 </translation>
     </message>
@@ -2789,12 +2789,12 @@ Maximum allowed: </source>
 가능한 최대값 :</translation>
     </message>
     <message>
-        <source>zRUPX Spend #: </source>
-        <translation>zRUPX 전송 # :</translation>
+        <source>XLIBz Spend #: </source>
+        <translation>XLIBz 전송 # :</translation>
     </message>
     <message>
-        <source>zRUPX Mint</source>
-        <translation>zRUPX 생성</translation>
+        <source>XLIBz Mint</source>
+        <translation>XLIBz 생성</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2809,12 +2809,12 @@ Maximum allowed: </source>
         <translation> 구성된 목표 비율 : &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zRUPX is currently disabled due to maintenance.</source>
-        <translation>zRUPX는 현재 점검중이라 사용하실수 없습니다.</translation>
+        <source>XLIBz is currently disabled due to maintenance.</source>
+        <translation>XLIBz는 현재 점검중이라 사용하실수 없습니다.</translation>
     </message>
     <message>
-        <source>zRUPX is currently undergoing maintenance.</source>
-        <translation>zRUPX는 현재 점검중입니다.</translation>
+        <source>XLIBz is currently undergoing maintenance.</source>
+        <translation>XLIBz는 현재 점검중입니다.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2901,8 +2901,8 @@ Maximum allowed: </source>
         <translation>성공적으로 발행됨</translation>
     </message>
     <message>
-        <source> zRUPX in </source>
-        <translation> zRUPX in </translation>
+        <source> XLIBz in </source>
+        <translation> XLIBz in </translation>
     </message>
     <message>
         <source> sec. Used denominations:
@@ -2930,7 +2930,7 @@ Maximum allowed: </source>
     </message>
     <message>
         <source>Invalid Rupaya Address</source>
-        <translation>잘못된 RUPAYA 주소</translation>
+        <translation>잘못된 Liberty 주소</translation>
     </message>
     <message>
         <source>Invalid Send Amount</source>
@@ -2961,12 +2961,12 @@ Maximum allowed: </source>
         <translation>코인 전송 확인</translation>
     </message>
     <message>
-        <source>Version 1 zRUPX require a security level of 100 to successfully spend.</source>
-        <translation>zRUPX 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
+        <source>Version 1 XLIBz require a security level of 100 to successfully spend.</source>
+        <translation>XLIBz 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
     </message>
     <message>
-        <source>Failed to spend zRUPX</source>
-        <translation>zRUPX 전송 실패</translation>
+        <source>Failed to spend XLIBz</source>
+        <translation>XLIBz 전송 실패</translation>
     </message>
     <message>
         <source>Failed to fetch mint associated with serial hash</source>
@@ -2987,7 +2987,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message numerus="yes">
         <source>PrivacyDialog</source>
-        <comment>Enter an amount of RUPAYA to convert to zRUPX</comment>
+        <comment>Enter an amount of Liberty to convert to XLIBz</comment>
         <translation><numerusform>PrivacyDialog</numerusform></translation>
     </message>
     <message>
@@ -3030,8 +3030,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>금액</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA address (e.g. %1)</source>
-        <translation>RUPAYA 주소를 입력하세요 (예 %1)</translation>
+        <source>Enter a Liberty address (e.g. %1)</source>
+        <translation>Liberty 주소를 입력하세요 (예 %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -3168,8 +3168,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>블록체인</translation>
     </message>
     <message>
-        <source>Open the RUPAYA debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>현재 데이터 디렉토리에서 RUPAYA 디버그 로그 파일을 엽니다. 로그 파일이 클 경우, 약간의 시간이 걸릴 수 있습니다.</translation>
+        <source>Open the Liberty debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>현재 데이터 디렉토리에서 Liberty 디버그 로그 파일을 엽니다. 로그 파일이 클 경우, 약간의 시간이 걸릴 수 있습니다.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -3304,8 +3304,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>맞춤 백업 경로 :</translation>
     </message>
     <message>
-        <source>Custom zRUPX Backup Path:</source>
-        <translation>맞춤 zRUPX 백업 경로 :</translation>
+        <source>Custom XLIBz Backup Path:</source>
+        <translation>맞춤 XLIBz 백업 경로 :</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -3385,8 +3385,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>출력:</translation>
     </message>
     <message>
-        <source>Welcome to the RUPAYA RPC console.</source>
-        <translation>RUPAYA RPC 콘솔에 오신 것을 환영합니다.</translation>
+        <source>Welcome to the Liberty RPC console.</source>
+        <translation>Liberty RPC 콘솔에 오신 것을 환영합니다.</translation>
     </message>
     <message>
         <source>&amp;Disconnect Node</source>
@@ -3512,16 +3512,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>새로운 수신 주소와 연결할 선택적 라벨.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the RUPAYA network.</source>
-        <translation>요청이 열릴 때 표시되는 결제 요청에 첨부할 선택적 메세지 입니다. 참고: RUPAYA 네트워크를 통한 결제는 메세지가 전송되지 않습니다.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Liberty network.</source>
+        <translation>요청이 열릴 때 표시되는 결제 요청에 첨부할 선택적 메세지 입니다. 참고: Liberty 네트워크를 통한 결제는 메세지가 전송되지 않습니다.</translation>
     </message>
     <message>
         <source>RECEIVE</source>
         <translation>받기</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the RUPAYA network.</source>
-        <translation>요청이 열릴 때 표시되는 결제 요청에 첨부할 선택적 메세지 입니다.&lt;br&gt;참고: RUPAYA 네트워크를 통한 결제는 메세지가 전송되지 않습니다.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Liberty network.</source>
+        <translation>요청이 열릴 때 표시되는 결제 요청에 첨부할 선택적 메세지 입니다.&lt;br&gt;참고: Liberty 네트워크를 통한 결제는 메세지가 전송되지 않습니다.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -3749,8 +3749,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>UTXO 크기:</translation>
     </message>
     <message>
-        <source>0 RUPAYA</source>
-        <translation>0 RUPAYA</translation>
+        <source>0 Liberty</source>
+        <translation>0 Liberty</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3813,8 +3813,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>트랜잭션이 250바이트 인 경우 사용자 지정 수수료가 1000 uRUPAYAs로 설정되고,&lt;br /&gt;1000 uRUPAYAs 안에는 전체에서 최소 "킬로바이트당" 250 uRUPAYAs 만 지불합니다. 1 킬로바이트보다 큰 트랜잭션의 경우 모두 킬로바이트 단위로 지불합니다.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for RUPAYA transactions than the network can process.</source>
-        <translation>블록의 공간보다 트랜잭션량이 적으면 최소 수수료만 지불하면 됩니다.&lt;br /&gt;하지만 RUPAYA 트랜잭션 수가 많으면 미확인된 트랜잭션로 네트워크가 처리할 수도 있습니다.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Liberty transactions than the network can process.</source>
+        <translation>블록의 공간보다 트랜잭션량이 적으면 최소 수수료만 지불하면 됩니다.&lt;br /&gt;하지만 Liberty 트랜잭션 수가 많으면 미확인된 트랜잭션로 네트워크가 처리할 수도 있습니다.</translation>
     </message>
     <message>
         <source>normal</source>
@@ -3861,8 +3861,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>&amp;받는 사람 추가</translation>
     </message>
     <message>
-        <source>Anonymized RUPAYA</source>
-        <translation>익명화된 RUPAYA</translation>
+        <source>Anonymized Liberty</source>
+        <translation>익명화된 Liberty</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -3909,8 +3909,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>분할 블록 도구는 여러 주소에서 작동하지 않습니다. 다시 시도하십시오.</translation>
     </message>
     <message>
-        <source>Warning: Invalid RUPAYA address</source>
-        <translation>경고: 잘못된 RUPAYA 주소</translation>
+        <source>Warning: Invalid Liberty address</source>
+        <translation>경고: 잘못된 Liberty 주소</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -4012,8 +4012,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>지불 &amp;대상:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to</source>
-        <translation>보낼 RUPAYA 주소</translation>
+        <source>The Liberty address to send the payment to</source>
+        <translation>보낼 Liberty 주소</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -4052,8 +4052,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>메세지:</translation>
     </message>
     <message>
-        <source>A message that was attached to the RUPAYA: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the RUPAYA network.</source>
-        <translation>참조용으로 트랜잭션과 함께 기록되는 RUPAYA : URI에 첨부된 메세지입니다. 참고: 이 메세지는 RUPAYA 네트워크를 통해 전송되지 않습니다.</translation>
+        <source>A message that was attached to the Liberty: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Liberty network.</source>
+        <translation>참조용으로 트랜잭션과 함께 기록되는 Liberty : URI에 첨부된 메세지입니다. 참고: 이 메세지는 Liberty 네트워크를 통해 전송되지 않습니다.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -4079,8 +4079,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core가 종료됩니다...</translation>
+        <source>Liberty Core is shutting down...</source>
+        <translation>Liberty Core가 종료됩니다...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4102,8 +4102,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>자신의 주소로 메세지에 서명할 수 있습니다. 피싱 공격으로 사용자를 속일 수 있으므로 서명에 주의해주세요. 동의하는 바에 한하여 서명하십시오.</translation>
     </message>
     <message>
-        <source>The RUPAYA address to sign the message with</source>
-        <translation>메세지를 서명하기 위한 RUPAYA 주소</translation>
+        <source>The Liberty address to sign the message with</source>
+        <translation>메세지를 서명하기 위한 Liberty 주소</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -4134,16 +4134,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>현재 서명을 시스템 클립 보드에 복사</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this RUPAYA address</source>
-        <translation>이 RUPAYA 주소를 소유하고 있다는 것을 증명하기 위해 메세지에 서명하십시오</translation>
+        <source>Sign the message to prove you own this Liberty address</source>
+        <translation>이 Liberty 주소를 소유하고 있다는 것을 증명하기 위해 메세지에 서명하십시오</translation>
     </message>
     <message>
-        <source>The RUPAYA address the message was signed with</source>
-        <translation>메세지에 서명된 RUPAYA 주소</translation>
+        <source>The Liberty address the message was signed with</source>
+        <translation>메세지에 서명된 Liberty 주소</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified RUPAYA address</source>
-        <translation>메세지가 지정된 RUPAYA 주소로 서명되었는지 확인해주세요</translation>
+        <source>Verify the message to ensure it was signed with the specified Liberty address</source>
+        <translation>메세지가 지정된 Liberty 주소로 서명되었는지 확인해주세요</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -4229,8 +4229,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4245,8 +4245,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Dash Core 개발자</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>RUPAYA Core 개발자</translation>
+        <source>The Liberty Core developers</source>
+        <translation>Liberty Core 개발자</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -4526,12 +4526,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>난독화를 통해 수신 됨</translation>
     </message>
     <message>
-        <source>RUPAYA Stake</source>
-        <translation>RUPAYA stake</translation>
+        <source>Liberty Stake</source>
+        <translation>Liberty stake</translation>
     </message>
     <message>
-        <source>zRUPX Stake</source>
-        <translation>zRUPX stake</translation>
+        <source>XLIBz Stake</source>
+        <translation>XLIBz stake</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4550,32 +4550,32 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>난독화 표시 만들기</translation>
     </message>
     <message>
-        <source>Converted RUPAYA to zRUPX</source>
-        <translation>RUPAYA를 zRUPX로 변환</translation>
+        <source>Converted Liberty to XLIBz</source>
+        <translation>RUPAYA를 XLIBz로 변환</translation>
     </message>
     <message>
-        <source>Spent zRUPX</source>
-        <translation>zRUPX 사용</translation>
+        <source>Spent XLIBz</source>
+        <translation>XLIBz 사용</translation>
     </message>
     <message>
-        <source>Received RUPAYA from zRUPX</source>
-        <translation>zRUPX를 RUPAYA로 받음</translation>
+        <source>Received Liberty from XLIBz</source>
+        <translation>XLIBz를 RUPAYA로 받음</translation>
     </message>
     <message>
-        <source>Minted Change as zRUPX from zRUPX Spend</source>
-        <translation>zRUPX 전송후 남은 zRUPX로 잔돈 생성</translation>
+        <source>Minted Change as XLIBz from XLIBz Spend</source>
+        <translation>XLIBz 전송후 남은 XLIBz로 잔돈 생성</translation>
     </message>
     <message>
-        <source>Converted zRUPX to RUPAYA</source>
-        <translation>zRUPX를 RUPAYA로 변환</translation>
+        <source>Converted XLIBz to Liberty</source>
+        <translation>XLIBz를 RUPAYA로 변환</translation>
     </message>
     <message>
-        <source>Anonymous (zRUPX Transaction)</source>
-        <translation>Anonymous (zRUPX 거래)</translation>
+        <source>Anonymous (XLIBz Transaction)</source>
+        <translation>Anonymous (XLIBz 거래)</translation>
     </message>
     <message>
-        <source>Anonymous (zRUPX Stake)</source>
-        <translation>Anonymous (zRUPX 스테이킹)</translation>
+        <source>Anonymous (XLIBz Stake)</source>
+        <translation>Anonymous (XLIBz 스테이킹)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4785,12 +4785,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>내보내기 성공</translation>
     </message>
     <message>
-        <source>Received RUPAYA from zRUPX</source>
-        <translation>zRUPX를 RUPAYA로 받음</translation>
+        <source>Received Liberty from XLIBz</source>
+        <translation>XLIBz를 RUPAYA로 받음</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zRUPX</source>
-        <translation>제로코인 전송, 잔돈은 zRUPX</translation>
+        <source>Zerocoin Spend, Change in XLIBz</source>
+        <translation>제로코인 전송, 잔돈은 XLIBz</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4826,7 +4826,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>코인 전송 </translation>
     </message>
     <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 RUPAYA.</source>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 Liberty.</source>
         <translation>SwiftTX는 아직 높은 값을 전송하는 것을 지원하지 않습니다. 트랜잭션은 현재 %1 RUPAYA로 제한됩니다.</translation>
     </message>
 </context>
@@ -4858,10 +4858,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
-        <source>Select zRUPX to Spend</source>
-        <translation>사용할 zRUPX 선택</translation>
+        <source>Select XLIBz to Spend</source>
+        <translation>사용할 XLIBz 선택</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4872,8 +4872,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4885,7 +4885,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = tx 메타 데이터 유지 예 : 계정 소유자 및 지불 요청 정보, 2 = tx 메타 데이터 삭제)</translation>
@@ -4911,8 +4911,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>계산된 누산기 체크포인트는 블록 인덱스에 의해 기록되는 것이 아닙니다.</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
-        <translation>        &lt;translation&gt;잠겨진 데이터 디렉토리 %s 를 가져올 수 없습니다. RUPAYA Core는 이미 실행 중입니다.</translation>
+        <source>Cannot obtain a lock on data directory %s. Liberty Core is probably already running.</source>
+        <translation>        &lt;translation&gt;잠겨진 데이터 디렉토리 %s 를 가져올 수 없습니다. Liberty Core는 이미 실행 중입니다.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -4939,16 +4939,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>MIT 소프트웨어 라이센스에 따라 배포, 첨부 파일 COPYING 또는 &lt;http://www.opensource.org/licenses/mit-license.php&gt; 를 참조하십시오.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zRUPX minting (0-1, default: %u)</source>
-        <translation>Enable automatic wallet backups triggered after each zRUPX minting (0-1, default: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each XLIBz minting (0-1, default: %u)</source>
+        <translation>Enable automatic wallet backups triggered after each XLIBz minting (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for RUPAYA inputs (0-1, default: %u)</source>
-        <translation>Enable or disable staking functionality for RUPAYA inputs (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for Liberty inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for Liberty inputs (0-1, default: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zRUPX inputs (0-1, default: %u)</source>
-        <translation>Enable or disable staking functionality for zRUPX inputs (0-1, default: %u)</translation>
+        <source>Enable or disable staking functionality for XLIBz inputs (0-1, default: %u)</source>
+        <translation>Enable or disable staking functionality for XLIBz inputs (0-1, default: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4983,12 +4983,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>최고 블록이 변경될 경우 명령을 실행하십시오 (명령 내 %s 는 블록 해시로 대체 되었습니다)</translation>
     </message>
     <message>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>이것보다 작은 수수료 (RUPAYA/Kb)는 중계 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>이것보다 작은 수수료 (Liberty/Kb)는 중계 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
     </message>
     <message>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>이것보다 작은 수수료 (RUPAYA/Kb)는 트랜잭션 생성 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>이것보다 작은 수수료 (Liberty/Kb)는 트랜잭션 생성 수수료가 없는 것으로 간주됩니다 (기본값: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -5087,19 +5087,19 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>이 제품은 OpenSSL이 개발한 Open SSL 툴킷 &lt;https://www.openssl.org/&gt; 에서 사용하기 위한 프로젝트 소프트웨어, Eric Young이 개발한 암호화 소프트웨어, Thomas Bernard가 개발한 UPnP 소프트웨어가 포함되어 있습니다.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
-        <translation>이 컴퓨터를 %s 로 지정하는것은 불가능합니다. RUPAYA Core는 이미 실행 중입니다.</translation>
+        <source>Unable to bind to %s on this computer. Liberty Core is probably already running.</source>
+        <translation>이 컴퓨터를 %s 로 지정하는것은 불가능합니다. Liberty Core는 이미 실행 중입니다.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
         <translation>이 트랜잭션를 위해 난독화 표기된 충분한 금액을 찾을 수 없습니다.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 RUPAYA.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 Liberty.</source>
         <translation>이 트랜잭션를 위해 난독화 표기가 안된 충분한 금액을 찾을 수 없습니다. 10000 RUPAYA과 일치하지 않음.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 RUPAYA.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 Liberty.</source>
         <translation>트랜잭션에 대한 충분한 금액을 찾을 수 없습니다. 10000 RUPAYA와 같지 않음</translation>
     </message>
     <message>
@@ -5115,8 +5115,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>경고 : -paytxfee가 매우 높게 설정되었습니다! 이것은 전송할 경우 지불 할 트랜잭션 수수료입니다.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
-        <translation>경고: 컴퓨터의 날짜와 시간이 올바르게 설정되어 있는지 확인해 주세요! 만일 시계가 잘못되어 있다면 RUPAYA 코어는 정상적으로 작동하지 않을 수 있습니다.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Liberty Core will not work properly.</source>
+        <translation>경고: 컴퓨터의 날짜와 시간이 올바르게 설정되어 있는지 확인해 주세요! 만일 시계가 잘못되어 있다면 Liberty 코어는 정상적으로 작동하지 않을 수 있습니다.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5267,8 +5267,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Copyright (C) 2014-%i The Dash Core 개발자들</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
-        <translation>Copyright (C) 2015-%i The RUPAYA Core 개발자</translation>
+        <source>Copyright (C) 2015-%i The Liberty Core Developers</source>
+        <translation>Copyright (C) 2015-%i The Liberty Core 개발자</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5355,8 +5355,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>wallet.dat을 불러오는 중 오류가 발생했습니다: 지갑 손상됨</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
-        <translation>wallet.dat를 로드하는 중 오류가 발생했습니다. 지갑에 최신 버전의 RUPAYA 코어가 필요합니다.</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Liberty Core</source>
+        <translation>wallet.dat를 로드하는 중 오류가 발생했습니다. 지갑에 최신 버전의 Liberty 코어가 필요합니다.</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5411,8 +5411,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>블록을 받아오는데 실패했습니다.</translation>
     </message>
     <message>
-        <source>Fee (in RUPAYA/kB) to add to transactions you send (default: %s)</source>
-        <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (RUPAYA/kB) (기본값: %s)</translation>
+        <source>Fee (in Liberty/kB) to add to transactions you send (default: %s)</source>
+        <translation>당신이 보내는 트랜잭션에 추가 할 수수료 (Liberty/kB) (기본값: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>
@@ -5471,8 +5471,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>정보</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
-        <translation>초기화 정확성 검사에 실패 했습니다. RUPAYA Core가 종료됩니다.</translation>
+        <source>Initialization sanity check failed. Liberty Core is shutting down.</source>
+        <translation>초기화 정확성 검사에 실패 했습니다. Liberty Core가 종료됩니다.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -5540,11 +5540,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>Percentage of automatically minted Zerocoin  (1-100, default: %u)</source>
-        <translation>자동생성 zRUPX 비율  (1-100, default: %u)</translation>
+        <translation>자동생성 XLIBz 비율  (1-100, default: %u)</translation>
     </message>
     <message>
-        <source>Reindex the RUPAYA and zRUPX money supply statistics</source>
-        <translation>RUPAYA 및 zRUPX 공급량 다시 색인</translation>
+        <source>Reindex the Liberty and XLIBz money supply statistics</source>
+        <translation>Liberty 및 XLIBz 공급량 다시 색인</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5583,7 +5583,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 </translation>
     </message>
     <message>
-        <source>Disable all RUPAYA specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <source>Disable all Liberty specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
         <translation>RUPAYA의 모든 특정 기능들을 비활성화합니다(마스터노드, 난독화, SwiftTX, Budgeting) (0-1, 기본값: %u)</translation>
     </message>
     <message>
@@ -5619,8 +5619,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>자동생성 제로코인 선호 디노미네이션 (1/5/10/50/100/500/1000/5000) 0사용안됨, 기본값 : %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zRUPX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Specify custom backup path to add a copy of any automatic zRUPX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
+        <source>Specify custom backup path to add a copy of any automatic XLIBz backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Specify custom backup path to add a copy of any automatic XLIBz backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -6119,8 +6119,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>sporks와 동기화 중입니다...</translation>
     </message>
     <message>
-        <source>Syncing zRUPX wallet...</source>
-        <translation>zRUPX 지갑 동기화중...</translation>
+        <source>Syncing XLIBz wallet...</source>
+        <translation>XLIBz 지갑 동기화중...</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -6267,8 +6267,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>JSON-RPC 연결 사용자 이름</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zRUPX</source>
-        <translation>Value is below the smallest available denomination (= 1) of zRUPX</translation>
+        <source>Value is below the smallest available denomination (= 1) of XLIBz</source>
+        <translation>Value is below the smallest available denomination (= 1) of XLIBz</translation>
     </message>
     <message>
         <source>Value more than Obfuscation pool maximum allows.</source>
@@ -6283,8 +6283,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>지갑 인증 중...</translation>
     </message>
     <message>
-        <source>Version 1 zRUPX require a security level of 100 to successfully spend.</source>
-        <translation>zRUPX 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
+        <source>Version 1 XLIBz require a security level of 100 to successfully spend.</source>
+        <translation>XLIBz 버전 1은 성공적으로 보내기 위해서 100 시큐리티 레벨이 필요합니다.</translation>
     </message>
     <message>
         <source>Wallet %s resides outside data directory %s</source>
@@ -6295,8 +6295,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>지갑이 잠겼습니다.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>지갑을 다시 작성해야 합니다: 완료하려면 RUPAYA 코어를 재시작해야 합니다</translation>
+        <source>Wallet needed to be rewritten: restart Liberty Core to complete</source>
+        <translation>지갑을 다시 작성해야 합니다: 완료하려면 Liberty 코어를 재시작해야 합니다</translation>
     </message>
     <message>
         <source>Wallet options:</source>
@@ -6328,7 +6328,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <source>You don't have enough Zerocoins in your wallet</source>
-        <translation>지갑에 zRUPX 가 부족합니다.</translation>
+        <translation>지갑에 XLIBz 가 부족합니다.</translation>
     </message>
     <message>
         <source>You need to rebuild the database using -reindex to change -txindex</source>

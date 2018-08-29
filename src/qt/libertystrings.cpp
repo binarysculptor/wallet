@@ -50,7 +50,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "Delete all zerocoin spends and mints that have been recorded to the "
 "blockchain database and reindex them (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Disable all Liberty specific functionality (Masternodes, Zerocoin, SwiftX, "
+"Disable all PIVX specific functionality (Masternodes, Zerocoin, SwiftX, "
 "Budgeting) (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Distributed under the MIT software license, see the accompanying file "
@@ -61,7 +61,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "Enable automatic wallet backups triggered after each XLIBz minting (0-1, "
 "default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Enable or disable staking functionality for Liberty inputs (0-1, default: %u)"),
+"Enable or disable staking functionality for XLIB inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Enable or disable staking functionality for XLIBz inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
@@ -193,6 +193,8 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "written by Eric Young and UPnP software written by Thomas Bernard."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to bind to %s on this computer. Liberty Core is probably already running."),
+"Total length of network version string (%i) exceeds maximum length (%i). "
+"Reduce the number or size of uacomments."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("liberty-core", ""
@@ -200,7 +202,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "transaction that are not equal 10000 XLIB."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough funds for this transaction that are not equal 10000 "
-"Liberty."),
+"XLIB."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
@@ -235,10 +237,10 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 QT_TRANSLATE_NOOP("liberty-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("liberty-core", "(10417 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("liberty-core", "(51472 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("liberty-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("liberty-core", "(must be 10417 for mainnet)"),
+QT_TRANSLATE_NOOP("liberty-core", "(must be 51472 for mainnet)"),
 QT_TRANSLATE_NOOP("liberty-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("liberty-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("liberty-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
@@ -247,6 +249,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Add a node to connect to and attempt to keep 
 QT_TRANSLATE_NOOP("liberty-core", "Allow DNS lookups for -addnode, -seednode and -connect"),
 QT_TRANSLATE_NOOP("liberty-core", "Already have that input."),
 QT_TRANSLATE_NOOP("liberty-core", "Always query for peer addresses via DNS lookup (default: %u)"),
+QT_TRANSLATE_NOOP("liberty-core", "Append comment to the user agent string"),
 QT_TRANSLATE_NOOP("liberty-core", "Attempt to force blockchain corruption recovery"),
 QT_TRANSLATE_NOOP("liberty-core", "Attempt to recover private keys from a corrupt wallet.dat"),
 QT_TRANSLATE_NOOP("liberty-core", "Automatically create Tor hidden service (default: %d)"),
@@ -321,7 +324,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Failed to read block"),
 QT_TRANSLATE_NOOP("liberty-core", "Failed to select a zerocoin"),
 QT_TRANSLATE_NOOP("liberty-core", "Failed to wipe zerocoinDB"),
 QT_TRANSLATE_NOOP("liberty-core", "Failed to write coin serial number into wallet"),
-QT_TRANSLATE_NOOP("liberty-core", "Fee (in Liberty/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("liberty-core", "Fee (in XLIB/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", "Finalizing transaction."),
 QT_TRANSLATE_NOOP("liberty-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", "Found enough users, signing ( waiting %s )"),
@@ -410,7 +413,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Randomly drop 1 of every <n> network messages
 QT_TRANSLATE_NOOP("liberty-core", "Randomly fuzz 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("liberty-core", "Rebuild block chain index from current blk000??.dat files"),
 QT_TRANSLATE_NOOP("liberty-core", "Receive and display P2P network alerts (default: %u)"),
-QT_TRANSLATE_NOOP("liberty-core", "Reindex the Liberty and XLIBz money supply statistics"),
+QT_TRANSLATE_NOOP("liberty-core", "Reindex the XLIB and XLIBz money supply statistics"),
 QT_TRANSLATE_NOOP("liberty-core", "Reindex the accumulator database"),
 QT_TRANSLATE_NOOP("liberty-core", "Reindexing zerocoin database..."),
 QT_TRANSLATE_NOOP("liberty-core", "Reindexing zerocoin failed"),
@@ -498,6 +501,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Use UPnP to map the listening port (default: 
 QT_TRANSLATE_NOOP("liberty-core", "Use UPnP to map the listening port (default: 1 when listening)"),
 QT_TRANSLATE_NOOP("liberty-core", "Use a custom max chain reorganization depth (default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", "Use the test network"),
+QT_TRANSLATE_NOOP("liberty-core", "User Agent comment (%s) contains unsafe characters."),
 QT_TRANSLATE_NOOP("liberty-core", "Username for JSON-RPC connections"),
 QT_TRANSLATE_NOOP("liberty-core", "Value is below the smallest available denomination (= 1) of XLIBz"),
 QT_TRANSLATE_NOOP("liberty-core", "Value more than Obfuscation pool maximum allows."),

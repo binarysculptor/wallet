@@ -269,9 +269,9 @@
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     </context>
 </TS>

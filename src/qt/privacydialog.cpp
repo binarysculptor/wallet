@@ -308,7 +308,7 @@ void PrivacyDialog::on_pushButtonXLIBzControl_clicked()
     if (!walletModel || !walletModel->getOptionsModel())
         return;
 
-    XLIBzControlDialog* XLIBzControl = new XLIBzControlDialog(this);
+    XLibzControlDialog* XLIBzControl = new XLibzControlDialog(this);
     XLIBzControl->setModel(walletModel);
     XLIBzControl->exec();
 }
@@ -424,8 +424,8 @@ void PrivacyDialog::sendXLIBz()
     // use mints from XLIBz selector if applicable
     vector<CMintMeta> vMintsToFetch;
     vector<CZerocoinMint> vMintsSelected;
-    if (!XLIBzControlDialog::setSelectedMints.empty()) {
-        vMintsToFetch = XLIBzControlDialog::GetSelectedMints();
+    if (!XLibzControlDialog::setSelectedMints.empty()) {
+        vMintsToFetch = XLibzControlDialog::GetSelectedMints();
 
         for (auto& meta : vMintsToFetch) {
             if (meta.nVersion < libzerocoin::PrivateCoin::PUBKEY_VERSION) {
@@ -497,7 +497,7 @@ void PrivacyDialog::sendXLIBz()
     }
 
     // Clear xlibz selector in case it was used
-    XLIBzControlDialog::setSelectedMints.clear();
+    XLibzControlDialog::setSelectedMints.clear();
     ui->labelXLIBzSelected_int->setText(QString("0"));
     ui->labelQuantitySelected_int->setText(QString("0"));
 
@@ -841,7 +841,7 @@ void PrivacyDialog::updateSPORK16Status()
     } else if (!fMaintenanceMode && !fButtonsEnabled) {
         // Mint XLIBz
         ui->pushButtonMintXLIBz->setEnabled(true);
-        ui->pushButtonMintXLIBz->setToolTip(tr("PrivacyDialog", "Enter an amount of Liberty to convert to XLIBz", 0));
+        ui->pushButtonMintXLIBz->setToolTip(tr("PrivacyDialog", "Enter an amount of XLIB to convert to XLIBz", 0));
 
         // Spend XLIBz
         ui->pushButtonSpendXLIBz->setEnabled(true);

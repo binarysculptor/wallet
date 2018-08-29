@@ -57,7 +57,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
         if (wtx.IsZerocoinSpend() && (fZSpendFromMe || wallet->xlibzTracker->HasMintTx(hash))) {
             //XLIBz stake reward
             sub.involvesWatchAddress = false;
-            sub.type = TransactionRecord::StakeZXLIB;
+            sub.type = TransactionRecord::StakeXLIBZ;
             sub.address = mapValue["zerocoinmint"];
             sub.credit = 0;
             for (const CTxOut& out : wtx.vout) {
@@ -311,7 +311,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
 bool IsZXLIBType(TransactionRecord::Type type)
 {
     switch (type) {
-        case TransactionRecord::StakeZXLIB:
+        case TransactionRecord::StakeXLIBZ:
         case TransactionRecord::ZerocoinMint:
         case TransactionRecord::ZerocoinSpend:
         case TransactionRecord::RecvFromZerocoinSpend:
@@ -360,7 +360,7 @@ void TransactionRecord::updateStatus(const CWalletTx& wtx)
         }
     }
     // For generated transactions, determine maturity
-    else if (type == TransactionRecord::Generated || type == TransactionRecord::StakeMint || type == TransactionRecord::StakeZXLIB || type == TransactionRecord::MNReward) {
+    else if (type == TransactionRecord::Generated || type == TransactionRecord::StakeMint || type == TransactionRecord::StakeXLIBZ || type == TransactionRecord::MNReward) {
         if (nBlocksToMaturity > 0) {
             status.status = TransactionStatus::Immature;
             status.matures_in = nBlocksToMaturity;

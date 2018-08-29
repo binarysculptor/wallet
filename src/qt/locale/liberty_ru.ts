@@ -62,12 +62,12 @@
         <translation>Адреса получения</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Это ваши RUPAYA-адреса для отправки платежей. Перед отправкой монет всегда проверяйте сумму и адрес получателя.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Это ваши Liberty-адреса для отправки платежей. Перед отправкой монет всегда проверяйте сумму и адрес получателя.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Это ваши RUPAYA-адреса для получения платежей. Для каждой транзакции рекомендуется использовать новый адрес получения.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Это ваши Liberty-адреса для получения платежей. Для каждой транзакции рекомендуется использовать новый адрес получения.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -176,16 +176,16 @@
         <translation>Подтверждение шифрования кошелька</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA сейчас закроется, чтобы завершить процесс шифрования. Помните, что шифрование вашего кошелька не может полностью защитить ваши RUPAYA от кражи с использованием вредоносного ПО.</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty сейчас закроется, чтобы завершить процесс шифрования. Помните, что шифрование вашего кошелька не может полностью защитить ваши Liberty от кражи с использованием вредоносного ПО.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Вы действительно хотите зашифровать свой кошелек?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
-        <translation>Внимание: если вы зашифруете свой кошелёк и потеряете от него пароль, то вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ СВОИ RUPAYA&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
+        <translation>Внимание: если вы зашифруете свой кошелёк и потеряете от него пароль, то вы &lt;b&gt;ПОТЕРЯЕТЕ ВСЕ СВОИ Liberty&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -254,12 +254,12 @@
         <translation>Адрес:</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Введите RUPAYA адрес, которым вы хотите зашифровать, используя BIP 38. Введите пароль в среднем поле. Нажмите "Зашифровать", чтобы создать зашиврованный секретный ключ.</translation>
+        <source>Enter a Liberty Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Введите Liberty адрес, которым вы хотите зашифровать, используя BIP 38. Введите пароль в среднем поле. Нажмите "Зашифровать", чтобы создать зашиврованный секретный ключ.</translation>
     </message>
     <message>
-        <source>The RUPAYA address to encrypt</source>
-        <translation>Адрес RUPAYA для зашифровки</translation>
+        <source>The Liberty address to encrypt</source>
+        <translation>Адрес Liberty для зашифровки</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -290,8 +290,8 @@
         <translation>Копировать текущую подпись в системный буфер обмена</translation>
     </message>
     <message>
-        <source>Encrypt the private key for this RUPAYA address</source>
-        <translation>Зашифровать личные ключи для этого RUPAYA адреса </translation>
+        <source>Encrypt the private key for this Liberty address</source>
+        <translation>Зашифровать личные ключи для этого Liberty адреса </translation>
     </message>
     <message>
         <source>Reset all fields</source>
@@ -433,7 +433,7 @@
         <translation>Просмотр истории транзакций</translation>
     </message>
     <message>
-        <source>Privacy Actions for zRUPX</source>
+        <source>Privacy Actions for XLIBz</source>
         <translation>Действия конфиденциальности для зпив</translation>
     </message>
     <message>
@@ -645,16 +645,16 @@
         <translation>Панель вкладок</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Отправить монеты на RUPAYA адрес</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Отправить монеты на Liberty адрес</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
-        <translation>Запросить платежи (генерирует QR-код и RUPAYA: URI)</translation>
+        <translation>Запросить платежи (генерирует QR-код и Liberty: URI)</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -669,24 +669,24 @@
         <translation>Обзор мастернод</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;О RUPAYA Core</translation>
+        <source>&amp;About Liberty Core</source>
+        <translation>&amp;О Liberty Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Показать информацию о RUPAYA Core</translation>
+        <source>Show information about Liberty Core</source>
+        <translation>Показать информацию о Liberty Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
-        <translation>Изменение параметров конфигурации RUPAYA</translation>
+        <source>Modify configuration options for Liberty</source>
+        <translation>Изменение параметров конфигурации Liberty</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>Подписывайте сообщения вашими RUPAYA адресами, чтобы доказать, что вы их владелец</translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Подписывайте сообщения вашими Liberty адресами, чтобы доказать, что вы их владелец</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>Проверте сообщения, чтобы убедиться, что они были подписаны указанным RUPAYA адресом </translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>Проверте сообщения, чтобы убедиться, что они были подписаны указанным Liberty адресом </translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -717,8 +717,8 @@
         <translation>Открыть файл настроек мастернод</translation>
     </message>
     <message>
-        <source>Open a RUPAYA: URI or payment request</source>
-        <translation>Открыть RUPAYA: URI или запрос платежа</translation>
+        <source>Open a Liberty: URI or payment request</source>
+        <translation>Открыть Liberty: URI или запрос платежа</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -729,16 +729,16 @@
         <translation>Окно обзора блока</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Смотрите помощь к программе, чтобы получить документацию ко всем возможным опциям комманды RUPAYA</translation>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
+        <translation>Смотрите помощь к программе, чтобы получить документацию ко всем возможным опциям комманды Liberty</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>Клиент RUPAYA Core</translation>
+        <source>Liberty Core client</source>
+        <translation>Клиент Liberty Core</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to RUPAYA network</source>
-        <translation><numerusform>%n активных подключений к сети RUPAYA</numerusform><numerusform>%n активных подключений к сети RUPAYA</numerusform><numerusform>%n активных подключений к сети RUPAYA</numerusform><numerusform>%n активных подключений к сети RUPAYA</numerusform></translation>
+        <source>%n active connection(s) to Liberty network</source>
+        <translation><numerusform>%n активных подключений к сети Liberty</numerusform><numerusform>%n активных подключений к сети Liberty</numerusform><numerusform>%n активных подключений к сети Liberty</numerusform><numerusform>%n активных подключений к сети Liberty</numerusform></translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1130,8 +1130,8 @@ MultiSend: %1</translation>
         <translation>Этот маркер становится красным если получаемая адресатом сумма меньше, чем %1</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 urupx per input.</source>
-        <translation>Может вариироваться +/- %1 urupx при вводе</translation>
+        <source>Can vary +/- %1 uXLIB per input.</source>
+        <translation>Может вариироваться +/- %1 uXLIB при вводе</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1185,8 +1185,8 @@ MultiSend: %1</translation>
         <translation>Изменить адрес отправки</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid RUPAYA address.</source>
-        <translation>Введенный адрес "%1" не является RUPAYA адресом.</translation>
+        <source>The entered address "%1" is not a valid Liberty address.</source>
+        <translation>Введенный адрес "%1" не является Liberty адресом.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1231,16 +1231,16 @@ MultiSend: %1</translation>
         <translation>версия</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-бит)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>О RUPAYA Core</translation>
+        <source>About Liberty Core</source>
+        <translation>О Liberty Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1286,16 +1286,16 @@ MultiSend: %1</translation>
         <translation>Добро пожаловать</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Добро пожаловать в RUPAYA Core.</translation>
+        <source>Welcome to Liberty Core.</source>
+        <translation>Добро пожаловать в Liberty Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Поскольку это первый запуск программы, вы можете выбрать, где будут храниться данные RUPAYA Core.</translation>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
+        <translation>Поскольку это первый запуск программы, вы можете выбрать, где будут храниться данные Liberty Core.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core загрузит и сохранит копию цепочки блоков RUPAYA. Каталог будет занимать около %1GB и со временем размер будет увеличиваться. Кроме того, в этом каталоге будет храниться кошелек.</translation>
+        <source>Liberty Core will download and store a copy of the Liberty block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Liberty Core загрузит и сохранит копию цепочки блоков Liberty. Каталог будет занимать около %1GB и со временем размер будет увеличиваться. Кроме того, в этом каталоге будет храниться кошелек.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1306,8 +1306,8 @@ MultiSend: %1</translation>
         <translation>Использовать другой каталог данных:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1448,12 +1448,12 @@ MultiSend: %1</translation>
         <translation>Введите адрес для отправки</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other RUPAYA addresses after it matures.
-To Add: enter percentage to give and RUPAYA address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Liberty addresses after it matures.
+To Add: enter percentage to give and Liberty address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
-        <translation>MultiSend позволяет вам автоматически отправлять до 100% вознаграждения за мастерноды и хранение, после их созревания, на другие RUPAYA адреса.
-Для добавления: введите передаваемый процент и RUPAYA адрес для добавления к вектору MultiSend.
+        <translation>MultiSend позволяет вам автоматически отправлять до 100% вознаграждения за мастерноды и хранение, после их созревания, на другие Liberty адреса.
+Для добавления: введите передаваемый процент и Liberty адрес для добавления к вектору MultiSend.
 Для удаления: введите удаляемый адрес и нажмите удалить.
 MultiSend будет неактивен до тех пор, пока вы не нажмете Включить</translation>
     </message>
@@ -1681,8 +1681,8 @@ Please be patient after clicking import.</source>
         <translation>Адрес/ Сумма:</translation>
     </message>
     <message>
-        <source>Add destinations to send RUPAYA to</source>
-        <translation>Добавить назначение куда отправить RUPAYA</translation>
+        <source>Add destinations to send Liberty to</source>
+        <translation>Добавить назначение куда отправить Liberty</translation>
     </message>
     <message>
         <source>Add &amp;Destination</source>
@@ -1780,48 +1780,48 @@ Please be patient after clicking import.</source>
         <translation>Выберите уровень конфиденциальности.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>Используйте 2 разные мастерноды для смешивания средств до 10000 RUPAYA</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>Используйте 2 разные мастерноды для смешивания средств до 10000 Liberty</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>Используйте 8 разных мастернод для смешивания средств до 10000 RUPAYA</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>Используйте 8 разных мастернод для смешивания средств до 10000 Liberty</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Используйте 16 разных мастернод</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Этот вариант является самым быстрым и будет стоить порядка ~0.025 RUPAYA для анонимизации 10000 RUPAYA</translation>
+        <source>This option is the quickest and will cost about ~0.025 Liberty to anonymize 10000 Liberty</source>
+        <translation>Этот вариант является самым быстрым и будет стоить порядка ~0.025 Liberty для анонимизации 10000 Liberty</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Это средний по скорости вариант и он будет стоить около 0.05 RUPAYA для анонимизации 10000 RUPAYA</translation>
+        <source>This option is moderately fast and will cost about 0.05 Liberty to anonymize 10000 Liberty</source>
+        <translation>Это средний по скорости вариант и он будет стоить около 0.05 Liberty для анонимизации 10000 Liberty</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Это самый медленный и безопасный вариант. Максимальная анонимность стоит</translation>
     </message>
     <message>
-        <source>0.1 RUPAYA per 10000 RUPAYA you anonymize.</source>
-        <translation>0.1 RUPAYA за 10000 RUPAYA которые вы собираетесь анонимизировать.</translation>
+        <source>0.1 Liberty per 10000 Liberty you anonymize.</source>
+        <translation>0.1 Liberty за 10000 Liberty которые вы собираетесь анонимизировать.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
         <translation>Настройка Перемешивания</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
-        <translation>Перемешивание было успешно выставлено на стандартные значения (%1 и 2 цикла). Вы в любой момент можете это изменить, открыв окно настройки RUPAYA.</translation>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
+        <translation>Перемешивание было успешно выставлено на стандартные значения (%1 и 2 цикла). Вы в любой момент можете это изменить, открыв окно настройки Liberty.</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
-        <translation>Перемешивание было успешно выбрано как высокое (%1 и 8 циклов). Вы в любой момент можете это изменить, открыв окно настройки RUPAYA.</translation>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
+        <translation>Перемешивание было успешно выбрано как высокое (%1 и 8 циклов). Вы в любой момент можете это изменить, открыв окно настройки Liberty.</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
-        <translation>Перемешивание было успешно выставлено на максимальное (%1 и 16 циклов). Вы в любой момент можете это изменить, открыв окно настройки RUPAYA.</translation>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
+        <translation>Перемешивание было успешно выставлено на максимальное (%1 и 16 циклов). Вы в любой момент можете это изменить, открыв окно настройки Liberty.</translation>
     </message>
 </context>
 <context>
@@ -1882,8 +1882,8 @@ Please be patient after clicking import.</source>
         <translation>Отключив проведение неподтвержденных изменений все изменения о транзакции &lt;br/&gt;не будут использованы пока транзакция не получит хотя бы одно подтверждение.&lt;br/&gt;Также это влияет на расчет вашего баланса.</translation>
     </message>
     <message>
-        <source>Automatically open the RUPAYA client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Автоматически открыть клиентский порт RUPAYA через роутер. Ваш роутер должен поддерживать UPnP, а сам сервис должен быть включен.</translation>
+        <source>Automatically open the Liberty client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Автоматически открыть клиентский порт Liberty через роутер. Ваш роутер должен поддерживать UPnP, а сам сервис должен быть включен.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1902,12 +1902,12 @@ Please be patient after clicking import.</source>
         <translation>Эксперт</translation>
     </message>
     <message>
-        <source>Automatically start RUPAYA after logging in to the system.</source>
-        <translation>Автоматически запускать RUPAYA после входа в систему.</translation>
+        <source>Automatically start Liberty after logging in to the system.</source>
+        <translation>Автоматически запускать Liberty после входа в систему.</translation>
     </message>
     <message>
-        <source>&amp;Start RUPAYA on system login</source>
-        <translation>&amp;Запускать RUPAYA при входе в систему</translation>
+        <source>&amp;Start Liberty on system login</source>
+        <translation>&amp;Запускать Liberty при входе в систему</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1934,50 +1934,50 @@ Please be patient after clicking import.</source>
         <translation>&amp;Сеть</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting RUPAYA.</source>
-        <translation>Здесь можно выставить язык интерфейса. Изменения вступят в силу после перезапуска RUPAYA.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Liberty.</source>
+        <translation>Здесь можно выставить язык интерфейса. Изменения вступят в силу после перезапуска Liberty.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
+https://www.transifex.com/liberty-project/liberty-project-translations</source>
         <translation>Отсутствует ваш язык или заметили незавершенный перевод? Вы можете помочь нам стать лучше:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</translation>
+https://www.transifex.com/liberty-project/liberty-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Карта порта, использующего &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of RUPAYA units to zRUPX</source>
-        <translation>Невозможно автоматически отчеканить единицы RUPAYA для zRUPX</translation>
+        <source>Enable automatic minting of Liberty units to XLIBz</source>
+        <translation>Невозможно автоматически отчеканить единицы Liberty для XLIBz</translation>
     </message>
     <message>
-        <source>Enable zRUPX Automint</source>
-        <translation>Невозможно авточеканка  zRUPX</translation>
+        <source>Enable XLIBz Automint</source>
+        <translation>Невозможно авточеканка  XLIBz</translation>
     </message>
     <message>
-        <source>Percentage of incoming RUPAYA which get automatically converted to zRUPX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Процент приходящих RUPAYA, которые автоматически конвертируются в zRUPX благодаря Zerocoin протоколу (min: 10%)</translation>
+        <source>Percentage of incoming Liberty which get automatically converted to XLIBz via Zerocoin Protocol (min: 10%)</source>
+        <translation>Процент приходящих Liberty, которые автоматически конвертируются в XLIBz благодаря Zerocoin протоколу (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zRUPX</source>
-        <translation>Процент  авточеканненых zRUPX</translation>
+        <source>Percentage of autominted XLIBz</source>
+        <translation>Процент  авточеканненых XLIBz</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough RUPAYA for this denomination is available</source>
-        <translation>Подождите с автоматическим преобразованием в Zerocoin, пока не будет достаточно RUPAYA для этой номинации.</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough Liberty for this denomination is available</source>
+        <translation>Подождите с автоматическим преобразованием в Zerocoin, пока не будет достаточно Liberty для этой номинации.</translation>
     </message>
     <message>
-        <source>Preferred Automint zRUPX Denomination</source>
-        <translation>Предпочитаемый номинал авточеканной  монеты  zRUPX</translation>
+        <source>Preferred Automint XLIBz Denomination</source>
+        <translation>Предпочитаемый номинал авточеканной  монеты  XLIBz</translation>
     </message>
     <message>
         <source>Stake split threshold:</source>
         <translation>Порог разделения доли:</translation>
     </message>
     <message>
-        <source>Connect to the RUPAYA network through a SOCKS5 proxy.</source>
-        <translation>Подключиться к сети RUPAYA через SOCKS5 прокси.</translation>
+        <source>Connect to the Liberty network through a SOCKS5 proxy.</source>
+        <translation>Подключиться к сети Liberty через SOCKS5 прокси.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -2131,8 +2131,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Общий баланс включая все не доступные монеты</translation>
     </message>
     <message>
-        <source>RUPAYA Balance</source>
-        <translation>Баланс RUPAYA</translation>
+        <source>Liberty Balance</source>
+        <translation>Баланс Liberty</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -2155,17 +2155,17 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Текущий заблокированый баланс всех наблюдаемых адресов</translation>
     </message>
     <message>
-        <source>Your current RUPAYA balance, unconfirmed and immature transactions included</source>
-        <translation>Ваш текущий RUPAYA  баланс, включая неподтвержденные и незрелые транзакции</translation>
+        <source>Your current Liberty balance, unconfirmed and immature transactions included</source>
+        <translation>Ваш текущий Liberty  баланс, включая неподтвержденные и незрелые транзакции</translation>
     </message>
     <message>
-        <source>zRUPX Balance</source>
-        <translation>Баланс zRUPX</translation>
+        <source>XLIBz Balance</source>
+        <translation>Баланс XLIBz</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zRUPX are spendable.</source>
-        <translation>Зрелые: более 20 подтверждений и более 1 чеканки одного и того же наименования после того, как оно было отчеканено. Эти zRUPX можно потратить.</translation>
+These XLIBz are spendable.</source>
+        <translation>Зрелые: более 20 подтверждений и более 1 чеканки одного и того же наименования после того, как оно было отчеканено. Эти XLIBz можно потратить.</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -2174,8 +2174,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Незрелый: подтвержден, но менее 1 чеканок того же наименования после того, как он был отчеканен</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>Возможно отображаемая информация устарела. Ваш кошелек автоматически синхронизируется с сетью RUPAYA после установки соединения, но этот процесс еще не завершен. </translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>Возможно отображаемая информация устарела. Ваш кошелек автоматически синхронизируется с сетью Liberty после установки соединения, но этот процесс еще не завершен. </translation>
     </message>
     <message>
         <source>OVERVIEW</source>
@@ -2218,8 +2218,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>Расходуемый:</translation>
     </message>
     <message>
-        <source>Locked RUPAYA or Masternode collaterals. These are excluded from zRUPX minting.</source>
-        <translation>Заблокированно дополнительное обеспечение RUPAYA или Masternode. Они исключены из чеканки zRUPX.</translation>
+        <source>Locked Liberty or Masternode collaterals. These are excluded from XLIBz minting.</source>
+        <translation>Заблокированно дополнительное обеспечение Liberty или Masternode. Они исключены из чеканки XLIBz.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2230,8 +2230,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>Неподтвержденный:</translation>
     </message>
     <message>
-        <source>Your current zRUPX balance, unconfirmed and immature zRUPX included.</source>
-        <translation>Ваш текущий zRUPX баланс, включая неподтвержденные и незрелые транзакции</translation>
+        <source>Your current XLIBz balance, unconfirmed and immature XLIBz included.</source>
+        <translation>Ваш текущий XLIBz баланс, включая неподтвержденные и незрелые транзакции</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2242,10 +2242,10 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>несинронизировано</translation>
     </message>
     <message>
-        <source>Current percentage of zRUPX.
+        <source>Current percentage of XLIBz.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Текущий процент от zRUPX.
+        <translation>Текущий процент от XLIBz.
 Если АвтоЧеканка включена, этот процент будет располагаться на настроенном проценте АвтоЧеканка  (по умолчанию = 10%).
 </translation>
     </message>
@@ -2291,8 +2291,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Не удалось запустить rupaya: обработчик click-to-pay </translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid RUPAYA address or malformed URI parameters.</source>
-        <translation>URI не интерпретируется! Причиной этому может быть неверный RUPAYA адрес или неверные параметеры URI.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Liberty address or malformed URI parameters.</source>
+        <translation>URI не интерпретируется! Причиной этому может быть неверный Liberty адрес или неверные параметеры URI.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -2377,8 +2377,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Действия Zerocoin </translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>Возможно отображаемая информация устарела. Ваш кошелек автоматически синхронизируется с сетью RUPAYA после установки соединения, но этот процесс еще не завершен. </translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>Возможно отображаемая информация устарела. Ваш кошелек автоматически синхронизируется с сетью Liberty после установки соединения, но этот процесс еще не завершен. </translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2389,8 +2389,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
         <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
@@ -2401,8 +2401,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Доступный для чеканки</translation>
     </message>
     <message>
-        <source>0.000 000 00 RUPAYA</source>
-        <translation>0.000 000 00 RUPAYA</translation>
+        <source>0.000 000 00 Liberty</source>
+        <translation>0.000 000 00 Liberty</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2441,16 +2441,16 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>КОНФИДЕНЦИАЛЬНОСТЬ</translation>
     </message>
     <message>
-        <source>Enter an amount of Rupx to convert to zRUPX</source>
-        <translation>Введите сумму в Rupx для  конвертации в zRUPX</translation>
+        <source>Enter an amount of XLIB to convert to XLIBz</source>
+        <translation>Введите сумму в XLIB для  конвертации в XLIBz</translation>
     </message>
     <message>
-        <source>zRUPX Control</source>
-        <translation>Контроль zRUPX</translation>
+        <source>XLIBz Control</source>
+        <translation>Контроль XLIBz</translation>
     </message>
     <message>
-        <source>zRUPX Selected:</source>
-        <translation>Выбрано zRUPX:</translation>
+        <source>XLIBz Selected:</source>
+        <translation>Выбрано XLIBz:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -2465,24 +2465,24 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Потратить Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending</source>
-        <translation>Доступный (зрелый и расходуемый) zRUPX для расходов</translation>
+        <source>Available (mature and spendable) XLIBz for spending</source>
+        <translation>Доступный (зрелый и расходуемый) XLIBz для расходов</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Доступный Баланс :</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending
+        <source>Available (mature and spendable) XLIBz for spending
 
-zRUPX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Доступный (зрелый и затратный) zRUPX для расходов
+XLIBz are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Доступный (зрелый и затратный) XLIBz для расходов
 
-zRUPX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</translation>
+XLIBz are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</translation>
     </message>
     <message>
-        <source>0 zRUPX</source>
-        <translation>0 zRUPX</translation>
+        <source>0 XLIBz</source>
+        <translation>0 XLIBz</translation>
     </message>
     <message>
         <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
@@ -2501,8 +2501,8 @@ zRUPX are mature when they have more than 20 confirmations AND more than 2 mints
         <translation>Оплатить &amp;кому:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>Адрес RUPAYA для отправки платежа. Создает локальный платеж себе, когда он пуст.</translation>
+        <source>The Liberty address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>Адрес Liberty для отправки платежа. Создает локальный платеж себе, когда он пуст.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2553,8 +2553,8 @@ zRUPX are mature when they have more than 20 confirmations AND more than 2 mints
         <translation>Zerocoin Stats:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zRUPX</source>
-        <translation>Общий баланс, включая неподтвержденные и незрелые zRUPX</translation>
+        <source>Total Balance including unconfirmed and immature XLIBz</source>
+        <translation>Общий баланс, включая неподтвержденные и незрелые XLIBz</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2575,24 +2575,24 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Незрелый: подтвержден, но менее 1 чеканок того же наименования после того, как он был отчеканен</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zRUPX minting.
+        <source>Show the current status of automatic XLIBz minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to rupaya.conf
 - disable: add 'enablezeromint=0' to rupaya.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zRUPX
+- menu Settings-&gt;Options-&gt;Percentage of autominted XLIBz
 
 </source>
-        <translation>Показать текущий статус автоматической чеканки zRUPX.
+        <translation>Показать текущий статус автоматической чеканки XLIBz.
 
 Чтобы изменить статус (требуется перезагрузка):
 - включить: добавить 'enablezeromint = 1' в rupaya.conf
 - отключить: добавить 'enablezeromint = 0' в rupaya.conf
 
 Чтобы изменить процент (не требуется перезагрузка):
-- меню Настройки-&gt; Параметры-&gt; Процент авторизованного zRUPX</translation>
+- меню Настройки-&gt; Параметры-&gt; Процент авторизованного XLIBz</translation>
     </message>
     <message>
         <source>AutoMint Status</source>
@@ -2787,12 +2787,12 @@ Maximum allowed: </source>
 Максимально допустимое:</translation>
     </message>
     <message>
-        <source>zRUPX Spend #: </source>
-        <translation>zRUPX Тратить #: </translation>
+        <source>XLIBz Spend #: </source>
+        <translation>XLIBz Тратить #: </translation>
     </message>
     <message>
-        <source>zRUPX Mint</source>
-        <translation>чеканка zRUPX</translation>
+        <source>XLIBz Mint</source>
+        <translation>чеканка XLIBz</translation>
     </message>
     <message>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
@@ -2807,12 +2807,12 @@ Maximum allowed: </source>
         <translation> Настроенный целевой процент: &lt;b&gt;</translation>
     </message>
     <message>
-        <source>zRUPX is currently disabled due to maintenance.</source>
-        <translation>zRUPX в настоящее время отключен от обслуживания.</translation>
+        <source>XLIBz is currently disabled due to maintenance.</source>
+        <translation>XLIBz в настоящее время отключен от обслуживания.</translation>
     </message>
     <message>
-        <source>zRUPX is currently undergoing maintenance.</source>
-        <translation>В настоящее время zRUPX проходит техническое обслуживание.</translation>
+        <source>XLIBz is currently undergoing maintenance.</source>
+        <translation>В настоящее время XLIBz проходит техническое обслуживание.</translation>
     </message>
     <message>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
@@ -2899,8 +2899,8 @@ Maximum allowed: </source>
         <translation>Создан успешно</translation>
     </message>
     <message>
-        <source> zRUPX in </source>
-        <translation> zRUPX в</translation>
+        <source> XLIBz in </source>
+        <translation> XLIBz в</translation>
     </message>
     <message>
         <source> sec. Used denominations:
@@ -2928,7 +2928,7 @@ Maximum allowed: </source>
     </message>
     <message>
         <source>Invalid Rupaya Address</source>
-        <translation>неправильный RUPAYA адрес</translation>
+        <translation>неправильный Liberty адрес</translation>
     </message>
     <message>
         <source>Invalid Send Amount</source>
@@ -2959,12 +2959,12 @@ Maximum allowed: </source>
         <translation>Подтвердить отправку монет</translation>
     </message>
     <message>
-        <source>Version 1 zRUPX require a security level of 100 to successfully spend.</source>
-        <translation>Для версии 1 zRUPX требуется уровень безопасности 100, который можно успешно тратить.</translation>
+        <source>Version 1 XLIBz require a security level of 100 to successfully spend.</source>
+        <translation>Для версии 1 XLIBz требуется уровень безопасности 100, который можно успешно тратить.</translation>
     </message>
     <message>
-        <source>Failed to spend zRUPX</source>
-        <translation>Не удалось провести zRUPX</translation>
+        <source>Failed to spend XLIBz</source>
+        <translation>Не удалось провести XLIBz</translation>
     </message>
     <message>
         <source>Failed to fetch mint associated with serial hash</source>
@@ -2986,7 +2986,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message numerus="yes">
         <source>PrivacyDialog</source>
-        <comment>Enter an amount of RUPAYA to convert to zRUPX</comment>
+        <comment>Enter an amount of Liberty to convert to XLIBz</comment>
         <translation><numerusform>PrivacyDialog</numerusform><numerusform>PrivacyDialog</numerusform><numerusform>PrivacyDialog</numerusform><numerusform>PrivacyDialog</numerusform></translation>
     </message>
     <message>
@@ -3029,8 +3029,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Сумма</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA address (e.g. %1)</source>
-        <translation>Введите адрес RUPAYA (например %1)</translation>
+        <source>Enter a Liberty address (e.g. %1)</source>
+        <translation>Введите адрес Liberty (например %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -3167,8 +3167,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Блокчейн</translation>
     </message>
     <message>
-        <source>Open the RUPAYA debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Открыть протокол отладки RUPAYA. Это может занять некоторе время, если файл протокола очень большой.</translation>
+        <source>Open the Liberty debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Открыть протокол отладки Liberty. Это может занять некоторе время, если файл протокола очень большой.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -3303,8 +3303,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Пользовательский путь резервного копирования:</translation>
     </message>
     <message>
-        <source>Custom zRUPX Backup Path:</source>
-        <translation>Пользовательский путь резервного копирования zRUPX:</translation>
+        <source>Custom XLIBz Backup Path:</source>
+        <translation>Пользовательский путь резервного копирования XLIBz:</translation>
     </message>
     <message>
         <source>Custom Backups Threshold:</source>
@@ -3384,8 +3384,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Вывод:</translation>
     </message>
     <message>
-        <source>Welcome to the RUPAYA RPC console.</source>
-        <translation>Добро пожаловать в окружение RUPAYA RPC.</translation>
+        <source>Welcome to the Liberty RPC console.</source>
+        <translation>Добро пожаловать в окружение Liberty RPC.</translation>
     </message>
     <message>
         <source>&amp;Disconnect Node</source>
@@ -3511,16 +3511,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Дополнительный ярлык для связи с новым адресом приема.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the RUPAYA network.</source>
-        <translation>Необязательное сообщение для присоединения к платежному запросу, которое будет отображаться при открытии запроса. Примечание. Сообщение не будет отправлено с оплатой через сеть RUPAYA.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Liberty network.</source>
+        <translation>Необязательное сообщение для присоединения к платежному запросу, которое будет отображаться при открытии запроса. Примечание. Сообщение не будет отправлено с оплатой через сеть Liberty.</translation>
     </message>
     <message>
         <source>RECEIVE</source>
         <translation>ПОЛУЧАТЬ</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the RUPAYA network.</source>
-        <translation>Необязательное сообщение для присоединения к платежному запросу, которое будет отображаться при открытии запроса. &lt;br&gt;Примечание. Сообщение не будет отправлено с оплатой через сеть RUPAYA.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Liberty network.</source>
+        <translation>Необязательное сообщение для присоединения к платежному запросу, которое будет отображаться при открытии запроса. &lt;br&gt;Примечание. Сообщение не будет отправлено с оплатой через сеть Liberty.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -3748,8 +3748,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>UTXO Размер:</translation>
     </message>
     <message>
-        <source>0 RUPAYA</source>
-        <translation>0 RUPAYA</translation>
+        <source>0 Liberty</source>
+        <translation>0 Liberty</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3812,8 +3812,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Если пользовательская плата установлена в 1000 uRUPAYAs, а транзакция составляет всего 250 байт, тогда «за килобайт» платит только 250 uRUPAYAs,&lt;br /&gt;а «по крайней мере» платит 1000 uRUPAYA. Для транзакций, превышающих килобайт, оплата за килобайт</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for RUPAYA transactions than the network can process.</source>
-        <translation>Платить только минимальную плату просто отлично, если в блоке меньше объема транзакции, чем места в блоке.&lt;br /&gt; Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, если будет больше спроса на транзакции RUPAYA, чем сеть может обрабатывать.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Liberty transactions than the network can process.</source>
+        <translation>Платить только минимальную плату просто отлично, если в блоке меньше объема транзакции, чем места в блоке.&lt;br /&gt; Но имейте в виду, что это может закончиться никогда не подтверждающей транзакцией, если будет больше спроса на транзакции Liberty, чем сеть может обрабатывать.</translation>
     </message>
     <message>
         <source>normal</source>
@@ -3860,8 +3860,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Добавить &amp;Получателя</translation>
     </message>
     <message>
-        <source>Anonymized RUPAYA</source>
-        <translation>Анонимный RUPAYA</translation>
+        <source>Anonymized Liberty</source>
+        <translation>Анонимный Liberty</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -3908,8 +3908,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Инструмент разделения блоков не работает с несколькими адресами. Попробуй еще раз.</translation>
     </message>
     <message>
-        <source>Warning: Invalid RUPAYA address</source>
-        <translation>Предупреждение: неправильный RUPAYA адрес</translation>
+        <source>Warning: Invalid Liberty address</source>
+        <translation>Предупреждение: неправильный Liberty адрес</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -4011,8 +4011,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Оплатить &amp;кому:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to</source>
-        <translation>Адрес RUPAYA для отправки платежа</translation>
+        <source>The Liberty address to send the payment to</source>
+        <translation>Адрес Liberty для отправки платежа</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -4051,8 +4051,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Сообщение:</translation>
     </message>
     <message>
-        <source>A message that was attached to the RUPAYA: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the RUPAYA network.</source>
-        <translation>Сообщение, которое было прикреплено к URI RUPAYA: URI, который будет сохранен с транзакцией для вашей справки. Примечание. Это сообщение не будет отправлено через сеть RUPAYA.</translation>
+        <source>A message that was attached to the Liberty: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Liberty network.</source>
+        <translation>Сообщение, которое было прикреплено к URI Liberty: URI, который будет сохранен с транзакцией для вашей справки. Примечание. Это сообщение не будет отправлено через сеть Liberty.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -4078,8 +4078,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core выключается...</translation>
+        <source>Liberty Core is shutting down...</source>
+        <translation>Liberty Core выключается...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -4101,8 +4101,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Вы можете подписывать сообщения с вашими адресами, чтобы доказать, что вы ими владеете. Будьте осторожны, чтобы не подписывать ничего неопределенного, поскольку фишинг-атаки могут попытаться обмануть вас, подписав вашу личность на них. Подпишите только полные подробные заявления, с которыми вы согласны.</translation>
     </message>
     <message>
-        <source>The RUPAYA address to sign the message with</source>
-        <translation>Адрес RUPAYA для подписи сообщения с помощью</translation>
+        <source>The Liberty address to sign the message with</source>
+        <translation>Адрес Liberty для подписи сообщения с помощью</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -4133,16 +4133,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Копировать текущую подпись в системный буфер обмена</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this RUPAYA address</source>
-        <translation>Подпишите сообщение, чтобы подтвердить свой адрес RUPAYA</translation>
+        <source>Sign the message to prove you own this Liberty address</source>
+        <translation>Подпишите сообщение, чтобы подтвердить свой адрес Liberty</translation>
     </message>
     <message>
-        <source>The RUPAYA address the message was signed with</source>
-        <translation>Адрес RUPAYA, которым подписано сообщение</translation>
+        <source>The Liberty address the message was signed with</source>
+        <translation>Адрес Liberty, которым подписано сообщение</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified RUPAYA address</source>
-        <translation>Проверте сообщение, чтобы убедиться, что оно было подписано указанным RUPAYA адресом </translation>
+        <source>Verify the message to ensure it was signed with the specified Liberty address</source>
+        <translation>Проверте сообщение, чтобы убедиться, что оно было подписано указанным Liberty адресом </translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -4228,8 +4228,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -4244,8 +4244,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Разработчики Dash Core</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>Разработчики RUPAYA Core</translation>
+        <source>The Liberty Core developers</source>
+        <translation>Разработчики Liberty Core</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -4524,12 +4524,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Получено через обфускацию</translation>
     </message>
     <message>
-        <source>RUPAYA Stake</source>
-        <translation>Доля RUPAYA</translation>
+        <source>Liberty Stake</source>
+        <translation>Доля Liberty</translation>
     </message>
     <message>
-        <source>zRUPX Stake</source>
-        <translation>Доля zRUPX</translation>
+        <source>XLIBz Stake</source>
+        <translation>Доля XLIBz</translation>
     </message>
     <message>
         <source>Obfuscation Denominate</source>
@@ -4548,32 +4548,32 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Обфускация Создание конфессий</translation>
     </message>
     <message>
-        <source>Converted RUPAYA to zRUPX</source>
-        <translation>Преобразованный RUPAYA в zRUPX</translation>
+        <source>Converted Liberty to XLIBz</source>
+        <translation>Преобразованный Liberty в XLIBz</translation>
     </message>
     <message>
-        <source>Spent zRUPX</source>
-        <translation>потраченный zRUPX</translation>
+        <source>Spent XLIBz</source>
+        <translation>потраченный XLIBz</translation>
     </message>
     <message>
-        <source>Received RUPAYA from zRUPX</source>
-        <translation>Полученный RUPAYA от zRUPX</translation>
+        <source>Received Liberty from XLIBz</source>
+        <translation>Полученный Liberty от XLIBz</translation>
     </message>
     <message>
-        <source>Minted Change as zRUPX from zRUPX Spend</source>
-        <translation>созданная  замена  zRUPX из потраенного zRUPX </translation>
+        <source>Minted Change as XLIBz from XLIBz Spend</source>
+        <translation>созданная  замена  XLIBz из потраенного XLIBz </translation>
     </message>
     <message>
-        <source>Converted zRUPX to RUPAYA</source>
-        <translation>Преобразованный zRUPX to RUPAYA</translation>
+        <source>Converted XLIBz to Liberty</source>
+        <translation>Преобразованный XLIBz to Liberty</translation>
     </message>
     <message>
-        <source>Anonymous (zRUPX Transaction)</source>
-        <translation>Анонимный (транзакция zRUPX)</translation>
+        <source>Anonymous (XLIBz Transaction)</source>
+        <translation>Анонимный (транзакция XLIBz)</translation>
     </message>
     <message>
-        <source>Anonymous (zRUPX Stake)</source>
-        <translation>Анонимный (ставка zRUPX)</translation>
+        <source>Anonymous (XLIBz Stake)</source>
+        <translation>Анонимный (ставка XLIBz)</translation>
     </message>
     <message>
         <source>Sent to</source>
@@ -4783,12 +4783,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Экспортирование произошло успешно</translation>
     </message>
     <message>
-        <source>Received RUPAYA from zRUPX</source>
-        <translation>Полученный RUPAYA от zRUPX</translation>
+        <source>Received Liberty from XLIBz</source>
+        <translation>Полученный Liberty от XLIBz</translation>
     </message>
     <message>
-        <source>Zerocoin Spend, Change in zRUPX</source>
-        <translation>Потратить Zerocoin, Преобразовать в zRUPX</translation>
+        <source>Zerocoin Spend, Change in XLIBz</source>
+        <translation>Потратить Zerocoin, Преобразовать в XLIBz</translation>
     </message>
     <message>
         <source>The transaction history was successfully saved to %1.</source>
@@ -4824,8 +4824,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Отправить Монеты</translation>
     </message>
     <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 RUPAYA.</source>
-        <translation>SwiftX не поддерживает отправку значений, которые еще высоки. В настоящее время транзакции ограничены %1 RUPAYA.</translation>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 Liberty.</source>
+        <translation>SwiftX не поддерживает отправку значений, которые еще высоки. В настоящее время транзакции ограничены %1 Liberty.</translation>
     </message>
 </context>
 <context>
@@ -4856,10 +4856,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
-        <source>Select zRUPX to Spend</source>
-        <translation>Выберите zRUPX чтобы потратить</translation>
+        <source>Select XLIBz to Spend</source>
+        <translation>Выберите XLIBz чтобы потратить</translation>
     </message>
     <message>
         <source>Quantity</source>
@@ -4870,8 +4870,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4883,7 +4883,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = сохранить tx метаданные, например, владельца учетной записи и информацию о запросе платежа, 2 = удалить tx метаданные)</translation>
@@ -4909,8 +4909,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Расчетная контрольная точка  не является тем, что регистрируется блочным индексом</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
-        <translation>Не удается получить блокировку в каталоге данных %s. RUPAYA Core, вероятно, уже запущен.</translation>
+        <source>Cannot obtain a lock on data directory %s. Liberty Core is probably already running.</source>
+        <translation>Не удается получить блокировку в каталоге данных %s. Liberty Core, вероятно, уже запущен.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -4937,16 +4937,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Распространяется по лицензии программного обеспечения MIT, см. Сопроводительный файл COPYING или &lt;http://www.opensource.org/licenses/mit-license.php&gt;.</translation>
     </message>
     <message>
-        <source>Enable automatic wallet backups triggered after each zRUPX minting (0-1, default: %u)</source>
-        <translation>Включить автоматическое резервное копирование кошелька, запускаемое после каждого чеканки zRUPX (0-1, по умолчанию: %u)</translation>
+        <source>Enable automatic wallet backups triggered after each XLIBz minting (0-1, default: %u)</source>
+        <translation>Включить автоматическое резервное копирование кошелька, запускаемое после каждого чеканки XLIBz (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for RUPAYA inputs (0-1, default: %u)</source>
-        <translation>Включение или отключение функций разбивки для входов RUPAYA (0-1, по умолчанию: %u)</translation>
+        <source>Enable or disable staking functionality for Liberty inputs (0-1, default: %u)</source>
+        <translation>Включение или отключение функций разбивки для входов Liberty (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
-        <source>Enable or disable staking functionality for zRUPX inputs (0-1, default: %u)</source>
-        <translation>Включение или отключение функций разбивки для входов zRUPX (0-1, по умолчанию: %u)</translation>
+        <source>Enable or disable staking functionality for XLIBz inputs (0-1, default: %u)</source>
+        <translation>Включение или отключение функций разбивки для входов XLIBz (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Enable spork administration functionality with the appropriate private key.</source>
@@ -4981,12 +4981,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Выполнить команду, когда лучший блок изменяется (%s в cmd заменяется блочным хэшем)</translation>
     </message>
     <message>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Тарифы (в RUPAYA / Kb), меньшие, чем это, считаются нулевой комиссией за ретрансляцию (по умолчанию: %s)</translation>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Тарифы (в Liberty / Kb), меньшие, чем это, считаются нулевой комиссией за ретрансляцию (по умолчанию: %s)</translation>
     </message>
     <message>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Плата (в RUPAYA / Kb) меньше этого считается нулевой комиссией за создание транзакции (по умолчанию: %s)</translation>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Плата (в Liberty / Kb) меньше этого считается нулевой комиссией за создание транзакции (по умолчанию: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
@@ -5085,20 +5085,20 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Этот продукт включает программное обеспечение, разработанное OpenSSL Project для использования в OpenSSL Toolkit &lt;https://www.openssl.org/&gt; и криптографическом программном обеспечении, написанном Эриком Яном и программным обеспечением UPnP, написанным Томасом Бернардом.</translation>
     </message>
     <message>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
-        <translation>Не удалось привязать к %s на этом компьютере. RUPAYA Core, вероятно, уже запущен.</translation>
+        <source>Unable to bind to %s on this computer. Liberty Core is probably already running.</source>
+        <translation>Не удалось привязать к %s на этом компьютере. Liberty Core, вероятно, уже запущен.</translation>
     </message>
     <message>
         <source>Unable to locate enough Obfuscation denominated funds for this transaction.</source>
         <translation>Не удалось найти достаточное количество средств, предназначенных для обфускации, для этой транзакции.</translation>
     </message>
     <message>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 RUPAYA.</source>
-        <translation>Невозможно найти достаточное количество средств, не предназначенных для обфускации, для этой транзакции, которые не равны 10000 RUPAYA.</translation>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 Liberty.</source>
+        <translation>Невозможно найти достаточное количество средств, не предназначенных для обфускации, для этой транзакции, которые не равны 10000 Liberty.</translation>
     </message>
     <message>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 RUPAYA.</source>
-        <translation>Не удалось найти достаточное количество средств для этой транзакции, которые не равны 10000 RUPAYA.</translation>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 Liberty.</source>
+        <translation>Не удалось найти достаточное количество средств для этой транзакции, которые не равны 10000 Liberty.</translation>
     </message>
     <message>
         <source>Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: %s)</source>
@@ -5113,8 +5113,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Предупреждение: -paytxfee установлен очень высоко! Это комиссия за транзакцию, которую вы заплатите, если вы отправляете транзакцию.</translation>
     </message>
     <message>
-        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
-        <translation>Внимание: проверьте правильность даты и времени вашего компьютера! Если ваши часы ошибочны, RUPAYA Core не будет работать должным образом.</translation>
+        <source>Warning: Please check that your computer's date and time are correct! If your clock is wrong Liberty Core will not work properly.</source>
+        <translation>Внимание: проверьте правильность даты и времени вашего компьютера! Если ваши часы ошибочны, Liberty Core не будет работать должным образом.</translation>
     </message>
     <message>
         <source>Warning: The network does not appear to fully agree! Some miners appear to be experiencing issues.</source>
@@ -5265,8 +5265,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Copyright (C) 2014-%i Разработчики Dash Core</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
-        <translation>Copyright (C) 2015-%i Разработчики RUPAYA Core</translation>
+        <source>Copyright (C) 2015-%i The Liberty Core Developers</source>
+        <translation>Copyright (C) 2015-%i Разработчики Liberty Core</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
@@ -5353,8 +5353,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Ошибка при загрузке wallet.dat: Кошелек поврежден</translation>
     </message>
     <message>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
-        <translation>Ошибка загрузки wallet.dat: Кошелек требует более новой версии RUPAYA Core</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Liberty Core</source>
+        <translation>Ошибка загрузки wallet.dat: Кошелек требует более новой версии Liberty Core</translation>
     </message>
     <message>
         <source>Error opening block database</source>
@@ -5409,8 +5409,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Не удалось прочитать блок</translation>
     </message>
     <message>
-        <source>Fee (in RUPAYA/kB) to add to transactions you send (default: %s)</source>
-        <translation>Плата (в RUPAYA / kB) для добавления к транзакциям, которые вы отправляете (по умолчанию: %s)</translation>
+        <source>Fee (in Liberty/kB) to add to transactions you send (default: %s)</source>
+        <translation>Плата (в Liberty / kB) для добавления к транзакциям, которые вы отправляете (по умолчанию: %s)</translation>
     </message>
     <message>
         <source>Finalizing transaction.</source>
@@ -5469,8 +5469,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Информация</translation>
     </message>
     <message>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
-        <translation>Инициализация проверки работоспособности не удалась. RUPAYA Core отключается.</translation>
+        <source>Initialization sanity check failed. Liberty Core is shutting down.</source>
+        <translation>Инициализация проверки работоспособности не удалась. Liberty Core отключается.</translation>
     </message>
     <message>
         <source>Input is not valid.</source>
@@ -5541,8 +5541,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Процент автоматически отчеканенного Zerocoin (1-100, по умолчанию: %u)</translation>
     </message>
     <message>
-        <source>Reindex the RUPAYA and zRUPX money supply statistics</source>
-        <translation>Reindex статистика денежной массы RUPAYA и zRUPX</translation>
+        <source>Reindex the Liberty and XLIBz money supply statistics</source>
+        <translation>Reindex статистика денежной массы Liberty и XLIBz</translation>
     </message>
     <message>
         <source>Reindexing zerocoin database...</source>
@@ -5581,8 +5581,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 </translation>
     </message>
     <message>
-        <source>Disable all RUPAYA specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
-        <translation>Отключите все специфические функции RUPAYA (Masternodes, Zerocoin, SwiftX, Бюджетирование) (0-1, по умолчанию: %u)</translation>
+        <source>Disable all Liberty specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <translation>Отключите все специфические функции Liberty (Masternodes, Zerocoin, SwiftX, Бюджетирование) (0-1, по умолчанию: %u)</translation>
     </message>
     <message>
         <source>Enable SwiftX, show confirmations for locked transactions (bool, default: %s)</source>
@@ -5617,8 +5617,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Предпочтительный номинал для автоматически чеканившегося Zerocoin (1/5/10/50/100/500/1000/5000), 0 без предпочтений. default: %u)</translation>
     </message>
     <message>
-        <source>Specify custom backup path to add a copy of any automatic zRUPX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
-        <translation>Укажите собственный путь резервного копирования, чтобы добавить копию любой автоматической резервной копии zRUPX. Если задано как dir, каждая резервная копия генерирует файл с отметкой времени. Если он установлен как файл, он будет переписывать в этот файл каждую резервную копию. Если также установлен резервный путь, произойдет 4 резервных копии</translation>
+        <source>Specify custom backup path to add a copy of any automatic XLIBz backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <translation>Укажите собственный путь резервного копирования, чтобы добавить копию любой автоматической резервной копии XLIBz. Если задано как dir, каждая резервная копия генерирует файл с отметкой времени. Если он установлен как файл, он будет переписывать в этот файл каждую резервную копию. Если также установлен резервный путь, произойдет 4 резервных копии</translation>
     </message>
     <message>
         <source>Specify custom backup path to add a copy of any wallet backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup.</source>
@@ -6117,8 +6117,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Синхронизация спорков ...</translation>
     </message>
     <message>
-        <source>Syncing zRUPX wallet...</source>
-        <translation>Синхронизация zRUPX кошелька ...</translation>
+        <source>Syncing XLIBz wallet...</source>
+        <translation>Синхронизация XLIBz кошелька ...</translation>
     </message>
     <message>
         <source>The coin spend has been used</source>
@@ -6265,8 +6265,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Имя пользователя для соединений JSON-RPC</translation>
     </message>
     <message>
-        <source>Value is below the smallest available denomination (= 1) of zRUPX</source>
-        <translation>Значение ниже наименьшего доступного номинала (= 1) zRupx</translation>
+        <source>Value is below the smallest available denomination (= 1) of XLIBz</source>
+        <translation>Значение ниже наименьшего доступного номинала (= 1) XLIBz</translation>
     </message>
     <message>
         <source>Value more than Obfuscation pool maximum allows.</source>
@@ -6281,8 +6281,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Проверка кошелька ...</translation>
     </message>
     <message>
-        <source>Version 1 zRUPX require a security level of 100 to successfully spend.</source>
-        <translation>Для версии 1 zRUPX требуется уровень безопасности 100, который можно успешно тратить.</translation>
+        <source>Version 1 XLIBz require a security level of 100 to successfully spend.</source>
+        <translation>Для версии 1 XLIBz требуется уровень безопасности 100, который можно успешно тратить.</translation>
     </message>
     <message>
         <source>Wallet %s resides outside data directory %s</source>
@@ -6293,8 +6293,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Кошелек заблокирован.</translation>
     </message>
     <message>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
-        <translation>Кошелек необходимо переписать: перезапустите RUPAYA Core, чтобы завершить</translation>
+        <source>Wallet needed to be rewritten: restart Liberty Core to complete</source>
+        <translation>Кошелек необходимо переписать: перезапустите Liberty Core, чтобы завершить</translation>
     </message>
     <message>
         <source>Wallet options:</source>

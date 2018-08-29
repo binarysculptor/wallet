@@ -80,12 +80,12 @@
     </message>
     <message>
         <location line="+7"/>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -104,7 +104,7 @@
         <translation>&amp;Edit</translation>
     </message>
     <message>
-        <location line="+187"/>
+        <location line="+182"/>
         <source>Export Address List</source>
         <translation>Export Address List</translation>
     </message>
@@ -221,7 +221,7 @@
     </message>
     <message>
         <location line="+9"/>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your XLIBs from being stolen by malware infecting your computer.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -231,7 +231,7 @@
     </message>
     <message>
         <location line="+0"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -296,7 +296,7 @@
 <context>
     <name>BanTableModel</name>
     <message>
-        <location filename="../bantablemodel.cpp" line="+89"/>
+        <location filename="../bantablemodel.cpp" line="+87"/>
         <source>IP/Netmask</source>
         <translation type="unfinished"></translation>
     </message>
@@ -326,12 +326,12 @@
     </message>
     <message>
         <location line="-424"/>
-        <source>Enter a RUPAYA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <source>Enter a Liberty Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>The RUPAYA address to encrypt</source>
+        <source>The Liberty address to encrypt</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -375,7 +375,7 @@
     </message>
     <message>
         <location line="+18"/>
-        <source>Encrypt the private key for this RUPAYA address</source>
+        <source>Encrypt the private key for this Liberty address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -431,12 +431,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../bip38tooldialog.cpp" line="+30"/>
+        <location filename="../bip38tooldialog.cpp" line="+29"/>
         <source>Click &quot;Decrypt Key&quot; to compute key</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+90"/>
+        <location line="+89"/>
         <source>The entered passphrase is invalid. </source>
         <translation type="unfinished"></translation>
     </message>
@@ -516,7 +516,7 @@
 <context>
     <name>BitcoinGUI</name>
     <message>
-        <location filename="../bitcoingui.cpp" line="+128"/>
+        <location filename="../bitcoingui.cpp" line="+122"/>
         <source>Wallet</source>
         <translation>Wallet</translation>
     </message>
@@ -526,7 +526,7 @@
         <translation>Node</translation>
     </message>
     <message>
-        <location line="+180"/>
+        <location line="+174"/>
         <source>&amp;Overview</source>
         <translation>&amp;Overview</translation>
     </message>
@@ -557,7 +557,7 @@
     </message>
     <message>
         <location line="+11"/>
-        <source>Privacy Actions for zRUPX</source>
+        <source>Privacy Actions for XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -571,13 +571,12 @@
         <translation>Quit application</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <location line="+2"/>
+        <location line="+6"/>
         <source>About &amp;Qt</source>
         <translation>About &amp;Qt</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>Show information about Qt</source>
         <translation>Show information about Qt</translation>
     </message>
@@ -830,19 +829,19 @@
         <translation>Tabs toolbar</translation>
     </message>
     <message>
-        <location line="-446"/>
-        <location line="+928"/>
-        <source>RUPAYA Core</source>
+        <location line="-436"/>
+        <location line="+918"/>
+        <source>Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-726"/>
-        <source>Send coins to a RUPAYA address</source>
+        <location line="-722"/>
+        <source>Send coins to a XLIB address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+11"/>
-        <source>Request payments (generates QR codes and rupaya: URIs)</source>
+        <source>Request payments (generates QR codes and liberty: URIs)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -862,27 +861,27 @@
     </message>
     <message>
         <location line="+31"/>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+10"/>
-        <source>Modify configuration options for RUPAYA</source>
+        <location line="+6"/>
+        <source>Modify configuration options for PIVX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -922,7 +921,7 @@
     </message>
     <message>
         <location line="+17"/>
-        <source>Open a RUPAYA: URI or payment request</source>
+        <source>Open a Liberty: URI or payment request</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -937,17 +936,17 @@
     </message>
     <message>
         <location line="+4"/>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+233"/>
-        <source>RUPAYA Core client</source>
+        <source>Liberty Core client</source>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
         <location line="+212"/>
-        <source>%n active connection(s) to RUPAYA network</source>
+        <source>%n active connection(s) to Liberty network</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
@@ -1153,7 +1152,7 @@ Address: %4
     </message>
     <message>
         <location filename="../blockexplorer.cpp" line="+480"/>
-        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (rupaya.conf).</source>
+        <source>Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (liberty.conf).</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1283,7 +1282,7 @@ Address: %4
         <translation>Priority</translation>
     </message>
     <message>
-        <location filename="../coincontroldialog.cpp" line="+52"/>
+        <location filename="../coincontroldialog.cpp" line="+60"/>
         <source>Copy address</source>
         <translation>Copy address</translation>
     </message>
@@ -1349,12 +1348,12 @@ Address: %4
         <translation>Copy change</translation>
     </message>
     <message>
-        <location line="+163"/>
+        <location line="+147"/>
         <source>Please switch to &quot;List mode&quot; to use this function.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+220"/>
+        <location line="+216"/>
         <source>highest</source>
         <translation>highest</translation>
     </message>
@@ -1453,7 +1452,7 @@ Address: %4
     </message>
     <message>
         <location line="+8"/>
-        <source>Can vary +/- %1 urupx per input.</source>
+        <source>Can vary +/- %1 uXLIB per input.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1522,7 +1521,7 @@ Address: %4
     </message>
     <message>
         <location line="+67"/>
-        <source>The entered address &quot;%1&quot; is not a valid RUPAYA address.</source>
+        <source>The entered address &quot;%1&quot; is not a valid Liberty address.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1578,7 +1577,7 @@ Address: %4
     </message>
     <message>
         <location line="+0"/>
-        <source>RUPAYA Core</source>
+        <source>Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1589,7 +1588,7 @@ Address: %4
     </message>
     <message>
         <location line="+4"/>
-        <source>About RUPAYA Core</source>
+        <source>About Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1647,17 +1646,17 @@ Address: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Welcome to RUPAYA Core.</source>
+        <source>Welcome to Liberty Core.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <source>Liberty Core will download and store a copy of the Liberty block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1672,7 +1671,7 @@ Address: %4
     </message>
     <message>
         <location filename="../intro.cpp" line="+77"/>
-        <source>RUPAYA Core</source>
+        <source>Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1848,8 +1847,8 @@ Address: %4
     </message>
     <message>
         <location line="-106"/>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other RUPAYA addresses after it matures.
-To Add: enter percentage to give and RUPAYA address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Liberty addresses after it matures.
+To Add: enter percentage to give and Liberty address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
         <translation type="unfinished"></translation>
@@ -1955,54 +1954,99 @@ MultiSend will not be activated unless you have clicked Activate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../multisenddialog.cpp" line="+68"/>
+        <location filename="../multisenddialog.cpp" line="+64"/>
         <source>(no label)</source>
         <translation type="unfinished">(no label)</translation>
     </message>
     <message>
-        <location line="+44"/>
-        <source>The entered address:
-</source>
+        <location line="+11"/>
+        <source>MultiSend Active for Stakes and Masternode Rewards</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source> is invalid.
+        <location line="+2"/>
+        <source>MultiSend Active for Stakes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>MultiSend Active for Masternode Rewards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>MultiSend Not Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>The entered address: %1 is invalid.
 Please check the address and try again.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+11"/>
-        <source>The total amount of your MultiSend vector is over 100% of your stake reward
-</source>
+        <source>The total amount of your MultiSend vector is over 100% of your stake reward</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Please Enter 1 - 100 for percent.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+33"/>
-        <source>Saved the MultiSend to memory, but failed saving properties to the database.
-</source>
+        <location line="+40"/>
+        <source>Saved the MultiSend to memory, but failed saving properties to the database.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>MultiSend Vector
-</source>
+        <source>MultiSend Vector</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+22"/>
-        <source>Removed </source>
+        <location line="+21"/>
+        <source>Removed %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Could not locate address
-</source>
+        <source>Could not locate address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Unable to activate MultiSend, check MultiSend vector</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Need to select to send on stake and/or masternode rewards</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>MultiSend activated but writing settings to DB failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>MultiSend activated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>First Address Not Valid</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>MultiSend deactivated but writing settings to DB failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>MultiSend deactivated</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-97"/>
+        <source>Please Enter 1 - 100 for percent.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2125,7 +2169,7 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>Add destinations to send RUPAYA to</source>
+        <source>Add destinations to send Liberty to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2248,12 +2292,12 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>Use 2 separate masternodes to mix funds up to 10000 RUPAYA</source>
+        <source>Use 2 separate masternodes to mix funds up to 10000 Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>Use 8 separate masternodes to mix funds up to 10000 RUPAYA</source>
+        <source>Use 8 separate masternodes to mix funds up to 10000 Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2263,12 +2307,12 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>This option is the quickest and will cost about ~0.025 RUPAYA to anonymize 10000 RUPAYA</source>
+        <source>This option is the quickest and will cost about ~0.025 Liberty to anonymize 10000 Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>This option is moderately fast and will cost about 0.05 RUPAYA to anonymize 10000 RUPAYA</source>
+        <source>This option is moderately fast and will cost about 0.05 Liberty to anonymize 10000 Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2278,7 +2322,7 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+13"/>
-        <source>0.1 RUPAYA per 10000 RUPAYA you anonymize.</source>
+        <source>0.1 Liberty per 10000 Liberty you anonymize.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2290,17 +2334,17 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="-27"/>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening RUPAYA&apos;s configuration screen.</source>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Liberty&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening RUPAYA&apos;s configuration screen.</source>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Liberty&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+14"/>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening RUPAYA&apos;s configuration screen.</source>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Liberty&apos;s configuration screen.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2327,7 +2371,7 @@ Please be patient after clicking import.</source>
         <translation>Select payment request file</translation>
     </message>
     <message>
-        <location filename="../openuridialog.cpp" line="+47"/>
+        <location filename="../openuridialog.cpp" line="+45"/>
         <source>Select payment request file to open</source>
         <translation>Select payment request file to open</translation>
     </message>
@@ -2376,7 +2420,7 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+33"/>
-        <source>Automatically open the RUPAYA client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <source>Automatically open the Liberty client port on the router. This only works when your router supports UPnP and it is enabled.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2401,12 +2445,12 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="-210"/>
-        <source>Automatically start RUPAYA after logging in to the system.</source>
+        <source>Automatically start Liberty after logging in to the system.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start RUPAYA on system login</source>
+        <source>&amp;Start Liberty on system login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2441,13 +2485,13 @@ Please be patient after clicking import.</source>
     </message>
     <message>
         <location line="+192"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting RUPAYA.</source>
+        <source>The user interface language can be set here. This setting will take effect after restarting Liberty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+21"/>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
+https://www.transifex.com/liberty-project/liberty-project-translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2457,33 +2501,33 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
     </message>
     <message>
         <location line="-169"/>
-        <source>Enable automatic minting of RUPAYA units to zRUPX</source>
+        <source>Enable automatic minting of Liberty units to XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Enable zRUPX Automint</source>
+        <source>Enable XLIBz Automint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Percentage of incoming RUPAYA which get automatically converted to zRUPX via Zerocoin Protocol (min: 10%)</source>
+        <source>Percentage of incoming Liberty which get automatically converted to XLIBz via Zerocoin Protocol (min: 10%)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Percentage of autominted zRUPX</source>
+        <source>Percentage of autominted XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+30"/>
         <location line="+16"/>
-        <source>Wait with automatic conversion to Zerocoin until enough RUPAYA for this denomination is available</source>
+        <source>Wait with automatic conversion to Zerocoin until enough Liberty for this denomination is available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-13"/>
-        <source>Preferred Automint zRUPX Denomination</source>
+        <source>Preferred Automint XLIBz Denomination</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2493,7 +2537,7 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
     </message>
     <message>
         <location line="+98"/>
-        <source>Connect to the RUPAYA network through a SOCKS5 proxy.</source>
+        <source>Connect to the Liberty network through a SOCKS5 proxy.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2572,13 +2616,23 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
         <translation>Decimal digits</translation>
     </message>
     <message>
-        <location line="+12"/>
+        <location line="+14"/>
         <location line="+6"/>
         <source>Hide empty balances</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+7"/>
+        <source>Hide orphan stakes in transaction lists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Hide orphan stakes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
         <location line="+13"/>
         <source>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</source>
         <translation>Third party URLs (e.g. a block explorer) that appear in the transactions tab as context menu items. %s in the URL is replaced by transaction hash. Multiple URLs are separated by vertical bar |.</translation>
@@ -2624,12 +2678,12 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
         <translation>default</translation>
     </message>
     <message>
-        <location line="+55"/>
+        <location line="+46"/>
         <source>none</source>
         <translation>none</translation>
     </message>
     <message>
-        <location line="+92"/>
+        <location line="+96"/>
         <source>Confirm options reset</source>
         <translation>Confirm options reset</translation>
     </message>
@@ -2650,7 +2704,7 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
         <translation>This change would require a client restart.</translation>
     </message>
     <message>
-        <location line="+22"/>
+        <location line="+28"/>
         <source>The supplied proxy address is invalid.</source>
         <translation>The supplied proxy address is invalid.</translation>
     </message>
@@ -2692,7 +2746,7 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
     </message>
     <message>
         <location line="+71"/>
-        <source>RUPAYA Balance</source>
+        <source>Liberty Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2724,19 +2778,19 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
     <message>
         <location line="+16"/>
         <location line="+19"/>
-        <source>Your current RUPAYA balance, unconfirmed and immature transactions included</source>
+        <source>Your current Liberty balance, unconfirmed and immature transactions included</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+96"/>
-        <source>zRUPX Balance</source>
+        <source>XLIBz Balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+53"/>
         <location line="+17"/>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zRUPX are spendable.</source>
+These XLIBz are spendable.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2751,7 +2805,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     <message>
         <location line="-725"/>
         <location line="+852"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2809,7 +2863,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     <message>
         <location line="+191"/>
         <location line="+19"/>
-        <source>Locked RUPAYA or Masternode collaterals. These are excluded from zRUPX minting.</source>
+        <source>Locked Liberty or Masternode collaterals. These are excluded from XLIBz minting.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2825,7 +2879,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     <message>
         <location line="+58"/>
         <location line="+19"/>
-        <source>Your current zRUPX balance, unconfirmed and immature zRUPX included.</source>
+        <source>Your current XLIBz balance, unconfirmed and immature XLIBz included.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2834,14 +2888,14 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
         <translation>Recent transactions</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+149"/>
+        <location filename="../overviewpage.cpp" line="+132"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>out of sync</translation>
     </message>
     <message>
-        <location line="+106"/>
-        <source>Current percentage of zRUPX.
+        <location line="+111"/>
+        <source>Current percentage of XLIBz.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
         <translation type="unfinished"></translation>
@@ -2853,21 +2907,21 @@ If AutoMint is enabled this percentage will settle around the configured AutoMin
     </message>
     <message>
         <location line="+1"/>
-        <source>To disable AutoMint add &apos;enablezeromint=0&apos; in rupaya.conf.</source>
+        <source>To disable AutoMint add &apos;enablezeromint=0&apos; in liberty.conf.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
         <source>AutoMint is currently disabled.
-To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1&apos; in rupaya.conf</source>
+To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1&apos; in liberty.conf</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PaymentServer</name>
     <message>
-        <location filename="../paymentserver.cpp" line="+297"/>
-        <location line="+209"/>
+        <location filename="../paymentserver.cpp" line="+292"/>
+        <location line="+205"/>
         <location line="+33"/>
         <location line="+104"/>
         <location line="+12"/>
@@ -2898,13 +2952,13 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
         <translation>Invalid payment address %1</translation>
     </message>
     <message>
-        <location line="-108"/>
-        <source>Cannot start rupaya: click-to-pay handler</source>
+        <location line="-104"/>
+        <source>Cannot start pivx: click-to-pay handler</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+114"/>
-        <source>URI cannot be parsed! This can be caused by an invalid RUPAYA address or malformed URI parameters.</source>
+        <location line="+110"/>
+        <source>URI cannot be parsed! This can be caused by an invalid PIVX address or malformed URI parameters.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2988,7 +3042,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
 <context>
     <name>PeerTableModel</name>
     <message>
-        <location filename="../peertablemodel.cpp" line="+115"/>
+        <location filename="../peertablemodel.cpp" line="+114"/>
         <source>Address/Hostname</source>
         <translation>Address/Hostname</translation>
     </message>
@@ -3012,13 +3066,13 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+10"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+64"/>
-        <location filename="../privacydialog.cpp" line="+163"/>
-        <location line="+111"/>
+        <location line="+190"/>
+        <location filename="../privacydialog.cpp" line="+172"/>
+        <location line="+112"/>
         <source>Mint Zerocoin</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3032,7 +3086,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     <message>
         <location line="-371"/>
         <location line="+651"/>
-        <source>zRUPX</source>
+        <source>XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3047,7 +3101,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+19"/>
-        <source>0.000 000 00 RUPAYA</source>
+        <source>0.000 000 00 Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3091,24 +3145,24 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-474"/>
+        <location line="-600"/>
         <source>PRIVACY</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+182"/>
+        <location line="+308"/>
         <location line="+52"/>
-        <source>Enter an amount of Rupx to convert to zRUPX</source>
+        <source>Enter an amount of XLIB to convert to XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+301"/>
-        <source>zRUPX Control</source>
+        <source>XLIBz Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>zRUPX Selected:</source>
+        <source>XLIBz Selected:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3118,13 +3172,13 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+37"/>
-        <location filename="../privacydialog.cpp" line="+537"/>
+        <location filename="../privacydialog.cpp" line="+563"/>
         <source>Spend Zerocoin. Without &apos;Pay To:&apos; address creates payments to yourself.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <location filename="../privacydialog.cpp" line="-488"/>
+        <location filename="../privacydialog.cpp" line="-514"/>
         <location line="+4"/>
         <location line="+12"/>
         <location line="+84"/>
@@ -3136,7 +3190,7 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+7"/>
-        <source>Available (mature and spendable) zRUPX for spending</source>
+        <source>Available (mature and spendable) XLIBz for spending</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3146,13 +3200,15 @@ To enable AutoMint change &apos;enablezeromint=0&apos; to &apos;enablezeromint=1
     </message>
     <message>
         <location line="+16"/>
-        <source>Available (mature and spendable) zRUPX for spending
+        <source>Available (mature and spendable) XLIBz for spending
 
-zRUPX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+XLIBz are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="-548"/>
+        <location line="+49"/>
+        <location line="+504"/>
         <location line="+421"/>
         <location line="+544"/>
         <location line="+31"/>
@@ -3163,7 +3219,7 @@ zRUPX are mature when they have more than 20 confirmations AND more than 2 mints
         <location line="+31"/>
         <location line="+31"/>
         <location line="+31"/>
-        <source>0 zRUPX</source>
+        <source>0 XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3188,7 +3244,7 @@ zRUPX are mature when they have more than 20 confirmations AND more than 2 mints
     </message>
     <message>
         <location line="+27"/>
-        <source>The RUPAYA address to send the payment to. Creates local payment to yourself when empty.</source>
+        <source>The Liberty address to send the payment to. Creates local payment to yourself when empty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3252,13 +3308,16 @@ zRUPX are mature when they have more than 20 confirmations AND more than 2 mints
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="-893"/>
+        <location line="+25"/>
+        <location line="+936"/>
         <location line="+38"/>
-        <source>Total Balance including unconfirmed and immature zRUPX</source>
+        <source>Total Balance including unconfirmed and immature XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-35"/>
+        <location line="-996"/>
+        <location line="+961"/>
         <source>Total Zerocoin  Balance:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3287,14 +3346,14 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
     </message>
     <message>
         <location line="+40"/>
-        <source>Show the current status of automatic zRUPX minting.
+        <source>Show the current status of automatic XLIBz minting.
 
 To change the status (restart required):
-- enable: add &apos;enablezeromint=1&apos; to rupaya.conf
-- disable: add &apos;enablezeromint=0&apos; to rupaya.conf
+- enable: add &apos;enablezeromint=1&apos; to liberty.conf
+- disable: add &apos;enablezeromint=0&apos; to liberty.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zRUPX
+- menu Settings-&gt;Options-&gt;Percentage of autominted XLIBz
 
 </source>
         <translation type="unfinished"></translation>
@@ -3305,7 +3364,8 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="-1410"/>
+        <location line="+1459"/>
         <source>Global Supply:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3362,7 +3422,17 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-354"/>
+        <location line="-1324"/>
+        <source>Show XLIBz denominations list</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Show Denominations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+967"/>
         <source>Denominations with value 5:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3432,7 +3502,12 @@ To change the percentage (no restart required):
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+553"/>
+        <location line="+443"/>
+        <source>Hide Denominations</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+147"/>
         <source>Priority:</source>
         <translation type="unfinished">Priority:</translation>
     </message>
@@ -3468,9 +3543,9 @@ To change the percentage (no restart required):
     </message>
     <message>
         <location line="+75"/>
-        <location filename="../privacydialog.cpp" line="-429"/>
+        <location filename="../privacydialog.cpp" line="-438"/>
         <location line="+1"/>
-        <location line="+536"/>
+        <location line="+545"/>
         <location line="+1"/>
         <source>Coins automatically selected</source>
         <translation type="unfinished"></translation>
@@ -3506,18 +3581,18 @@ To change the percentage (no restart required):
         <translation type="unfinished">Change:</translation>
     </message>
     <message>
-        <location filename="../privacydialog.cpp" line="-536"/>
+        <location filename="../privacydialog.cpp" line="-545"/>
         <source>out of sync</source>
         <translation type="unfinished">out of sync</translation>
     </message>
     <message>
         <location line="+6"/>
-        <location line="+121"/>
+        <location line="+129"/>
         <source>Mint Status: Okay</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-115"/>
+        <location line="-123"/>
         <source>Copy quantity</source>
         <translation type="unfinished">Copy quantity</translation>
     </message>
@@ -3527,13 +3602,13 @@ To change the percentage (no restart required):
         <translation type="unfinished">Copy amount</translation>
     </message>
     <message>
-        <location line="+184"/>
+        <location line="+192"/>
         <source>Starting ResetMintZerocoin: rescanning complete blockchain, this will need up to 30 minutes depending on your hardware.
 Please be patient...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+170"/>
+        <location line="+171"/>
         <source>Spending Zerocoin.
 Computationally expensive, might need several minutes depending on the selected Security Level and your hardware.
 Please be patient...</source>
@@ -3547,16 +3622,16 @@ Maximum allowed: </source>
     </message>
     <message>
         <location line="+34"/>
-        <source>zRUPX Spend #: </source>
+        <source>XLIBz Spend #: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>zRUPX Mint</source>
+        <source>XLIBz Mint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+267"/>
+        <location line="+293"/>
         <source> &lt;b&gt;enabled&lt;/b&gt;.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3573,17 +3648,17 @@ Maximum allowed: </source>
     <message>
         <location line="+12"/>
         <location line="+4"/>
-        <source>zRUPX is currently disabled due to maintenance.</source>
+        <source>XLIBz is currently disabled due to maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-639"/>
-        <location line="+111"/>
-        <source>zRUPX is currently undergoing maintenance.</source>
+        <location line="-666"/>
+        <location line="+112"/>
+        <source>XLIBz is currently undergoing maintenance.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-212"/>
+        <location line="-221"/>
         <source>Denom. with value &lt;b&gt;1&lt;/b&gt;:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3624,12 +3699,12 @@ Maximum allowed: </source>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+705"/>
+        <location line="+740"/>
         <source>AutoMint Status:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-702"/>
+        <location line="-737"/>
         <source>Denom. &lt;b&gt;1&lt;/b&gt;:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3669,7 +3744,7 @@ Maximum allowed: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+95"/>
+        <location line="+103"/>
         <source>Error: Your wallet is locked. Please enter the wallet passphrase first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3690,7 +3765,7 @@ Maximum allowed: </source>
     </message>
     <message>
         <location line="+0"/>
-        <source> zRUPX in </source>
+        <source> XLIBz in </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3701,14 +3776,14 @@ Maximum allowed: </source>
     </message>
     <message>
         <location line="+35"/>
-        <location line="+14"/>
+        <location line="+15"/>
         <location line="+260"/>
         <source>Duration: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-274"/>
-        <location line="+14"/>
+        <location line="-275"/>
+        <location line="+15"/>
         <location line="+260"/>
         <source> sec.
 </source>
@@ -3726,7 +3801,7 @@ Maximum allowed: </source>
     </message>
     <message>
         <location line="+4"/>
-        <source>Invalid Rupaya Address</source>
+        <source>Invalid Liberty Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3767,13 +3842,13 @@ Maximum allowed: </source>
     <message>
         <location line="+24"/>
         <location line="+32"/>
-        <source>Version 1 zRUPX require a security level of 100 to successfully spend.</source>
+        <source>Version 1 XLIBz require a security level of 100 to successfully spend.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="-31"/>
         <location line="+32"/>
-        <source>Failed to spend zRUPX</source>
+        <source>Failed to spend XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3799,16 +3874,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+336"/>
+        <location line="+362"/>
         <source>PrivacyDialog</source>
-        <comment>Enter an amount of RUPAYA to convert to zRUPX</comment>
+        <comment>Enter an amount of Liberty to convert to XLIBz</comment>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
     <message>
-        <location line="-308"/>
+        <location line="-334"/>
         <source>denomination: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -3856,12 +3931,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Amount</translation>
     </message>
     <message>
-        <location filename="../guiutil.cpp" line="+113"/>
-        <source>Enter a RUPAYA address (e.g. %1)</source>
+        <location filename="../guiutil.cpp" line="+105"/>
+        <source>Enter a PIVX address (e.g. %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+789"/>
+        <location line="+773"/>
         <source>%1 d</source>
         <translation>%1 d</translation>
     </message>
@@ -3915,7 +3990,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>QRImageWidget</name>
     <message>
-        <location filename="../receiverequestdialog.cpp" line="+36"/>
+        <location filename="../receiverequestdialog.cpp" line="+33"/>
         <source>&amp;Save Image...</source>
         <translation>&amp;Save Image...</translation>
     </message>
@@ -4060,7 +4135,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+79"/>
-        <source>Open the RUPAYA debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Liberty debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4115,8 +4190,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+59"/>
-        <location filename="../rpcconsole.cpp" line="+331"/>
-        <location line="+717"/>
+        <location filename="../rpcconsole.cpp" line="+329"/>
+        <location line="+727"/>
         <source>Select a peer to view detailed information.</source>
         <translation>Select a peer to view detailed information.</translation>
     </message>
@@ -4232,7 +4307,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+29"/>
-        <source>Custom zRUPX Backup Path:</source>
+        <source>Custom XLIBz Backup Path:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4331,12 +4406,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Out:</translation>
     </message>
     <message>
-        <location line="-36"/>
-        <source>Welcome to the RUPAYA RPC console.</source>
+        <location line="-39"/>
+        <source>Welcome to the PIVX RPC console.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-218"/>
         <source>&amp;Disconnect Node</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4399,9 +4474,9 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+63"/>
-        <source>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</source>
-        <translation>Use up and down arrows to navigate history, and &lt;b&gt;Ctrl-L&lt;/b&gt; to clear screen.</translation>
+        <location line="+70"/>
+        <source>Use up and down arrows to navigate history, and %1 to clear screen.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4409,7 +4484,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</translation>
     </message>
     <message>
-        <location line="+140"/>
+        <location line="+2"/>
+        <source>WARNING: Scammers have been active, telling users to type commands here, stealing their wallet contents. Do not use this console without fully understanding the ramifications of a command.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+141"/>
         <source>%1 B</source>
         <translation>%1 B</translation>
     </message>
@@ -4474,7 +4554,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>ReceiveCoinsDialog</name>
     <message>
-        <location filename="../forms/receivecoinsdialog.ui" line="+142"/>
+        <location filename="../forms/receivecoinsdialog.ui" line="+263"/>
         <source>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</source>
         <translation>Reuse one of the previously used receiving addresses.&lt;br&gt;Reusing addresses has security and privacy issues.&lt;br&gt;Do not use this unless re-generating a payment request made before.</translation>
     </message>
@@ -4484,33 +4564,49 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>R&amp;euse an existing receiving address (not recommended)</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="-30"/>
         <source>&amp;Message:</source>
         <translation>&amp;Message:</translation>
     </message>
     <message>
-        <location line="+13"/>
-        <location line="+21"/>
+        <location line="-87"/>
+        <location line="+16"/>
         <source>An optional label to associate with the new receiving address.</source>
         <translation>An optional label to associate with the new receiving address.</translation>
     </message>
     <message>
-        <location line="-37"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the RUPAYA network.</source>
+        <location line="+7"/>
+        <location line="+25"/>
+        <source>Your receiving address. You can copy and use it to receive coins on this wallet. A new one will be generated once it is used.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-101"/>
+        <location line="-22"/>
+        <source>&amp;Address:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+32"/>
+        <source>A&amp;mount:</source>
+        <translation type="unfinished">A&amp;mount:</translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the PIVX network.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-175"/>
         <source>RECEIVE</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+124"/>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the RUPAYA network.</source>
+        <location line="+191"/>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the PIVX network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-107"/>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
         <translation>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</translation>
     </message>
@@ -4520,18 +4616,13 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>&amp;Label:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+52"/>
         <location line="+22"/>
         <source>An optional amount to request. Leave this empty or zero to not request a specific amount.</source>
         <translation>An optional amount to request. Leave this empty or zero to not request a specific amount.</translation>
     </message>
     <message>
-        <location line="-19"/>
-        <source>&amp;Amount:</source>
-        <translation>&amp;Amount:</translation>
-    </message>
-    <message>
-        <location line="+41"/>
+        <location line="+62"/>
         <source>&amp;Request payment</source>
         <translation>&amp;Request payment</translation>
     </message>
@@ -4546,7 +4637,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Clear</translation>
     </message>
     <message>
-        <location line="+68"/>
+        <location line="+27"/>
+        <source>Receiving Addresses</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+55"/>
         <source>Requested payments history</source>
         <translation>Requested payments history</translation>
     </message>
@@ -4571,7 +4667,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Remove</translation>
     </message>
     <message>
-        <location filename="../receivecoinsdialog.cpp" line="+39"/>
+        <location filename="../receivecoinsdialog.cpp" line="+41"/>
         <source>Copy label</source>
         <translation>Copy label</translation>
     </message>
@@ -4584,6 +4680,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <location line="+1"/>
         <source>Copy amount</source>
         <translation>Copy amount</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Copy address</source>
+        <translation type="unfinished">Copy address</translation>
     </message>
 </context>
 <context>
@@ -4672,17 +4773,22 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Message</translation>
     </message>
     <message>
-        <location line="+87"/>
+        <location line="+0"/>
+        <source>Address</source>
+        <translation type="unfinished">Address</translation>
+    </message>
+    <message>
+        <location line="+89"/>
         <source>Amount</source>
         <translation>Amount</translation>
     </message>
     <message>
-        <location line="-50"/>
+        <location line="-52"/>
         <source>(no label)</source>
         <translation>(no label)</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>(no message)</source>
         <translation>(no message)</translation>
     </message>
@@ -4696,9 +4802,9 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <name>SendCoinsDialog</name>
     <message>
         <location filename="../forms/sendcoinsdialog.ui" line="+17"/>
-        <location filename="../sendcoinsdialog.cpp" line="+231"/>
+        <location filename="../sendcoinsdialog.cpp" line="+234"/>
         <location line="+25"/>
-        <location line="+396"/>
+        <location line="+413"/>
         <source>Send Coins</source>
         <translation>Send Coins</translation>
     </message>
@@ -4794,11 +4900,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+7"/>
-        <source>0 RUPAYA</source>
+        <source>0 Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+188"/>
+        <location line="+167"/>
+        <source>SwiftX technology allows for near instant transactions - A flat fee of 0.01 XLIB applies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+176"/>
         <source>Transaction Fee:</source>
         <translation>Transaction Fee:</translation>
     </message>
@@ -4838,22 +4949,22 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Custom:</translation>
     </message>
     <message>
-        <location line="+220"/>
+        <location line="-211"/>
         <source>(Smart fee not initialized yet. This usually takes a few blocks...)</source>
         <translation>(Smart fee not initialized yet. This usually takes a few blocks...)</translation>
     </message>
     <message>
-        <location line="+306"/>
+        <location line="-101"/>
         <source>SwiftX</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-397"/>
+        <location line="+7"/>
         <source>Confirmation time:</source>
         <translation>Confirmation time:</translation>
     </message>
     <message>
-        <location line="-1029"/>
+        <location line="-750"/>
         <source>Open Coin Control...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4863,23 +4974,23 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+907"/>
-        <source>If the custom fee is set to 1000 uRUPAYAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uRUPAYAs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uRUPAYAs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <location line="+1062"/>
+        <source>If the custom fee is set to 1000 uPIVs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uPIVs in fee,&lt;br /&gt;while &quot;at least&quot; pays 1000 uPIVs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+16"/>
-        <source>If the custom fee is set to 1000 uRUPAYAs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uRUPAYAs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uRUPAYAs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
+        <source>If the custom fee is set to 1000 uXLIBs and the transaction is only 250 bytes, then &quot;per kilobyte&quot; only pays 250 uXLIBs in fee,&lt;br /&gt;while &quot;total at least&quot; pays 1000 uXLIBs. For transactions bigger than a kilobyte both pay by kilobyte.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+33"/>
         <location line="+13"/>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for RUPAYA transactions than the network can process.</source>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Liberty transactions than the network can process.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+60"/>
+        <location line="-374"/>
         <source>normal</source>
         <translation>normal</translation>
     </message>
@@ -4889,12 +5000,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>fast</translation>
     </message>
     <message>
-        <location line="-74"/>
+        <location line="+360"/>
         <source>Recommended</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+242"/>
+        <location line="+115"/>
         <source>Send as zero-fee transaction if possible</source>
         <translation>Send as zero-fee transaction if possible</translation>
     </message>
@@ -4935,16 +5046,16 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+35"/>
-        <source>Anonymized RUPAYA</source>
+        <source>Anonymized Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+7"/>
         <source>Balance:</source>
         <translation>Balance:</translation>
     </message>
     <message>
-        <location filename="../sendcoinsdialog.cpp" line="-570"/>
+        <location filename="../sendcoinsdialog.cpp" line="-590"/>
         <source>Copy quantity</source>
         <translation>Copy quantity</translation>
     </message>
@@ -4984,7 +5095,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Copy change</translation>
     </message>
     <message>
-        <location line="+143"/>
+        <location line="+146"/>
         <source>The split block tool does not work when sending to outside addresses. Try again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4994,12 +5105,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+629"/>
-        <source>Warning: Invalid RUPAYA address</source>
+        <location line="+653"/>
+        <source>Warning: Invalid PIVX address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-591"/>
+        <location line="-615"/>
         <location line="+4"/>
         <location line="+4"/>
         <location line="+3"/>
@@ -5027,12 +5138,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Confirm send coins</translation>
     </message>
     <message>
-        <location line="+230"/>
+        <location line="+247"/>
         <source>A fee %1 times higher than %2 per kB is considered an insanely high fee.</source>
         <translation>A fee %1 times higher than %2 per kB is considered an insanely high fee.</translation>
     </message>
     <message numerus="yes">
-        <location line="+114"/>
+        <location line="+121"/>
         <source>Estimated to begin confirmation within %n block(s).</source>
         <translation>
             <numerusform>Estimated to begin confirmation within %n block.</numerusform>
@@ -5040,12 +5151,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         </translation>
     </message>
     <message>
-        <location line="-145"/>
+        <location line="-152"/>
         <source>The recipient address is not valid, please recheck.</source>
         <translation>The recipient address is not valid, please recheck.</translation>
     </message>
     <message>
-        <location line="-329"/>
+        <location line="-346"/>
         <source>using SwiftX</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5060,7 +5171,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>&lt;b&gt;(%1 of %2 entries displayed)&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+205"/>
+        <location line="+222"/>
         <source>The amount to pay must be larger than 0.</source>
         <translation>The amount to pay must be larger than 0.</translation>
     </message>
@@ -5100,12 +5211,17 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+84"/>
+        <location line="+86"/>
         <source>Pay only the minimum fee of %1</source>
         <translation>Pay only the minimum fee of %1</translation>
     </message>
     <message>
-        <location line="+166"/>
+        <location line="+13"/>
+        <source>Estimated to get 6 confirmations near instantly with &lt;b&gt;SwiftX&lt;/b&gt;!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+158"/>
         <source>Warning: Unknown change address</source>
         <translation>Warning: Unknown change address</translation>
     </message>
@@ -5129,7 +5245,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+18"/>
-        <source>The RUPAYA address to send the payment to</source>
+        <source>The Liberty address to send the payment to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5183,7 +5299,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+10"/>
-        <source>A message that was attached to the RUPAYA: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the RUPAYA network.</source>
+        <source>A message that was attached to the Liberty: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Liberty network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5209,7 +5325,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>This is a verified payment request.</translation>
     </message>
     <message>
-        <location filename="../sendcoinsentry.cpp" line="+31"/>
+        <location filename="../sendcoinsentry.cpp" line="+30"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation>Enter a label for this address to add it to your address book</translation>
     </message>
@@ -5218,7 +5334,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <name>ShutdownWindow</name>
     <message>
         <location filename="../utilitydialog.cpp" line="+75"/>
-        <source>RUPAYA Core is shutting down...</source>
+        <source>Liberty Core is shutting down...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5246,7 +5362,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+15"/>
-        <source>The RUPAYA address to sign the message with</source>
+        <source>The Liberty address to sign the message with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5288,17 +5404,17 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+18"/>
-        <source>Sign the message to prove you own this RUPAYA address</source>
+        <source>Sign the message to prove you own this Liberty address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+103"/>
-        <source>The RUPAYA address the message was signed with</source>
+        <source>The Liberty address the message was signed with</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+34"/>
-        <source>Verify the message to ensure it was signed with the specified RUPAYA address</source>
+        <source>Verify the message to ensure it was signed with the specified Liberty address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5338,12 +5454,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Reset all verify message fields</translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+31"/>
+        <location filename="../signverifymessagedialog.cpp" line="+30"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>Click &quot;Sign Message&quot; to generate signature</translation>
     </message>
     <message>
-        <location line="+80"/>
+        <location line="+79"/>
         <location line="+73"/>
         <source>The entered address is invalid.</source>
         <translation>The entered address is invalid.</translation>
@@ -5413,7 +5529,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+36"/>
-        <source>RUPAYA Core</source>
+        <source>Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5433,7 +5549,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>The RUPAYA Core developers</source>
+        <source>The Liberty Core developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5810,12 +5926,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+7"/>
-        <source>RUPAYA Stake</source>
+        <source>Liberty Stake</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>zRUPX Stake</source>
+        <source>XLIBz Stake</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5840,37 +5956,37 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+4"/>
-        <source>Converted RUPAYA to zRUPX</source>
+        <source>Converted Liberty to XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Spent zRUPX</source>
+        <source>Spent XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Received RUPAYA from zRUPX</source>
+        <source>Received Liberty from XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Minted Change as zRUPX from zRUPX Spend</source>
+        <source>Minted Change as XLIBz from XLIBz Spend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Converted zRUPX to RUPAYA</source>
+        <source>Converted XLIBz to Liberty</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+56"/>
-        <source>Anonymous (zRUPX Transaction)</source>
+        <source>Anonymous (XLIBz Transaction)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Anonymous (zRUPX Stake)</source>
+        <source>Anonymous (XLIBz Stake)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -5909,7 +6025,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>(n/a)</translation>
     </message>
     <message>
-        <location line="+204"/>
+        <location line="+211"/>
         <source>Transaction status. Hover over this field to show number of confirmations.</source>
         <translation>Transaction status. Hover over this field to show number of confirmations.</translation>
     </message>
@@ -6033,17 +6149,17 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Other</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+6"/>
         <source>Enter address or label to search</source>
         <translation>Enter address or label to search</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+4"/>
         <source>Min amount</source>
         <translation>Min amount</translation>
     </message>
     <message>
-        <location line="+36"/>
+        <location line="+35"/>
         <source>Copy address</source>
         <translation>Copy address</translation>
     </message>
@@ -6073,7 +6189,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Show transaction details</translation>
     </message>
     <message>
-        <location line="+195"/>
+        <location line="+1"/>
+        <source>Hide orphan stakes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+228"/>
         <source>Export Transaction History</source>
         <translation>Export Transaction History</translation>
     </message>
@@ -6133,17 +6254,17 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Exporting Successful</translation>
     </message>
     <message>
-        <location line="-280"/>
-        <source>Received RUPAYA from zRUPX</source>
+        <location line="-310"/>
+        <source>Received XLIB from XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Zerocoin Spend, Change in zRUPX</source>
+        <source>Zerocoin Spend, Change in XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+277"/>
+        <location line="+307"/>
         <source>The transaction history was successfully saved to %1.</source>
         <translation>The transaction history was successfully saved to %1.</translation>
     </message>
@@ -6177,7 +6298,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+331"/>
+        <location filename="../walletmodel.cpp" line="+334"/>
         <location line="+9"/>
         <location line="+9"/>
         <source>Send Coins</source>
@@ -6186,7 +6307,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     <message>
         <location line="-18"/>
         <location line="+9"/>
-        <source>SwiftX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 RUPAYA.</source>
+        <source>SwiftX doesn&apos;t support sending values that high yet. Transactions are currently limited to %1 Liberty.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6224,10 +6345,10 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
-        <location filename="../forms/zrupxcontroldialog.ui" line="+20"/>
-        <source>Select zRUPX to Spend</source>
+        <location filename="../forms/xlibzcontroldialog.ui" line="+20"/>
+        <source>Select XLIBz to Spend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6243,7 +6364,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="-7"/>
-        <source>zRUPX</source>
+        <source>XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6258,9 +6379,9 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
 </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
-        <location filename="../rupayastrings.cpp" line="+15"/>
+        <location filename="../libertystrings.cpp" line="+15"/>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation type="unfinished">(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</translation>
     </message>
@@ -6291,7 +6412,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+2"/>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Liberty Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6326,17 +6447,17 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+5"/>
-        <source>Enable automatic wallet backups triggered after each zRUPX minting (0-1, default: %u)</source>
+        <source>Enable automatic wallet backups triggered after each XLIBz minting (0-1, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enable or disable staking functionality for RUPAYA inputs (0-1, default: %u)</source>
+        <source>Enable or disable staking functionality for Liberty inputs (0-1, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Enable or disable staking functionality for zRUPX inputs (0-1, default: %u)</source>
+        <source>Enable or disable staking functionality for XLIBz inputs (0-1, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6381,12 +6502,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+8"/>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6511,7 +6632,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+4"/>
-        <source>Unable to bind to %s on this computer. RUPAYA Core is probably already running.</source>
+        <source>Total length of network version string (%i) exceeds maximum length (%i). Reduce the number or size of uacomments.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Unable to bind to %s on this computer. Liberty Core is probably already running.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6521,12 +6647,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+2"/>
-        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 RUPAYA.</source>
+        <source>Unable to locate enough Obfuscation non-denominated funds for this transaction that are not equal 10000 Liberty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Unable to locate enough funds for this transaction that are not equal 10000 RUPAYA.</source>
+        <source>Unable to locate enough funds for this transaction that are not equal 10000 Liberty.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6546,7 +6672,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong RUPAYA Core will not work properly.</source>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Liberty Core will not work properly.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6638,6 +6764,11 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <location line="+1"/>
         <source>Always query for peer addresses via DNS lookup (default: %u)</source>
         <translation type="unfinished">Always query for peer addresses via DNS lookup (default: %u)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Append comment to the user agent string</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
@@ -6736,7 +6867,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) 2015-%i The RUPAYA Core Developers</source>
+        <source>Copyright (C) 2015-%i The Liberty Core Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6846,7 +6977,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of RUPAYA Core</source>
+        <source>Error loading wallet.dat: Wallet requires newer version of Liberty Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6926,7 +7057,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+4"/>
-        <source>Fee (in RUPAYA/kB) to add to transactions you send (default: %s)</source>
+        <source>Fee (in Liberty/kB) to add to transactions you send (default: %s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7001,7 +7132,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Initialization sanity check failed. RUPAYA Core is shutting down.</source>
+        <source>Initialization sanity check failed. Liberty Core is shutting down.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7091,7 +7222,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+9"/>
-        <source>Reindex the RUPAYA and zRUPX money supply statistics</source>
+        <source>Reindex the Liberty and XLIBz money supply statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7115,7 +7246,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-270"/>
+        <location line="-274"/>
         <source>This is a pre-release test build - use at your own risk - do not use for staking or merchant applications!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7138,7 +7269,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+38"/>
-        <source>Disable all RUPAYA specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
+        <source>Disable all Liberty specific functionality (Masternodes, Zerocoin, SwiftX, Budgeting) (0-1, default: %u)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7183,7 +7314,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify custom backup path to add a copy of any automatic zRUPX backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
+        <source>Specify custom backup path to add a copy of any automatic XLIBz backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7197,12 +7328,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+58"/>
+        <location line="+61"/>
         <source>&lt;category&gt; can be:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Attempt to force blockchain corruption recovery</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7527,12 +7658,12 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation type="unfinished">Password for JSON-RPC connections</translation>
     </message>
     <message>
-        <location line="+121"/>
+        <location line="+122"/>
         <source>isValid(): Invalid -proxy address or hostname: &apos;%s&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-119"/>
+        <location line="-120"/>
         <source>Preparing for resync...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7808,7 +7939,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Syncing zRUPX wallet...</source>
+        <source>Syncing XLIBz wallet...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -7988,12 +8119,17 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
+        <source>User Agent comment (%s) contains unsafe characters.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
         <source>Username for JSON-RPC connections</source>
         <translation type="unfinished">Username for JSON-RPC connections</translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Value is below the smallest available denomination (= 1) of zRUPX</source>
+        <source>Value is below the smallest available denomination (= 1) of XLIBz</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8013,7 +8149,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Version 1 zRUPX require a security level of 100 to successfully spend.</source>
+        <source>Version 1 XLIBz require a security level of 100 to successfully spend.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -8028,7 +8164,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Wallet needed to be rewritten: restart RUPAYA Core to complete</source>
+        <source>Wallet needed to be rewritten: restart Liberty Core to complete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

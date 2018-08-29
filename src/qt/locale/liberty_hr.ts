@@ -62,12 +62,12 @@
         <translation>Adrese za primanje</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>To su vaše RUPAYA adrese za slanje plaćanja. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>To su vaše Liberty adrese za slanje plaćanja. Uvijek provjerite iznos i adresu primatelja prije slanja novca.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>To su vaše RUPAYA adrese za primanje uplata. Preporuča se upotreba nove adrese primanja za svaku transakciju.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>To su vaše Liberty adrese za primanje uplata. Preporuča se upotreba nove adrese primanja za svaku transakciju.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -172,15 +172,15 @@
         <translation>Potvrdite šifriranje novčanika</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA se sada zatvara kako bi dovršio proces šifriranja. Ne zaboravite da šifriranje vašeg novčanika ne može u potpunosti zaštititi vaše RUPAYA od krađe zlonamjernog softvera koji zarazi vaše računalo.</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty se sada zatvara kako bi dovršio proces šifriranja. Ne zaboravite da šifriranje vašeg novčanika ne može u potpunosti zaštititi vaše Liberty od krađe zlonamjernog softvera koji zarazi vaše računalo.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Jeste li sigurni da želite šifrirati svoj novčanik?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
         <translation>Upozorenje: Ako šifrirate svoj novčanik i izgubite vašu zaporku, vi ćete1 IZGUBITI ĆE TE SAV VAŠ RUPAYA1!</translation>
     </message>
     <message>
@@ -397,8 +397,8 @@
         <translation>Pregledajte povijest transakcija</translation>
     </message>
     <message>
-        <source>Privacy Actions for zRUPX</source>
-        <translation>Aktivnosti na privatnost za zRUPX</translation>
+        <source>Privacy Actions for XLIBz</source>
+        <translation>Aktivnosti na privatnost za XLIBz</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -601,12 +601,12 @@
         <translation>Alatna traka kartica</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Pošaljite kovanice na RUPAYA adresu</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Pošaljite kovanice na Liberty adresu</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
@@ -625,24 +625,24 @@
         <translation>Pregledajte masternode</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp; O RUPAYA Coreu</translation>
+        <source>&amp;About Liberty Core</source>
+        <translation>&amp; O Liberty Coreu</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Prikaz informacija o RUPAYA Coreu</translation>
+        <source>Show information about Liberty Core</source>
+        <translation>Prikaz informacija o Liberty Coreu</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
-        <translation>Izmijenite opcije konfiguracije za RUPAYA</translation>
+        <source>Modify configuration options for Liberty</source>
+        <translation>Izmijenite opcije konfiguracije za Liberty</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>Potpišite poruke s vašim RUPAYA adresama kako biste dokazali da ih posjedujete</translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Potpišite poruke s vašim Liberty adresama kako biste dokazali da ih posjedujete</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>Potvrdite poruke kako biste bili sigurni da su potpisani s određenim RUPAYA adresama</translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>Potvrdite poruke kako biste bili sigurni da su potpisani s određenim Liberty adresama</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -653,8 +653,8 @@
         <translation>Šifriranje i dešifriranje privatnih ključeva pomoću zaporke</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core klijent</translation>
+        <source>Liberty Core client</source>
+        <translation>Liberty Core klijent</translation>
     </message>
     <message>
         <source>Error</source>
@@ -751,15 +751,15 @@
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     </context>
 <context>
     <name>Intro</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1045,8 +1045,8 @@
         <translation>ne</translation>
     </message>
     <message>
-        <source>0 RUPAYA</source>
-        <translation>0 RUPAYA</translation>
+        <source>0 Liberty</source>
+        <translation>0 Liberty</translation>
     </message>
     <message>
         <source>Confirmation time:</source>
@@ -1111,15 +1111,15 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core se gasi...</translation>
+        <source>Liberty Core is shutting down...</source>
+        <translation>Liberty Core se gasi...</translation>
     </message>
     </context>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The RUPAYA address to sign the message with</source>
-        <translation>RUPAYA adresa za potpisivanje poruke s</translation>
+        <source>The Liberty address to sign the message with</source>
+        <translation>Liberty adresa za potpisivanje poruke s</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -1142,16 +1142,16 @@
         <translation>Kopirajte trenutačni potpis u međuspremnik sustava</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this RUPAYA address</source>
-        <translation>Potpišite poruku da biste dokazali da ste vlasnik ove RUPAYA adrese</translation>
+        <source>Sign the message to prove you own this Liberty address</source>
+        <translation>Potpišite poruku da biste dokazali da ste vlasnik ove Liberty adrese</translation>
     </message>
     <message>
-        <source>The RUPAYA address the message was signed with</source>
-        <translation>RUPAYA adresa s kojom je potpisana poruka</translation>
+        <source>The Liberty address the message was signed with</source>
+        <translation>Liberty adresa s kojom je potpisana poruka</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified RUPAYA address</source>
-        <translation>Potvrdite poruku kako biste bili sigurni da je potpisan s navedenom RUPAYA adresom</translation>
+        <source>Verify the message to ensure it was signed with the specified Liberty address</source>
+        <translation>Potvrdite poruku kako biste bili sigurni da je potpisan s navedenom Liberty adresom</translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -1197,8 +1197,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -1345,14 +1345,14 @@
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>Error</source>
         <translation>Greška</translation>

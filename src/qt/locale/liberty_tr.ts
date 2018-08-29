@@ -62,12 +62,12 @@
         <translation>Alıcı Adres</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Bunlar ödemeleri göndermek için olan RUPAYA adreslerinizdir.Coinleri göndermeden önce her zaman gönderilen miktarı ve adresi kontrol edin</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Bunlar ödemeleri göndermek için olan Liberty adreslerinizdir.Coinleri göndermeden önce her zaman gönderilen miktarı ve adresi kontrol edin</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Bunlar ödemeleri almak için olan RUPAYA adreslerinizdirHer işlem için yeni bir adres kullanmanız önerilir.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Bunlar ödemeleri almak için olan Liberty adreslerinizdirHer işlem için yeni bir adres kullanmanız önerilir.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -176,15 +176,15 @@
         <translation>cüzdan şifrelemesini onayla</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA şifreleme işlemini tamamlamak için şimdi kapanacaktır. Cüzdanınızı şifrelemenin, RUPAYA'lerinizi bilgisayarınıza bulaşan kötücül yazılımlar tarafından çalınmasına tamamen engelleyemediğini unutmayın</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty şifreleme işlemini tamamlamak için şimdi kapanacaktır. Cüzdanınızı şifrelemenin, Liberty'lerinizi bilgisayarınıza bulaşan kötücül yazılımlar tarafından çalınmasına tamamen engelleyemediğini unutmayın</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Cüzdanınızı şifrelemek istediğinizden emin misiniz?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
         <translation>Dikkat! Eğer cüzdanınızı şifrelerseniz ve şifrenizi unutursanız &lt;b&gt;Tüm Pıvlerinizi kaybedersiniz&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -254,12 +254,12 @@
         <translation>adres</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>BIP 38 ile şifrelemek isteğiniz RUPAYA Adresini giriniz. Ortadaki kutucuğa bir parola giriniz. Şifrelenmiş özel anahtarı hesaplamak için şifrele tuşuna basınız. </translation>
+        <source>Enter a Liberty Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>BIP 38 ile şifrelemek isteğiniz Liberty Adresini giriniz. Ortadaki kutucuğa bir parola giriniz. Şifrelenmiş özel anahtarı hesaplamak için şifrele tuşuna basınız. </translation>
     </message>
     <message>
-        <source>The RUPAYA address to encrypt</source>
-        <translation>Şifrelenecek RUPAYA adresi</translation>
+        <source>The Liberty address to encrypt</source>
+        <translation>Şifrelenecek Liberty adresi</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -290,8 +290,8 @@
         <translation>Geçerli imzayı sistem panosuna kopyala</translation>
     </message>
     <message>
-        <source>Encrypt the private key for this RUPAYA address</source>
-        <translation>Bu RUPAYA adresinin özel anahtarını şifreleyin</translation>
+        <source>Encrypt the private key for this Liberty address</source>
+        <translation>Bu Liberty adresinin özel anahtarını şifreleyin</translation>
     </message>
     <message>
         <source>Reset all fields</source>
@@ -433,8 +433,8 @@
         <translation>İşlem geçmişini ara</translation>
     </message>
     <message>
-        <source>Privacy Actions for zRUPX</source>
-        <translation>Gizlilik Aksiyonları zRUPX</translation>
+        <source>Privacy Actions for XLIBz</source>
+        <translation>Gizlilik Aksiyonları XLIBz</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -637,12 +637,12 @@
         <translation>Sekme tablosu</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA CORE</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty CORE</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Koinleri RUPAYA adresine gönder</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Koinleri Liberty adresine gönder</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
@@ -661,24 +661,24 @@
         <translation>Masternodları ara</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Liberty Core</source>
         <translation>Pıvx core Hakkında</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Liberty Core</source>
         <translation>Pıvx Core hakkında bilgi göster</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
-        <translation>RUPAYA için yapılandırma seçeneklerini değiştirin</translation>
+        <source>Modify configuration options for Liberty</source>
+        <translation>Liberty için yapılandırma seçeneklerini değiştirin</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>Sahip olduğunuzu kanıtlamak için mesajlarınızı RUPAYA adresleriyle imzalayın</translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Sahip olduğunuzu kanıtlamak için mesajlarınızı Liberty adresleriyle imzalayın</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>Belirtilen RUPAYA adresleriyle imzalanmış olduklarından emin olmak için iletileri doğrulayın</translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>Belirtilen Liberty adresleriyle imzalanmış olduklarından emin olmak için iletileri doğrulayın</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -709,8 +709,8 @@
         <translation>Açık Masternode yapılandırma dosyası</translation>
     </message>
     <message>
-        <source>Open a RUPAYA: URI or payment request</source>
-        <translation>Bir RUPAYA: URI veya ödeme isteği açın</translation>
+        <source>Open a Liberty: URI or payment request</source>
+        <translation>Bir Liberty: URI veya ödeme isteği açın</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -721,12 +721,12 @@
         <translation>Kaşif penceresini engelle</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Olası RUPAYA komut satırı seçeneklerine sahip bir liste almak için RUPAYA Core yardım mesajını gösterin</translation>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
+        <translation>Olası Liberty komut satırı seçeneklerine sahip bir liste almak için Liberty Core yardım mesajını gösterin</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core istemci</translation>
+        <source>Liberty Core client</source>
+        <translation>Liberty Core istemci</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1154,8 +1154,8 @@ Adres: %4
         <translation>Gönderen adresini düzenle</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid RUPAYA address.</source>
-        <translation>Girilen "%1" adresi geçerli bir RUPAYA adresi değil.</translation>
+        <source>The entered address "%1" is not a valid Liberty address.</source>
+        <translation>Girilen "%1" adresi geçerli bir Liberty adresi değil.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1200,16 +1200,16 @@ Adres: %4
         <translation>versiyon</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA CORE</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty CORE</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>hakkında RUPAYA Core</translation>
+        <source>About Liberty Core</source>
+        <translation>hakkında Liberty Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1255,16 +1255,16 @@ Adres: %4
         <translation>Hoşgeldiniz</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>RUPAYA Core'a hoşgeldiniz.</translation>
+        <source>Welcome to Liberty Core.</source>
+        <translation>Liberty Core'a hoşgeldiniz.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Program ilk başlatıldığında RUPAYA Core'un verilerini nerede saklayacağını seçebilirsiniz.</translation>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
+        <translation>Program ilk başlatıldığında Liberty Core'un verilerini nerede saklayacağını seçebilirsiniz.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core, RUPAYA blok zincirinin bir kopyasını indirecek ve depolayacaktır. Bu dizinde en az %1GB veri saklanacak ve zamanla büyüyecek. Cüzdan ayrıca bu dizinde saklanır.</translation>
+        <source>Liberty Core will download and store a copy of the Liberty block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Liberty Core, Liberty blok zincirinin bir kopyasını indirecek ve depolayacaktır. Bu dizinde en az %1GB veri saklanacak ve zamanla büyüyecek. Cüzdan ayrıca bu dizinde saklanır.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1275,8 +1275,8 @@ Adres: %4
         <translation>Özel bir veri dizini kullanın:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA CORE</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty CORE</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1417,12 +1417,12 @@ Adres: %4
         <translation>Gönderim adresi girin</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other RUPAYA addresses after it matures.
-To Add: enter percentage to give and RUPAYA address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Liberty addresses after it matures.
+To Add: enter percentage to give and Liberty address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
-        <translation>MultiSend, olgunlaştıktan sonra diğer RUPAYA adreslerinin bir listesine otomatik olarak kazancınızın 100% 'ünü veya grup yazınızı ödüllendirmenize olanak tanır.
-Eklemek için: Verilecek yüzdeyi ve MultiSend vektörüne eklemek için RUPAYA adresi girin.
+        <translation>MultiSend, olgunlaştıktan sonra diğer Liberty adreslerinin bir listesine otomatik olarak kazancınızın 100% 'ünü veya grup yazınızı ödüllendirmenize olanak tanır.
+Eklemek için: Verilecek yüzdeyi ve MultiSend vektörüne eklemek için Liberty adresi girin.
 Silme: Silinecek adresi girin ve silmek için basın.
 MultiSend, Etkinleştir'i tıklamadığınız sürece etkinleştirilmeyecektir</translation>
     </message>
@@ -1644,8 +1644,8 @@ Unutmayın, cüzdan, yeni adresi içeren işlemleri bulmak için blok zinciri ye
         <translation>Address /miktar:</translation>
     </message>
     <message>
-        <source>Add destinations to send RUPAYA to</source>
-        <translation>RUPAYA göndermek için varış yerleri ekleyin</translation>
+        <source>Add destinations to send Liberty to</source>
+        <translation>Liberty göndermek için varış yerleri ekleyin</translation>
     </message>
     <message>
         <source>Add &amp;Destination</source>
@@ -1743,48 +1743,48 @@ Unutmayın, cüzdan, yeni adresi içeren işlemleri bulmak için blok zinciri ye
         <translation>Lütfen bir gizlilik düzeyi seçin.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>10000 RUPAYA'e kadar fonları karıştırmak için 2 ayrı matternod kullanın</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>10000 Liberty'e kadar fonları karıştırmak için 2 ayrı matternod kullanın</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>10000 RUPAYA'ye kadar olan fonları karıştırmak için 8 ayrı matternod kullanın</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>10000 Liberty'ye kadar olan fonları karıştırmak için 8 ayrı matternod kullanın</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>16 ayrı matternod kullan</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Bu seçenek en hızlıdır ve 10000 RUPAYA'yi anonimleştirmek için ~ 0.025 RUPAYA'lik bir maliyeti olacaktır</translation>
+        <source>This option is the quickest and will cost about ~0.025 Liberty to anonymize 10000 Liberty</source>
+        <translation>Bu seçenek en hızlıdır ve 10000 Liberty'yi anonimleştirmek için ~ 0.025 Liberty'lik bir maliyeti olacaktır</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Bu seçenek orta derecede hızlıdır ve 10000 RUPAYA'yi anonimleştirmek için yaklaşık 0.05 RUPAYA'e mal olur</translation>
+        <source>This option is moderately fast and will cost about 0.05 Liberty to anonymize 10000 Liberty</source>
+        <translation>Bu seçenek orta derecede hızlıdır ve 10000 Liberty'yi anonimleştirmek için yaklaşık 0.05 Liberty'e mal olur</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Bu en yavaş ve en güvenli seçenektir. Maksimum anonimlik kullanmak maliyete gelecek</translation>
     </message>
     <message>
-        <source>0.1 RUPAYA per 10000 RUPAYA you anonymize.</source>
-        <translation>0.1 RUPAYA her 10000 RUPAYA anonimleştirmeye.</translation>
+        <source>0.1 Liberty per 10000 Liberty you anonymize.</source>
+        <translation>0.1 Liberty her 10000 Liberty anonimleştirmeye.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
         <translation>Şaşırtma ayarlama</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
-        <translation>Şaşırtma başarıyla temele ayarlandı. (%1 ve  2 turlar) Bunu istediğiniz zaman değiştirmek için RUPAYA in ayarlar ekranını açmanız yeterli</translation>
+        <source>Obfuscation was successfully set to basic (%1 and 2 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
+        <translation>Şaşırtma başarıyla temele ayarlandı. (%1 ve  2 turlar) Bunu istediğiniz zaman değiştirmek için Liberty in ayarlar ekranını açmanız yeterli</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
-        <translation>Şaşırtma başarıyla Yüksek e ayarlandı. (%1 ve 8 turlar) Bunu istediğiniz zaman değiştirmek için RUPAYA in ayarlar ekranını açmanız yeterli</translation>
+        <source>Obfuscation was successfully set to high (%1 and 8 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
+        <translation>Şaşırtma başarıyla Yüksek e ayarlandı. (%1 ve 8 turlar) Bunu istediğiniz zaman değiştirmek için Liberty in ayarlar ekranını açmanız yeterli</translation>
     </message>
     <message>
-        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening RUPAYA's configuration screen.</source>
-        <translation>Şaşırtma başarıyla maksimuma ayarlandı. (%1 ve 16 turlar) Bunu istediğiniz zaman değiştirmek için RUPAYA in ayarlar ekranını açmanız yeterli</translation>
+        <source>Obfuscation was successfully set to maximum (%1 and 16 rounds). You can change this at any time by opening Liberty's configuration screen.</source>
+        <translation>Şaşırtma başarıyla maksimuma ayarlandı. (%1 ve 16 turlar) Bunu istediğiniz zaman değiştirmek için Liberty in ayarlar ekranını açmanız yeterli</translation>
     </message>
 </context>
 <context>
@@ -1845,8 +1845,8 @@ Unutmayın, cüzdan, yeni adresi içeren işlemleri bulmak için blok zinciri ye
         <translation>Doğrulanmamış değişikliğin harcamasını devre dışı bırakırsanız, bir işlemdeki değişiklik&lt;br/&gt;Bu işlem en az bir onay alıncaya kadar kullanılamaz.&lt;br/&gt;Bu aynı zamanda bakiyenizin nasıl hesaplandığını etkiler.</translation>
     </message>
     <message>
-        <source>Automatically open the RUPAYA client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Yönelticideki RUPAYA istemci bağlantı noktasını otomatik olarak açın. Bu, yalnızca yönlendiriciniz UPnP'yi destekliyorsa ve etkinleştirilmişse çalışır.</translation>
+        <source>Automatically open the Liberty client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Yönelticideki Liberty istemci bağlantı noktasını otomatik olarak açın. Bu, yalnızca yönlendiriciniz UPnP'yi destekliyorsa ve etkinleştirilmişse çalışır.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1865,12 +1865,12 @@ Unutmayın, cüzdan, yeni adresi içeren işlemleri bulmak için blok zinciri ye
         <translation>Uzman</translation>
     </message>
     <message>
-        <source>Automatically start RUPAYA after logging in to the system.</source>
-        <translation>Sisteme giriş yaptıktan sonra otomatik olarak RUPAYA'i başlatın.</translation>
+        <source>Automatically start Liberty after logging in to the system.</source>
+        <translation>Sisteme giriş yaptıktan sonra otomatik olarak Liberty'i başlatın.</translation>
     </message>
     <message>
-        <source>&amp;Start RUPAYA on system login</source>
-        <translation>&amp; Sistem oturum açma işleminde RUPAYA'i başlat</translation>
+        <source>&amp;Start Liberty on system login</source>
+        <translation>&amp; Sistem oturum açma işleminde Liberty'i başlat</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1897,42 +1897,42 @@ Unutmayın, cüzdan, yeni adresi içeren işlemleri bulmak için blok zinciri ye
         <translation>&amp;ağ</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting RUPAYA.</source>
-        <translation>Kullanıcı arabirimi dili burada ayarlanabilir. Bu ayar, RUPAYA yeniden başlatıldıktan sonra geçerli olur.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Liberty.</source>
+        <translation>Kullanıcı arabirimi dili burada ayarlanabilir. Bu ayar, Liberty yeniden başlatıldıktan sonra geçerli olur.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
+https://www.transifex.com/liberty-project/liberty-project-translations</source>
         <translation>Dil eksik veya çeviri tamamlanmamış mı? Katkıda bulunan çevirilere yardımcı olun:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</translation>
+https://www.transifex.com/liberty-project/liberty-project-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>
         <translation>Map port using &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable zRUPX Automint</source>
-        <translation>zRUPX Otomatik basımı etkinleştir</translation>
+        <source>Enable XLIBz Automint</source>
+        <translation>XLIBz Otomatik basımı etkinleştir</translation>
     </message>
     <message>
-        <source>Percentage of incoming RUPAYA which get automatically converted to zRUPX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Zerocoin Protokolü üzerinden otomatik olarak zRUPX'ye dönüştürülen gelen RUPAYA yüzdesi (dakika: 10%)</translation>
+        <source>Percentage of incoming Liberty which get automatically converted to XLIBz via Zerocoin Protocol (min: 10%)</source>
+        <translation>Zerocoin Protokolü üzerinden otomatik olarak XLIBz'ye dönüştürülen gelen Liberty yüzdesi (dakika: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zRUPX</source>
-        <translation>Otomatikleştirilmiş zRUPX yüzdesi</translation>
+        <source>Percentage of autominted XLIBz</source>
+        <translation>Otomatikleştirilmiş XLIBz yüzdesi</translation>
     </message>
     <message>
-        <source>Wait with automatic conversion to Zerocoin until enough RUPAYA for this denomination is available</source>
-        <translation>Bu mezhebi için yeterli RUPAYA bulunana kadar Zerocoin'e otomatik dönüşümle birlikte bekleyin</translation>
+        <source>Wait with automatic conversion to Zerocoin until enough Liberty for this denomination is available</source>
+        <translation>Bu mezhebi için yeterli Liberty bulunana kadar Zerocoin'e otomatik dönüşümle birlikte bekleyin</translation>
     </message>
     <message>
-        <source>Preferred Automint zRUPX Denomination</source>
-        <translation>Tercih edilen Automint zRUPX Nominal değeri</translation>
+        <source>Preferred Automint XLIBz Denomination</source>
+        <translation>Tercih edilen Automint XLIBz Nominal değeri</translation>
     </message>
     <message>
-        <source>Connect to the RUPAYA network through a SOCKS5 proxy.</source>
-        <translation>Bir SOCKS5 proxy vasıtasıyla RUPAYA ağına bağlanın.</translation>
+        <source>Connect to the Liberty network through a SOCKS5 proxy.</source>
+        <translation>Bir SOCKS5 proxy vasıtasıyla Liberty ağına bağlanın.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -2078,8 +2078,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Toplam Bakiye, mevcut olmayan tüm paralar dahil.</translation>
     </message>
     <message>
-        <source>RUPAYA Balance</source>
-        <translation>RUPAYA Bakiyesi</translation>
+        <source>Liberty Balance</source>
+        <translation>Liberty Bakiyesi</translation>
     </message>
     <message>
         <source>Pending:</source>
@@ -2098,16 +2098,16 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Staklanmış veya masternod ödülleri henüz olgunlaşmamış</translation>
     </message>
     <message>
-        <source>Your current RUPAYA balance, unconfirmed and immature transactions included</source>
-        <translation>Güncel RUPAYA bakiyeniz, onaylanmamış ve olgunlaşmamış işlemler dahil</translation>
+        <source>Your current Liberty balance, unconfirmed and immature transactions included</source>
+        <translation>Güncel Liberty bakiyeniz, onaylanmamış ve olgunlaşmamış işlemler dahil</translation>
     </message>
     <message>
-        <source>zRUPX Balance</source>
-        <translation>zRUPX Bakiyesi</translation>
+        <source>XLIBz Balance</source>
+        <translation>XLIBz Bakiyesi</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>Görüntülenen bilgiler güncelliğini yitirmiş olabilir. Bir bağlantı kurulduktan sonra M-cüzdanınız otomatik olarak RUPAYA şebekesiyle senkronize edilir, ancak bu işlem henüz tamamlanmadı.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>Görüntülenen bilgiler güncelliğini yitirmiş olabilir. Bir bağlantı kurulduktan sonra M-cüzdanınız otomatik olarak Liberty şebekesiyle senkronize edilir, ancak bu işlem henüz tamamlanmadı.</translation>
     </message>
     <message>
         <source>OVERVIEW</source>
@@ -2150,8 +2150,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Harcanabilir:</translation>
     </message>
     <message>
-        <source>Locked RUPAYA or Masternode collaterals. These are excluded from zRUPX minting.</source>
-        <translation>Kilitli RUPAYA veya Masternode teminatları. Bunlar zRUPX matlaştırmadan çıkarılır.</translation>
+        <source>Locked Liberty or Masternode collaterals. These are excluded from XLIBz minting.</source>
+        <translation>Kilitli Liberty veya Masternode teminatları. Bunlar XLIBz matlaştırmadan çıkarılır.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -2162,8 +2162,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>onaylanmamış:</translation>
     </message>
     <message>
-        <source>Your current zRUPX balance, unconfirmed and immature zRUPX included.</source>
-        <translation>Güncel zRUPX bakiyeniz, onaylanmamış ve olgunlaşmamış zRUPX'ler dahil.</translation>
+        <source>Your current XLIBz balance, unconfirmed and immature XLIBz included.</source>
+        <translation>Güncel XLIBz bakiyeniz, onaylanmamış ve olgunlaşmamış XLIBz'ler dahil.</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -2174,10 +2174,10 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>senkronizasyon dışı</translation>
     </message>
     <message>
-        <source>Current percentage of zRUPX.
+        <source>Current percentage of XLIBz.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Mevcut zRUPX yüzdesi.
+        <translation>Mevcut XLIBz yüzdesi.
 AutoMint etkinleştirilirse, bu yüzde, yapılandırılmış AutoMint yüzdesi etrafında düzelir (varsayılan = 10%).
 </translation>
     </message>
@@ -2223,8 +2223,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Rupaya başlatılamıyor: tıkla ve ödeme işleyicisi</translation>
     </message>
     <message>
-        <source>URI cannot be parsed! This can be caused by an invalid RUPAYA address or malformed URI parameters.</source>
-        <translation>URI ayrıştırılamaz! Bunun nedeni, geçersiz bir RUPAYA adresi veya hatalı biçimlendirilmiş URI parametrelerinden kaynaklanabilir.</translation>
+        <source>URI cannot be parsed! This can be caused by an invalid Liberty address or malformed URI parameters.</source>
+        <translation>URI ayrıştırılamaz! Bunun nedeni, geçersiz bir Liberty adresi veya hatalı biçimlendirilmiş URI parametrelerinden kaynaklanabilir.</translation>
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
@@ -2309,8 +2309,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Zerocoin Actions:</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>Görüntülenen bilgiler güncelliğini yitirmiş olabilir. Bir bağlantı kurulduktan sonra M-cüzdanınız otomatik olarak RUPAYA şebekesiyle senkronize edilir, ancak bu işlem henüz tamamlanmadı.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>Görüntülenen bilgiler güncelliğini yitirmiş olabilir. Bir bağlantı kurulduktan sonra M-cüzdanınız otomatik olarak Liberty şebekesiyle senkronize edilir, ancak bu işlem henüz tamamlanmadı.</translation>
     </message>
     <message>
         <source>Mint Zerocoin</source>
@@ -2321,8 +2321,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
         <source>Available for minting are coins which are confirmed and not locked or Masternode collaterals.</source>
@@ -2333,8 +2333,8 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Mintinge hazır</translation>
     </message>
     <message>
-        <source>0.000 000 00 RUPAYA</source>
-        <translation>0.000 000 00 RUPAYA</translation>
+        <source>0.000 000 00 Liberty</source>
+        <translation>0.000 000 00 Liberty</translation>
     </message>
     <message>
         <source>Reset Zerocoin Wallet DB. Deletes transactions that did not make it into the blockchain.</source>
@@ -2385,24 +2385,24 @@ To enable AutoMint change 'enablezeromint=0' to 'enablezeromint=1' in rupaya.con
         <translation>Harca Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending</source>
-        <translation>Mevcut (olgun ve harcanabilir) harcama için zRUPX</translation>
+        <source>Available (mature and spendable) XLIBz for spending</source>
+        <translation>Mevcut (olgun ve harcanabilir) harcama için XLIBz</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Kullanılabilir Bakiye:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending
+        <source>Available (mature and spendable) XLIBz for spending
 
-zRUPX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>Mevcut (olgun ve harcanabilir) harcama için zRUPX
+XLIBz are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>Mevcut (olgun ve harcanabilir) harcama için XLIBz
 
-zRUPX, 20'den fazla teyit bulunduğunda olgunlaşır ve bundan sonra aynı mezhepten 2 kat fazla darphane çekilir.</translation>
+XLIBz, 20'den fazla teyit bulunduğunda olgunlaşır ve bundan sonra aynı mezhepten 2 kat fazla darphane çekilir.</translation>
     </message>
     <message>
-        <source>0 zRUPX</source>
-        <translation>0 zRUPX</translation>
+        <source>0 XLIBz</source>
+        <translation>0 XLIBz</translation>
     </message>
     <message>
         <source>Security Level for Zerocoin Transactions. More is better, but needs more time and resources.</source>
@@ -2421,8 +2421,8 @@ zRUPX, 20'den fazla teyit bulunduğunda olgunlaşır ve bundan sonra aynı mezhe
         <translation>şuna öde:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>Ödemeyi göndermek için RUPAYA adresi. Boş olduğunda kendinize yerel ödeme oluşturur.</translation>
+        <source>The Liberty address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>Ödemeyi göndermek için Liberty adresi. Boş olduğunda kendinize yerel ödeme oluşturur.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2473,8 +2473,8 @@ zRUPX, 20'den fazla teyit bulunduğunda olgunlaşır ve bundan sonra aynı mezhe
         <translation>Zerocoin durumu:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zRUPX</source>
-        <translation>Doğrulanmamış ve olgunlaşmamış zRUPX dahil toplam bakiye</translation>
+        <source>Total Balance including unconfirmed and immature XLIBz</source>
+        <translation>Doğrulanmamış ve olgunlaşmamış XLIBz dahil toplam bakiye</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
@@ -2649,12 +2649,12 @@ Maximum allowed: </source>
 Maksimum bırakılan: </translation>
     </message>
     <message>
-        <source>zRUPX is currently disabled due to maintenance.</source>
-        <translation>zRUPX bakım nedeniyle şu an kullanıma kapalı.</translation>
+        <source>XLIBz is currently disabled due to maintenance.</source>
+        <translation>XLIBz bakım nedeniyle şu an kullanıma kapalı.</translation>
     </message>
     <message>
-        <source>zRUPX is currently undergoing maintenance.</source>
-        <translation>zRUPX halen bakım alıyor.</translation>
+        <source>XLIBz is currently undergoing maintenance.</source>
+        <translation>XLIBz halen bakım alıyor.</translation>
     </message>
     <message>
         <source>AutoMint Status:</source>
@@ -2677,8 +2677,8 @@ Maksimum bırakılan: </translation>
         <translation>Başarılı şekilde mint edildi</translation>
     </message>
     <message>
-        <source> zRUPX in </source>
-        <translation> zRUPX in </translation>
+        <source> XLIBz in </source>
+        <translation> XLIBz in </translation>
     </message>
     <message>
         <source> sec. Used denominations:
@@ -2790,8 +2790,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Miktar</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA address (e.g. %1)</source>
-        <translation>Gir bir RUPAYA addres (e.g. %1)</translation>
+        <source>Enter a Liberty address (e.g. %1)</source>
+        <translation>Gir bir Liberty addres (e.g. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -2928,8 +2928,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Block chain</translation>
     </message>
     <message>
-        <source>Open the RUPAYA debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Geçerli veri dizininden RUPAYA hata ayıklama günlük dosyasını açın. Bu, büyük günlük dosyaları için birkaç saniye sürebilir.</translation>
+        <source>Open the Liberty debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Geçerli veri dizininden Liberty hata ayıklama günlük dosyasını açın. Bu, büyük günlük dosyaları için birkaç saniye sürebilir.</translation>
     </message>
     <message>
         <source>Number of Masternodes</source>
@@ -3112,8 +3112,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Dışa:</translation>
     </message>
     <message>
-        <source>Welcome to the RUPAYA RPC console.</source>
-        <translation>RUPAYA RPC konsola hoşgeldiniz</translation>
+        <source>Welcome to the Liberty RPC console.</source>
+        <translation>Liberty RPC konsola hoşgeldiniz</translation>
     </message>
     <message>
         <source>This will delete your local blockchain folders and the wallet will synchronize the complete Blockchain from scratch.&lt;br /&gt;&lt;br /&gt;</source>
@@ -3199,12 +3199,12 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Yeni alma adresi ile ilişkilendirilebilecek isteğe bağlı bir etiket.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the RUPAYA network.</source>
-        <translation>Talep açıldığında görüntülenecek ödeme isteğine eklemek için isteğe bağlı bir mesaj. Not: Mesaj, ödemenin RUPAYA şebekesi üzerinden gönderilmeyecektir.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the Liberty network.</source>
+        <translation>Talep açıldığında görüntülenecek ödeme isteğine eklemek için isteğe bağlı bir mesaj. Not: Mesaj, ödemenin Liberty şebekesi üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
-        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the RUPAYA network.</source>
-        <translation>Talep açıldığında görüntülenecek, ödeme isteğine eklemek için isteğe bağlı bir mesaj.&lt;br&gt;Not: Mesaj, ödemenin RUPAYA şebekesi üzerinden gönderilmeyecektir.</translation>
+        <source>An optional message to attach to the payment request, which will be displayed when the request is opened.&lt;br&gt;Note: The message will not be sent with the payment over the Liberty network.</source>
+        <translation>Talep açıldığında görüntülenecek, ödeme isteğine eklemek için isteğe bağlı bir mesaj.&lt;br&gt;Not: Mesaj, ödemenin Liberty şebekesi üzerinden gönderilmeyecektir.</translation>
     </message>
     <message>
         <source>Use this form to request payments. All fields are &lt;b&gt;optional&lt;/b&gt;.</source>
@@ -3428,8 +3428,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>UTXO Boyutu:</translation>
     </message>
     <message>
-        <source>0 RUPAYA</source>
-        <translation>0 RUPAYA</translation>
+        <source>0 Liberty</source>
+        <translation>0 Liberty</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -3492,8 +3492,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Özel ücret 1000 uRUPAYA olarak ayarlanırsa ve işlem sadece 250 bayt ise, "kilobayt başına" ücret karşılığında yalnızca 250 uRUPAYA ücreti verilir,&lt;br /&gt;"toplam en az" ise 1000 uRUPAYA ödüyor. Bir kilobayttan daha büyük işlemler için kilobayt ödersiniz.</translation>
     </message>
     <message>
-        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for RUPAYA transactions than the network can process.</source>
-        <translation>Yalnızca minimum ücreti ödemek, işlem hacmi bloklardaki alana göre daha az olduğu sürece iyidir.&lt;br /&gt;Ancak, bunun, RUPAYA işlemleri için ağın işleyebileceğinden daha fazla talep olması durumunda, onaylama işleminde asla sonuçlanamayacağına dikkat edin.</translation>
+        <source>Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.&lt;br /&gt;But be aware that this can end up in a never confirming transaction once there is more demand for Liberty transactions than the network can process.</source>
+        <translation>Yalnızca minimum ücreti ödemek, işlem hacmi bloklardaki alana göre daha az olduğu sürece iyidir.&lt;br /&gt;Ancak, bunun, Liberty işlemleri için ağın işleyebileceğinden daha fazla talep olması durumunda, onaylama işleminde asla sonuçlanamayacağına dikkat edin.</translation>
     </message>
     <message>
         <source>normal</source>
@@ -3540,8 +3540,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Alıcı ekle</translation>
     </message>
     <message>
-        <source>Anonymized RUPAYA</source>
-        <translation>anonim edilmiş RUPAYA</translation>
+        <source>Anonymized Liberty</source>
+        <translation>anonim edilmiş Liberty</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -3588,8 +3588,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Bloğu böl aygıtı multipl adresle çalışmaz Tekrar deneyin</translation>
     </message>
     <message>
-        <source>Warning: Invalid RUPAYA address</source>
-        <translation>Uyarı: Geçersiz RUPAYA adresi</translation>
+        <source>Warning: Invalid Liberty address</source>
+        <translation>Uyarı: Geçersiz Liberty adresi</translation>
     </message>
     <message>
         <source>%1 to %2</source>
@@ -3683,8 +3683,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>şuna öde:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to</source>
-        <translation>Ödemeyi göndermek için RUPAYA adresi</translation>
+        <source>The Liberty address to send the payment to</source>
+        <translation>Ödemeyi göndermek için Liberty adresi</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3723,8 +3723,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Mesaj:</translation>
     </message>
     <message>
-        <source>A message that was attached to the RUPAYA: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the RUPAYA network.</source>
-        <translation>RUPAYA e eklenmiş olan bir mesaj: İşleminizle beraber saklanacak olan URI hatırlamanız için. Not: Bu mesaj RUPAYA ağında yayınlanmayacak.</translation>
+        <source>A message that was attached to the Liberty: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the Liberty network.</source>
+        <translation>Liberty e eklenmiş olan bir mesaj: İşleminizle beraber saklanacak olan URI hatırlamanız için. Not: Bu mesaj Liberty ağında yayınlanmayacak.</translation>
     </message>
     <message>
         <source>This is an unverified payment request.</source>
@@ -3750,8 +3750,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core kapanıyor ...</translation>
+        <source>Liberty Core is shutting down...</source>
+        <translation>Liberty Core kapanıyor ...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -3773,8 +3773,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Sahip olduğunuzu kanıtlamak için adreslerinizle mesaj imzalayabilirsiniz. Kimlik avı saldırıları sizi kimliğini onlara yazmaya kandırmaya çalışabilir, çünkü belirsiz bir şey imzalamamaya dikkat edin. Kabul ettiğiniz tamamen ayrıntılı ifadeleri yalnızca imzalayın.</translation>
     </message>
     <message>
-        <source>The RUPAYA address to sign the message with</source>
-        <translation>Ile mesaj imzalamak için RUPAYA adresi</translation>
+        <source>The Liberty address to sign the message with</source>
+        <translation>Ile mesaj imzalamak için Liberty adresi</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -3805,16 +3805,16 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Geçerli imzayı sistem panosuna kopyala</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this RUPAYA address</source>
-        <translation>Bu RUPAYA adresinin sahibi olduğunuzu kanıtlamak için mesajı imzala</translation>
+        <source>Sign the message to prove you own this Liberty address</source>
+        <translation>Bu Liberty adresinin sahibi olduğunuzu kanıtlamak için mesajı imzala</translation>
     </message>
     <message>
-        <source>The RUPAYA address the message was signed with</source>
-        <translation>Mesajın imzalandığı RUPAYA adresi</translation>
+        <source>The Liberty address the message was signed with</source>
+        <translation>Mesajın imzalandığı Liberty adresi</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified RUPAYA address</source>
-        <translation>Belirtilen RUPAYA adresi ile imzalanmış olduğundan emin olmak için iletiyi doğrulayın</translation>
+        <source>Verify the message to ensure it was signed with the specified Liberty address</source>
+        <translation>Belirtilen Liberty adresi ile imzalanmış olduğundan emin olmak için iletiyi doğrulayın</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -3900,8 +3900,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA CORE</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty CORE</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -3916,8 +3916,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>The Dash Core developers</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>The RUPAYA Core developers</translation>
+        <source>The Liberty Core developers</source>
+        <translation>The Liberty Core developers</translation>
     </message>
     <message>
         <source>[testnet]</source>
@@ -4436,8 +4436,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Koinleri göder</translation>
     </message>
     <message>
-        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 RUPAYA.</source>
-        <translation>SwiftX yüksek değerler göndermeyi desteklemiyor. İşlemler şu anda %1 RUPAYA ile sınırlıdır.</translation>
+        <source>SwiftX doesn't support sending values that high yet. Transactions are currently limited to %1 Liberty.</source>
+        <translation>SwiftX yüksek değerler göndermeyi desteklemiyor. İşlemler şu anda %1 Liberty ile sınırlıdır.</translation>
     </message>
 </context>
 <context>
@@ -4464,7 +4464,7 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
     </message>
 </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
         <source>Quantity</source>
         <translation>Adet</translation>
@@ -4474,8 +4474,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
         <source>Select/Deselect All</source>
@@ -4487,7 +4487,7 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
     </message>
 </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>(1 = keep tx meta data e.g. account owner and payment request information, 2 = drop tx meta data)</source>
         <translation>(1 = tx meta verileri, örneğin hesap sahibi ve ödeme talebi bilgileri, 2 = tx meta verileri bırak)</translation>
@@ -4513,8 +4513,8 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>Hesaplanan akümülatör kontrol noktası, blok indeksiyle kaydedilen kontrol noktası değildir.</translation>
     </message>
     <message>
-        <source>Cannot obtain a lock on data directory %s. RUPAYA Core is probably already running.</source>
-        <translation>Veri dizini %s üzerinde bir kilit elde edemiyor. RUPAYA Core muhtemelen zaten çalışıyor.</translation>
+        <source>Cannot obtain a lock on data directory %s. Liberty Core is probably already running.</source>
+        <translation>Veri dizini %s üzerinde bir kilit elde edemiyor. Liberty Core muhtemelen zaten çalışıyor.</translation>
     </message>
     <message>
         <source>Change automatic finalized budget voting behavior. mode=auto: Vote for only exact finalized budget match to my generated budget. (string, default: auto)</source>
@@ -4565,12 +4565,12 @@ Ya daha yüksek mezhepleri daraltın (daha az girdi gereklidir) veya harcama mik
         <translation>En iyi blok değiştirildiğinde komutu yürütün (cmd'deki %s yerine blok karması verilir)</translation>
     </message>
     <message>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
-        <translation>Bundan daha küçük ücretler (RUPAYA / Kb cinsinden), aktarma için sıfır ücret olarak kabul edilir (varsayılan: %s)</translation>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for relaying (default: %s)</source>
+        <translation>Bundan daha küçük ücretler (Liberty / Kb cinsinden), aktarma için sıfır ücret olarak kabul edilir (varsayılan: %s)</translation>
     </message>
     <message>
-        <source>Fees (in RUPAYA/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
-        <translation>Bundan daha küçük ücretler (RUPAYA / Kb cinsinden), işlem yaratmada sıfır ücret olarak kabul edilir (varsayılan: %s)</translation>
+        <source>Fees (in Liberty/Kb) smaller than this are considered zero fee for transaction creation (default: %s)</source>
+        <translation>Bundan daha küçük ücretler (Liberty / Kb cinsinden), işlem yaratmada sıfır ücret olarak kabul edilir (varsayılan: %s)</translation>
     </message>
     <message>
         <source>Flush database activity from memory pool to disk log every &lt;n&gt; megabytes (default: %u)</source>
