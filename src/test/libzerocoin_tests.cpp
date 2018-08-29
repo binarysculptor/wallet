@@ -9,7 +9,8 @@
 * @copyright  Copyright 2013 Ian Miers, Christina Garman and Matthew Green
 * @license    This project is released under the MIT license.
 **/
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX Developers
+// Copyright (c) 2018 The Liberty Developers 
 
 #include <boost/test/unit_test.hpp>
 #include <string>
@@ -419,14 +420,14 @@ Test_MintAndSpend()
 		cc << *gCoins[0];
 		PrivateCoin myCoin(g_Params,cc);
 
-		CoinSpend spend(g_Params, g_Params, myCoin, acc, 0, wAcc, 0, SpendType::SPEND);
+		CoinSpend spend(g_Params, myCoin, acc, 0, wAcc, 0, SpendType::SPEND);
         spend.Verify(acc);
 
 		// Serialize the proof and deserialize into newSpend
 		CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
 		ss << spend;
 		gProofSize = ss.size();
-		CoinSpend newSpend(g_Params, g_Params, ss);
+		CoinSpend newSpend(g_Params, ss);
 
 		// See if we can verify the deserialized proof (return our result)
 		bool ret =  newSpend.Verify(acc);

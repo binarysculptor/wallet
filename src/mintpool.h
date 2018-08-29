@@ -1,9 +1,10 @@
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX Developers
+// Copyright (c) 2018 The LIBERTY Developers 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_MINTPOOL_H
-#define PIVX_MINTPOOL_H
+#ifndef LIBERTY_MINTPOOL_H
+#define LIBERTY_MINTPOOL_H
 
 #include <map>
 #include <list>
@@ -50,4 +51,4 @@ public:
 };
 
 
-#endif //PIVX_MINTPOOL_H
+#endif //LIBERTY_MINTPOOL_H

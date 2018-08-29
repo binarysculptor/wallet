@@ -155,7 +155,7 @@ class FrameworkInfo(object):
 class ApplicationBundleInfo(object):
     def __init__(self, path):
         self.path = path
-        appName = "PIVX-Qt"
+        appName = "Liberty-Qt"
         self.binaryPath = os.path.join(path, "Contents", "MacOS", appName)
         if not os.path.exists(self.binaryPath):
             raise RuntimeError("Could not find bundle binary for " + path)
@@ -213,6 +213,9 @@ def getFrameworks(binaryPath, verbose):
 
     otoolLines = o_stdout.decode().split("\n")
     otoolLines.pop(0) # First line is the inspected binary
+    #Aasim's magic line of code.
+    #otoolLines.append(" /usr/local/opt/boost/lib/libboost_system-mt.dylib (compatibility version 0.0.0, current version 0.0.0)")
+    
     if ".framework" in binaryPath or binaryPath.endswith(".dylib"):
         otoolLines.pop(0) # Frameworks and dylibs list themselves as a dependency.
 
@@ -603,7 +606,7 @@ else:
 
 # ------------------------------------------------
 
-target = os.path.join("dist", "PIVX-Qt.app")
+target = os.path.join("dist", "Liberty-Qt.app")
 
 if verbose >= 2:
     print("+ Copying source bundle +")

@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2014 The Bitcoin developers
-// Copyright (c) 2016-2017 The PIVX developers
+// Copyright (c) 2016-2017 The PIVX Developers 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,10 +11,10 @@
 
 /**
  * Name of client reported in the 'version' message. Report the same name
- * for both pivxd and pivx-qt, to make it harder for attackers to
+ * for both libertyd and Liberty-Qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("PIVX Core");
+const std::string CLIENT_NAME("Liberty Core");
 
 /**
  * Client version number

@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2016 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The PIVX Developers 
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #include "spork.h"
 
 //
-// Bootup the Masternode, look for a 10000 PIVX input and register on the network
+// Bootup the Masternode, look for a 10000 Liberty input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -68,18 +68,20 @@ void CActiveMasternode::ManageStatus()
         }
 
         // The service needs the correct default port to work properly
-        if(!CMasternodeBroadcast::CheckDefaultPort(strMasterNodeAddr, errorMessage, "CActiveMasternode::ManageStatus()"))
+        if (!CMasternodeBroadcast::CheckDefaultPort(strMasterNodeAddr, errorMessage, __func__))
             return;
 
-        LogPrintf("CActiveMasternode::ManageStatus() - Checking inbound connection to '%s'\n", service.ToString());
+        LogPrintf("%s - Checking inbound connection to '%s'\n", service.ToString());
 
-        CNode* pnode = ConnectNode((CAddress)service, NULL, false);
-        if (!pnode) {
+        SOCKET hSocket;
+        bool fConnected = ConnectSocket(service, hSocket, nConnectTimeout) && IsSelectableSocket(hSocket);
+        CloseSocket(hSocket);
+
+        if (!fConnected) {
             notCapableReason = "Could not connect to " + service.ToString();
-            LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
+            LogPrintf("%s - not capable: %s\n", __func__);
             return;
         }
-        pnode->Release();
 
         // Choose coins to use
         CPubKey pubKeyCollateralAddress;
@@ -456,7 +458,7 @@ vector<COutput> CActiveMasternode::SelectCoinsMasternode()
 
     // Filter
     BOOST_FOREACH (const COutput& out, vCoins) {
-        if (out.tx->vout[out.i].nValue == 10000 * COIN) { //exactly
+        if (out.tx->vout[out.i].nValue == MASTERNODE_REQUIRED_AMOUNT * COIN) { //exactly
             filteredCoins.push_back(out);
         }
     }

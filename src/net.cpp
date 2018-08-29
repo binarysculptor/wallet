@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The PIVX Developers 
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/pivx-config.h"
+#include "config/liberty-config.h"
 #endif
 
 #include "net.h"
@@ -120,7 +120,7 @@ void AddOneShot(string strDest)
 
 unsigned short GetListenPort()
 {
-    return (unsigned short)(GetArg("-port", Params().GetDefaultPort()));
+    return (unsigned short)(GetArg("-port", Params().GetP2PPort()));
 }
 
 // find 'best' local address for a particular peer
@@ -411,7 +411,7 @@ CNode* ConnectNode(CAddress addrConnect, const char* pszDest, bool obfuScationMa
     // Connect
     SOCKET hSocket;
     bool proxyConnectionFailed = false;
-    if (pszDest ? ConnectSocketByName(addrConnect, hSocket, pszDest, Params().GetDefaultPort(), nConnectTimeout, &proxyConnectionFailed) :
+    if (pszDest ? ConnectSocketByName(addrConnect, hSocket, pszDest, Params().GetP2PPort(), nConnectTimeout, &proxyConnectionFailed) :
                   ConnectSocket(addrConnect, hSocket, nConnectTimeout, &proxyConnectionFailed)) {
         if (!IsSelectableSocket(hSocket)) {
             LogPrintf("Cannot create connection: non-selectable socket created (fd >= FD_SETSIZE ?)\n");
@@ -546,7 +546,7 @@ void CNode::Ban(const CSubNet& subNet, const BanReason &banReason, int64_t banti
     banEntry.banReason = banReason;
     if (bantimeoffset <= 0)
     {
-        bantimeoffset = GetArg("-bantime", 60*60*24); // Default 24-hour ban
+        bantimeoffset = GetArg("-bantime", 60*60*4); // Default 4-hour ban
         sinceUnixEpoch = false;
     }
     banEntry.nBanUntil = (sinceUnixEpoch ? 0 : GetTime() )+bantimeoffset;
@@ -695,7 +695,7 @@ void CNode::copyStats(CNodeStats& stats)
         nPingUsecWait = GetTimeMicros() - nPingUsecStart;
     }
 
-    // Raw ping time is in microseconds, but show it to user as whole seconds (PIVX users should be well used to small numbers with many decimal places by now :)
+    // Raw ping time is in microseconds, but show it to user as whole seconds (Liberty users should be well used to small numbers with many decimal places by now :)
     stats.dPingTime = (((double)nPingUsecTime) / 1e6);
     stats.dPingWait = (((double)nPingUsecWait) / 1e6);
 
@@ -1157,7 +1157,7 @@ void ThreadMapPort()
             }
         }
 
-        string strDesc = "PIVX " + FormatFullVersion();
+        string strDesc = "Liberty " + FormatFullVersion();
 
         try {
             while (true) {
@@ -1252,7 +1252,7 @@ void ThreadDNSAddressSeed()
             if (LookupHost(seed.host.c_str(), vIPs)) {
                 BOOST_FOREACH (CNetAddr& ip, vIPs) {
                     int nOneDay = 24 * 3600;
-                    CAddress addr = CAddress(CService(ip, Params().GetDefaultPort()));
+                    CAddress addr = CAddress(CService(ip, Params().GetP2PPort()));
                     addr.nTime = GetTime() - 3 * nOneDay - GetRand(4 * nOneDay); // use a random age between 3 and 7 days old
                     vAdd.push_back(addr);
                     found++;
@@ -1328,17 +1328,6 @@ void ThreadOpenConnections()
         CSemaphoreGrant grant(*semOutbound);
         boost::this_thread::interruption_point();
 
-        // Add seed nodes if DNS seeds are all down (an infrastructure attack?).
-        if (addrman.size() == 0 && (GetTime() - nStart > 60)) {
-            static bool done = false;
-            if (!done) {
-                LogPrintf("Adding fixed seed nodes as DNS doesn't seem to be available.\n");
-                addrman.Add(Params().FixedSeeds(), CNetAddr("127.0.0.1"));
-                done = true;
-            }
-        }
-
-        //
         // Choose an address to connect to based on most recently seen
         //
         CAddress addrConnect;
@@ -1382,7 +1371,7 @@ void ThreadOpenConnections()
                 continue;
 
             // do not allow non-default ports, unless after 50 invalid addresses selected already
-            if (addr.GetPort() != Params().GetDefaultPort() && nTries < 50)
+            if (addr.GetPort() != Params().GetP2PPort() && nTries < 50)
                 continue;
 
             addrConnect = addr;
@@ -1430,7 +1419,7 @@ void ThreadOpenAddedConnections()
         list<vector<CService> > lservAddressesToAdd(0);
         BOOST_FOREACH (string& strAddNode, lAddresses) {
             vector<CService> vservNode(0);
-            if (Lookup(strAddNode.c_str(), vservNode, Params().GetDefaultPort(), fNameLookup, 0)) {
+            if (Lookup(strAddNode.c_str(), vservNode, Params().GetP2PPort(), fNameLookup, 0)) {
                 lservAddressesToAdd.push_back(vservNode);
                 {
                     LOCK(cs_setservAddNodeAddresses);
@@ -1565,7 +1554,7 @@ void static ThreadStakeMinter()
         BitcoinMiner(pwallet, true);
         boost::this_thread::interruption_point();
     } catch (std::exception& e) {
-        LogPrintf("ThreadStakeMinter() exception \n");
+        LogPrintf("ThreadStakeMinter() exception: %s\n", e.what());
     } catch (...) {
         LogPrintf("ThreadStakeMinter() error \n");
     }
@@ -1635,7 +1624,7 @@ bool BindListenPort(const CService& addrBind, string& strError, bool fWhiteliste
     if (::bind(hListenSocket, (struct sockaddr*)&sockaddr, len) == SOCKET_ERROR) {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. PIVX Core is probably already running."), addrBind.ToString());
+            strError = strprintf(_("Unable to bind to %s on this computer. Liberty Core is probably already running."), addrBind.ToString());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %s)"), addrBind.ToString(), NetworkErrorString(nErr));
         LogPrintf("%s\n", strError);

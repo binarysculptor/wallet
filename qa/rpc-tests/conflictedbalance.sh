@@ -38,7 +38,7 @@ D=$(mktemp -d test.XXXXX)
 # other an evil transaction-mutating miner.
 
 D1=${D}/node1
-CreateDataDir $D1 port=11000 rpcport=11001
+CreateDataDir $D1 port=20416 rpcport=11001
 B1ARGS="-datadir=$D1 -debug=mempool"
 $BITCOIND $B1ARGS &
 B1PID=$!
@@ -79,7 +79,7 @@ function WaitPeers {
 echo "Generating test blockchain..."
 
 # Start with B2 connected to B1:
-$CLI $B2ARGS addnode 127.0.0.1:11000 onetry
+$CLI $B2ARGS addnode 127.0.0.1:20416 onetry
 WaitPeers "$B1ARGS" 1
 
 # 2 block, 50 XBT each == 100 XBT
@@ -125,7 +125,7 @@ echo "TXID_C: " $TXID_C
 echo "Mutated: " $MUTATEDTXID
 
 # Re-connect nodes, and have both nodes mine some blocks:
-$CLI $B2ARGS addnode 127.0.0.1:11000 onetry
+$CLI $B2ARGS addnode 127.0.0.1:20416 onetry
 WaitPeers "$B1ARGS" 1
 
 # Having B2 mine the next block puts the mutated

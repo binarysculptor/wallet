@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Liberty
+Comment=Liberty P2P Cryptocurrency
+Comment[fr]=Liberty, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Liberty, eşten eşe kriptografik sanal para birimi
+Exec=Liberty-Qt %u
+Terminal=false
+Type=Application
+Icon=liberty128
+MimeType=x-scheme-handler/liberty;
+Categories=Office;Finance;

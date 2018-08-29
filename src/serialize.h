@@ -1,11 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The PIVX Developers 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SERIALIZE_H
-#define PIVX_SERIALIZE_H
+#ifndef LIBERTY_SERIALIZE_H
+#define LIBERTY_SERIALIZE_H
 
 #include <algorithm>
 #include <assert.h>
@@ -965,4 +965,4 @@ public:
     }
 };
 
-#endif // PIVX_SERIALIZE_H
+#endif // LIBERTY_SERIALIZE_H

@@ -25,7 +25,7 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 D=$(mktemp -d test.XXXXX)
 
 D1=${D}/node1
-CreateDataDir "$D1" port=11000 rpcport=11001
+CreateDataDir "$D1" port=20416 rpcport=11001
 B1ARGS="-datadir=$D1"
 $BITCOIND $B1ARGS &
 B1PID=$!
