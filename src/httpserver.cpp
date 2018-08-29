@@ -1,11 +1,11 @@
 // Copyright (c) 2015 The Bitcoin Core developers
-// Copyright (c) 2018 The PIVX developers
+// Copyright (c) 2018 The PIVX Developers 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "httpserver.h"
 
-#include "chainparamsbase.h"
+#include "chainparams.h"
 #include "compat.h"
 #include "util.h"
 #include "netbase.h"
@@ -318,7 +318,7 @@ static void ThreadHTTP(struct event_base* base, struct evhttp* http)
 /** Bind HTTP server to specified addresses */
 static bool HTTPBindAddresses(struct evhttp* http)
 {
-    int defaultPort = GetArg("-rpcport", BaseParams().RPCPort());
+    int defaultPort = GetArg("-rpcport", Params().GetRpcPort());
     std::vector<std::pair<std::string, uint16_t> > endpoints;
 
     // Determine what addresses to bind to
