@@ -11,7 +11,7 @@ the same, tested dependencies are used and statically built into the executable.
 Multiple developers build the source code by following a specific descriptor
 ("recipe"), cryptographically sign the result, and upload the resulting signature.
 These results are compared and only if they match, the build is accepted and uploaded
-to pivx-crypto.com.
+to liberty-crypto.com.
 
 More independent gitian builders are needed, which is why I wrote this
 guide. It is preferred to follow these steps yourself instead of using someone else's
@@ -281,7 +281,7 @@ Clone the git repositories for pivx and gitian and then checkout the pivx versio
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/pivx-crypto/pivx.git
+git clone https://github.com/liberty-crypto/pivx.git
 cd pivx
 git checkout v${VERSION}
 cd ..
@@ -350,7 +350,7 @@ Output from `gbuild` will look something like
     remote: Total 35606 (delta 0), reused 0 (delta 0)
     Receiving objects: 100% (35606/35606), 26.52 MiB | 4.28 MiB/s, done.
     Resolving deltas: 100% (25724/25724), done.
-    From https://github.com/pivx-crypto/pivx
+    From https://github.com/liberty-crypto/pivx
     ... (new tags, new branch etc)
     --- Building for precise x86_64 ---
     Stopping target if it is up
@@ -396,9 +396,9 @@ When you execute `gsign` you will get an error from GPG, which can be ignored. C
 in `gitian.sigs` to your signing machine and do
 
 ```bash
-    gpg --detach-sign ${VERSION}-linux/${SIGNER}/pivx-build.assert
-    gpg --detach-sign ${VERSION}-win/${SIGNER}/pivx-build.assert
-    gpg --detach-sign ${VERSION}-osx/${SIGNER}/pivx-build.assert
+    gpg --detach-sign ${VERSION}-linux/${SIGNER}/liberty-build.assert
+    gpg --detach-sign ${VERSION}-win/${SIGNER}/liberty-build.assert
+    gpg --detach-sign ${VERSION}-osx/${SIGNER}/liberty-build.assert
 ```
 
 This will create the `.sig` files that can be committed together with the `.assert` files to assert your
@@ -408,6 +408,6 @@ Uploading signatures (not yet implemented)
 ---------------------
 
 In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[pivx/gitian.sigs](https://github.com/pivx-crypto/gitian.sigs/) repository, or if that's not possible to create a pull
+[pivx/gitian.sigs](https://github.com/liberty-crypto/gitian.sigs/) repository, or if that's not possible to create a pull
 request.
 There will be an official announcement when this repository is online.

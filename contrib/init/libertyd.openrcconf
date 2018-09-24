@@ -1,25 +1,25 @@
-# /etc/conf.d/pivxd: config file for /etc/init.d/pivxd
+# /etc/conf.d/libertyd: config file for /etc/init.d/libertyd
 
 # Config file location
 #BITCOIND_CONFIGFILE="/etc/pivx/pivx.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
-#BITCOIND_PIDDIR="/var/run/pivxd"
+#BITCOIND_PIDDIR="/var/run/libertyd"
 
 # What filename to give the pidfile
-#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/pivxd.pid"
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/libertyd.pid"
 
-# Where to write pivxd data (be mindful that the blockchain is large)
-#BITCOIND_DATADIR="/var/lib/pivxd"
+# Where to write libertyd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/libertyd"
 
-# User and group to own pivxd process
+# User and group to own libertyd process
 #BITCOIND_USER="pivx"
 #BITCOIND_GROUP="pivx"
 
-# Path to pivxd executable
-#BITCOIND_BIN="/usr/bin/pivxd"
+# Path to libertyd executable
+#BITCOIND_BIN="/usr/bin/libertyd"
 
-# Nice value to run pivxd under
+# Nice value to run libertyd under
 #BITCOIND_NICE=0
 
 # Additional options (avoid -conf and -datadir, use flags above)

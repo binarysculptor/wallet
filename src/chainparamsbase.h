@@ -10,7 +10,7 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between pivx-cli and pivxd)
+ * CBaseChainParams defines the base parameters (shared between liberty-cli and libertyd)
  * of a given instance of the Pivx system.
  */
 class CBaseChainParams

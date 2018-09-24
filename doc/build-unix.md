@@ -22,7 +22,7 @@ make
 make install # optional
 ```
 
-This will build pivx-qt as well if the dependencies are met.
+This will build liberty-qt as well if the dependencies are met.
 
 Dependencies
 ---------------------
@@ -98,12 +98,12 @@ libqrencode (optional) can be installed with:
 
     sudo apt-get install libqrencode-dev
 
-Once these are installed, they will be found by configure and a pivx-qt executable will be
+Once these are installed, they will be found by configure and a liberty-qt executable will be
 built by default.
 
 Notes
 -----
-The release is built with GCC and then "strip pivxd" to strip the debug
+The release is built with GCC and then "strip libertyd" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
 
@@ -192,7 +192,7 @@ Hardening enables the following features:
 
     To test that you have built PIE executable, install scanelf, part of paxutils, and use:
 
-    	scanelf -e ./pivxd
+    	scanelf -e ./libertyd
 
     The output should contain:
      TYPE
@@ -206,7 +206,7 @@ Hardening enables the following features:
     executable without the non-executable stack protection.
 
     To verify that the stack is non-executable after compiling use:
-    `scanelf -e ./pivxd`
+    `scanelf -e ./libertyd`
 
     the output should contain:
 	STK/REL/PTL
