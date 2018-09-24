@@ -1,7 +1,7 @@
-TOR SUPPORT IN PIVX
+TOR SUPPORT IN Liberty
 =======================
 
-It is possible to run PIVX as a Tor hidden service, and connect to such services.
+It is possible to run Liberty as a Tor hidden service, and connect to such services.
 
 The following directions assume you have a Tor proxy running on port 9050. Many
 distributions default to having a SOCKS proxy listening on port 9050, but others
@@ -10,10 +10,10 @@ port. See [Tor Project FAQ:TBBSocksPort](https://www.torproject.org/docs/faq.htm
 for how to properly configure Tor.
 
 
-Run PIVX behind a Tor proxy
+Run Liberty behind a Tor proxy
 ----------------------------------
 
-The first step is running PIVX behind a Tor proxy. This will already make all
+The first step is running Liberty behind a Tor proxy. This will already make all
 outgoing connections be anonymized, but more is possible.
 ```
 -proxy=ip:port  Set the proxy server. If SOCKS5 is selected (default), this proxy
@@ -46,7 +46,7 @@ In a typical situation, this suffices to run behind a Tor proxy:
 ./libertyd -proxy=127.0.0.1:9050
 ```
 
-Run a PIVX hidden server
+Run a Liberty hidden server
 -------------------------------
 
 If you configure your Tor system accordingly, it is possible to make your node also
@@ -110,7 +110,7 @@ for normal IPv4/IPv6 communication, use:
 ./libertyd -onion=127.0.0.1:9050 -externalip=dnetzj6l4cvo2fxy.onion:989 -discover
 ```
 
-List of known PIVX Tor relays
+List of known Liberty Tor relays
 ------------------------------------
 ```
 y5kcscnhpygvvnjn.onion:989

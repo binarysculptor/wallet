@@ -53,9 +53,9 @@ static const int MAX_URI_LENGTH = 255;
 /* Number of frames in spinner animation */
 #define SPINNER_FRAMES 35
 
-#define QAPP_ORG_NAME "PIVX"
+#define QAPP_ORG_NAME "Liberty"
 #define QAPP_ORG_DOMAIN "lbrt.io"
-#define QAPP_APP_NAME_DEFAULT "PIVX-Qt"
-#define QAPP_APP_NAME_TESTNET "PIVX-Qt-testnet"
+#define QAPP_APP_NAME_DEFAULT "Liberty-Qt"
+#define QAPP_APP_NAME_TESTNET "Liberty-Qt-testnet"
 
 #endif // BITCOIN_QT_GUICONSTANTS_H

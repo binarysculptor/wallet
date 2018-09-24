@@ -89,7 +89,7 @@ use old versions of Upstart and do not supply the start-stop-daemon uitility.
 Copy libertyd.init to /etc/init.d/libertyd. Test by running "service libertyd start".
 
 Using this script, you can adjust the path and flags to the libertyd program by
-setting the PIVXD and FLAGS environment variables in the file
+setting the libertyd and FLAGS environment variables in the file
 /etc/sysconfig/libertyd. You can also use the DAEMONOPTS environment variable here.
 
 5. Auto-respawn

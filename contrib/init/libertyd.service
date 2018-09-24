@@ -1,5 +1,5 @@
 [Unit]
-Description=PIVX's distributed currency daemon
+Description=Liberty's distributed currency daemon
 After=network.target
 
 [Service]
