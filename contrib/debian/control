@@ -22,8 +22,8 @@ Build-Depends: debhelper,
  libqrencode-dev,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
-Homepage: http://www.pivx.org
-Vcs-Git: git://github.com/PIVX-Project/PIVX.git
+Homepage: http://www.lbrt.io
+Vcs-Git: git://github.com/project-liberty/wallet.git
 Vcs-Browser: http://github.com/PIVX-Project/PIVX
 
 Package: pivxd
