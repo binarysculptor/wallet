@@ -9,7 +9,7 @@
 #include "stakeinput.h"
 #include "wallet.h"
 
-CZPivStake::CZPivStake(const libzerocoin::CoinSpend& spend)
+CzLbrtStake::CzLbrtStake(const libzerocoin::CoinSpend& spend)
 {
     this->nChecksum = spend.getAccumulatorChecksum();
     this->denom = spend.getDenomination();
@@ -19,7 +19,7 @@ CZPivStake::CZPivStake(const libzerocoin::CoinSpend& spend)
     fMint = false;
 }
 
-int CZPivStake::GetChecksumHeightFromMint()
+int CzLbrtStake::GetChecksumHeightFromMint()
 {
     int nHeightChecksum = chainActive.Height() - Params().Zerocoin_RequiredStakeDepth();
 
@@ -30,20 +30,20 @@ int CZPivStake::GetChecksumHeightFromMint()
     return GetChecksumHeight(nChecksum, denom);
 }
 
-int CZPivStake::GetChecksumHeightFromSpend()
+int CzLbrtStake::GetChecksumHeightFromSpend()
 {
     return GetChecksumHeight(nChecksum, denom);
 }
 
-uint32_t CZPivStake::GetChecksum()
+uint32_t CzLbrtStake::GetChecksum()
 {
     return nChecksum;
 }
 
-// The zPIV block index is the first appearance of the accumulator checksum that was used in the spend
+// The zLBRT block index is the first appearance of the accumulator checksum that was used in the spend
 // note that this also means when staking that this checksum should be from a block that is beyond 60 minutes old and
 // 100 blocks deep.
-CBlockIndex* CZPivStake::GetIndexFrom()
+CBlockIndex* CzLbrtStake::GetIndexFrom()
 {
     if (pindexFrom)
         return pindexFrom;
@@ -65,13 +65,13 @@ CBlockIndex* CZPivStake::GetIndexFrom()
     return pindexFrom;
 }
 
-CAmount CZPivStake::GetValue()
+CAmount CzLbrtStake::GetValue()
 {
     return denom * COIN;
 }
 
 //Use the first accumulator checkpoint that occurs 60 minutes after the block being staked from
-bool CZPivStake::GetModifier(uint64_t& nStakeModifier)
+bool CzLbrtStake::GetModifier(uint64_t& nStakeModifier)
 {
     CBlockIndex* pindex = GetIndexFrom();
     if (!pindex)
@@ -91,15 +91,15 @@ bool CZPivStake::GetModifier(uint64_t& nStakeModifier)
     }
 }
 
-CDataStream CZPivStake::GetUniqueness()
+CDataStream CzLbrtStake::GetUniqueness()
 {
-    //The unique identifier for a zPIV is a hash of the serial
+    //The unique identifier for a zLBRT is a hash of the serial
     CDataStream ss(SER_GETHASH, 0);
     ss << hashSerial;
     return ss;
 }
 
-bool CZPivStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+bool CzLbrtStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
     CBlockIndex* pindexCheckpoint = GetIndexFrom();
     if (!pindexCheckpoint)
@@ -120,25 +120,25 @@ bool CZPivStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
     return true;
 }
 
-bool CZPivStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
+bool CzLbrtStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
 {
-    //Create an output returning the zPIV that was staked
+    //Create an output returning the zLBRT that was staked
     CTxOut outReward;
     libzerocoin::CoinDenomination denomStaked = libzerocoin::AmountToZerocoinDenomination(this->GetValue());
     CDeterministicMint dMint;
     if (!pwallet->CreateZPIVOutPut(denomStaked, outReward, dMint))
-        return error("%s: failed to create zPIV output", __func__);
+        return error("%s: failed to create zLBRT output", __func__);
     vout.emplace_back(outReward);
 
     //Add new staked denom to our wallet
     if (!pwallet->DatabaseMint(dMint))
-        return error("%s: failed to database the staked zPIV", __func__);
+        return error("%s: failed to database the staked zLBRT", __func__);
 
     for (unsigned int i = 0; i < 3; i++) {
         CTxOut out;
         CDeterministicMint dMintReward;
         if (!pwallet->CreateZPIVOutPut(libzerocoin::CoinDenomination::ZQ_ONE, out, dMintReward))
-            return error("%s: failed to create zPIV output", __func__);
+            return error("%s: failed to create zLBRT output", __func__);
         vout.emplace_back(out);
 
         if (!pwallet->DatabaseMint(dMintReward))
@@ -148,48 +148,48 @@ bool CZPivStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
     return true;
 }
 
-bool CZPivStake::GetTxFrom(CTransaction& tx)
+bool CzLbrtStake::GetTxFrom(CTransaction& tx)
 {
     return false;
 }
 
-bool CZPivStake::MarkSpent(CWallet *pwallet, const uint256& txid)
+bool CzLbrtStake::MarkSpent(CWallet *pwallet, const uint256& txid)
 {
-    CzPIVTracker* zpivTracker = pwallet->zpivTracker.get();
+    CzLBRTTracker* zlbrtTracker = pwallet->zlbrtTracker.get();
     CMintMeta meta;
-    if (!zpivTracker->GetMetaFromStakeHash(hashSerial, meta))
+    if (!zlbrtTracker->GetMetaFromStakeHash(hashSerial, meta))
         return error("%s: tracker does not have serialhash", __func__);
 
-    zpivTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
+    zlbrtTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
     return true;
 }
 
 //!PIV Stake
-bool CPivStake::SetInput(CTransaction txPrev, unsigned int n)
+bool CLbrtStake::SetInput(CTransaction txPrev, unsigned int n)
 {
     this->txFrom = txPrev;
     this->nPosition = n;
     return true;
 }
 
-bool CPivStake::GetTxFrom(CTransaction& tx)
+bool CLbrtStake::GetTxFrom(CTransaction& tx)
 {
     tx = txFrom;
     return true;
 }
 
-bool CPivStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+bool CLbrtStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
     txIn = CTxIn(txFrom.GetHash(), nPosition);
     return true;
 }
 
-CAmount CPivStake::GetValue()
+CAmount CLbrtStake::GetValue()
 {
     return txFrom.vout[nPosition].nValue;
 }
 
-bool CPivStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
+bool CLbrtStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
 {
     vector<valtype> vSolutions;
     txnouttype whichType;
@@ -224,7 +224,7 @@ bool CPivStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTo
     return true;
 }
 
-bool CPivStake::GetModifier(uint64_t& nStakeModifier)
+bool CLbrtStake::GetModifier(uint64_t& nStakeModifier)
 {
     int nStakeModifierHeight = 0;
     int64_t nStakeModifierTime = 0;
@@ -238,7 +238,7 @@ bool CPivStake::GetModifier(uint64_t& nStakeModifier)
     return true;
 }
 
-CDataStream CPivStake::GetUniqueness()
+CDataStream CLbrtStake::GetUniqueness()
 {
     //The unique identifier for a PIV stake is the outpoint
     CDataStream ss(SER_NETWORK, 0);
@@ -247,7 +247,7 @@ CDataStream CPivStake::GetUniqueness()
 }
 
 //The block that the UTXO was added to the chain
-CBlockIndex* CPivStake::GetIndexFrom()
+CBlockIndex* CLbrtStake::GetIndexFrom()
 {
     uint256 hashBlock = 0;
     CTransaction tx;

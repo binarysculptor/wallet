@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=PIVX
-Comment=PIVX P2P Cryptocurrency
-Comment[fr]=PIVX, monnaie virtuelle cryptographique pair à pair
-Comment[tr]=PIVX, eşten eşe kriptografik sanal para birimi
-Exec=pivx-qt %u
+Name=Liberty
+Comment=Liberty P2P Cryptocurrency
+Comment[fr]=Liberty, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Liberty, eşten eşe kriptografik sanal para birimi
+Exec=liberty-qt %u
 Terminal=false
 Type=Application
-Icon=pivx128
-MimeType=x-scheme-handler/pivx;
+Icon=liberty128
+MimeType=x-scheme-handler/liberty;
 Categories=Office;Finance;

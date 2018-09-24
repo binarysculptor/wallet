@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_STAKEINPUT_H
-#define PIVX_STAKEINPUT_H
+#ifndef LBRT_STAKEINPUT_H
+#define LBRT_STAKEINPUT_H
 
 class CKeyStore;
 class CWallet;
@@ -27,10 +27,10 @@ public:
 };
 
 
-// zPIVStake can take two forms
+// zLBRTStake can take two forms
 // 1) the stake candidate, which is a zcmint that is attempted to be staked
-// 2) a staked zpiv, which is a zcspend that has successfully staked
-class CZPivStake : public CStakeInput
+// 2) a staked zlbrt, which is a zcspend that has successfully staked
+class CzLbrtStake : public CStakeInput
 {
 private:
     uint32_t nChecksum;
@@ -39,7 +39,7 @@ private:
     uint256 hashSerial;
 
 public:
-    explicit CZPivStake(libzerocoin::CoinDenomination denom, const uint256& hashSerial)
+    explicit CzLbrtStake(libzerocoin::CoinDenomination denom, const uint256& hashSerial)
     {
         this->denom = denom;
         this->hashSerial = hashSerial;
@@ -47,7 +47,7 @@ public:
         fMint = true;
     }
 
-    explicit CZPivStake(const libzerocoin::CoinSpend& spend);
+    explicit CzLbrtStake(const libzerocoin::CoinSpend& spend);
 
     CBlockIndex* GetIndexFrom() override;
     bool GetTxFrom(CTransaction& tx) override;
@@ -63,13 +63,13 @@ public:
     uint32_t GetChecksum();
 };
 
-class CPivStake : public CStakeInput
+class CLbrtStake : public CStakeInput
 {
 private:
     CTransaction txFrom;
     unsigned int nPosition;
 public:
-    CPivStake()
+    CLbrtStake()
     {
         this->pindexFrom = nullptr;
     }
@@ -87,4 +87,4 @@ public:
 };
 
 
-#endif //PIVX_STAKEINPUT_H
+#endif //LBRT_STAKEINPUT_H

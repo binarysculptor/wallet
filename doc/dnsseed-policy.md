@@ -1,7 +1,7 @@
 Expectations for DNS Seed operators
 ====================================
 
-PIVX Core attempts to minimize the level of trust in DNS seeds,
+Liberty Core attempts to minimize the level of trust in DNS seeds,
 but DNS seeds still pose a small amount of risk for the network.
 As such, DNS seeds must be run by entities which have some minimum
 level of trust within the PIVX community.
@@ -46,7 +46,7 @@ related to the DNS seed operation.
 If these expectations cannot be satisfied the operator should
 discontinue providing services and contact the active PIVX
 Core development team as well as posting on the
-[PIVX Forum](https://forum.pivx.org).
+[PIVX Forum](https://forum.lbrt.io).
 
 Behavior outside of these expectations may be reasonable in some
 situations but should be discussed in public in advance.
