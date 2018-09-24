@@ -3,16 +3,16 @@ Description=PIVX's distributed currency daemon
 After=network.target
 
 [Service]
-User=pivx
-Group=pivx
+User=liberty
+Group=liberty
 
 Type=forking
 PIDFile=/var/lib/libertyd/libertyd.pid
 
 ExecStart=/usr/bin/libertyd -daemon -pid=/var/lib/libertyd/libertyd.pid \
-          -conf=/etc/pivx/pivx.conf -datadir=/var/lib/libertyd
+          -conf=/etc/liberty/liberty.conf -datadir=/var/lib/libertyd
 
-ExecStop=-/usr/bin/liberty-cli -conf=/etc/pivx/pivx.conf \
+ExecStop=-/usr/bin/liberty-cli -conf=/etc/liberty/liberty.conf \
          -datadir=/var/lib/libertyd stop
 
 Restart=always

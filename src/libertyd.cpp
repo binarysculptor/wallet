@@ -69,7 +69,7 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/pivx.conf are parsed in qt/pivx.cpp's main()
+    // If Qt is used, parameters/liberty.conf are parsed in qt/liberty.cpp's main()
     ParseParameters(argc, argv);
 
     // Process help and version before taking care about datadir
@@ -116,7 +116,7 @@ bool AppInit(int argc, char* argv[])
         // Command-line RPC
         bool fCommandLine = false;
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "pivx:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "liberty:"))
                 fCommandLine = true;
 
         if (fCommandLine) {

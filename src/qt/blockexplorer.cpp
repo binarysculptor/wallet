@@ -477,7 +477,7 @@ void BlockExplorer::showEvent(QShowEvent*)
         updateNavButtons();
 
         if (!GetBoolArg("-txindex", true)) {
-            QString Warning = tr("Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (pivx.conf).");
+            QString Warning = tr("Not all transactions will be shown. To view all transactions you need to set txindex=1 in the configuration file (liberty.conf).");
             QMessageBox::warning(this, "Liberty Core Blockchain Explorer", Warning, QMessageBox::Ok);
         }
     }

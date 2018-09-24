@@ -1,6 +1,6 @@
 [Protocol]
 exec=liberty-qt '%u'
-protocol=pivx
+protocol=liberty
 input=none
 output=none
 helper=true

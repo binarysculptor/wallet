@@ -109,8 +109,8 @@ directory. We have to first create the RPC configuration file, though.
 Run `./libertyd` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=pivxrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/PIVX/pivx.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/PIVX/pivx.conf"
+    echo -e "rpcuser=libertyrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/PIVX/liberty.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/PIVX/liberty.conf"
 
 The next time you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours;
@@ -121,6 +121,6 @@ you can monitor its process by looking at the debug.log file, like this:
 Other commands:
 -------
 
-    ./libertyd -daemon # to start the pivx daemon.
+    ./libertyd -daemon # to start the liberty daemon.
     ./liberty-cli --help  # for a list of command-line options.
     ./liberty-cli help    # When the daemon is running, to get a list of RPC commands

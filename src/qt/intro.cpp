@@ -183,7 +183,7 @@ bool Intro::pickDataDirectory()
         settings.setValue("strDataDir", dataDir);
     }
     /* Only override -datadir if different from the default, to make it possible to
-     * override -datadir in the pivx.conf file in the default data directory
+     * override -datadir in the liberty.conf file in the default data directory
      * (to be consistent with libertyd behavior)
      */
     if (dataDir != getDefaultDataDirectory())

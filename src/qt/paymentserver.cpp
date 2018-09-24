@@ -47,7 +47,7 @@ using namespace boost;
 using namespace std;
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString BITCOIN_IPC_PREFIX("pivx:");
+const QString BITCOIN_IPC_PREFIX("liberty:");
 // BIP70 payment protocol messages
 const char* BIP70_MESSAGE_PAYMENTACK = "PaymentACK";
 const char* BIP70_MESSAGE_PAYMENTREQUEST = "PaymentRequest";
@@ -188,11 +188,11 @@ void PaymentServer::ipcParseCommandLine(int argc, char* argv[])
         if (arg.startsWith("-"))
             continue;
 
-        // If the pivx: URI contains a payment request, we are not able to detect the
+        // If the liberty: URI contains a payment request, we are not able to detect the
         // network as that would require fetching and parsing the payment request.
         // That means clicking such an URI which contains a testnet payment request
         // will start a mainnet instance and throw a "wrong network" error.
-        if (arg.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // pivx: URI
+        if (arg.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // liberty: URI
         {
             savedPaymentRequests.append(arg);
 
@@ -274,7 +274,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) : QObject(p
     GOOGLE_PROTOBUF_VERIFY_VERSION;
 
     // Install global event filter to catch QFileOpenEvents
-    // on Mac: sent when you click pivx: links
+    // on Mac: sent when you click liberty: links
     // other OSes: helpful when dealing with payment request files (in the future)
     if (parent)
         parent->installEventFilter(this);
@@ -290,7 +290,7 @@ PaymentServer::PaymentServer(QObject* parent, bool startLocalServer) : QObject(p
         if (!uriServer->listen(name)) {
             // constructor is called early in init, so don't use "emit message()" here
             QMessageBox::critical(0, tr("Payment request error"),
-                tr("Cannot start pivx: click-to-pay handler"));
+                tr("Cannot start liberty: click-to-pay handler"));
         } else {
             connect(uriServer, SIGNAL(newConnection()), this, SLOT(handleURIConnection()));
             connect(this, SIGNAL(receivedPaymentACK(QString)), this, SLOT(handlePaymentACK(QString)));
@@ -304,12 +304,12 @@ PaymentServer::~PaymentServer()
 }
 
 //
-// OSX-specific way of handling pivx: URIs and
+// OSX-specific way of handling liberty: URIs and
 // PaymentRequest mime types
 //
 bool PaymentServer::eventFilter(QObject* object, QEvent* event)
 {
-    // clicking on pivx: URIs creates FileOpen events on the Mac
+    // clicking on liberty: URIs creates FileOpen events on the Mac
     if (event->type() == QEvent::FileOpen) {
         QFileOpenEvent* fileEvent = static_cast<QFileOpenEvent*>(event);
         if (!fileEvent->file().isEmpty())
@@ -330,7 +330,7 @@ void PaymentServer::initNetManager()
     if (netManager != NULL)
         delete netManager;
 
-    // netManager is used to fetch paymentrequests given in pivx: URIs
+    // netManager is used to fetch paymentrequests given in liberty: URIs
     netManager = new QNetworkAccessManager(this);
 
     QNetworkProxy proxy;
@@ -367,7 +367,7 @@ void PaymentServer::handleURIOrFile(const QString& s)
         return;
     }
 
-    if (s.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // pivx: URI
+    if (s.startsWith(BITCOIN_IPC_PREFIX, Qt::CaseInsensitive)) // liberty: URI
     {
         QUrlQuery uri((QUrl(s)));
         if (uri.hasQueryItem("r")) // payment request URI
@@ -515,7 +515,7 @@ bool PaymentServer::processPaymentRequest(PaymentRequestPlus& request, SendCoins
             // Append destination address
             addresses.append(QString::fromStdString(CBitcoinAddress(dest).ToString()));
         } else if (!recipient.authenticatedMerchant.isEmpty()) {
-            // Insecure payments to custom pivx addresses are not supported
+            // Insecure payments to custom liberty addresses are not supported
             // (there is no good way to tell the user where they are paying in a way
             // they'd have a chance of understanding).
             emit message(tr("Payment request rejected"),

@@ -129,11 +129,11 @@ static void initTranslations(QTranslator& qtTranslatorBase, QTranslator& qtTrans
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         QApplication::installTranslator(&qtTranslator);
 
-    // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in pivx.qrc)
+    // Load e.g. bitcoin_de.qm (shortcut "de" needs to be defined in liberty.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         QApplication::installTranslator(&translatorBase);
 
-    // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in pivx.qrc)
+    // Load e.g. bitcoin_de_DE.qm (shortcut "de_DE" needs to be defined in liberty.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         QApplication::installTranslator(&translator);
 }
@@ -234,7 +234,7 @@ private:
     void startThread();
 };
 
-#include "pivx.moc"
+#include "liberty.moc"
 
 BitcoinCore::BitcoinCore() : QObject()
 {
@@ -505,8 +505,8 @@ int main(int argc, char* argv[])
 // Do not refer to data directory yet, this can be overridden by Intro::pickDataDirectory
 
 /// 2. Basic Qt initialization (not dependent on parameters or configuration)
-    Q_INIT_RESOURCE(pivx_locale);
-    Q_INIT_RESOURCE(pivx);
+    Q_INIT_RESOURCE(liberty_locale);
+    Q_INIT_RESOURCE(liberty);
 
     BitcoinApplication app(argc, argv);
 #if QT_VERSION > 0x050100
@@ -553,7 +553,7 @@ int main(int argc, char* argv[])
     if (!Intro::pickDataDirectory())
         return 0;
 
-    /// 6. Determine availability of data directory and parse pivx.conf
+    /// 6. Determine availability of data directory and parse liberty.conf
     /// - Do not call GetDataDir(true) before this step finishes
     if (!boost::filesystem::is_directory(GetDataDir(false))) {
         QMessageBox::critical(0, QObject::tr("Liberty Core"),
@@ -610,7 +610,7 @@ int main(int argc, char* argv[])
         exit(0);
 
     // Start up the payment server early, too, so impatient users that click on
-    // pivx: links repeatedly have their payment requests routed to this process:
+    // liberty: links repeatedly have their payment requests routed to this process:
     app.createPaymentServer();
 #endif
 

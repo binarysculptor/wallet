@@ -30,7 +30,7 @@ packages:
 reference_datetime: "2015-06-01 00:00:00"
 remotes:
 - "url": "https://github.com/project-liberty/wallet.git"
-  "dir": "pivx"
+  "dir": "liberty"
 files: []
 script: |
 
@@ -114,7 +114,7 @@ script: |
   chmod +x ${WRAP_DIR}/${prog}
   done
 
-  cd pivx
+  cd liberty
   BASEPREFIX=`pwd`/depends
   # Build dependencies for each host
   for i in $HOSTS; do
