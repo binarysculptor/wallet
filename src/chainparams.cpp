@@ -114,7 +114,8 @@ public:
         //nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Liberty: 1 day
         nTargetSpacing = 1 * 60;  // Liberty: 1 minute
-        nMaturity = 10;
+        nCoinBaseMaturity = 5;
+        nCoinStakeMaturity = 100;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 12000000000 * COIN; //12B
         nLastPoWBlock = 200;
@@ -230,7 +231,8 @@ public:
         nTargetTimespan = 1 * 60; // Liberty: 1 day
         nTargetSpacing = 1 * 60;  // Liberty: 1 minute
         nLastPoWBlock = 200;
-        nMaturity = 15;
+        nCoinBaseMaturity = 5;
+        nCoinStakeMaturity = 15;
         nMasternodeCountDrift = 4;
         nMaxMoneyOut = 43199500 * COIN;
 

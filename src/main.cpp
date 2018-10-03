@@ -2030,11 +2030,13 @@ bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsVi
             const CCoins* coins = inputs.AccessCoins(prevout.hash);
             assert(coins);
 
-            // If prev is coinbase, check that it's matured
-            if (coins->IsCoinBase() || coins->IsCoinStake()) {
-                if (nSpendHeight - coins->nHeight < Params().COINBASE_MATURITY())
+            // If prev is coinbase/stake, check that it's matured
+            bool isPrematureCoinStake = coins->IsCoinStake() && (nSpendHeight - coins->nHeight < Params().CoinStake_Maturity());
+            bool isPrematureCoinBase = coins->IsCoinBase() && (nSpendHeight - coins->nHeight < Params().CoinBase_Maturity());
+            
+            if (isPrematureCoinStake || isPrematureCoinBase) {
                     return state.Invalid(
-                        error("CheckInputs() : tried to spend coinbase at depth %d, coinstake=%d", nSpendHeight - coins->nHeight, coins->IsCoinStake()),
+                        error("CheckInputs() : tried to spend coinstake at depth %d, coinstake=%d", nSpendHeight - coins->nHeight, coins->IsCoinStake()),
                         REJECT_INVALID, "bad-txns-premature-spend-of-coinbase");
             }
 
