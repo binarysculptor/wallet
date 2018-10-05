@@ -62,11 +62,11 @@
         <translation>Ricevanta adresojn</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Ĉi tiuj estas viaj RUPAYA adreso por sendi pagojn. Ĉiam kontroku la kvanto kaj la ricevanta antaŭ ol sendi monerojn.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Ĉi tiuj estas viaj Liberty adreso por sendi pagojn. Ĉiam kontroku la kvanto kaj la ricevanta antaŭ ol sendi monerojn.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
         <translation>Ĉi tiuj estas vian adreson por ricevi pagojn. Ĝi rekomendas uzi novajn ricenvantan adreson por ĉiu nova transakcio.</translation>
     </message>
     <message>
@@ -176,15 +176,15 @@
         <translation>Konfirmi monerĉifrado</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA fermos nun por fini ĉifran procezon. Memoru ke ĉifri vian monujon ne povas plene protekti viajn RUPAYAs de esti ŝtelita per malware infektanta vian komputilon.</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty fermos nun por fini ĉifran procezon. Memoru ke ĉifri vian monujon ne povas plene protekti viajn RUPAYAs de esti ŝtelita per malware infektanta vian komputilon.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Ĉu vi certas ke vi volas ĉifri vian monujon?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
         <translation>Averto: se vi ĉifras vian monujo kaj perdi vian pasfrazon, vi &lt;b&gt;PERDOS VIAN TUTAN MONON&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -254,11 +254,11 @@
         <translation>Adreso:</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Eniri unu RUPAYA adreso ke vi volus ĉifri per BIP 38. Eniri unu pasfrazon meze skatolo. Klaku ĉifri por komputi la ĉifrita privata ŝlosilo.</translation>
+        <source>Enter a Liberty Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Eniri unu Liberty adreso ke vi volus ĉifri per BIP 38. Eniri unu pasfrazon meze skatolo. Klaku ĉifri por komputi la ĉifrita privata ŝlosilo.</translation>
     </message>
     <message>
-        <source>The RUPAYA address to encrypt</source>
+        <source>The Liberty address to encrypt</source>
         <translation>Adreson por ĉifri</translation>
     </message>
     <message>
@@ -290,8 +290,8 @@
         <translation>Kopiu la aktualan subskribo al la sistemo-poŝo</translation>
     </message>
     <message>
-        <source>Encrypt the private key for this RUPAYA address</source>
-        <translation>Ĉifri la privata ŝlosilo por ĉi tiu RUPAYA adreso</translation>
+        <source>Encrypt the private key for this Liberty address</source>
+        <translation>Ĉifri la privata ŝlosilo por ĉi tiu Liberty adreso</translation>
     </message>
     <message>
         <source>Reset all fields</source>
@@ -433,8 +433,8 @@
         <translation>&amp;Foliumi transakcio historio</translation>
     </message>
     <message>
-        <source>Privacy Actions for zRUPX</source>
-        <translation>Privataj agoj por zRUPX</translation>
+        <source>Privacy Actions for XLIBz</source>
+        <translation>Privataj agoj por XLIBz</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -645,12 +645,12 @@
         <translation>Iloj langeto</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA kerno</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty kerno</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Sendu mono al RUPAYA addreso</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Sendu mono al Liberty addreso</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
@@ -669,24 +669,24 @@
         <translation>Foliumi mastro-nodo</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;Pri RUPAYA Kerno</translation>
+        <source>&amp;About Liberty Core</source>
+        <translation>&amp;Pri Liberty Kerno</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Montri informon pri RUPAYA Kerno</translation>
+        <source>Show information about Liberty Core</source>
+        <translation>Montri informon pri Liberty Kerno</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
-        <translation>Modifi agordajn opciojn por RUPAYA</translation>
+        <source>Modify configuration options for Liberty</source>
+        <translation>Modifi agordajn opciojn por Liberty</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>Subskribu mesaĝo per via RUPAYA adreso por pruvi vi posedas ĝin</translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Subskribu mesaĝo per via Liberty adreso por pruvi vi posedas ĝin</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>Kontrolu mesaĝojn por certigi ke ili estas subskribita kun specifita RUPAYA adreso</translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>Kontrolu mesaĝojn por certigi ke ili estas subskribita kun specifita Liberty adreso</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -717,8 +717,8 @@
         <translation>Malfermi mastro-nodo agord-dosieron</translation>
     </message>
     <message>
-        <source>Open a RUPAYA: URI or payment request</source>
-        <translation>Malfermi unu RUPAYA: URI aŭ pago peto</translation>
+        <source>Open a Liberty: URI or payment request</source>
+        <translation>Malfermi unu Liberty: URI aŭ pago peto</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -729,16 +729,16 @@
         <translation>Bloko esplorilo fenestro</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Montri la RUPAYA Kore help-mesaĝo por havi liston de havebla RUPAYA komandlinion opciojn</translation>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
+        <translation>Montri la Liberty Kore help-mesaĝo por havi liston de havebla Liberty komandlinion opciojn</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Kerno kliento</translation>
+        <source>Liberty Core client</source>
+        <translation>Liberty Kerno kliento</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to RUPAYA network</source>
-        <translation><numerusform>%n aktiva ligo(j) al la RUPAYA reto</numerusform><numerusform>%n aktiva ligo(j) al la RUPAYA reto</numerusform></translation>
+        <source>%n active connection(s) to Liberty network</source>
+        <translation><numerusform>%n aktiva ligo(j) al la Liberty reto</numerusform><numerusform>%n aktiva ligo(j) al la Liberty reto</numerusform></translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1122,8 +1122,8 @@ Muktisendi: %1</translation>
         <translation>Ĉi tiun etikedo ruĝiĝas se iu ajna ricevanto ricevas totalo pli malgranda ol %1.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 urupx per input.</source>
-        <translation>Povas varii +/- %1 urupx per enigo.</translation>
+        <source>Can vary +/- %1 uXLIB per input.</source>
+        <translation>Povas varii +/- %1 uXLIB per enigo.</translation>
     </message>
     <message>
         <source>(no label)</source>
@@ -1177,8 +1177,8 @@ Muktisendi: %1</translation>
         <translation>Redaktu sendantan adreson</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid RUPAYA address.</source>
-        <translation>La enirita "%1" adreso ne estas validan RUPAYA adreson.</translation>
+        <source>The entered address "%1" is not a valid Liberty address.</source>
+        <translation>La enirita "%1" adreso ne estas validan Liberty adreson.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1223,16 +1223,16 @@ Muktisendi: %1</translation>
         <translation>versio</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA kerno</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty kerno</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bajto)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>Pri RUPAYA Kerno</translation>
+        <source>About Liberty Core</source>
+        <translation>Pri Liberty Kerno</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1274,16 +1274,16 @@ Muktisendi: %1</translation>
         <translation>Bonvenon</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Bonvenon al la RUPAYA Kerno.</translation>
+        <source>Welcome to Liberty Core.</source>
+        <translation>Bonvenon al la Liberty Kerno.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Ĉar estas la unuan fojon ke la programo estas lanĉita, vi povas elekti kie RUPAYA kernk storigis sian datumojn. </translation>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
+        <translation>Ĉar estas la unuan fojon ke la programo estas lanĉita, vi povas elekti kie Liberty kernk storigis sian datumojn. </translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA kerno elŝutos kaj konservi kopion de la RUPAYA blokĉeno. Almenaŭ %1GB datumoj stokitos en ĉi tiun dosierujo, kaj ĝi kresko kun la tempo. Monujo stokitos en ĉi tiun dosierujo.</translation>
+        <source>Liberty Core will download and store a copy of the Liberty block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Liberty kerno elŝutos kaj konservi kopion de la Liberty blokĉeno. Almenaŭ %1GB datumoj stokitos en ĉi tiun dosierujo, kaj ĝi kresko kun la tempo. Monujo stokitos en ĉi tiun dosierujo.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1294,8 +1294,8 @@ Muktisendi: %1</translation>
         <translation>Uzi kutimon datumojn dosierujo:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA kerno</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty kerno</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1561,8 +1561,8 @@ Bonvolu kontroku la adreson kaj riprovu</translation>
         <translation>Adreso / Kvanto:</translation>
     </message>
     <message>
-        <source>Add destinations to send RUPAYA to</source>
-        <translation>Aldonu destinoj por sendi RUPAYA al</translation>
+        <source>Add destinations to send Liberty to</source>
+        <translation>Aldonu destinoj por sendi Liberty al</translation>
     </message>
     <message>
         <source>Add &amp;Destination</source>
@@ -1628,12 +1628,12 @@ Bonvolu kontroku la adreson kaj riprovu</translation>
         <translation>Bonvolu elekti privata nivelo.</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Tion opcion estas la plej rapida kaji kostos ~0.025 RUPAYA por anonimigi 10000 RUPAYA</translation>
+        <source>This option is the quickest and will cost about ~0.025 Liberty to anonymize 10000 Liberty</source>
+        <translation>Tion opcion estas la plej rapida kaji kostos ~0.025 Liberty por anonimigi 10000 Liberty</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Tion opcion estas moderebla rapide kaj kostos ĉirkaŭ 0.05 RUPAYA por anonimigi 10000 RUPAYA</translation>
+        <source>This option is moderately fast and will cost about 0.05 Liberty to anonymize 10000 Liberty</source>
+        <translation>Tion opcion estas moderebla rapide kaj kostos ĉirkaŭ 0.05 Liberty por anonimigi 10000 Liberty</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
@@ -1682,8 +1682,8 @@ Bonvolu kontroku la adreson kaj riprovu</translation>
         <translation>&amp;Monujo</translation>
     </message>
     <message>
-        <source>Automatically open the RUPAYA client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Aŭtomate malfermi RUPAYA klienton havenon en la enkursigilo. Tio nur laboras kiam via enkursigilo subtenas UPnP kaj estas ebligita.</translation>
+        <source>Automatically open the Liberty client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Aŭtomate malfermi Liberty klienton havenon en la enkursigilo. Tio nur laboras kiam via enkursigilo subtenas UPnP kaj estas ebligita.</translation>
     </message>
     <message>
         <source>Accept connections from outside</source>
@@ -1694,8 +1694,8 @@ Bonvolu kontroku la adreson kaj riprovu</translation>
         <translation>Sperta</translation>
     </message>
     <message>
-        <source>&amp;Start RUPAYA on system login</source>
-        <translation>&amp;Komencu RUPAYA en sistem-ensaluto</translation>
+        <source>&amp;Start Liberty on system login</source>
+        <translation>&amp;Komencu Liberty en sistem-ensaluto</translation>
     </message>
     <message>
         <source>&amp;Spend unconfirmed change</source>
@@ -1706,18 +1706,18 @@ Bonvolu kontroku la adreson kaj riprovu</translation>
         <translation>&amp;Reto</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting RUPAYA.</source>
-        <translation>La uzanta interfaco lingvo povas esti agordi ĉi tie. Tio agordo efektivigos post rekomenci RUPAYA.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Liberty.</source>
+        <translation>La uzanta interfaco lingvo povas esti agordi ĉi tie. Tio agordo efektivigos post rekomenci Liberty.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
+https://www.transifex.com/liberty-project/liberty-project-translations</source>
         <translation>Ĉu mankas lingvon aŭ nekompleta tradukado? Helpu la  tradukcio ĉi tie:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</translation>
+https://www.transifex.com/liberty-project/liberty-project-translations</translation>
     </message>
     <message>
-        <source>Connect to the RUPAYA network through a SOCKS5 proxy.</source>
-        <translation>Konekti al la RUPAYA reto per SOCKS5 prokurilo.</translation>
+        <source>Connect to the Liberty network through a SOCKS5 proxy.</source>
+        <translation>Konekti al la Liberty reto per SOCKS5 prokurilo.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1787,20 +1787,20 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations</translatio
         <translation>Via aktuala elspezebla saldo</translation>
     </message>
     <message>
-        <source>RUPAYA Balance</source>
-        <translation>RUPAYA kvanto</translation>
+        <source>Liberty Balance</source>
+        <translation>Liberty kvanto</translation>
     </message>
     <message>
         <source>Immature:</source>
         <translation>Nematura:</translation>
     </message>
     <message>
-        <source>Your current RUPAYA balance, unconfirmed and immature transactions included</source>
-        <translation>Via aktuala RUPAYA totalo, nekonformita kaj nematurita transakcioj inkluzivita</translation>
+        <source>Your current Liberty balance, unconfirmed and immature transactions included</source>
+        <translation>Via aktuala Liberty totalo, nekonformita kaj nematurita transakcioj inkluzivita</translation>
     </message>
     <message>
-        <source>zRUPX Balance</source>
-        <translation>zRUPX kvanto</translation>
+        <source>XLIBz Balance</source>
+        <translation>XLIBz kvanto</translation>
     </message>
     <message>
         <source>Unconfirmed: less than 20 confirmations
@@ -1809,8 +1809,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
 Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mintita</translation>
     </message>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>Montrata informon povas esti malmoderna. Via monujo automate sinkronigis kun la RUPAYA reto post konekcio establas, sed ĉi tio procezo ankoraŭ ne kompletigis.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>Montrata informon povas esti malmoderna. Via monujo automate sinkronigis kun la Liberty reto post konekcio establas, sed ĉi tio procezo ankoraŭ ne kompletigis.</translation>
     </message>
     <message>
         <source>OVERVIEW</source>
@@ -1849,7 +1849,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
     </message>
     <message>
         <source>Payment request file cannot be read! This can be caused by an invalid payment request file.</source>
-        <translation>Pago peto dosiero ne povas estas legi! Ĉi tio rupxas esti kauzita por nevalida pago peto dosiero.</translation>
+        <translation>Pago peto dosiero ne povas estas legi! Ĉi tio XLIBas esti kauzita por nevalida pago peto dosiero.</translation>
     </message>
     <message>
         <source>Payment request rejected</source>
@@ -1862,20 +1862,20 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
 <context>
     <name>PrivacyDialog</name>
     <message>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the RUPAYA network after a connection is established, but this process has not completed yet.</source>
-        <translation>Montrata informon povas esti malmoderna. Via monujo automate sinkronigis kun la RUPAYA reto post konekcio establas, sed ĉi tio procezo ankoraŭ ne kompletigis.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Liberty network after a connection is established, but this process has not completed yet.</source>
+        <translation>Montrata informon povas esti malmoderna. Via monujo automate sinkronigis kun la Liberty reto post konekcio establas, sed ĉi tio procezo ankoraŭ ne kompletigis.</translation>
     </message>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
-        <source>0.000 000 00 RUPAYA</source>
-        <translation>0.000 000 00 RUPAYA</translation>
+        <source>0.000 000 00 Liberty</source>
+        <translation>0.000 000 00 Liberty</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -1890,12 +1890,12 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>Kvanto</translation>
     </message>
     <message>
-        <source>zRUPX Control</source>
-        <translation>zRUPX kontrolu</translation>
+        <source>XLIBz Control</source>
+        <translation>XLIBz kontrolu</translation>
     </message>
     <message>
-        <source>zRUPX Selected:</source>
-        <translation>Elektita zRUPX</translation>
+        <source>XLIBz Selected:</source>
+        <translation>Elektita XLIBz</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -1906,20 +1906,20 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>Elspezi zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending</source>
-        <translation>Havebla (matura kaj elspezebla) zRUPX por elspezi</translation>
+        <source>Available (mature and spendable) XLIBz for spending</source>
+        <translation>Havebla (matura kaj elspezebla) XLIBz por elspezi</translation>
     </message>
     <message>
-        <source>0 zRUPX</source>
-        <translation>0 zRUPX</translation>
+        <source>0 XLIBz</source>
+        <translation>0 XLIBz</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
         <translation>Pagu &amp;Al:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to. Creates local payment to yourself when empty.</source>
-        <translation>RUPAYA adreso por alsendi la pago. Kreas lokala pago al vi mem kiam malplenija.</translation>
+        <source>The Liberty address to send the payment to. Creates local payment to yourself when empty.</source>
+        <translation>Liberty adreso por alsendi la pago. Kreas lokala pago al vi mem kiam malplenija.</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2101,8 +2101,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>Rekonstrui indekson</translation>
     </message>
     <message>
-        <source>Welcome to the RUPAYA RPC console.</source>
-        <translation>Bonvenon al la RUPAYA RPC konzolo.</translation>
+        <source>Welcome to the Liberty RPC console.</source>
+        <translation>Bonvenon al la Liberty RPC konzolo.</translation>
     </message>
     <message>
         <source>1 &amp;hour</source>
@@ -2297,8 +2297,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>Se estas aktiva sed ŝanĝo-adreso estas malpleniĝa au nevalida, ŝanĝo sendos al nova generita adreson.</translation>
     </message>
     <message>
-        <source>0 RUPAYA</source>
-        <translation>0 RUPAYA</translation>
+        <source>0 Liberty</source>
+        <translation>0 Liberty</translation>
     </message>
     <message>
         <source>Open Coin Control...</source>
@@ -2345,8 +2345,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>Kopi ŝanĝo</translation>
     </message>
     <message>
-        <source>Warning: Invalid RUPAYA address</source>
-        <translation>Averto: nevalida RUPAYA adreson</translation>
+        <source>Warning: Invalid Liberty address</source>
+        <translation>Averto: nevalida Liberty adreson</translation>
     </message>
     <message>
         <source>Are you sure you want to send?</source>
@@ -2372,7 +2372,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>Pagu &amp;Al:</translation>
     </message>
     <message>
-        <source>The RUPAYA address to send the payment to</source>
+        <source>The Liberty address to send the payment to</source>
         <translation>RUPAYAC adreso por sendi la pago al</translation>
     </message>
     <message>
@@ -2407,8 +2407,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA kerno fermanta...</translation>
+        <source>Liberty Core is shutting down...</source>
+        <translation>Liberty kerno fermanta...</translation>
     </message>
     </context>
 <context>
@@ -2461,8 +2461,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA kerno</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty kerno</translation>
     </message>
     <message>
         <source>The Bitcoin Core developers</source>
@@ -2473,8 +2473,8 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
         <translation>La Dash kerno programistoj</translation>
     </message>
     <message>
-        <source>The RUPAYA Core developers</source>
-        <translation>La RUPAYA kerno programistoj</translation>
+        <source>The Liberty Core developers</source>
+        <translation>La Liberty kerno programistoj</translation>
     </message>
     </context>
 <context>
@@ -2649,14 +2649,14 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
         <source>Is Spendable</source>
@@ -2664,7 +2664,7 @@ Nematura: konfirmita, sed malpli ol 1 minto el la samo nomado post ĝin estis mi
     </message>
 </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>Connect through SOCKS5 proxy</source>
         <translation>Konekti per SOCKS5 prokurilo</translation>

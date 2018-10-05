@@ -345,7 +345,7 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
         return tr("Payment to yourself");
     case TransactionRecord::StakeMint:
         return tr("XLIB Stake");
-    case TransactionRecord::StakeZXLIB:
+    case TransactionRecord::StakeXLIBZ:
         return tr("XLIBz Stake");
     case TransactionRecord::Generated:
         return tr("Mined");
@@ -380,7 +380,7 @@ QVariant TransactionTableModel::txAddressDecoration(const TransactionRecord* wtx
     switch (wtx->type) {
     case TransactionRecord::Generated:
     case TransactionRecord::StakeMint:
-    case TransactionRecord::StakeZXLIB:
+    case TransactionRecord::StakeXLIBZ:
     case TransactionRecord::MNReward:
         return QIcon(":/icons/tx_mined");
     case TransactionRecord::RecvWithObfuscation:
@@ -425,7 +425,7 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord* wtx, b
     case TransactionRecord::ZerocoinMint:
     case TransactionRecord::ZerocoinSpend_Change_XLIBz:
         return tr("Anonymous (XLIBz Transaction)");
-    case TransactionRecord::StakeZXLIB:
+    case TransactionRecord::StakeXLIBZ:
         return tr("Anonymous (XLIBz Stake)");
     case TransactionRecord::SendToSelf:
     default:
@@ -575,7 +575,7 @@ QVariant TransactionTableModel::data(const QModelIndex& index, int role) const
     case Qt::ForegroundRole:
         // Minted
         if (rec->type == TransactionRecord::Generated || rec->type == TransactionRecord::StakeMint ||
-                rec->type == TransactionRecord::StakeZXLIB || rec->type == TransactionRecord::MNReward) {
+                rec->type == TransactionRecord::StakeXLIBZ || rec->type == TransactionRecord::MNReward) {
             if (rec->status.status == TransactionStatus::Conflicted || rec->status.status == TransactionStatus::NotAccepted)
                 return COLOR_ORPHAN;
             else

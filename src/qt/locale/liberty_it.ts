@@ -62,12 +62,12 @@
         <translation>Indirizzi di ricezione</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Questi sono gli indirizzi RUPAYA per l'invio di pagamenti. Controlla sempre l'importo e l'indirizzo di ricezione prima di inviare valuta.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Questi sono gli indirizzi Liberty per l'invio di pagamenti. Controlla sempre l'importo e l'indirizzo di ricezione prima di inviare valuta.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Questi sono gli indirizzi RUPAYA per la ricezione di pagamenti. Si raccomanda di utilizzare un indirizzo diverso per ogni transazione.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Questi sono gli indirizzi Liberty per la ricezione di pagamenti. Si raccomanda di utilizzare un indirizzo diverso per ogni transazione.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -176,16 +176,16 @@
         <translation>Conferma cifratura portafoglio</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi RUPAYA dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty verrà ora chiuso per completare il processo di cifratura. Ricorda che crittografare il tuo portafoglio non protegge completamente i tuoi Liberty dal furto da parte di software malevoli che potrebbero infettare il tuo computer.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Confermi di voler crittografare il portafoglio?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
-        <translation>Attenzione: Se crittografi il portafoglio e poi perdi la parola d'ordine, &lt;b&gt;PERDERAI TUTTI I TUOI RUPAYA&lt;7b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
+        <translation>Attenzione: Se crittografi il portafoglio e poi perdi la parola d'ordine, &lt;b&gt;PERDERAI TUTTI I TUOI Liberty&lt;7b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -254,12 +254,12 @@
         <translation>Indirizzo:</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
-        <translation>Inserire un indirizzo RUPAYA da crittografare utilizzando BIP 38. Inserire una password nel campo centrale. Cliccare su "cripta" per generare la chiave privata crittografata.</translation>
+        <source>Enter a Liberty Address that you would like to encrypt using BIP 38. Enter a passphrase in the middle box. Press encrypt to compute the encrypted private key.</source>
+        <translation>Inserire un indirizzo Liberty da crittografare utilizzando BIP 38. Inserire una password nel campo centrale. Cliccare su "cripta" per generare la chiave privata crittografata.</translation>
     </message>
     <message>
-        <source>The RUPAYA address to encrypt</source>
-        <translation>Indirizzo RUPAYA da crittografare</translation>
+        <source>The Liberty address to encrypt</source>
+        <translation>Indirizzo Liberty da crittografare</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -290,8 +290,8 @@
         <translation>Copiare la firma corrente negli Appunti di sistema</translation>
     </message>
     <message>
-        <source>Encrypt the private key for this RUPAYA address</source>
-        <translation>Crittografa la chiave privata per questo indirizzo RUPAYA</translation>
+        <source>Encrypt the private key for this Liberty address</source>
+        <translation>Crittografa la chiave privata per questo indirizzo Liberty</translation>
     </message>
     <message>
         <source>Reset all fields</source>
@@ -433,8 +433,8 @@
         <translation>Espora la cronologia delle transazioni</translation>
     </message>
     <message>
-        <source>Privacy Actions for zRUPX</source>
-        <translation>Operazioni di privacy per zRUPX</translation>
+        <source>Privacy Actions for XLIBz</source>
+        <translation>Operazioni di privacy per XLIBz</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -645,12 +645,12 @@
         <translation>Schede degli strumenti</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Invia valuta all'indirizzo RUPAYA</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Invia valuta all'indirizzo Liberty</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
@@ -669,24 +669,24 @@
         <translation>Esplora i masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;Informazioni RUPAYA Core</translation>
+        <source>&amp;About Liberty Core</source>
+        <translation>&amp;Informazioni Liberty Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Visualizza informazioni su RUPAYA Core</translation>
+        <source>Show information about Liberty Core</source>
+        <translation>Visualizza informazioni su Liberty Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
-        <translation>Modifica le opzioni di configurazione per RUPAYA</translation>
+        <source>Modify configuration options for Liberty</source>
+        <translation>Modifica le opzioni di configurazione per Liberty</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>Firma i messaggi con i tuoi indirizzi RUPAYA per dimostrare di essere il proprietario </translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Firma i messaggi con i tuoi indirizzi Liberty per dimostrare di essere il proprietario </translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>Verifica i messaggi per assicurarsi che siano stati firmati con indirizzi RUPAYA specifici</translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>Verifica i messaggi per assicurarsi che siano stati firmati con indirizzi Liberty specifici</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -717,8 +717,8 @@
         <translation>Apri file di configurazione del Masternodo</translation>
     </message>
     <message>
-        <source>Open a RUPAYA: URI or payment request</source>
-        <translation>Apri un RUPAYA: URI o richiesta di pagamento</translation>
+        <source>Open a Liberty: URI or payment request</source>
+        <translation>Apri un Liberty: URI o richiesta di pagamento</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -729,15 +729,15 @@
         <translation>Finestra Block Explorer</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Mostra il messaggio di aiuto RUPAYA Core per ottenere un elenco con le possibili opzioni di riga di comando RUPAYA</translation>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
+        <translation>Mostra il messaggio di aiuto Liberty Core per ottenere un elenco con le possibili opzioni di riga di comando Liberty</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core client</source>
+        <translation>Liberty Core</translation>
     </message>
     <message numerus="yes">
-        <source>%n active connection(s) to RUPAYA network</source>
+        <source>%n active connection(s) to Liberty network</source>
         <translation><numerusform>%n connessione attiva alla rete RUPAYAIX</numerusform><numerusform>%n connessioni attive alla rete RUPAYAIX</numerusform></translation>
     </message>
     <message>
@@ -1126,7 +1126,7 @@ MultiSend: %1</translation>
         <translation>Questa etichetta diventa rossa se uno dei destinatari riceve un importo inferiore a %1.</translation>
     </message>
     <message>
-        <source>Can vary +/- %1 urupx per input.</source>
+        <source>Can vary +/- %1 uXLIB per input.</source>
         <translation>Può variare di +/- %1 uRUPAYA per input.</translation>
     </message>
     <message>
@@ -1173,8 +1173,8 @@ MultiSend: %1</translation>
         <translation>Modifica indirizzo di invio</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid RUPAYA address.</source>
-        <translation>L'indirizzo inserito "%1" non è un indirizzo RUPAYA valido.</translation>
+        <source>The entered address "%1" is not a valid Liberty address.</source>
+        <translation>L'indirizzo inserito "%1" non è un indirizzo Liberty valido.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1219,16 +1219,16 @@ MultiSend: %1</translation>
         <translation>versione</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>Informazioni su RUPAYA Core</translation>
+        <source>About Liberty Core</source>
+        <translation>Informazioni su Liberty Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1274,16 +1274,16 @@ MultiSend: %1</translation>
         <translation>Benvenuto</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
+        <source>Welcome to Liberty Core.</source>
         <translation>Benvenuto in RUPAYAIX Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove RUPAYA Core salverà i propri dati.</translation>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
+        <translation>Essendo il primo avvio dell'applicazione, puoi scegliere dove Liberty Core salverà i propri dati.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core scaricherà e salverà una copia della blockchain RUPAYA. Verranno salvati almeno %1GB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
+        <source>Liberty Core will download and store a copy of the Liberty block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Liberty Core scaricherà e salverà una copia della blockchain Liberty. Verranno salvati almeno %1GB di dati in questa cartella, che cresceranno nel tempo. In questa cartella verrà salvato anche il portafoglio.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1294,8 +1294,8 @@ MultiSend: %1</translation>
         <translation>Utilizza una cartella dati personalizzata:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1436,12 +1436,12 @@ MultiSend: %1</translation>
         <translation>Inserire indirizzo destinatario</translation>
     </message>
     <message>
-        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other RUPAYA addresses after it matures.
-To Add: enter percentage to give and RUPAYA address to add to the MultiSend vector.
+        <source>MultiSend allows you to automatically send up to 100% of your stake or masternode reward to a list of other Liberty addresses after it matures.
+To Add: enter percentage to give and Liberty address to add to the MultiSend vector.
 To Delete: Enter address to delete and press delete.
 MultiSend will not be activated unless you have clicked Activate</source>
-        <translation>MultiSend ti permette di inviare automaticamente ad una lista di indirizzi RUPAYA fino al 100% delle ricompense di stake o masternodi, dopo che queste sono mature.
-Per Aggiunger: inserisci la percentuale da inviare e l'indirizzo RUPAYA da aggiungere al vettore MultiSend.
+        <translation>MultiSend ti permette di inviare automaticamente ad una lista di indirizzi Liberty fino al 100% delle ricompense di stake o masternodi, dopo che queste sono mature.
+Per Aggiunger: inserisci la percentuale da inviare e l'indirizzo Liberty da aggiungere al vettore MultiSend.
 Per Eliminare: Inserisci l'indirizzo da eliminare e premi elimina.
 MultiSend non verrà attivato a meno che tu non prema su Attiva</translation>
     </message>
@@ -1671,12 +1671,12 @@ Per favore controlla l'indirizzo e riprova nuovamente.</translation>
         <translation>Configura Offuscamento</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>Usa 2 masternodi diversi per mescolare fino a 10000 RUPAYA</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>Usa 2 masternodi diversi per mescolare fino a 10000 Liberty</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>Usa 8 masternodi diversi per mixare fino a 10000 RUPAYA</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>Usa 8 masternodi diversi per mixare fino a 10000 Liberty</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
@@ -1713,24 +1713,24 @@ Per favore controlla l'indirizzo e riprova nuovamente.</translation>
         <translation>Mappa la porta utilizzando &amp;UPnP</translation>
     </message>
     <message>
-        <source>Enable automatic minting of RUPAYA units to zRUPX</source>
-        <translation>Attiva il conio automatico di unità RUPAYA in zRUPX</translation>
+        <source>Enable automatic minting of Liberty units to XLIBz</source>
+        <translation>Attiva il conio automatico di unità Liberty in XLIBz</translation>
     </message>
     <message>
-        <source>Enable zRUPX Automint</source>
-        <translation>Attiva Conio automatico zRUPX</translation>
+        <source>Enable XLIBz Automint</source>
+        <translation>Attiva Conio automatico XLIBz</translation>
     </message>
     <message>
-        <source>Percentage of incoming RUPAYA which get automatically converted to zRUPX via Zerocoin Protocol (min: 10%)</source>
-        <translation>Percentuale di RUPAYA in entrata che viene automaticamente convertita in zRUPX attraverso il protocollo Zerocoin (min: 10%)</translation>
+        <source>Percentage of incoming Liberty which get automatically converted to XLIBz via Zerocoin Protocol (min: 10%)</source>
+        <translation>Percentuale di Liberty in entrata che viene automaticamente convertita in XLIBz attraverso il protocollo Zerocoin (min: 10%)</translation>
     </message>
     <message>
-        <source>Percentage of autominted zRUPX</source>
-        <translation>Percentuale di zRUPX Percentuale di zRUPX da coniare automaticamente</translation>
+        <source>Percentage of autominted XLIBz</source>
+        <translation>Percentuale di XLIBz Percentuale di XLIBz da coniare automaticamente</translation>
     </message>
     <message>
-        <source>Preferred Automint zRUPX Denomination</source>
-        <translation>Denominazione preferita conio automatico zRUPX</translation>
+        <source>Preferred Automint XLIBz Denomination</source>
+        <translation>Denominazione preferita conio automatico XLIBz</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1792,8 +1792,8 @@ Per favore controlla l'indirizzo e riprova nuovamente.</translation>
         <translation>Saldo totale, inclusi tutte le monete non disponibili.</translation>
     </message>
     <message>
-        <source>RUPAYA Balance</source>
-        <translation>Bilancio RUPAYA</translation>
+        <source>Liberty Balance</source>
+        <translation>Bilancio Liberty</translation>
     </message>
     <message>
         <source>Immature:</source>
@@ -1804,18 +1804,18 @@ Per favore controlla l'indirizzo e riprova nuovamente.</translation>
         <translation>Saldo corrente bloccato in indirizzi sola-lettura.</translation>
     </message>
     <message>
-        <source>Your current RUPAYA balance, unconfirmed and immature transactions included</source>
-        <translation>Il tuo saldo RUPAYA corrente, incluse le transazioni non confermate e non mature</translation>
+        <source>Your current Liberty balance, unconfirmed and immature transactions included</source>
+        <translation>Il tuo saldo Liberty corrente, incluse le transazioni non confermate e non mature</translation>
     </message>
     <message>
-        <source>zRUPX Balance</source>
-        <translation>Bilancio zRUPX</translation>
+        <source>XLIBz Balance</source>
+        <translation>Bilancio XLIBz</translation>
     </message>
     <message>
         <source>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These zRUPX are spendable.</source>
+These XLIBz are spendable.</source>
         <translation>Maturi: più di 20 conferme e più di 1 conio della stessa denominazione dopo il conio.
-Questi zRUPX sono spendibili.</translation>
+Questi XLIBz sono spendibili.</translation>
     </message>
     <message>
         <source>OVERVIEW</source>
@@ -1846,8 +1846,8 @@ Questi zRUPX sono spendibili.</translation>
         <translation>Spendibili:</translation>
     </message>
     <message>
-        <source>Locked RUPAYA or Masternode collaterals. These are excluded from zRUPX minting.</source>
-        <translation>RUPAYA bloccati o collaterali Masternodo. Questi sono esclusi dal conio di zRUPX.</translation>
+        <source>Locked Liberty or Masternode collaterals. These are excluded from XLIBz minting.</source>
+        <translation>Liberty bloccati o collaterali Masternodo. Questi sono esclusi dal conio di XLIBz.</translation>
     </message>
     <message>
         <source>Locked:</source>
@@ -1858,18 +1858,18 @@ Questi zRUPX sono spendibili.</translation>
         <translation>Non confermati:</translation>
     </message>
     <message>
-        <source>Your current zRUPX balance, unconfirmed and immature zRUPX included.</source>
-        <translation>Il tuo saldo zRUPX corrente, inclusi zRUPX non confermati e non maturi</translation>
+        <source>Your current XLIBz balance, unconfirmed and immature XLIBz included.</source>
+        <translation>Il tuo saldo XLIBz corrente, inclusi XLIBz non confermati e non maturi</translation>
     </message>
     <message>
         <source>Recent transactions</source>
         <translation>Transazioni recenti</translation>
     </message>
     <message>
-        <source>Current percentage of zRUPX.
+        <source>Current percentage of XLIBz.
 If AutoMint is enabled this percentage will settle around the configured AutoMint percentage (default = 10%).
 </source>
-        <translation>Percentuale corrente di zRUPX.
+        <translation>Percentuale corrente di XLIBz.
 Se il conio automatico è attivato questa percentuale si stabilizzerà all'incirca sulla percentuale stabilita per il conio automatico (percentuale prestabilita = 10%).
 </translation>
     </message>
@@ -1933,12 +1933,12 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
-        <source>0.000 000 00 RUPAYA</source>
-        <translation>0.000 000 00 RUPAYA</translation>
+        <source>0.000 000 00 Liberty</source>
+        <translation>0.000 000 00 Liberty</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -1961,16 +1961,16 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>PRIVACY</translation>
     </message>
     <message>
-        <source>Enter an amount of Rupx to convert to zRUPX</source>
-        <translation>Immetti un importo di RUPAYA da convertire in zRUPX</translation>
+        <source>Enter an amount of XLIB to convert to XLIBz</source>
+        <translation>Immetti un importo di Liberty da convertire in XLIBz</translation>
     </message>
     <message>
-        <source>zRUPX Control</source>
-        <translation>Controllo zRUPX</translation>
+        <source>XLIBz Control</source>
+        <translation>Controllo XLIBz</translation>
     </message>
     <message>
-        <source>zRUPX Selected:</source>
-        <translation>zRUPX selezionati:</translation>
+        <source>XLIBz Selected:</source>
+        <translation>XLIBz selezionati:</translation>
     </message>
     <message>
         <source>Quantity Selected:</source>
@@ -1981,23 +1981,23 @@ Per attivare il Conio automatico cambiare 'enablezeromint=0' in 'enablezeromint=
         <translation>Spendi Zerocoin</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending</source>
-        <translation>zRUPX disponibili disponibili per essere spesi (maturi e spendibili)</translation>
+        <source>Available (mature and spendable) XLIBz for spending</source>
+        <translation>XLIBz disponibili disponibili per essere spesi (maturi e spendibili)</translation>
     </message>
     <message>
         <source>Available Balance:</source>
         <translation>Bilancio Disponibile:</translation>
     </message>
     <message>
-        <source>Available (mature and spendable) zRUPX for spending
+        <source>Available (mature and spendable) XLIBz for spending
 
-zRUPX are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
-        <translation>zRUPX disponibili disponibili per essere spesi (maturi e spendibili)
-Gli zRUPX sono maturi quando hanno più di 20 conferme E più di 2 conii della stessa denominazione dopo che sono stati coniati</translation>
+XLIBz are mature when they have more than 20 confirmations AND more than 2 mints of the same denomination after them were minted</source>
+        <translation>XLIBz disponibili disponibili per essere spesi (maturi e spendibili)
+Gli XLIBz sono maturi quando hanno più di 20 conferme E più di 2 conii della stessa denominazione dopo che sono stati coniati</translation>
     </message>
     <message>
-        <source>0 zRUPX</source>
-        <translation>0 zRUPX</translation>
+        <source>0 XLIBz</source>
+        <translation>0 XLIBz</translation>
     </message>
     <message>
         <source>Pay &amp;To:</source>
@@ -2040,31 +2040,31 @@ Gli zRUPX sono maturi quando hanno più di 20 conferme E più di 2 conii della s
         <translation>Statistiche Zerocoin:</translation>
     </message>
     <message>
-        <source>Total Balance including unconfirmed and immature zRUPX</source>
-        <translation>Saldo totale inclusi zRUPX non confermati e non maturi</translation>
+        <source>Total Balance including unconfirmed and immature XLIBz</source>
+        <translation>Saldo totale inclusi XLIBz non confermati e non maturi</translation>
     </message>
     <message>
         <source>Total Zerocoin  Balance:</source>
         <translation>Saldo totale Zerocoin:</translation>
     </message>
     <message>
-        <source>Show the current status of automatic zRUPX minting.
+        <source>Show the current status of automatic XLIBz minting.
 
 To change the status (restart required):
 - enable: add 'enablezeromint=1' to rupaya.conf
 - disable: add 'enablezeromint=0' to rupaya.conf
 
 To change the percentage (no restart required):
-- menu Settings-&gt;Options-&gt;Percentage of autominted zRUPX
+- menu Settings-&gt;Options-&gt;Percentage of autominted XLIBz
 
 </source>
-        <translation>Mostra lo stato corrente del conio automatico zRUPX.
+        <translation>Mostra lo stato corrente del conio automatico XLIBz.
 Per cambiare lo stato (riavvio necessario):
 - attivato: aggiungi 'enablezeromint=1' a rupaya.conf
 - disattivato: aggiungi 'enablezeromint=0' a rupaya.conf
 
 Per cambiare la percentuale (riavvio non necessario):
-- menu Impostazioni-&gt;Opzioni-&gt;Percentuale di zRUPX da coniare automaticamente
+- menu Impostazioni-&gt;Opzioni-&gt;Percentuale di XLIBz da coniare automaticamente
 
 </translation>
     </message>
@@ -2209,8 +2209,8 @@ Per cambiare la percentuale (riavvio non necessario):
         <translation>Copia ammontare</translation>
     </message>
     <message>
-        <source>zRUPX Mint</source>
-        <translation>Conio zRUPX</translation>
+        <source>XLIBz Mint</source>
+        <translation>Conio XLIBz</translation>
     </message>
     <message>
         <source>AutoMint Status:</source>
@@ -2483,8 +2483,8 @@ Per cambiare la percentuale (riavvio non necessario):
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The RUPAYA address to sign the message with</source>
-        <translation>L'indirizzo RUPAYA per firmare il messaggio con</translation>
+        <source>The Liberty address to sign the message with</source>
+        <translation>L'indirizzo Liberty per firmare il messaggio con</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2507,16 +2507,16 @@ Per cambiare la percentuale (riavvio non necessario):
         <translation>Copiare la firma corrente negli Appunti di sistema</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this RUPAYA address</source>
-        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo RUPAYA</translation>
+        <source>Sign the message to prove you own this Liberty address</source>
+        <translation>Firmare il messaggio per dimostrare di possedere questo indirizzo Liberty</translation>
     </message>
     <message>
-        <source>The RUPAYA address the message was signed with</source>
-        <translation>L'indirizzo RUPAYA con cui è stato firmato il messaggio</translation>
+        <source>The Liberty address the message was signed with</source>
+        <translation>L'indirizzo Liberty con cui è stato firmato il messaggio</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified RUPAYA address</source>
-        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo RUPAYA specificato </translation>
+        <source>Verify the message to ensure it was signed with the specified Liberty address</source>
+        <translation>Verificare il messaggio per assicurarsi che sia stato firmato con l'indirizzo Liberty specificato </translation>
     </message>
     <message>
         <source>Reset all sign message fields</source>
@@ -2554,8 +2554,8 @@ Per cambiare la percentuale (riavvio non necessario):
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     </context>
 <context>
@@ -2666,18 +2666,18 @@ Per cambiare la percentuale (riavvio non necessario):
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>Error</source>
         <translation>Errore</translation>

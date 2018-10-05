@@ -13,12 +13,20 @@
 using namespace std;
 using namespace libzerocoin;
 
-std::set<std::string> XLIBzControlDialog::setSelectedMints;
-std::set<CMintMeta> XLIBzControlDialog::setMints;
+std::set<std::string> XLibzControlDialog::setSelectedMints;
+std::set<CMintMeta> XLibzControlDialog::setMints;
 
-XLIBzControlDialog::XLIBzControlDialog(QWidget *parent) :
+bool CXLibzControlWidgetItem::operator<(const QTreeWidgetItem &other) const {
+    int column = treeWidget()->sortColumn();
+    if (column == XLibzControlDialog::COLUMN_DENOMINATION || column == XLibzControlDialog::COLUMN_VERSION || column == XLibzControlDialog::COLUMN_CONFIRMATIONS)
+        return data(column, Qt::UserRole).toLongLong() < other.data(column, Qt::UserRole).toLongLong();
+    return QTreeWidgetItem::operator<(other);
+}
+
+
+XLibzControlDialog::XLibzControlDialog(QWidget *parent) :
     QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-    ui(new Ui::XLIBzControlDialog),
+    ui(new Ui::XLibzControlDialog),
     model(0)
 {
     ui->setupUi(this);
@@ -32,19 +40,19 @@ XLIBzControlDialog::XLIBzControlDialog(QWidget *parent) :
     connect(ui->pushButtonAll, SIGNAL(clicked()), this, SLOT(ButtonAllClicked()));
 }
 
-XLIBzControlDialog::~XLIBzControlDialog()
+XLibzControlDialog::~XLibzControlDialog()
 {
     delete ui;
 }
 
-void XLIBzControlDialog::setModel(WalletModel *model)
+void XLibzControlDialog::setModel(WalletModel *model)
 {
     this->model = model;
     updateList();
 }
 
 //Update the tree widget
-void XLIBzControlDialog::updateList()
+void XLibzControlDialog::updateList()
 {
     // need to prevent the slot from being called each time something is changed
     ui->treeWidget->blockSignals(true);
@@ -54,7 +62,7 @@ void XLIBzControlDialog::updateList()
     QFlags<Qt::ItemFlag> flgTristate = Qt::ItemIsEnabled | Qt::ItemIsUserCheckable | Qt::ItemIsTristate;
     map<libzerocoin::CoinDenomination, int> mapDenomPosition;
     for (auto denom : libzerocoin::zerocoinDenomList) {
-        QTreeWidgetItem* itemDenom(new QTreeWidgetItem);
+        CXLibzControlWidgetItem* itemDenom(new CXLibzControlWidgetItem);
         ui->treeWidget->addTopLevelItem(itemDenom);
 
         //keep track of where this is positioned in tree widget
@@ -62,6 +70,7 @@ void XLIBzControlDialog::updateList()
 
         itemDenom->setFlags(flgTristate);
         itemDenom->setText(COLUMN_DENOMINATION, QString::number(denom));
+        itemDenom->setData(COLUMN_DENOMINATION, Qt::UserRole, QVariant((qlonglong) denom));
     }
 
     // select all unused coins - including not mature. Update status of coins too.
@@ -75,7 +84,7 @@ void XLIBzControlDialog::updateList()
     for (const CMintMeta& mint : setMints) {
         // assign this mint to the correct denomination in the tree view
         libzerocoin::CoinDenomination denom = mint.denom;
-        QTreeWidgetItem *itemMint = new QTreeWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
+        CXLibzControlWidgetItem *itemMint = new CXLibzControlWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
 
         // if the mint is already selected, then it needs to have the checkbox checked
         std::string strPubCoinHash = mint.hashPubcoin.GetHex();
@@ -86,8 +95,10 @@ void XLIBzControlDialog::updateList()
             itemMint->setCheckState(COLUMN_CHECKBOX, Qt::Unchecked);
 
         itemMint->setText(COLUMN_DENOMINATION, QString::number(mint.denom));
+        itemMint->setData(COLUMN_DENOMINATION, Qt::UserRole, QVariant((qlonglong) denom));
         itemMint->setText(COLUMN_PUBCOIN, QString::fromStdString(strPubCoinHash));
         itemMint->setText(COLUMN_VERSION, QString::number(mint.nVersion));
+        itemMint->setData(COLUMN_VERSION, Qt::UserRole, QVariant((qlonglong) mint.nVersion));
 
         int nConfirmations = (mint.nHeight ? nBestHeight - mint.nHeight : 0);
         if (nConfirmations < 0) {
@@ -96,6 +107,7 @@ void XLIBzControlDialog::updateList()
         }
 
         itemMint->setText(COLUMN_CONFIRMATIONS, QString::number(nConfirmations));
+        itemMint->setData(COLUMN_CONFIRMATIONS, Qt::UserRole, QVariant((qlonglong) nConfirmations));
 
         // check for maturity
         bool isMature = false;
@@ -129,7 +141,7 @@ void XLIBzControlDialog::updateList()
 }
 
 // Update the list when a checkbox is clicked
-void XLIBzControlDialog::updateSelection(QTreeWidgetItem* item, int column)
+void XLibzControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 {
     // only want updates from non top level items that are available to spend
     if (item->parent() && column == COLUMN_CHECKBOX && !item->isDisabled()){
@@ -151,7 +163,7 @@ void XLIBzControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 }
 
 // Update the Quantity and Amount display
-void XLIBzControlDialog::updateLabels()
+void XLibzControlDialog::updateLabels()
 {
     int64_t nAmount = 0;
     for (const CMintMeta& mint : setMints) {
@@ -167,7 +179,7 @@ void XLIBzControlDialog::updateLabels()
     privacyDialog->setXLIBzControlLabels(nAmount, setSelectedMints.size());
 }
 
-std::vector<CMintMeta> XLIBzControlDialog::GetSelectedMints()
+std::vector<CMintMeta> XLibzControlDialog::GetSelectedMints()
 {
     std::vector<CMintMeta> listReturn;
     for (const CMintMeta& mint : setMints) {
@@ -179,7 +191,7 @@ std::vector<CMintMeta> XLIBzControlDialog::GetSelectedMints()
 }
 
 // select or deselect all of the mints
-void XLIBzControlDialog::ButtonAllClicked()
+void XLibzControlDialog::ButtonAllClicked()
 {
     ui->treeWidget->blockSignals(true);
     Qt::CheckState state = Qt::Checked;

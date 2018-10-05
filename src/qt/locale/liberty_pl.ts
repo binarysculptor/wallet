@@ -144,8 +144,8 @@
         <translation>Czy na pewno chcesz zakodować portfel?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
-        <translation>Ostrzeżenie: Jeżeli zakodujesz portfel i stracisz do niego hasło , UTRACISZ WSZYSTKIE RUPAYA!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
+        <translation>Ostrzeżenie: Jeżeli zakodujesz portfel i stracisz do niego hasło , UTRACISZ WSZYSTKIE Liberty!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -509,12 +509,12 @@
         <translation>&amp;Pomoc</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>&amp;Rdzeń RUPAYA</translation>
+        <source>Liberty Core</source>
+        <translation>&amp;Rdzeń Liberty</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Wyślij monety do adresu RUPAYA</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Wyślij monety do adresu Liberty</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
@@ -529,24 +529,24 @@
         <translation>Przeglądaj masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
+        <source>&amp;About Liberty Core</source>
         <translation>&amp;O rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
+        <source>Show information about Liberty Core</source>
         <translation>Pokaż informacje o rdzeniu bitcoina</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
-        <translation>Modyfikuj opcje konfiguracji RUPAYA</translation>
+        <source>Modify configuration options for Liberty</source>
+        <translation>Modyfikuj opcje konfiguracji Liberty</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>Zatwierdź wiadomość z twoimi adresami RUPAYA, by udowodnić, że jesteś w ich posiadaniu</translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Zatwierdź wiadomość z twoimi adresami Liberty, by udowodnić, że jesteś w ich posiadaniu</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>Zweryfikuj wiadomości by upewnić się, że zostały zatwierdzone z podanego adresu RUPAYA</translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>Zweryfikuj wiadomości by upewnić się, że zostały zatwierdzone z podanego adresu Liberty</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -573,8 +573,8 @@
         <translation>Otwórz &amp;Plik konfiguracji Masternode</translation>
     </message>
     <message>
-        <source>Open a RUPAYA: URI or payment request</source>
-        <translation>Otwórz RUPAYA: URI i żądanie zapłaty</translation>
+        <source>Open a Liberty: URI or payment request</source>
+        <translation>Otwórz Liberty: URI i żądanie zapłaty</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -585,12 +585,12 @@
         <translation>Okno eksplorera bloków</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Pokaż wiadomość pomocy rdzenia RUPAYA, aby dostać listę możliwych opcji RUPAYA command-line</translation>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
+        <translation>Pokaż wiadomość pomocy rdzenia Liberty, aby dostać listę możliwych opcji Liberty command-line</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>Rdzeń RUPAYA klient</translation>
+        <source>Liberty Core client</source>
+        <translation>Rdzeń Liberty klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -899,8 +899,8 @@ MultiWysyłlka: %1</translation>
 <context>
     <name>HelpMessageDialog</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>&amp;Rdzeń RUPAYA</translation>
+        <source>Liberty Core</source>
+        <translation>&amp;Rdzeń Liberty</translation>
     </message>
     </context>
 <context>
@@ -914,8 +914,8 @@ MultiWysyłlka: %1</translation>
         <translation>Użyj niestandardowej ścieżki danych</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>&amp;Rdzeń RUPAYA</translation>
+        <source>Liberty Core</source>
+        <translation>&amp;Rdzeń Liberty</translation>
     </message>
     <message>
         <source>Error</source>
@@ -1190,12 +1190,12 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>Zezwól na przychodzące połączenia</translation>
     </message>
     <message>
-        <source>Automatically start RUPAYA after logging in to the system.</source>
-        <translation>Automatycznie uruchom RUPAYA po zalogowaniu do systemu</translation>
+        <source>Automatically start Liberty after logging in to the system.</source>
+        <translation>Automatycznie uruchom Liberty po zalogowaniu do systemu</translation>
     </message>
     <message>
-        <source>&amp;Start RUPAYA on system login</source>
-        <translation>&amp;Uruchom RUPAYA podczas logowania do systemu</translation>
+        <source>&amp;Start Liberty on system login</source>
+        <translation>&amp;Uruchom Liberty podczas logowania do systemu</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1214,18 +1214,18 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
         <translation>&amp;Sieć</translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting RUPAYA.</source>
-        <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie RUPAYA</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Liberty.</source>
+        <translation>Język interfejsu użytkownika może być wybrany tutaj. Ustawienia ulegną zmianie po restarcie Liberty</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/rupaya-project/rupaya-project-translations</source>
+https://www.transifex.com/liberty-project/liberty-project-translations</source>
         <translation>Brakuje języka bądź nieukończona pełnego tłumaczenia? Pomóż w tłumaczeniu tutaj:
-https://www.transifex.com/rupaya-project/rupaya-project-translations </translation>
+https://www.transifex.com/liberty-project/liberty-project-translations </translation>
     </message>
     <message>
-        <source>Connect to the RUPAYA network through a SOCKS5 proxy.</source>
-        <translation>Połącz z siecią RUPAYA poprzez SOCKS5 proxy.</translation>
+        <source>Connect to the Liberty network through a SOCKS5 proxy.</source>
+        <translation>Połącz z siecią Liberty poprzez SOCKS5 proxy.</translation>
     </message>
     <message>
         <source>Proxy &amp;IP:</source>
@@ -1463,8 +1463,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations </translati
         <translation>Liczba</translation>
     </message>
     <message>
-        <source>Enter a RUPAYA address (e.g. %1)</source>
-        <translation>Wprowadź adres RUPAYA (np. %1)</translation>
+        <source>Enter a Liberty address (e.g. %1)</source>
+        <translation>Wprowadź adres Liberty (np. %1)</translation>
     </message>
     <message>
         <source>%1 d</source>
@@ -1894,8 +1894,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations </translati
         <translation>Alt+P</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this RUPAYA address</source>
-        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres RUPAYA jest w twoim posiadaniu</translation>
+        <source>Sign the message to prove you own this Liberty address</source>
+        <translation>Zatwierdź wiadomość, aby udowodnić, że podany adres Liberty jest w twoim posiadaniu</translation>
     </message>
     <message>
         <source>Clear &amp;All</source>
@@ -1929,8 +1929,8 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations </translati
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>&amp;Rdzeń RUPAYA</translation>
+        <source>Liberty Core</source>
+        <translation>&amp;Rdzeń Liberty</translation>
     </message>
     </context>
 <context>
@@ -2021,14 +2021,14 @@ https://www.transifex.com/rupaya-project/rupaya-project-translations </translati
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>Error</source>
         <translation>Błąd</translation>

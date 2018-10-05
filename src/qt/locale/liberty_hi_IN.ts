@@ -321,10 +321,10 @@
     <name>WalletView</name>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>Information</source>
         <translation>जानकारी</translation>

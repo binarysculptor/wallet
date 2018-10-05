@@ -62,12 +62,12 @@
         <translation>Adreces de recepció</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Aquestes són les teves adreces RUPAYA per fer enviar pagaments. Sempre comprova l'import i l'adreça de recepció abans d'enviar les monedes.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Aquestes són les teves adreces Liberty per fer enviar pagaments. Sempre comprova l'import i l'adreça de recepció abans d'enviar les monedes.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Aquestes són les teves adreces RUPAYA per rebre pagaments. Es recomana utilitzar noves adreces de recepció per cada transacció.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Aquestes són les teves adreces Liberty per rebre pagaments. Es recomana utilitzar noves adreces de recepció per cada transacció.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -168,15 +168,15 @@
         <translation>Confirma l'encriptació del moneder</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA es tancarà per finalitzar el procés d'encriptació. Recorda que encriptant el teu moneder no protegeix els teus RUPAYA de ser robats si el teu ordinador està infectat amb programari maliciós.</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty es tancarà per finalitzar el procés d'encriptació. Recorda que encriptant el teu moneder no protegeix els teus Liberty de ser robats si el teu ordinador està infectat amb programari maliciós.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Estàs segur que vols encriptar el moneder?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
         <translation>Avís: Si encripteu el vostre moneder i perdeu la contrasenya, &lt;b&gt;PERDREU TOTS ELS VOSTRES RUPAYAS&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -421,12 +421,12 @@
         <translation>A&amp;juda</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Envia monedes a una adreça RUPAYA</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Envia monedes a una adreça Liberty</translation>
     </message>
     <message>
         <source>&amp;Privacy</source>
@@ -437,8 +437,8 @@
         <translation>&amp;Masternodes</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;Sobre RUPAYA Core</translation>
+        <source>&amp;About Liberty Core</source>
+        <translation>&amp;Sobre Liberty Core</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -461,8 +461,8 @@
         <translation>Obre el fitxer de configuració del Masternode</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>Client RUPAYA core</translation>
+        <source>Liberty Core client</source>
+        <translation>Client Liberty core</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -805,8 +805,8 @@
         <translation>Edita l'adreça d'enviament</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid RUPAYA address.</source>
-        <translation>L'adreça introduïda "%1" no és una adreça RUPAYA vàlida.</translation>
+        <source>The entered address "%1" is not a valid Liberty address.</source>
+        <translation>L'adreça introduïda "%1" no és una adreça Liberty vàlida.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -851,16 +851,16 @@
         <translation>versió</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>(%1-bit)</source>
         <translation>(%1-bit)</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>Sobre RUPAYA Core</translation>
+        <source>About Liberty Core</source>
+        <translation>Sobre Liberty Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -906,12 +906,12 @@
         <translation>Benvingut</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Benvingut a RUPAYA Core.</translation>
+        <source>Welcome to Liberty Core.</source>
+        <translation>Benvingut a Liberty Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Al ser el primer cop que s'inicia el programa, pots escollir on es desaran les dades del RUPAYA Core.</translation>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
+        <translation>Al ser el primer cop que s'inicia el programa, pots escollir on es desaran les dades del Liberty Core.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -922,8 +922,8 @@
         <translation>Usar una carpeta de dades personalitzada:</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1148,24 +1148,24 @@
         <translation>Si us plau, selecciona un nivell de privacitat.</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>Utilitza 2 masternodes diferents per mesclar fons de fins a 10000 RUPAYA</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>Utilitza 2 masternodes diferents per mesclar fons de fins a 10000 Liberty</translation>
     </message>
     <message>
-        <source>Use 8 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>Utilitza 8 masternodes diferents per mesclar fons de fins a 10000 RUPAYA</translation>
+        <source>Use 8 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>Utilitza 8 masternodes diferents per mesclar fons de fins a 10000 Liberty</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Utilitza 16 masternodes diferents</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Aquesta opció és la més ràpida i té un cost d'uns ~0.025 RUPAYA per anonimitzar 10000 RUPAYA</translation>
+        <source>This option is the quickest and will cost about ~0.025 Liberty to anonymize 10000 Liberty</source>
+        <translation>Aquesta opció és la més ràpida i té un cost d'uns ~0.025 Liberty per anonimitzar 10000 Liberty</translation>
     </message>
     <message>
-        <source>This option is moderately fast and will cost about 0.05 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Aquesta opció és moderadament ràpida i té un cost d'uns 0.05 RUPAYA per anonimitzar 10000 RUPAYA</translation>
+        <source>This option is moderately fast and will cost about 0.05 Liberty to anonymize 10000 Liberty</source>
+        <translation>Aquesta opció és moderadament ràpida i té un cost d'uns 0.05 Liberty per anonimitzar 10000 Liberty</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
@@ -1214,8 +1214,8 @@
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically start RUPAYA after logging in to the system.</source>
-        <translation>Inicia RUPAYA automàticament després d'identificar-te en el sistema.</translation>
+        <source>Automatically start Liberty after logging in to the system.</source>
+        <translation>Inicia Liberty automàticament després d'identificar-te en el sistema.</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -1302,12 +1302,12 @@
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     <message>
-        <source>0.000 000 00 RUPAYA</source>
-        <translation>0.000 000 00 RUPAYA</translation>
+        <source>0.000 000 00 Liberty</source>
+        <translation>0.000 000 00 Liberty</translation>
     </message>
     <message>
         <source>Reset</source>
@@ -1322,8 +1322,8 @@
         <translation>Import:</translation>
     </message>
     <message>
-        <source>0 zRUPX</source>
-        <translation>0 zRUPX</translation>
+        <source>0 XLIBz</source>
+        <translation>0 XLIBz</translation>
     </message>
     <message>
         <source>Alt+A</source>
@@ -1713,8 +1713,8 @@
 <context>
     <name>ShutdownWindow</name>
     <message>
-        <source>RUPAYA Core is shutting down...</source>
-        <translation>RUPAYA Core s'està tancant...</translation>
+        <source>Liberty Core is shutting down...</source>
+        <translation>Liberty Core s'està tancant...</translation>
     </message>
     <message>
         <source>Do not shut down the computer until this window disappears.</source>
@@ -1779,8 +1779,8 @@
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Version %1</source>
@@ -1959,7 +1959,7 @@
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
         <source>Quantity</source>
         <translation>Quantitat</translation>
@@ -1969,12 +1969,12 @@
         <translation>0</translation>
     </message>
     <message>
-        <source>zRUPX</source>
-        <translation>zRUPX</translation>
+        <source>XLIBz</source>
+        <translation>XLIBz</translation>
     </message>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>Can't mix while sync in progress.</source>
         <translation>No es pot mesclar mentre s'està sincronitzant.</translation>

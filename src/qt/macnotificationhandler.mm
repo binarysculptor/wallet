@@ -14,7 +14,7 @@
 - (NSString *)__bundleIdentifier
 {
     if (self == [NSBundle mainBundle]) {
-        return @"io.liberty.Liberty-Qt";
+        return @"com.liberty-coin.liberty-qt";
     } else {
         return [self __bundleIdentifier];
     }

@@ -62,12 +62,12 @@
         <translation>Adresy pro přijetí peněz</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Toto jsou Vaše RUPAYA adresy pro poslání platby. Vždy si překontrolujte množství peněz a cílovou adresu než platbu odešlete.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Toto jsou Vaše Liberty adresy pro poslání platby. Vždy si překontrolujte množství peněz a cílovou adresu než platbu odešlete.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Toto jsou Vaše RUPAYA adresy pro přijetí plateb. Je doporučeno použít novou adresu pro každou novou transakci.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Toto jsou Vaše Liberty adresy pro přijetí plateb. Je doporučeno použít novou adresu pro každou novou transakci.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -172,15 +172,15 @@
         <translation>Potvrdit zašifrování peněženky</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA se teď zavře pro dokončení šifrovacího procesu. Prosím, vemte na vědomí, že zašifrování Vaší peněženky plně neochrání Vaše RUPAYAy před krádží, pokud je Váš počítač infikován malwarem.</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty se teď zavře pro dokončení šifrovacího procesu. Prosím, vemte na vědomí, že zašifrování Vaší peněženky plně neochrání Vaše RUPAYAy před krádží, pokud je Váš počítač infikován malwarem.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Opravdu chcete zašifrovat Vaši peněženku?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
         <translation>Varování: Pokud zašifrujete svou peněženku a ztratíte frázové heslo, tak &lt;b&gt;ZTRATÍTE VŠECHNY VAŠE RUPAYAy&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -397,8 +397,8 @@
         <translation>Procházet historii transakcí</translation>
     </message>
     <message>
-        <source>Privacy Actions for zRUPX</source>
-        <translation>Řešení soukromí pro zRUPX</translation>
+        <source>Privacy Actions for XLIBz</source>
+        <translation>Řešení soukromí pro XLIBz</translation>
     </message>
     <message>
         <source>E&amp;xit</source>
@@ -601,12 +601,12 @@
         <translation>Nástrojová lišta záložek</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
-        <source>Send coins to a RUPAYA address</source>
-        <translation>Odeslat platbuna RUPAYA adresu</translation>
+        <source>Send coins to a Liberty address</source>
+        <translation>Odeslat platbuna Liberty adresu</translation>
     </message>
     <message>
         <source>Request payments (generates QR codes and rupaya: URIs)</source>
@@ -625,24 +625,24 @@
         <translation>Procházet masternody</translation>
     </message>
     <message>
-        <source>&amp;About RUPAYA Core</source>
-        <translation>&amp;O RUPAYA Core</translation>
+        <source>&amp;About Liberty Core</source>
+        <translation>&amp;O Liberty Core</translation>
     </message>
     <message>
-        <source>Show information about RUPAYA Core</source>
-        <translation>Zobraz informace o RUPAYA Core</translation>
+        <source>Show information about Liberty Core</source>
+        <translation>Zobraz informace o Liberty Core</translation>
     </message>
     <message>
-        <source>Modify configuration options for RUPAYA</source>
-        <translation>Upravit možnosti konfigurace pro RUPAYA</translation>
+        <source>Modify configuration options for Liberty</source>
+        <translation>Upravit možnosti konfigurace pro Liberty</translation>
     </message>
     <message>
-        <source>Sign messages with your RUPAYA addresses to prove you own them</source>
-        <translation>Podepsat zprávy Vaší RUPAYA adresou pro prokázaní, že jste jejich vlastníkem</translation>
+        <source>Sign messages with your Liberty addresses to prove you own them</source>
+        <translation>Podepsat zprávy Vaší Liberty adresou pro prokázaní, že jste jejich vlastníkem</translation>
     </message>
     <message>
-        <source>Verify messages to ensure they were signed with specified RUPAYA addresses</source>
-        <translation>Ověřit zprávy k zajištění, že bylypodepsány vybranými RUPAYA adresami</translation>
+        <source>Verify messages to ensure they were signed with specified Liberty addresses</source>
+        <translation>Ověřit zprávy k zajištění, že bylypodepsány vybranými Liberty adresami</translation>
     </message>
     <message>
         <source>&amp;BIP38 tool</source>
@@ -673,8 +673,8 @@
         <translation>Otevřít Masternodový konfigurační soubor</translation>
     </message>
     <message>
-        <source>Open a RUPAYA: URI or payment request</source>
-        <translation>Otevřít RUPAYA: URI nebo platební žádost</translation>
+        <source>Open a Liberty: URI or payment request</source>
+        <translation>Otevřít Liberty: URI nebo platební žádost</translation>
     </message>
     <message>
         <source>&amp;Blockchain explorer</source>
@@ -685,12 +685,12 @@
         <translation>Okno blokového průzkumníka</translation>
     </message>
     <message>
-        <source>Show the RUPAYA Core help message to get a list with possible RUPAYA command-line options</source>
-        <translation>Zobrazit RUPAYA Core pomocnou zpráv pro získání seznamu možných parametrů RUPAYA pro příkazy do příkazové řádky</translation>
+        <source>Show the Liberty Core help message to get a list with possible Liberty command-line options</source>
+        <translation>Zobrazit Liberty Core pomocnou zpráv pro získání seznamu možných parametrů Liberty pro příkazy do příkazové řádky</translation>
     </message>
     <message>
-        <source>RUPAYA Core client</source>
-        <translation>RUPAYA Core klient</translation>
+        <source>Liberty Core client</source>
+        <translation>Liberty Core klient</translation>
     </message>
     <message>
         <source>Synchronizing with network...</source>
@@ -1081,8 +1081,8 @@ MultiSend: %1</translation>
         <translation>Upravit adresu k odeslání platby</translation>
     </message>
     <message>
-        <source>The entered address "%1" is not a valid RUPAYA address.</source>
-        <translation>Zadaná adresa "%1" není validní RUPAYA adresa.</translation>
+        <source>The entered address "%1" is not a valid Liberty address.</source>
+        <translation>Zadaná adresa "%1" není validní Liberty adresa.</translation>
     </message>
     <message>
         <source>The entered address "%1" is already in the address book.</source>
@@ -1127,12 +1127,12 @@ MultiSend: %1</translation>
         <translation>verze</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
-        <source>About RUPAYA Core</source>
-        <translation>O RUPAYA Core</translation>
+        <source>About Liberty Core</source>
+        <translation>O Liberty Core</translation>
     </message>
     <message>
         <source>Command-line options</source>
@@ -1166,16 +1166,16 @@ MultiSend: %1</translation>
         <translation>Vítejte</translation>
     </message>
     <message>
-        <source>Welcome to RUPAYA Core.</source>
-        <translation>Vítejte v RUPAYA Core.</translation>
+        <source>Welcome to Liberty Core.</source>
+        <translation>Vítejte v Liberty Core.</translation>
     </message>
     <message>
-        <source>As this is the first time the program is launched, you can choose where RUPAYA Core will store its data.</source>
-        <translation>Při prvním spuštění programu si můžete vybrat, kam bude RUPAYA Core ukládat svá data.</translation>
+        <source>As this is the first time the program is launched, you can choose where Liberty Core will store its data.</source>
+        <translation>Při prvním spuštění programu si můžete vybrat, kam bude Liberty Core ukládat svá data.</translation>
     </message>
     <message>
-        <source>RUPAYA Core will download and store a copy of the RUPAYA block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
-        <translation>RUPAYA Core stáhne a uloží kopii RUPAYA blockchainu. Nejméně %1GB dat bude do této složky uloženo a v průběhu času bude ukládat další data. Peněženka bude v této složce uložena také.</translation>
+        <source>Liberty Core will download and store a copy of the Liberty block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.</source>
+        <translation>Liberty Core stáhne a uloží kopii Liberty blockchainu. Nejméně %1GB dat bude do této složky uloženo a v průběhu času bude ukládat další data. Peněženka bude v této složce uložena také.</translation>
     </message>
     <message>
         <source>Use the default data directory</source>
@@ -1186,8 +1186,8 @@ MultiSend: %1</translation>
         <translation>Použít vlastní složku pro data</translation>
     </message>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     <message>
         <source>Error: Specified data directory "%1" cannot be created.</source>
@@ -1468,24 +1468,24 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Vyberte úrpvěň ochrany soukromí</translation>
     </message>
     <message>
-        <source>Use 2 separate masternodes to mix funds up to 10000 RUPAYA</source>
-        <translation>Použí 2 oddělené masternody k promíchání prostředků až do 10000 RUPAYA</translation>
+        <source>Use 2 separate masternodes to mix funds up to 10000 Liberty</source>
+        <translation>Použí 2 oddělené masternody k promíchání prostředků až do 10000 Liberty</translation>
     </message>
     <message>
         <source>Use 16 separate masternodes</source>
         <translation>Použít 16 oddělených masternodů</translation>
     </message>
     <message>
-        <source>This option is the quickest and will cost about ~0.025 RUPAYA to anonymize 10000 RUPAYA</source>
-        <translation>Tato možnost je nejrychleší a bude stát zhruba ~0.025 RUPAYA pro anonymizaci 10000 RUPAYA</translation>
+        <source>This option is the quickest and will cost about ~0.025 Liberty to anonymize 10000 Liberty</source>
+        <translation>Tato možnost je nejrychleší a bude stát zhruba ~0.025 Liberty pro anonymizaci 10000 Liberty</translation>
     </message>
     <message>
         <source>This is the slowest and most secure option. Using maximum anonymity will cost</source>
         <translation>Toto je nejpomalejší a nejvíce bezpečná volba. Použití maximalní anonymity bude stát</translation>
     </message>
     <message>
-        <source>0.1 RUPAYA per 10000 RUPAYA you anonymize.</source>
-        <translation>0.1 RUPAYA za 10000 RUPAYA anonymizujete.</translation>
+        <source>0.1 Liberty per 10000 Liberty you anonymize.</source>
+        <translation>0.1 Liberty za 10000 Liberty anonymizujete.</translation>
     </message>
     <message>
         <source>Obfuscation Configuration</source>
@@ -1550,12 +1550,12 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Expert</translation>
     </message>
     <message>
-        <source>Automatically start RUPAYA after logging in to the system.</source>
-        <translation>Automaticky spustit RUPAYA po přihlášení do systému</translation>
+        <source>Automatically start Liberty after logging in to the system.</source>
+        <translation>Automaticky spustit Liberty po přihlášení do systému</translation>
     </message>
     <message>
-        <source>&amp;Start RUPAYA on system login</source>
-        <translation>&amp;Spusti RUPAYA při přihlášení do systému</translation>
+        <source>&amp;Start Liberty on system login</source>
+        <translation>&amp;Spusti Liberty při přihlášení do systému</translation>
     </message>
     <message>
         <source>Show Masternodes Tab</source>
@@ -2087,8 +2087,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Změna:</translation>
     </message>
     <message>
-        <source>0 RUPAYA</source>
-        <translation>0 RUPAYA</translation>
+        <source>0 Liberty</source>
+        <translation>0 Liberty</translation>
     </message>
     <message>
         <source>Transaction Fee:</source>
@@ -2212,8 +2212,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <source>The RUPAYA address to sign the message with</source>
-        <translation>RUPAYA adresa pro podepsání zprávy</translation>
+        <source>The Liberty address to sign the message with</source>
+        <translation>Liberty adresa pro podepsání zprávy</translation>
     </message>
     <message>
         <source>Choose previously used address</source>
@@ -2240,16 +2240,16 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
         <translation>Kopírovat aktuální podpis do systémové mezipaměti</translation>
     </message>
     <message>
-        <source>Sign the message to prove you own this RUPAYA address</source>
-        <translation>Podepsat zprávu k prokázání, že vlastníte tuto RUPAYA adresu</translation>
+        <source>Sign the message to prove you own this Liberty address</source>
+        <translation>Podepsat zprávu k prokázání, že vlastníte tuto Liberty adresu</translation>
     </message>
     <message>
-        <source>The RUPAYA address the message was signed with</source>
-        <translation>RUPAYA adresa zprávy byla podpsána</translation>
+        <source>The Liberty address the message was signed with</source>
+        <translation>Liberty adresa zprávy byla podpsána</translation>
     </message>
     <message>
-        <source>Verify the message to ensure it was signed with the specified RUPAYA address</source>
-        <translation>Verifikujte zprávu pro ujištění, že byla podepsána zmíněnou RUPAYA adresou</translation>
+        <source>Verify the message to ensure it was signed with the specified Liberty address</source>
+        <translation>Verifikujte zprávu pro ujištění, že byla podepsána zmíněnou Liberty adresou</translation>
     </message>
     <message>
         <source>Sign &amp;Message</source>
@@ -2291,8 +2291,8 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
 <context>
     <name>SplashScreen</name>
     <message>
-        <source>RUPAYA Core</source>
-        <translation>RUPAYA Core</translation>
+        <source>Liberty Core</source>
+        <translation>Liberty Core</translation>
     </message>
     </context>
 <context>
@@ -2395,14 +2395,14 @@ Prosím zkontrolujte adresu a zkuste to znovu.</translation>
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     <message>
         <source>0</source>
         <translation>0</translation>
     </message>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     <message>
         <source>Error</source>
         <translation>Chyba</translation>

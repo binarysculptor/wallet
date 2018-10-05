@@ -62,12 +62,12 @@
         <translation>Адреса отримання</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Це ваші RUPAYA-адреси для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
+        <source>These are your Liberty addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Це ваші Liberty-адреси для надсилання платежів. Завжди перевіряйте суму та адресу одержувача перед відправленням монет.</translation>
     </message>
     <message>
-        <source>These are your RUPAYA addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
-        <translation>Це ваші RUPAYA адреси для отримання платежів. Для кожної транзакції рекомендується використовувати нову адресу одержувача.</translation>
+        <source>These are your Liberty addresses for receiving payments. It is recommended to use a new receiving address for each transaction.</source>
+        <translation>Це ваші Liberty адреси для отримання платежів. Для кожної транзакції рекомендується використовувати нову адресу одержувача.</translation>
     </message>
     <message>
         <source>&amp;Copy Address</source>
@@ -172,16 +172,16 @@
         <translation>Підтвердження шифрування гаманця</translation>
     </message>
     <message>
-        <source>RUPAYA will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
-        <translation>RUPAYA зараз закриється, щоб завершити процес шифрування. Пам'ятайте, що шифрування гаманця не може повністю захистити ваші RUPAYA'и від крадіжки зловмисним програмним забезпеченням, що заражає ваш комп'ютер.</translation>
+        <source>Liberty will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your RUPAYAs from being stolen by malware infecting your computer.</source>
+        <translation>Liberty зараз закриється, щоб завершити процес шифрування. Пам'ятайте, що шифрування гаманця не може повністю захистити ваші Liberty'и від крадіжки зловмисним програмним забезпеченням, що заражає ваш комп'ютер.</translation>
     </message>
     <message>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Ви впевнені, що хочете зашифрувати Ваш гаманець?</translation>
     </message>
     <message>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR RUPAYA&lt;/b&gt;!</source>
-        <translation>Попередження: Якщо після шифрування гаманця Ви &lt;b&gt;загубите кодове слово, то ви втратите всі Ваші RUPAYA'и&lt;/b&gt;!</translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR Liberty&lt;/b&gt;!</source>
+        <translation>Попередження: Якщо після шифрування гаманця Ви &lt;b&gt;загубите кодове слово, то ви втратите всі Ваші Liberty'и&lt;/b&gt;!</translation>
     </message>
     <message>
         <source>Wallet encrypted</source>
@@ -373,9 +373,9 @@
     </message>
     </context>
 <context>
-    <name>ZRupxControlDialog</name>
+    <name>XLibzControlDialog</name>
     </context>
 <context>
-    <name>rupaya-core</name>
+    <name>liberty-core</name>
     </context>
 </TS>
