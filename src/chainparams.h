@@ -103,10 +103,11 @@ public:
     int Zerocoin_DefaultSpendSecurity() const { return nDefaultSecurityLevel; }
     int Zerocoin_HeaderVersion() const { return nZerocoinHeaderVersion; }
     int Zerocoin_RequiredStakeDepth() const { return nZerocoinRequiredStakeDepth; }
-
+    uint64_t CheckLockTimeVerify_StartTime() const { return nCheckLockTimeVerify_StartTime; }
     /** Height or Time Based Activations **/
     int Last_PoW_Block() const { return nLastPoWBlock; }
     unsigned int Stake_Min_Age() const { return nStakeMinAge; }
+
 
 protected:
     CChainParams() {}
@@ -154,6 +155,7 @@ protected:
     int64_t nBudget_Fee_Confirmations;
     int nZerocoinRequiredStakeDepth;
     unsigned int nStakeMinAge;
+    uint64_t nCheckLockTimeVerify_StartTime;
 };
 
 /**
@@ -168,7 +170,6 @@ public:
     virtual void setDefaultConsistencyChecks(bool aDefaultConsistencyChecks) = 0;
     virtual void setAllowMinDifficultyBlocks(bool aAllowMinDifficultyBlocks) = 0;
 };
-
 
 /**
  * Return the currently selected parameters. This won't change after app startup
