@@ -16,6 +16,7 @@
             "intelliSenseMode": "clang-x64",
             "browse": {
                 "path": [
+                    "${workspaceFolder}/**",
                     "/usr/local/opt/qt/**"
                 ]
             } 
