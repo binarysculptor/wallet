@@ -2126,7 +2126,7 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
                 continue;
 
             //check that it is matured
-            if (out.nDepth < (out.tx->IsCoinStake() ? Params().COINBASE_MATURITY() : 10))
+            if (out.nDepth < (out.tx->IsCoinStake() ? Params().CoinStake_Maturity() : 10))
                 continue;
 
             //add to our stake set
@@ -4129,7 +4129,7 @@ void CWallet::AutoCombineDust()
             if (!out.fSpendable)
                 continue;
             //no coins should get this far if they dont have proper maturity, this is double checking
-            if (out.tx->IsCoinStake() && out.tx->GetDepthInMainChain() < Params().COINBASE_MATURITY() + 1)
+            if (out.tx->IsCoinStake() && out.tx->GetDepthInMainChain() < Params().CoinStake_Maturity() + 1)
                 continue;
 
             COutPoint outpt(out.tx->GetHash(), out.i);
@@ -4218,7 +4218,10 @@ bool CWallet::MultiSend()
     for (const COutput& out : vCoins) {
 
         //need output with precise confirm count - this is how we identify which is the output to send
-        if (out.tx->GetDepthInMainChain() != Params().COINBASE_MATURITY() + 1)
+
+        if (out.tx->IsCoinStake() && (out.tx->GetDepthInMainChain() != Params().CoinStake_Maturity() + 1))
+            continue;
+        if (out.tx->IsCoinBase() && (out.tx->GetDepthInMainChain() != Params().CoinBase_Maturity() + 1))
             continue;
 
         COutPoint outpoint(out.tx->GetHash(), out.i);
@@ -4411,7 +4414,12 @@ int CMerkleTx::GetBlocksToMaturity() const
     LOCK(cs_main);
     if (!(IsCoinBase() || IsCoinStake()))
         return 0;
-    return max(0, (Params().COINBASE_MATURITY() + 1) - GetDepthInMainChain());
+    
+    int maturityDepth = IsCoinStake() 
+        ? Params().CoinStake_Maturity() + 1
+        : Params().CoinBase_Maturity() + 1;
+
+    return max(0, (maturityDepth - GetDepthInMainChain()));
 }
 
 

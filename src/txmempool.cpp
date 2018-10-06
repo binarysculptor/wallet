@@ -479,7 +479,11 @@ void CTxMemPool::removeCoinbaseSpends(const CCoinsViewCache* pcoins, unsigned in
                 continue;
             const CCoins* coins = pcoins->AccessCoins(txin.prevout.hash);
             if (fSanityCheck) assert(coins);
-            if (!coins || ((coins->IsCoinBase() || coins->IsCoinStake()) && nMemPoolHeight - coins->nHeight < (unsigned)Params().COINBASE_MATURITY())) {
+
+            // If prev is coinbase/stake, check that it's matured
+            bool isPrematureCoinStake = coins->IsCoinStake() && (nMemPoolHeight - coins->nHeight < (unsigned)Params().CoinStake_Maturity());
+            bool isPrematureCoinBase = coins->IsCoinBase() && (nMemPoolHeight - coins->nHeight < (unsigned)Params().CoinBase_Maturity());
+            if (!coins || isPrematureCoinStake || isPrematureCoinBase) {
                 transactionsToRemove.push_back(tx);
                 break;
             }
