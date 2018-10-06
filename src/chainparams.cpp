@@ -116,7 +116,7 @@ public:
         nTargetSpacing = 1 * 60;  // Liberty: 1 minute
         nMaturity = 10;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 82000000 * COIN;
+        nMaxMoneyOut = 12000000000 * COIN; //12B
         nLastPoWBlock = 200;
 
         /**

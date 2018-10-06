@@ -1414,12 +1414,6 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
 
     // Rather not work on nonstandard transactions (unless -testnet/-regtest)
     string reason;
-    // for any real tx this will be checked on AcceptToMemoryPool anyway
-    //    if (Params().RequireStandard() && !IsStandardTx(tx, reason))
-    //        return state.DoS(0,
-    //                         error("AcceptableInputs : nonstandard transaction: %s", reason),
-    //                         REJECT_NONSTANDARD, reason);
-
     // is it already in the memory pool?
     uint256 hash = tx.GetHash();
     if (pool.exists(hash))
@@ -1726,31 +1720,39 @@ int64_t GetBlockValue(int nHeight)
         return 0 * COIN;
     
     if (nHeight == 0) {
-        nSubsidy = 39000000 * COIN;
-    } else if (nHeight < 20000 && nHeight >= 0) {
+        nSubsidy = 2250000 * COIN;
+    } else if (nHeight <= 7200 && nHeight > 0) {
         nSubsidy = 5 * COIN;
-    } else if (nHeight < 100000 && nHeight >= 20000) {
-        nSubsidy = 56 * COIN;
-    } else if (nHeight < 200000 && nHeight >= 100000) {
-        nSubsidy = 48 * COIN;
-    } else if (nHeight < 400000 && nHeight >= 200000) {
-        nSubsidy = 40 * COIN;
-    } else if (nHeight < 500000 && nHeight >= 400000) {
-        nSubsidy = 52 * COIN;
-    } else if (nHeight < 600000 && nHeight >= 500000) {
-        nSubsidy = 60 * COIN;
-    } else if (nHeight < 700000 && nHeight >= 600000) {
-        nSubsidy = 56 * COIN;
-    } else if (nHeight < 800000 && nHeight >= 700000) {
-        nSubsidy = 40 * COIN;
-    } else if (nHeight < 900000 && nHeight >= 800000) {
-        nSubsidy = 32 * COIN;
-    } else if (nHeight < 1000000 && nHeight >= 900000) {
-        nSubsidy = 24 * COIN;
-    } else if (nHeight < 1100000 && nHeight >= 1000000) {
-        nSubsidy = 16 * COIN;
+    } else if (nHeight <= 14400 && nHeight > 7200) {
+        nSubsidy = 100 * COIN;
+    } else if (nHeight <= 21600 && nHeight > 14400) {
+        nSubsidy = 200 * COIN;
+    } else if (nHeight <= 28800 && nHeight > 21600) {
+        nSubsidy = 300 * COIN;
+    } else if (nHeight <= 36000 && nHeight > 28800) {
+        nSubsidy = 400 * COIN;
+    } else if (nHeight <= 43200 && nHeight > 36000) {
+        nSubsidy = 500 * COIN;
+    } else if (nHeight <= 50400 && nHeight > 43200) {
+        nSubsidy = 400 * COIN;
+    } else if (nHeight <= 57600 && nHeight > 50400) {
+        nSubsidy = 300 * COIN;
+    } else if (nHeight <= 64800 && nHeight > 57600) {
+        nSubsidy = 200 * COIN;
+    } else if (nHeight <= 72000 && nHeight > 64800) {
+        nSubsidy = 100 * COIN;
+    } else if (nHeight <= 172800 && nHeight > 72000) {
+        nSubsidy = 50 * COIN;
+    } else if (nHeight <= 345600 && nHeight > 172800) {
+        nSubsidy = 75 * COIN;
+    } else if (nHeight <= 1000000 && nHeight > 345600) {
+        nSubsidy = 100 * COIN;
+    } else if (nHeight <= 25000000 && nHeight > 1000000) {
+        nSubsidy = 75 * COIN;
+    } else if (nHeight <= 50000000 && nHeight > 25000000) {
+        nSubsidy = 50 * COIN;
     } else {
-        nSubsidy = 8 * COIN;
+        nSubsidy = 100 * COIN;
     }
     return nSubsidy;
 }
