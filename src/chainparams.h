@@ -51,10 +51,6 @@ public:
     int GetP2PPort() const { return nP2pPort; }
     int GetRpcPort() const { return nRpcPort;}
     const uint256& ProofOfWorkLimit() const { return bnProofOfWorkLimit; }
-    /** Used to check majorities for block version upgrade */
-    int EnforceBlockUpgradeMajority() const { return nEnforceBlockUpgradeMajority; }
-    int RejectBlockOutdatedMajority() const { return nRejectBlockOutdatedMajority; }
-    int ToCheckBlockUpgradeMajority() const { return nToCheckBlockUpgradeMajority; }
     int MaxReorganizationDepth() const { return nMaxReorganizationDepth; }
 
     const CBlock& GenesisBlock() const { return genesis; }

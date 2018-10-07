@@ -108,10 +108,6 @@ public:
         nRpcPort = 10416;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // Liberty starting difficulty is 1 / 2^12
         nMaxReorganizationDepth = 100;
-        nEnforceBlockUpgradeMajority = 1;
-        nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
-        //nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Liberty: 1 day
         nTargetSpacing = 1 * 60;  // Liberty: 1 minute
         nCoinBaseMaturity = 5;
@@ -224,9 +220,6 @@ public:
         vAlertPubKey = ParseHex("0441368f7cdaaf61526a27262b255af8c8453f967e543b32faee550439f13138fccdf6b8196ddb290081c2796dc053164a849d64ef9331e8ace3f7ebf9d438d846");
         nP2pPort = 20417;
         nRpcPort = 20416;
-        nEnforceBlockUpgradeMajority = 51;
-        nRejectBlockOutdatedMajority = 75;
-        nToCheckBlockUpgradeMajority = 100;
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Liberty: 1 day
         nTargetSpacing = 1 * 60;  // Liberty: 1 minute
@@ -300,9 +293,6 @@ public:
         pchMessageStart[1] = 0xcf;
         pchMessageStart[2] = 0x7e;
         pchMessageStart[3] = 0xac;
-        nEnforceBlockUpgradeMajority = 750;
-        nRejectBlockOutdatedMajority = 950;
-        nToCheckBlockUpgradeMajority = 1000;
         nMinerThreads = 1;
         nTargetTimespan = 24 * 60 * 60; // Liberty: 1 day
         nTargetSpacing = 1 * 60;        // Liberty: 1 minutes
@@ -359,9 +349,6 @@ public:
     }
 
     //! Published setters to allow changing values in unit test cases
-    virtual void setEnforceBlockUpgradeMajority(int anEnforceBlockUpgradeMajority) { nEnforceBlockUpgradeMajority = anEnforceBlockUpgradeMajority; }
-    virtual void setRejectBlockOutdatedMajority(int anRejectBlockOutdatedMajority) { nRejectBlockOutdatedMajority = anRejectBlockOutdatedMajority; }
-    virtual void setToCheckBlockUpgradeMajority(int anToCheckBlockUpgradeMajority) { nToCheckBlockUpgradeMajority = anToCheckBlockUpgradeMajority; }
     virtual void setDefaultConsistencyChecks(bool afDefaultConsistencyChecks) { fDefaultConsistencyChecks = afDefaultConsistencyChecks; }
     virtual void setAllowMinDifficultyBlocks(bool afAllowMinDifficultyBlocks) { fAllowMinDifficultyBlocks = afAllowMinDifficultyBlocks; }
     
