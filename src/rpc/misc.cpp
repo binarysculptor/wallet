@@ -354,7 +354,7 @@ UniValue validateaddress(const UniValue& params, bool fHelp)
             "}\n"
 
             "\nExamples:\n" +
-            HelpExampleCli("validateaddress", "\"1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc\"") + HelpExampleRpc("validateaddress", "\"1PSSGeFHDnKNxiEyFrD1wcEaHr9hrQDDWc\""));
+            HelpExampleCli("validateaddress", "\"ZoS7XP8NbpnerJp1zPnooP5FSpnKdY9UTu\"") + HelpExampleRpc("validateaddress", "\"ZoS7XP8NbpnerJp1zPnooP5FSpnKdY9UTu\""));
 
 #ifdef ENABLE_WALLET
     LOCK2(cs_main, pwalletMain ? &pwalletMain->cs_wallet : NULL);

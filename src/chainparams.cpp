@@ -155,9 +155,9 @@ public:
         vSeeds.push_back(CDNSSeedData("node-09.nethash.io", "node-09.nethash.io"));
         vSeeds.push_back(CDNSSeedData("node-10.nethash.io", "node-10.nethash.io"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 78); //Liberty (mainnet) addresses start with 'Y' 
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 81); //Liberty (mainnet) script starts with 'Z'
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 66); //Liberty (mainnet) keys start with 'T' 
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 81);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 48); 
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 68); 
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x02)(0x21)(0x31)(0x2B).convert_to_container<std::vector<unsigned char> >();
         // 	BIP44 coin type is from https://github.com/satoshilabs/slips/blob/master/slip-0044.md
@@ -176,7 +176,7 @@ public:
 
         nPoolMaxTransactions = 3;
         strSporkKey = "047d1cf865235053c5b88418dbe16b72991535d234a00a7bb08cfbadbf6dd9ad55283ea5d56ef75adc1b9945b8a70f576a758e23c6c69abf447abe03a35f9c5933";
-        strObfuscationPoolDummyAddress = "RHD3HxhEkWGsupqZeN1p3QkvZq7EjQTCQH";
+        strObfuscationPoolDummyAddress = "ZoS7XP8NbpnerJp1zPnooP5FSpnKdY9UTu";
 
         /** Zerocoin */
         zerocoinModulus = "25195908475657893494027183240048398571429282126204032027777137836043662020707595556264018525880784"
@@ -232,10 +232,11 @@ public:
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1536786000;
-        genesis.nNonce = 2908085;
+        genesis.nNonce = 2874202;
 
         hashGenesisBlock = genesis.GetHash();
-       // assert(hashGenesisBlock == uint256("0x00000c70562b7ec00e7600a301fcb1d31cb4991d9ea0fbf7f6214491c78d02ae"));
+        assert(hashGenesisBlock == uint256("0x00000a70c7f2478430b3380486b052cebbf6a963631f00a584127009e5495b9d"));
+        assert(genesis.hashMerkleRoot == uint256("0x80865393c14b7c81afa0bea2156151d8abb7567931d3a8c49c6b2e3a266967b4"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -244,9 +245,9 @@ public:
         vSeeds.push_back(CDNSSeedData("testnode-03.nethash.io", "testnode-03.nethash.io"));
         vSeeds.push_back(CDNSSeedData("testnode-04.nethash.io", "testnode-04.nethash.io"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 127); // Liberty (testnet) addresses start with 't'
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 124);  // Liberty (testnet) script start with 's'
-        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 117);     // Testnet private keys start with 'p'
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 't'); 
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 's');  
+        base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 'p');  
         // Testnet liberty BIP32 pubkeys start with 'DRKV'
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x3a)(0x80)(0x61)(0xa0).convert_to_container<std::vector<unsigned char> >();
         // Testnet liberty BIP32 prvkeys start with 'DRKP'
@@ -265,9 +266,7 @@ public:
 
         nPoolMaxTransactions = 2;
         strSporkKey = "04acff02fc6183191a8f109cd4d7787e4e5c68e760284e7ab22d95337ac2c76669abf2b9350218a43ae56b5b9fa5b6817881a3f901273091232b6ab85bda068e27";
-        //strSporkKeyOld = "04348C2F50F90267E64FACC65BFDC9D0EB147D090872FB97ABAE92E9A36E6CA60983E28E741F8E7277B11A7479B626AC115BA31463AC48178A5075C5A9319D4A38";
         strObfuscationPoolDummyAddress = "y57cqfGRkekRyDRNeJiLtYVEbvhXrNbmox";
-        //nStartMasternodePayments = 1420837558; //Fri, 09 Jan 2015 21:05:58 GMT
         nBudget_Fee_Confirmations = 3; // Number of confirmations for the finalization fee. We have to make this very short
                                        // here because we only have a 8 block finalization window on testnet
     }
@@ -401,5 +400,6 @@ bool SelectParamsFromCommandLine()
         return false;
 
     SelectParams(network);
+
     return true;
 }
