@@ -7,6 +7,7 @@
 #include "ui_xlibzcontroldialog.h"
 
 #include "accumulators.h"
+#include "bitcoingui.h" //TreeWidgetItem
 #include "main.h"
 #include "walletmodel.h"
 
@@ -43,6 +44,7 @@ void XLIBzControlDialog::setModel(WalletModel *model)
     updateList();
 }
 
+
 //Update the tree widget
 void XLIBzControlDialog::updateList()
 {
@@ -54,7 +56,7 @@ void XLIBzControlDialog::updateList()
     QFlags<Qt::ItemFlag> flgTristate = Qt::ItemIsEnabled | Qt::ItemIsUserCheckable | Qt::ItemIsTristate;
     map<libzerocoin::CoinDenomination, int> mapDenomPosition;
     for (auto denom : libzerocoin::zerocoinDenomList) {
-        QTreeWidgetItem* itemDenom(new QTreeWidgetItem);
+        TreeWidgetItem* itemDenom(new TreeWidgetItem);
         ui->treeWidget->addTopLevelItem(itemDenom);
 
         //keep track of where this is positioned in tree widget
@@ -75,7 +77,7 @@ void XLIBzControlDialog::updateList()
     for (const CMintMeta& mint : setMints) {
         // assign this mint to the correct denomination in the tree view
         libzerocoin::CoinDenomination denom = mint.denom;
-        QTreeWidgetItem *itemMint = new QTreeWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
+        TreeWidgetItem *itemMint = new TreeWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
 
         // if the mint is already selected, then it needs to have the checkbox checked
         std::string strPubCoinHash = mint.hashPubcoin.GetHex();
