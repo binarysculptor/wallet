@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX Developers 
+// Copyright (c) 2015-2018 The PIVX Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -881,7 +881,7 @@ bool CheckZerocoinMint(const uint256& txHash, const CTxOut& txout, CValidationSt
 
 bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin, const CBlockIndex* pindex)
 {
-    if (/*pindex->nHeight >= Params().Zerocoin_StartHeight() &&*/ Params().NetworkID() != CBaseChainParams::TESTNET) {
+    if (pindex->nHeight > Params().Last_PoW_Block() && Params().NetworkID() != CBaseChainParams::TESTNET) {
         //See if this coin has already been added to the blockchain
         uint256 txid;
         int nHeight;
@@ -897,31 +897,24 @@ bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin,
 bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend, CBlockIndex* pindex, const uint256& hashBlock)
 {
     //Check to see if the zLbrt is properly signed
-    //if (pindex->nHeight >= Params().Zerocoin_StartHeight()) {
+    if (pindex->nHeight > Params().Last_PoW_Block()) {
         if (!spend.HasValidSignature())
-            return error("%s: V2 zLbrt spend does not have a valid signature", __func__);
+            return error("%s: zLBRT spend does not have a valid signature", __func__);
 
         libzerocoin::SpendType expectedType = libzerocoin::SpendType::SPEND;
         if (tx.IsCoinStake())
             expectedType = libzerocoin::SpendType::STAKE;
         if (spend.getSpendType() != expectedType) {
-            return error("%s: trying to spend zLbrt without the correct spend type. txid=%s", __func__,
+            return error("%s: trying to spend zLBRT without the correct spend type. txid=%s", __func__,
                 tx.GetHash().GetHex());
         }
-    //}
+    }
 
     //Reject serial's that are already in the blockchain
     int nHeightTx = 0;
     if (IsSerialInBlockchain(spend.getCoinSerialNumber(), nHeightTx))
-        return error("%s : zLbrt spend with serial %s is already in block %d\n", __func__,
+        return error("%s : zLBRT spend with serial %s is already in block %d\n", __func__,
             spend.getCoinSerialNumber().GetHex(), nHeightTx);
-
-    //Reject serial's that are not in the acceptable value range
-    //bool fUseV1Params = spend.getVersion() < libzerocoin::PrivateCoin::PUBKEY_VERSION;
-    // if (pindex->nHeight > Params().Zerocoin_Block_EnforceSerialRange() &&
-    //     !spend.HasValidSerial(Params().Zerocoin_Params(fUseV1Params)))
-    //     return error("%s : zLbrt spend with serial %s from tx %s is not in valid range\n", __func__,
-    //         spend.getCoinSerialNumber().GetHex(), tx.GetHash().GetHex());
 
     return true;
 }
@@ -1046,7 +1039,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState& state)
             nZCSpendCount++;
     }
 
-    //if (fZerocoinActive) {
+    if (chainActive.Height() > Params().Last_PoW_Block()) {
         if (nZCSpendCount > Params().Zerocoin_MaxSpendsPerTransaction())
             return state.DoS(100, error("CheckTransaction() : there are more zerocoin spends than are allowed in one transaction"));
 
@@ -1063,7 +1056,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState& state)
             if (!CheckZerocoinSpend(tx, fVerifySignature, state))
                 return state.DoS(100, error("CheckTransaction() : invalid zerocoin spend"));
         }
-    //}
+    }
 
     // Check for duplicate inputs
     set<COutPoint> vInOutPoints;
@@ -1715,10 +1708,10 @@ int64_t GetBlockValue(int nHeight)
 {
     int64_t nSubsidy = 0;
     int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
-    
+
     if (nMoneySupply >= Params().MaxMoneyOut())
         return 0 * COIN;
-    
+
     if (nHeight == 0) {
         nSubsidy = 2250000 * COIN;
     } else if (nHeight <= 200 && nHeight > 0) {
@@ -1761,14 +1754,14 @@ int64_t GetBlockValue(int nHeight)
 
 int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZLbrtStake)
 {
-    if(!isZLbrtStake){
-        return blockValue * 0.75; 
+    if (!isZLbrtStake) {
+        return blockValue * 0.75;
     } else {
         int64_t nPayment = blockValue * 0.65;
         nPayment += (COIN / 2);
         nPayment -= (nPayment % COIN);
         return nPayment;
-    } 
+    }
 }
 
 bool IsInitialBlockDownload()
@@ -2035,11 +2028,11 @@ bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsVi
             // If prev is coinbase/stake, check that it's matured
             bool isPrematureCoinStake = coins->IsCoinStake() && (nSpendHeight - coins->nHeight < Params().CoinStake_Maturity());
             bool isPrematureCoinBase = coins->IsCoinBase() && (nSpendHeight - coins->nHeight < Params().CoinBase_Maturity());
-            
+
             if (isPrematureCoinStake || isPrematureCoinBase) {
-                    return state.Invalid(
-                        error("CheckInputs() : tried to spend coinstake at depth %d, coinstake=%d", nSpendHeight - coins->nHeight, coins->IsCoinStake()),
-                        REJECT_INVALID, "bad-txns-premature-spend-of-coinbase");
+                return state.Invalid(
+                    error("CheckInputs() : tried to spend coinstake at depth %d, coinstake=%d", nSpendHeight - coins->nHeight, coins->IsCoinStake()),
+                    REJECT_INVALID, "bad-txns-premature-spend-of-coinbase");
             }
 
             // Check for negative or overflow input values
@@ -2418,8 +2411,8 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
         CBlockIndex* pindex = chainActive.Genesis();
         while (pindex) {
             uiInterface.ShowProgress(
-                _("Calculating missing accumulators..."), 
-                std::max(1, 
+                _("Calculating missing accumulators..."),
+                std::max(1,
                     std::min(99, (int)((double)pindex->nHeight / (double)chainActive.Height() * 100))));
 
             if (ShutdownRequested())
@@ -2525,9 +2518,7 @@ static int64_t nTimeIndex = 0;
 static int64_t nTimeCallbacks = 0;
 static int64_t nTimeTotal = 0;
 
-bool ConnectBlock(
-    const CBlock& block, CValidationState& state, CBlockIndex* pindex, 
-    CCoinsViewCache& view, bool fJustCheck, bool fAlreadyChecked)
+bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pindex, CCoinsViewCache& view, bool fJustCheck, bool fAlreadyChecked)
 {
     AssertLockHeld(cs_main);
     // Check it again in case a previous version let a bad block in
@@ -3853,7 +3844,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if (pcheckpoint && nHeight < pcheckpoint->nHeight)
         return state.DoS(0, error("%s : forked chain older than last checkpoint (height %d)", __func__, nHeight));
 
-    if (block.nVersion < CBlockHeader::CURRENT_VERSION ) {
+    if (block.nVersion < CBlockHeader::CURRENT_VERSION) {
         return state.DoS(100, error("%s : rejected nVersion=%d block", __func__, block.nVersion),
             REJECT_OBSOLETE, "bad-version");
     }
@@ -3897,12 +3888,13 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
             return state.DoS(10, error("%s : contains a non-final transaction", __func__), REJECT_INVALID, "bad-txns-nonfinal");
         }
 
-    CScript expect = CScript() << nHeight;
-    if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
-        !std::equal(expect.begin(), expect.end(), block.vtx[0].vin[0].scriptSig.begin())) {
+    if (nHeight > Params().Last_PoW_Block()) {
+        CScript expect = CScript() << nHeight;
+        if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
+            !std::equal(expect.begin(), expect.end(), block.vtx[0].vin[0].scriptSig.begin())) {
             return state.DoS(100, error("%s : block height mismatch in coinbase", __func__), REJECT_INVALID, "bad-cb-height");
+        }
     }
-    
 
     return true;
 }
@@ -4214,8 +4206,7 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
 bool TestBlockValidity(CValidationState& state, const CBlock& block, CBlockIndex* const pindexPrev, bool fCheckPOW, bool fCheckMerkleRoot)
 {
     AssertLockHeld(cs_main);
-    //assert(pindexPrev == chainActive.Tip());
-    if(pindexPrev != chainActive.Tip()) {
+    if (pindexPrev != chainActive.Tip()) {
         LogPrint("Error: Block %s failed %s because the active tip is not what was expected.", block.GetHash().GetHex().c_str(), __func__);
         return false;
     }
