@@ -24,6 +24,10 @@
 
 using namespace std;
 
+static const CAmount MASTERNODE_LEVEL_ONE_COLLATERAL = (5000 * COIN);
+static const CAmount MASTERNODE_LEVEL_TWO_COLLATERAL = (9500 * COIN);    //10% DISCOUNT
+static const CAmount MASTERNODE_LEVEL_THREE_COLLATERAL = (13750 * COIN); //15% DISCOUNT
+
 class CMasternode;
 class CMasternodeBroadcast;
 class CMasternodePing;
@@ -124,6 +128,12 @@ public:
         MASTERNODE_POS_ERROR
     };
 
+    enum tier {
+        MASTERNODE_TIER_ONE = 1,
+        MASTERNODE_TIER_TWO,
+        MASTERNODE_TIER_THREE
+    };
+
     CTxIn vin;
     CService addr;
     CPubKey pubKeyCollateralAddress;
@@ -139,6 +149,7 @@ public:
     bool allowFreeTx;
     int protocolVersion;
     int nActiveState;
+    int nMasternodeTier = -1;
     int64_t nLastDsq; //the dsq count from the last dsq broadcast of this node
     int nScanningErrorCount;
     int nLastScanningErrorBlockHeight;
@@ -264,6 +275,43 @@ public:
         }
 
         return cacheInputAge + (chainActive.Tip()->nHeight - cacheInputAgeBlock);
+    }
+
+    inline int GetTier()
+    {
+        if (nMasternodeTier != -1) return nMasternodeTier;
+
+        CScript collateralPayee;
+        collateralPayee = GetScriptForDestination(pubKeyCollateralAddress.GetID());
+
+        CTransaction txVin;
+        uint256 hash;
+        int possibleMatch;
+        
+        if (GetTransaction(vin.prevout.hash, txVin, hash, true)) {
+            BOOST_FOREACH (CTxOut out, txVin.vout) {
+                switch(out.nValue) {
+                    case MASTERNODE_LEVEL_ONE_COLLATERAL:
+                        possibleMatch = 1;
+                        break;
+                    case MASTERNODE_LEVEL_TWO_COLLATERAL:
+                        possibleMatch = 2;
+                        break;
+                    case MASTERNODE_LEVEL_THREE_COLLATERAL:
+                        possibleMatch = 3;
+                        break;
+                }
+
+                if (possibleMatch > 0 && out.scriptPubKey == collateralPayee) {
+                    nMasternodeTier = possibleMatch;
+                } else {
+                    nMasternodeTier = 0;
+                }
+            }
+        } else {
+            nMasternodeTier = 0;
+            return nMasternodeTier;
+        }
     }
 
     std::string GetStatus();
