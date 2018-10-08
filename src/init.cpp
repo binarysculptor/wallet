@@ -1334,9 +1334,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
     // ********************************************************* Step 7: load block chain
 
-    //Liberty: Load Accumulator Checkpoints according to network (main/test/regtest)
-    //assert(AccumulatorCheckpoints::LoadCheckpoints(Params().NetworkIDString()));
-
     fReindex = GetBoolArg("-reindex", false);
 
     // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
@@ -1437,10 +1434,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                     break;
                 }
 
-                // Populate list of invalid/fraudulent outpoints that are banned from the chain
-                //invalid_out::LoadOutpoints();
-                //invalid_out::LoadSerials();
-
                 // Drop all information from the zerocoinDB and repopulate
                 if (GetBoolArg("-reindexzerocoin", false)) {
                     //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
@@ -1455,16 +1448,13 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
                 if (GetBoolArg("-reindexmoneysupply", false)) {
-                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
-                        RecalculateZLBRTMinted();
-                        RecalculateZLBRTSpent();
-                    //}
+                        RecalculateZLbrtMinted();
+                        RecalculateZLbrtSpent();
                     RecalculateLbrtSupply(1);
                 }
 
                 // Force recalculation of accumulators.
                 if (GetBoolArg("-reindexaccumulators", false)) {
-                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
                         CBlockIndex *pindex = chainActive.Genesis();
                         while (pindex->nHeight < chainActive.Height()) {
                             if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
@@ -1481,7 +1471,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
                             if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
                                 return InitError(strError);
                         }
-                    //}
                 }
 
                 uiInterface.InitMessage(_("Verifying blocks..."));

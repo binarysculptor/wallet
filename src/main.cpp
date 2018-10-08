@@ -1930,79 +1930,6 @@ bool CScriptCheck::operator()()
     return true;
 }
 
-//CBitcoinAddress addressExp1("DQZzqnSR6PXxagep1byLiRg9ZurCZ5KieQ");
-//CBitcoinAddress addressExp2("DTQYdnNqKuEHXyNeeYhPQGGGdqHbXYwjpj");
-
-//map<COutPoint, COutPoint> mapInvalidOutPoints;
-//map<CBigNum, CAmount> mapInvalidSerials;
-// void AddInvalidSpendsToMap(const CBlock& block)
-// {
-//     for (const CTransaction& tx : block.vtx) {
-//         if (!tx.ContainsZerocoins())
-//             continue;
-
-//         //Check all zerocoinspends for bad serials
-//         for (const CTxIn& in : tx.vin) {
-//             if (in.scriptSig.IsZerocoinSpend()) {
-//                 CoinSpend spend = TxInToZerocoinSpend(in);
-
-//                 //If serial is not valid, mark all outputs as bad
-//                 if (!spend.HasValidSerial(Params().Zerocoin_Params())) {
-//                     mapInvalidSerials[spend.getCoinSerialNumber()] = spend.getDenomination() * COIN;
-
-//                     // Derive the actual valid serial from the invalid serial if possible
-//                     CBigNum bnActualSerial = spend.CalculateValidSerial(Params().Zerocoin_Params());
-//                     uint256 txHash;
-
-//                     if (zerocoinDB->ReadCoinSpend(bnActualSerial, txHash)) {
-//                         mapInvalidSerials[bnActualSerial] = spend.getDenomination() * COIN;
-
-//                         CTransaction txPrev;
-//                         uint256 hashBlock;
-//                         if (!GetTransaction(txHash, txPrev, hashBlock, true))
-//                             continue;
-
-//                         //Record all txouts from txPrev as invalid
-//                         for (unsigned int i = 0; i < txPrev.vout.size(); i++) {
-//                             //map to an empty outpoint to represent that this is the first in the chain of bad outs
-//                             mapInvalidOutPoints[COutPoint(txPrev.GetHash(), i)] = COutPoint();
-//                         }
-//                     }
-
-//                     //Record all txouts from this invalid zerocoin spend tx as invalid
-//                     for (unsigned int i = 0; i < tx.vout.size(); i++) {
-//                         //map to an empty outpoint to represent that this is the first in the chain of bad outs
-//                         mapInvalidOutPoints[COutPoint(tx.GetHash(), i)] = COutPoint();
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
-
-// bool ValidOutPoint(const COutPoint out, int nHeight)
-// {
-//     bool isInvalid = nHeight >= Params().Block_Enforce_Invalid() && invalid_out::ContainsOutPoint(out);
-//     return !isInvalid;
-// }
-
-// CAmount GetInvalidUTXOValue()
-// {
-//     CAmount nValue = 0;
-//     for (auto out : invalid_out::setInvalidOutPoints) {
-//         bool fSpent = false;
-//         CCoinsViewCache cache(pcoinsTip);
-//         const CCoins* coins = cache.AccessCoins(out.hash);
-//         if (!coins || !coins->IsAvailable(out.n))
-//             fSpent = true;
-
-//         if (!fSpent)
-//             nValue += coins->vout[out.n].nValue;
-//     }
-
-//     return nValue;
-// }
-
 bool CheckInputs(const CTransaction& tx, CValidationState& state, const CCoinsViewCache& inputs, bool fScriptChecks, unsigned int flags, bool cacheStore, std::vector<CScriptCheck>* pvChecks)
 {
     if (!tx.IsCoinBase() && !tx.IsZerocoinSpend()) {
@@ -2276,7 +2203,7 @@ void ThreadScriptCheck()
     scriptcheckqueue.Thread();
 }
 
-void RecalculateZLBRTMinted()
+void RecalculateZLbrtMinted()
 {
     CBlockIndex* pindex = chainActive.Genesis();
     int nHeightEnd = chainActive.Height();
@@ -2303,7 +2230,7 @@ void RecalculateZLBRTMinted()
     }
 }
 
-void RecalculateZLBRTSpent()
+void RecalculateZLbrtSpent()
 {
     CBlockIndex* pindex = chainActive.Genesis();
     while (true) {
@@ -2453,7 +2380,7 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
 bool UpdateZLBRTSupply(const CBlock& block, CBlockIndex* pindex)
 {
     std::list<CZerocoinMint> listMints;
-    //bool fFilterInvalid = pindex->nHeight >= Params().Zerocoin_Block_RecalculateAccumulators();
+
     BlockToZerocoinMintList(block, listMints);
     std::list<libzerocoin::CoinDenomination> listSpends = ZerocoinSpendListFromBlock(block);
 
@@ -3625,17 +3552,9 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
         return state.DoS(50, error("CheckBlockHeader() : proof of work failed"),
             REJECT_INVALID, "high-hash");
 
-    //TODO: revisit whether this is necessary.
-    // Version 4 header must be used after Params().Zerocoin_StartHeight(). And never before.
-    // if (block.GetBlockTime() > Params().Zerocoin_StartTime()) {
-    //     if (block.nVersion < Params().Zerocoin_HeaderVersion())
-    //         return state.DoS(50, error("CheckBlockHeader() : block version must be above 4 after ZerocoinStartHeight"),
-    //             REJECT_INVALID, "block-version");
-    // } else {
-    //     if (block.nVersion >= Params().Zerocoin_HeaderVersion())
-    //         return state.DoS(50, error("CheckBlockHeader() : block version must be below 4 before ZerocoinStartHeight"),
-    //             REJECT_INVALID, "block-version");
-    // }
+    if (block.nVersion < Params().Zerocoin_HeaderVersion())
+        return state.DoS(50, error("CheckBlockHeader() : block version must be above 4 for liberty"),
+            REJECT_INVALID, "block-version");
 
     return true;
 }
@@ -3961,14 +3880,17 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
 
 bool ContextualCheckZerocoinStake(int nHeight, CStakeInput* stake)
 {
-    // if (nHeight < Params().Zerocoin_StartHeight())
-    //     return error("%s: zLbrt stake block is less than allowed start height", __func__);
+    if (nHeight <= Params().Last_PoW_Block())
+        return error("%s: zLBRT stake block is less than allowed start height", __func__);
 
     if (CZLbrtStake* zLbrt = dynamic_cast<CZLbrtStake*>(stake)) {
         CBlockIndex* pindexFrom = zLbrt->GetIndexFrom();
         if (!pindexFrom)
             return error("%s: failed to get index associated with zLbrt stake checksum", __func__);
 
+        if(pindexFrom->nHeight <= Params().Last_PoW_Block())
+            return error("%s: zLBRT cannot be staked prior to the end of proof of work phase.", __func__);
+        
         if (chainActive.Height() - pindexFrom->nHeight < Params().Zerocoin_RequiredStakeDepth())
             return error("%s: zLbrt stake does not have required confirmation depth", __func__);
 
