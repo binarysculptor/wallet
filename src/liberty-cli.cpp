@@ -39,7 +39,7 @@ std::string HelpMessageCli()
     strUsage += HelpMessageOpt("-regtest", _("Enter regression test mode, which uses a special chain in which blocks can be "
                                              "solved instantly. This is intended for regression testing tools and app development."));
     strUsage += HelpMessageOpt("-rpcconnect=<ip>", strprintf(_("Send commands to node running on <ip> (default: %s)"), "127.0.0.1"));
-    strUsage += HelpMessageOpt("-rpcport=<port>", strprintf(_("Connect to JSON-RPC on <port> (default: %u or testnet: %u)"), 7050, 11000));
+    strUsage += HelpMessageOpt("-rpcport=<port>", strprintf(_("Connect to JSON-RPC on <port> (default: %u or testnet: %u)"), 10416, 11000));
     strUsage += HelpMessageOpt("-rpcwait", _("Wait for RPC server to start"));
     strUsage += HelpMessageOpt("-rpcuser=<user>", _("Username for JSON-RPC connections"));
     strUsage += HelpMessageOpt("-rpcpassword=<pw>", _("Password for JSON-RPC connections"));
@@ -144,7 +144,7 @@ static void http_request_done(struct evhttp_request *req, void *ctx)
 UniValue CallRPC(const string& strMethod, const UniValue& params)
 {
     std::string host = GetArg("-rpcconnect", "127.0.0.1");
-    int port = GetArg("-rpcport", 7050);//Params().GetRpcPort());
+    int port = GetArg("-rpcport", 10416);//Params().GetRpcPort());
 
     // Create event base
     struct event_base *base = event_base_new(); // TODO RAII

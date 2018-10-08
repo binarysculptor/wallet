@@ -18,11 +18,11 @@ Liberty is the digital form of rupees, which is a currency used throughout South
 
 
 Mainnet Ports :
-  - P2P 9050
-  - RPC 7050
+  - P2P 10417
+  - RPC 10416
 
 Testnet Ports :
-  - P2P 10500
+  - P2P 20417
   - RPC 11000
 
 A total of 39M Liberty's were premined to swap the community's holding at [Block 1](https://find.lbrt.io/block/1)

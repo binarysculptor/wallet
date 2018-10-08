@@ -141,7 +141,7 @@ void OptionsModel::Init()
     if (!settings.contains("fUseProxy"))
         settings.setValue("fUseProxy", false);
     if (!settings.contains("addrProxy"))
-        settings.setValue("addrProxy", "127.0.0.1:9050");
+        settings.setValue("addrProxy", "127.0.0.1:10417");
     // Only try to set -proxy, if user has enabled fUseProxy
     if (settings.value("fUseProxy").toBool() && !SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString()))
         addOverriddenOption("-proxy");

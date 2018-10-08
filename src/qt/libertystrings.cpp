@@ -235,10 +235,10 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 QT_TRANSLATE_NOOP("liberty-core", ""
 "You must specify a masternodeprivkey in the configuration. Please see "
 "documentation for help."),
-QT_TRANSLATE_NOOP("liberty-core", "(9050 could be used only on mainnet)"),
+QT_TRANSLATE_NOOP("liberty-core", "(10417 could be used only on mainnet)"),
 QT_TRANSLATE_NOOP("liberty-core", "(default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", "(default: 1)"),
-QT_TRANSLATE_NOOP("liberty-core", "(must be 9050 for mainnet)"),
+QT_TRANSLATE_NOOP("liberty-core", "(must be 10417 for mainnet)"),
 QT_TRANSLATE_NOOP("liberty-core", "<category> can be:"),
 QT_TRANSLATE_NOOP("liberty-core", "Accept command line and JSON-RPC commands"),
 QT_TRANSLATE_NOOP("liberty-core", "Accept connections from outside (default: 1 if no -proxy or -connect)"),
