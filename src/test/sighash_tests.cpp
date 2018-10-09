@@ -1,5 +1,5 @@
 // Copyright (c) 2013 The Bitcoin Core developers
-// Copyright (c) 2017 The PIVX developers
+// Copyright (c) 2017 The PIVX Developers 
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -195,7 +195,7 @@ BOOST_AUTO_TEST_CASE(sighash_from_data)
           stream >> tx;
 
           CValidationState state;
-          BOOST_CHECK_MESSAGE(CheckTransaction(tx, false, false, state), strTest);
+          BOOST_CHECK_MESSAGE(CheckTransaction(tx,state), strTest);
           BOOST_CHECK(state.IsValid());
 
           std::vector<unsigned char> raw = ParseHex(raw_script);

@@ -1,6 +1,7 @@
 // Copyright (c) 2015-2016 The Bitcoin Core developers
 // Copyright (c) 2017 The Zcash developers
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX Developers
+// Copyright (c) 2018 The Liberty Developers 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -529,8 +530,8 @@ void TorController::auth_cb(TorControlConnection& _conn, const TorControlReply& 
         // if -onion isn't set to something else.
         if (GetArg("-onion", "") == "") {
             CService resolved;
-            assert(LookupNumeric("127.0.0.1", resolved, 9050));
-            CService addrOnion = CService(resolved, 9050);
+            assert(LookupNumeric("127.0.0.1", resolved, 10417));
+            CService addrOnion = CService(resolved, 10417);
             SetProxy(NET_TOR, addrOnion);
             SetLimited(NET_TOR, false);
         }

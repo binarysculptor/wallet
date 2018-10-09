@@ -9,7 +9,8 @@
  * @copyright  Copyright 2013 Ian Miers, Christina Garman and Matthew Green
  * @license    This project is released under the MIT license.
  **/
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX Developers
+// Copyright (c) 2018 The Liberty Developers 
 
 #include <sstream>
 #include <iostream>
@@ -37,8 +38,9 @@ Accumulator::Accumulator(const ZerocoinParams* p, const CoinDenomination d, cons
 
     if(bnValue != 0)
         this->value = bnValue;
-    else
+    else {
         this->value = this->params->accumulatorBase;
+    }
 }
 
 void Accumulator::increment(const CBigNum& bnValue) {

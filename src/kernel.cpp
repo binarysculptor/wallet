@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2013 The PPCoin developers
-// Copyright (c) 2015-2018 The PIVX developers
+// Copyright (c) 2015-2018 The PIVX Developers 
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #include "timedata.h"
 #include "util.h"
 #include "stakeinput.h"
-#include "zpivchain.h"
+#include "zlbrtchain.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ bool fTestNet = false; //Params().NetworkID() == CBaseChainParams::TESTNET;
 // Modifier interval: time to elapse before new modifier is computed
 // Set to 3-hour for production network and 20-minute for test network
 unsigned int nModifierInterval;
-int nStakeTargetSpacing = 60;
+int nStakeTargetSpacing = 15;
 unsigned int getIntervalVersion(bool fTestNet)
 {
     if (fTestNet)
@@ -37,7 +37,7 @@ static std::map<int, unsigned int> mapStakeModifierCheckpoints =
 // Get time weight
 int64_t GetWeight(int64_t nIntervalBeginning, int64_t nIntervalEnd)
 {
-    return nIntervalEnd - nIntervalBeginning - nStakeMinAge;
+    return nIntervalEnd - nIntervalBeginning - Params().Stake_Min_Age();
 }
 
 // Get the last stake modifier and its generation time from a given block
@@ -82,8 +82,6 @@ static bool SelectBlockFromCandidates(
     uint64_t nStakeModifierPrev,
     const CBlockIndex** pindexSelected)
 {
-    bool fModifierV2 = false;
-    bool fFirstRun = true;
     bool fSelected = false;
     uint256 hashBest = 0;
     *pindexSelected = (const CBlockIndex*)0;
@@ -95,21 +93,13 @@ static bool SelectBlockFromCandidates(
         if (fSelected && pindex->GetBlockTime() > nSelectionIntervalStop)
             break;
 
-        //if the lowest block height (vSortedByTimestamp[0]) is >= switch height, use new modifier calc
-        if (fFirstRun){
-            fModifierV2 = pindex->nHeight >= Params().ModifierUpgradeBlock();
-            fFirstRun = false;
-        }
-
         if (mapSelectedBlocks.count(pindex->GetBlockHash()) > 0)
             continue;
 
         // compute the selection hash by hashing an input that is unique to that block
         uint256 hashProof;
-        if(fModifierV2)
-            hashProof = pindex->GetBlockHash();
-        else
-            hashProof = pindex->IsProofOfStake() ? 0 : pindex->GetBlockHash();
+        // this is using modifier v2.
+        hashProof = pindex->GetBlockHash();
 
         CDataStream ss(SER_GETHASH, 0);
         ss << hashProof << nStakeModifierPrev;
@@ -243,7 +233,7 @@ bool ComputeNextStakeModifier(const CBlockIndex* pindexPrev, uint64_t& nStakeMod
 
 // The stake modifier used to hash for a stake kernel is chosen as the stake
 // modifier about a selection interval later than the coin generating the kernel
-bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime, bool fPrintProofOfStake)
+bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int& nStakeModifierHeight, int64_t& nStakeModifierTime)
 {
     nStakeModifier = 0;
     if (!mapBlockIndex.count(hashBlockFrom))
@@ -257,9 +247,16 @@ bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int
 
     // loop to find the stake modifier later by a selection interval
     while (nStakeModifierTime < pindexFrom->GetBlockTime() + nStakeModifierSelectionInterval) {
-        if (!pindexNext) {
-            // Should never happen
-            return error("Null pindexNext\n");
+        if (!pindexNext)
+        {   // reached best block; may happen if node is behind on block chain
+            if (pindex->GetBlockTime() + Params().Stake_Min_Age() - nStakeModifierSelectionInterval > GetAdjustedTime())
+                return error("GetKernelStakeModifier() : reached best block %s at height %d from block %s",
+                    pindex->GetBlockHash().ToString().c_str(), pindex->nHeight, hashBlockFrom.ToString().c_str());
+            else
+			{
+                LogPrintf("GetKernelStakeModifier(): FAILED BECAUSE no pindexnext\n");
+				return false;
+			}
         }
 
         pindex = pindexNext;
@@ -299,9 +296,9 @@ bool Stake(CStakeInput* stakeInput, unsigned int nBits, unsigned int nTimeBlockF
     if (nTimeTx < nTimeBlockFrom)
         return error("CheckStakeKernelHash() : nTime violation");
 
-    if (nTimeBlockFrom + nStakeMinAge > nTimeTx) // Min age requirement
-        return error("CheckStakeKernelHash() : min age violation - nTimeBlockFrom=%d nStakeMinAge=%d nTimeTx=%d",
-                     nTimeBlockFrom, nStakeMinAge, nTimeTx);
+    if (nTimeBlockFrom + Params().Stake_Min_Age() > nTimeTx) // Min age requirement
+        return error("CheckStakeKernelHash() : min age violation - nTimeBlockFrom=%d Params().Stake_Min_Age()=%d nTimeTx=%d",
+                     nTimeBlockFrom, Params().Stake_Min_Age(), nTimeTx);
 
     //grab difficulty
     uint256 bnTargetPerCoinDay;
@@ -358,7 +355,7 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, std::uniqu
         if (spend.getSpendType() != libzerocoin::SpendType::STAKE)
             return error("%s: spend is using the wrong SpendType (%d)", __func__, (int)spend.getSpendType());
 
-        stake = std::unique_ptr<CStakeInput>(new CZPivStake(spend));
+        stake = std::unique_ptr<CStakeInput>(new CZLbrtStake(spend));
     } else {
         // First try finding the previous transaction in database
         uint256 hashBlock;
@@ -370,9 +367,9 @@ bool CheckProofOfStake(const CBlock block, uint256& hashProofOfStake, std::uniqu
         if (!VerifyScript(txin.scriptSig, txPrev.vout[txin.prevout.n].scriptPubKey, STANDARD_SCRIPT_VERIFY_FLAGS, TransactionSignatureChecker(&tx, 0)))
             return error("CheckProofOfStake() : VerifySignature failed on coinstake %s", tx.GetHash().ToString().c_str());
 
-        CPivStake* pivInput = new CPivStake();
-        pivInput->SetInput(txPrev, txin.prevout.n);
-        stake = std::unique_ptr<CStakeInput>(pivInput);
+        CLbrtStake* lbrtInput = new CLbrtStake();
+        lbrtInput->SetInput(txPrev, txin.prevout.n);
+        stake = std::unique_ptr<CStakeInput>(lbrtInput);
     }
 
     CBlockIndex* pindex = stake->GetIndexFrom();

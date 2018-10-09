@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2016-2018 The PIVX developers
+// Copyright (c) 2016-2018 The PIVX Developers 
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -479,7 +479,11 @@ void CTxMemPool::removeCoinbaseSpends(const CCoinsViewCache* pcoins, unsigned in
                 continue;
             const CCoins* coins = pcoins->AccessCoins(txin.prevout.hash);
             if (fSanityCheck) assert(coins);
-            if (!coins || ((coins->IsCoinBase() || coins->IsCoinStake()) && nMemPoolHeight - coins->nHeight < (unsigned)Params().COINBASE_MATURITY())) {
+
+            // If prev is coinbase/stake, check that it's matured
+            bool isPrematureCoinStake = coins->IsCoinStake() && (nMemPoolHeight - coins->nHeight < (unsigned)Params().CoinStake_Maturity());
+            bool isPrematureCoinBase = coins->IsCoinBase() && (nMemPoolHeight - coins->nHeight < (unsigned)Params().CoinBase_Maturity());
+            if (!coins || isPrematureCoinStake || isPrematureCoinBase) {
                 transactionsToRemove.push_back(tx);
                 break;
             }
