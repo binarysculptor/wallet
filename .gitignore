@@ -132,3 +132,4 @@ cmake-build-debug
 liberty-qt.creator.user
 /src/config/liberty-config.h
 liberty-config.h.in
+.vscode/launch.json

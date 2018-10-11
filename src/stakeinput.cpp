@@ -137,7 +137,7 @@ bool CZLbrtStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount n
         return error("%s: failed to database the staked zLBRT", __func__);
 
     //Now, we need to find out what the masternode reward will be for this block
-    CAmount masternodeReward = GetMasternodePayment(chainActive.Height(), nTotal, 0, true);
+    CAmount masternodeReward = GetMasternodePayment(chainActive.Height(), nTotal, true);
     CAmount zLbrtToMint = nTotal - masternodeReward;
 
     LogPrintf("%s: Total=%d Masternode=%d Staker=%d\r\n", __func__, (nTotal / COIN), (masternodeReward / COIN), (zLbrtToMint / COIN));   

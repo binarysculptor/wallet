@@ -2,7 +2,7 @@ dnl require autoconf 2.60 (AS_ECHO/AS_ECHO_N)
 AC_PREREQ([2.60])
 define(_CLIENT_VERSION_MAJOR, 5)
 define(_CLIENT_VERSION_MINOR, 0)
-define(_CLIENT_VERSION_REVISION, 1)
+define(_CLIENT_VERSION_REVISION, 4)
 define(_CLIENT_VERSION_BUILD, 0)
 define(_CLIENT_VERSION_IS_RELEASE, false)
 define(_COPYRIGHT_YEAR, 2018)
@@ -1150,11 +1150,7 @@ openssl)
   ;;
 esac
 
-<<<<<<< HEAD
-AC_MSG_CHECKING([whether to build test_pivx])
-=======
 AC_MSG_CHECKING([whether to build test_liberty])
->>>>>>> 3b398aff72371e3ad9b5abe0bf5e0a14642cfd42
 if test x$use_tests = xyes; then
   AC_MSG_RESULT([yes])
   BUILD_TEST="test"

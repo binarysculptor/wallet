@@ -1711,12 +1711,20 @@ int64_t GetBlockValue(int nHeight)
 
     if (nMoneySupply >= Params().MaxMoneyOut())
         return 0 * COIN;
-
+    //don't read too much into the adjustment of block rewards during the chain initialization.
+    //there were challenges getting it started and moving the rewards up and back down. while a 
+    //unit test would mitigate the same, this just does it in practice before bringing other nodes online.
     if (nHeight == 0) {
         nSubsidy = 2250000 * COIN;
-    } else if (nHeight <= Params().Last_PoW_Block() && nHeight > 0) {
+    } else if (nHeight <= 74 && nHeight > 0) {
+        nSubsidy = 4 * COIN;
+    } else if (nHeight <= 149 && nHeight >= 75) {
         nSubsidy = 1 * COIN;
-    } else if (nHeight <= 7199 && nHeight > Params().Last_PoW_Block()) {
+    } else if (nHeight <= Params().Last_PoW_Block() && nHeight >= 150) {
+        nSubsidy = 3 * COIN;
+    } else if (nHeight <= 299 && nHeight > Params().Last_PoW_Block()) {
+        nSubsidy = 4 * COIN;
+    } else if (nHeight <= 7199 && nHeight >= 300) {
         nSubsidy = 5 * COIN;
     } else if (nHeight <= 14399 && nHeight >= 7200) {
         nSubsidy = 100 * COIN;
@@ -1752,7 +1760,7 @@ int64_t GetBlockValue(int nHeight)
     return nSubsidy;
 }
 
-int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCount, bool isZLbrtStake)
+int64_t GetMasternodePayment(int nHeight, int64_t blockValue, bool isZLbrtStake)
 {
     if (!isZLbrtStake) {
         return blockValue * 0.75;
@@ -2377,7 +2385,7 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
     return true;
 }
 
-bool UpdateZLBRTSupply(const CBlock& block, CBlockIndex* pindex)
+bool UpdateZLbrtSupply(const CBlock& block, CBlockIndex* pindex)
 {
     std::list<CZerocoinMint> listMints;
 
@@ -2621,7 +2629,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     }
 
     //Track zLbrt money supply in the block index
-    if (!UpdateZLBRTSupply(block, pindex))
+    if (!UpdateZLbrtSupply(block, pindex))
         return state.DoS(100, error("%s: Failed to calculate new zLbrt supply for block=%s height=%d", __func__, block.GetHash().GetHex(), pindex->nHeight), REJECT_INVALID);
 
     // track money supply and mint amount info
@@ -2639,14 +2647,10 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime1 = GetTimeMicros();
     nTimeConnect += nTime1 - nTimeStart;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime1 - nTimeStart), 0.001 * (nTime1 - nTimeStart) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime1 - nTimeStart) / (nInputs - 1), nTimeConnect * 0.000001);
-
-    //PoW phase redistributed fees to miner. PoS stage destroys fees.
-    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
-    if (block.IsProofOfWork())
-        nExpectedMint += nFees;
-
+      
     //Check that the block does not overmint
-    if (!IsBlockValueValid(block, nExpectedMint, pindex->nMint)) {
+    if (!IsBlockValueValid(block, pindex, nFees)) {
+        CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
         return state.DoS(100, error("ConnectBlock() : reward pays too much (actual=%s vs limit=%s)", FormatMoney(pindex->nMint), FormatMoney(nExpectedMint)),
             REJECT_INVALID, "bad-cb-amount");
     }
@@ -3806,14 +3810,6 @@ bool ContextualCheckBlock(const CBlock& block, CValidationState& state, CBlockIn
         if (!IsFinalTx(tx, nHeight, block.GetBlockTime())) {
             return state.DoS(10, error("%s : contains a non-final transaction", __func__), REJECT_INVALID, "bad-txns-nonfinal");
         }
-
-    if (nHeight > Params().Last_PoW_Block()) {
-        CScript expect = CScript() << nHeight;
-        if (block.vtx[0].vin[0].scriptSig.size() < expect.size() ||
-            !std::equal(expect.begin(), expect.end(), block.vtx[0].vin[0].scriptSig.begin())) {
-            return state.DoS(100, error("%s : block height mismatch in coinbase", __func__), REJECT_INVALID, "bad-cb-height");
-        }
-    }
 
     return true;
 }

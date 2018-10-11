@@ -114,7 +114,7 @@ public:
         nCoinStakeMaturity = 100;
         nMasternodeCountDrift = 20;
         nMaxMoneyOut = 12000000000 * COIN; //12B
-        nLastPoWBlock = 200;
+        nLastPoWBlock = 225;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot

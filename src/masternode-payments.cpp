@@ -173,7 +173,7 @@ void DumpMasternodePayments()
     LogPrint("masternode","Budget dump finished  %dms\n", GetTimeMillis() - nStart);
 }
 
-bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMinted)
+bool IsBlockValueValid(const CBlock& block, const CBlockIndex* pindex, CAmount nFees)
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (pindexPrev == NULL) return true;
@@ -191,35 +191,29 @@ bool IsBlockValueValid(const CBlock& block, CAmount nExpectedValue, CAmount nMin
         LogPrint("masternode","IsBlockValueValid() : WARNING: Couldn't find previous block\n");
     }
 
-    //LogPrintf("XX69----------> IsBlockValueValid(): nMinted: %d, nExpectedValue: %d\n", FormatMoney(nMinted), FormatMoney(nExpectedValue));
+    CAmount nMinted = pindex->nMint;
+    CAmount nExpectedMint = GetBlockValue(pindex->pprev->nHeight);
+    if(block.IsProofOfWork())
+        nExpectedMint += nFees;
 
-    if (!masternodeSync.IsSynced()) { //there is no budget data to use to check anything
+    bool isBudgetPaymentBlock = IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS) && budget.IsBudgetPaymentBlock(nHeight);
+    bool isMintAcceptable = nMinted <= nExpectedMint;
+
+    if (!masternodeSync.IsSynced() && (nHeight % GetBudgetPaymentCycleBlocks() < 100))  
+        //there is no budget data to use to check anything
         //super blocks will always be on these blocks, max 100 per budgeting
-        if (nHeight % GetBudgetPaymentCycleBlocks() < 100) {
-            return true;
-        } else {
-            if (nMinted > nExpectedValue) {
-                return false;
-            }
-        }
-    } else { // we're synced and have data so check the budget schedule
+        return true;
 
-        //are these blocks even enabled
-        if (!IsSporkActive(SPORK_13_ENABLE_SUPERBLOCKS)) {
-            return nMinted <= nExpectedValue;
-        }
+    if(isMintAcceptable || isBudgetPaymentBlock)
+        return true;
 
-        if (budget.IsBudgetPaymentBlock(nHeight)) {
-            //the value of the block is evaluated in CheckBlock
-            return true;
-        } else {
-            if (nMinted > nExpectedValue) {
-                return false;
-            }
-        }
-    }
+    nExpectedMint = GetBlockValue(pindex->nHeight);
+    if(block.IsProofOfWork())
+        nExpectedMint += nFees;
 
-    return true;
+    isMintAcceptable = (nMinted <= nExpectedMint) && !isBudgetPaymentBlock;
+    return isMintAcceptable;
+    
 }
 
 bool IsBlockPayeeValid(const CBlock& block, int nBlockHeight)
@@ -311,7 +305,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction &txNew, int64_t nFe
     }
 
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
-    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, 0, fZLbrtStake);
+    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, fZLbrtStake);
 
     if (hasPayment) {
         if (fProofOfStake) {
@@ -536,19 +530,7 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
     std::string strPayeesPossible = "";
 
     CAmount nReward = GetBlockValue(nBlockHeight);
-
-    if (IsSporkActive(SPORK_8_MASTERNODE_PAYMENT_ENFORCEMENT)) {
-        // Get a stable number of masternodes by ignoring newly activated (< 8000 sec old) masternodes
-        nMasternode_Drift_Count = mnodeman.stable_size() + Params().MasternodeCountDrift();
-    }
-    else {
-        //account for the fact that all peers do not see the same masternode count. A allowance of being off our masternode count is given
-        //we only need to look at an increased masternode count because as count increases, the reward decreases. This code only checks
-        //for mnPayment >= required, so it only makes sense to check the max node count allowed.
-        nMasternode_Drift_Count = mnodeman.size() + Params().MasternodeCountDrift();
-    }
-
-    CAmount requiredMasternodePayment = GetMasternodePayment(nBlockHeight, nReward, nMasternode_Drift_Count, txNew.IsZerocoinSpend());
+    CAmount requiredMasternodePayment = GetMasternodePayment(nBlockHeight, nReward, txNew.IsZerocoinSpend());
 
     //require at least 6 signatures
     BOOST_FOREACH (CMasternodePayee& payee, vecPayments)

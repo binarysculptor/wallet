@@ -554,13 +554,8 @@ UniValue getreceivedbyaddress(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw std::runtime_error(
-<<<<<<< HEAD
-            "getreceivedbyaddress \"pivxaddress\" ( minconf )\n"
-            "\nReturns the total amount received by the given pivxaddress in transactions with at least minconf confirmations.\n"
-=======
             "getreceivedbyaddress \"libertyaddress\" ( minconf )\n"
             "\nReturns the total amount received by the given liberty address in transactions with at least minconf confirmations.\n"
->>>>>>> 3b398aff72371e3ad9b5abe0bf5e0a14642cfd42
 
             "\nArguments:\n"
             "1. \"libertyaddress\"  (string, required) The liberty address for transactions.\n"
