@@ -1474,7 +1474,7 @@ int CWallet::ScanForWalletTransactions(CBlockIndex* pindexStart, bool fUpdate)
             //If this is a zapwallettx, need to readd zpiv
             if (fCheckZPIV && pindex->nHeight >= Params().Zerocoin_StartHeight()) {
                 list<CZerocoinMint> listMints;
-                BlockToZerocoinMintList(block, listMints, true);
+                BlockToZerocoinMintList(block, listMints);
 
                 for (auto& m : listMints) {
                     if (IsMyMint(m.GetValue())) {
