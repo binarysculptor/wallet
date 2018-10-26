@@ -23,8 +23,8 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler
 Standards-Version: 3.9.2
 Homepage: http://www.liberty-coin.com
-Vcs-Git: git://github.com/PIVX-Project/PIVX.git
-Vcs-Browser: http://github.com/PIVX-Project/PIVX
+Vcs-Git: git://github.com/project-liberty/PIVX.git
+Vcs-Browser: http://github.com/project-liberty/PIVX
 
 Package: libertyd
 Architecture: any
