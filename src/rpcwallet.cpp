@@ -3523,7 +3523,7 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
     UniValue arrRet(UniValue::VARR);
     for (int i = nCount; i < nCount + nRange; i++) {
         libzerocoin::CoinDenomination denom = libzerocoin::CoinDenomination::ZQ_ONE;
-        libzerocoin::PrivateCoin coin(Params().Zerocoin_Params(false), denom, false);
+        libzerocoin::PrivateCoin coin(Params().Zerocoin_Params(), denom, false);
         CDeterministicMint dMint;
         zwallet->GenerateMint(i, denom, coin, dMint);
         UniValue obj(UniValue::VOBJ);

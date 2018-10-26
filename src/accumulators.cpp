@@ -187,7 +187,7 @@ bool InitializeAccumulators(const int nHeight, int& nHeightCheckpoint, Accumulat
 
     if (nHeight >= Params().Zerocoin_Block_V2_Start()) {
         //after v2_start, accumulators need to use v2 params
-        mapAccumulators.Reset(Params().Zerocoin_Params(false));
+        mapAccumulators.Reset(Params().Zerocoin_Params());
 
         // 20 after v2 start is when the new checkpoints will be in the block, so don't need to load hard checkpoints
         if (nHeight <= Params().Zerocoin_Block_V2_Start() + 20) {
