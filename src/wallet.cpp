@@ -3987,6 +3987,7 @@ bool CWallet::GetDestData(const CTxDestination& dest, const std::string& key, st
 // CWallet::AutoZeromint() gets called with each new incoming block
 void CWallet::AutoZeromint()
 {
+    if (chainActive.Height() <= Params().Last_PoW_Block()) return;
     // Don't bother Autominting if Zerocoin Protocol isn't active
     if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) return;
 
