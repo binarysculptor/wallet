@@ -108,7 +108,7 @@ public:
 
     /** Height or Time Based Activations **/
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
-    int Last_PoW_Block()const { return nLastPOWBlock; }
+    int Last_PoW_Block()const { return nLastPoWBlock; }
     unsigned int Stake_Min_Age() const { return nStakeMinAge; }
     int Zerocoin_Activation_Block() const { return nZerocoinActivationBlock; }
     int Zerocoin_Activation_Time() const {return nZercoinActivationTime; }
@@ -128,7 +128,7 @@ protected:
     int nToCheckBlockUpgradeMajority;
     int64_t nTargetTimespan;
     int64_t nTargetSpacing;
-    int nLastPOWBlock;
+    int nLastPoWBlock;
     unsigned int nStakeMinAge;
     int nMaturity;
     int nModifierUpdateBlock;

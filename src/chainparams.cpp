@@ -120,9 +120,9 @@ public:
         nMaxMoneyOut = 999999999 * COIN; //100B -1 XLB max supply
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 259200;
-        nModifierUpdateBlock = 615800;
-        nZerocoinActivationBlock = 205;
+        nLastPoWBlock = 225;
+        nModifierUpdateBlock = 1;
+        nZerocoinActivationBlock = 245;
         nZercoinActivationTime = 1540857600;
 
         /**
@@ -135,7 +135,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "U.S. News & World Report Jan 28 2016 With His Absence, Trump Dominates Another Debate";
+        const char* pszTimestamp = "Bitcoin's White Paper Gave Us Liberty – Let's Not Give It Back | Coindesk | 10-20-2018";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -146,13 +146,36 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1454124731;
-        genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 2402015;
+        genesis.nTime = 1540072799;
+        genesis.nBits = 504365040;
+        genesis.nNonce = 1366751;
 
+        //For all those who fork Liberty coin:
+        //We bless you with the gift of a genesis block creator (courtesy of Helium coin); go make something great!
+        //Remember, please, to keep the copyright notices in place in all of the source files.
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000041e482b9b9691d98eefb48473405c0b8ec31b76df3797c74a78680ef818"));
-        assert(genesis.hashMerkleRoot == uint256("0x1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
+        if (regenerate) {
+            hashGenesisBlock = uint256S("");
+            genesis.nNonce = 0;
+            if (true && (genesis.GetHash() != hashGenesisBlock)) {
+                while (genesis.GetHash() > bnProofOfWorkLimit)
+                {
+                    ++genesis.nNonce;
+                    if (genesis.nNonce == 0)
+                    {
+                        ++genesis.nTime;
+                    }
+                }
+                std::cout << "// Mainnet ---";
+                std::cout << " nonce: " << genesis.nNonce;
+                std::cout << " time: " << genesis.nTime;
+                std::cout << " hash: 0x" << genesis.GetHash().ToString().c_str();
+                std::cout << " merklehash: 0x"  << genesis.hashMerkleRoot.ToString().c_str() <<  "\n";
+            }
+        } else {
+            assert(hashGenesisBlock == uint256("0x00000c14d49f1caea9efa0dfdff9920de60e1ba586b3ff1cf07e905f8c012321"));
+            assert(genesis.hashMerkleRoot == uint256("0xbff44217a82b3a7975225053503c553bc63b0f594f51a15ee2d9a5007c281b01"));
+        }
 
         vSeeds.push_back(CDNSSeedData("dns-1", "seedns1.liberty-coin.com"));
         vSeeds.push_back(CDNSSeedData("dns-2", "seedns2.liberty-coin.com"));
@@ -181,7 +204,7 @@ public:
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
         fMiningRequiresPeers = true;
-        fAllowMinDifficultyBlocks = false;
+        fAllowMinDifficultyBlocks = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
@@ -240,19 +263,41 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // PIVX: 1 day
         nTargetSpacing = 1 * 60;  // PIVX: 1 minute
-        nLastPOWBlock = 200;
-        nZerocoinActivationBlock = 205;
+        nLastPoWBlock = 200;
+        nZerocoinActivationBlock = 220;
         nZercoinActivationTime = 1540857600;
         nMaturity = 15;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 625000000 * COIN; //625M XLB max supply
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
-        genesis.nTime = 1454124731;
-        genesis.nNonce = 2402015;
+        genesis.nTime = 1540073799;
+        genesis.nNonce = 1613928;
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x0000041e482b9b9691d98eefb48473405c0b8ec31b76df3797c74a78680ef818"));
+        if (regenerate) {
+            hashGenesisBlock = uint256S("");
+            genesis.nNonce = 0;
+            if (true && (genesis.GetHash() != hashGenesisBlock)) {
+                while (genesis.GetHash() > bnProofOfWorkLimit)
+                {
+                    ++genesis.nNonce;
+                    if (genesis.nNonce == 0)
+                    {
+                        ++genesis.nTime;
+                    }
+                }
+                std::cout << "// Testnet ---";
+                std::cout << " nonce: " << genesis.nNonce;
+                std::cout << " time: " << genesis.nTime;
+                std::cout << " hash: 0x" << genesis.GetHash().ToString().c_str();
+                std::cout << " merklehash: 0x"  << genesis.hashMerkleRoot.ToString().c_str() <<  "\n";
+
+            }
+        } else {
+            assert(hashGenesisBlock == uint256("0x00000583310b89a91d9348f4d78d7af1ae6035b5f7f038bd95a59ec8d6605539"));
+            assert(genesis.hashMerkleRoot == uint256("0xbff44217a82b3a7975225053503c553bc63b0f594f51a15ee2d9a5007c281b01"));
+        }
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -328,7 +373,7 @@ public:
 
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x4f023a2120d9127b21bbad01724fdb79b519f593f2a85b60d3d79160ec5f29df"));
+        //assert(hashGenesisBlock == uint256("0x4f023a2120d9127b21bbad01724fdb79b519f593f2a85b60d3d79160ec5f29df"));
 
         vFixedSeeds.clear(); //! Testnet mode doesn't have any fixed seeds.
         vSeeds.clear();      //! Testnet mode doesn't have any DNS seeds.
