@@ -8,6 +8,9 @@
 #include "primitives/zerocoin.h"
 #include <list>
 #include <map>
+
+std::map<libzerocoin::CoinDenomination, int> calculateOutputs(const CAmount nValueTarget);
+
 std::vector<CMintMeta> SelectMintsFromList(const CAmount nValueTarget, CAmount& nSelectedValue,
                                                int nMaxNumberOfSpends,
                                                bool fMinimizeChange,

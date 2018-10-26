@@ -3016,9 +3016,10 @@ bool CWallet::CreateCoinStake(const CKeyStore& keystore, unsigned int nBits, int
             nReward = GetBlockValue(chainActive.Height() + 1);
             nCredit += nReward;
 
+            CAmount nTotal = stakeInput->IsZPIV() ? nReward : nCredit;
             // Create the output transaction(s)
             vector<CTxOut> vout;
-            if (!stakeInput->CreateTxOuts(this, vout, nCredit)) {
+            if (!stakeInput->CreateTxOuts(this, vout, nTotal)) {
                 LogPrintf("%s : failed to get scriptPubKey\n", __func__);
                 continue;
             }

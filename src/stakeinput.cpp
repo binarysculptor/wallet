@@ -4,6 +4,7 @@
 
 #include "accumulators.h"
 #include "chain.h"
+#include "denomination_functions.h"
 #include "primitives/deterministicmint.h"
 #include "main.h"
 #include "stakeinput.h"
@@ -122,27 +123,44 @@ bool CZPivStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 
 bool CZPivStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
 {
-    //Create an output returning the zPIV that was staked
+    //Create an output returning the XLBz that was staked
     CTxOut outReward;
     libzerocoin::CoinDenomination denomStaked = libzerocoin::AmountToZerocoinDenomination(this->GetValue());
     CDeterministicMint dMint;
     if (!pwallet->CreateZPIVOutPut(denomStaked, outReward, dMint))
-        return error("%s: failed to create zPIV output", __func__);
+        return error("%s: failed to create XLBz output", __func__);
     vout.emplace_back(outReward);
 
     //Add new staked denom to our wallet
     if (!pwallet->DatabaseMint(dMint))
-        return error("%s: failed to database the staked zPIV", __func__);
+        return error("%s: failed to database the staked XLBz", __func__);
 
-    for (unsigned int i = 0; i < 3; i++) {
-        CTxOut out;
-        CDeterministicMint dMintReward;
-        if (!pwallet->CreateZPIVOutPut(libzerocoin::CoinDenomination::ZQ_ONE, out, dMintReward))
-            return error("%s: failed to create zPIV output", __func__);
-        vout.emplace_back(out);
+    //Now, we need to find out what the masternode reward will be for this block
+    CAmount masternodeReward = GetMasternodePayment(chainActive.Height(), nTotal, true);
+    CAmount XlbzToMint = nTotal - masternodeReward;
 
-        if (!pwallet->DatabaseMint(dMintReward))
-            return error("%s: failed to database mint reward", __func__);
+    LogPrintf("%s: Total=%d Masternode=%d Staker=%d\r\n", __func__, (nTotal / COIN), (masternodeReward / COIN), (XlbzToMint / COIN));
+
+    std::map<libzerocoin::CoinDenomination, int> mintMap = calculateOutputs(XlbzToMint);
+    std::map<libzerocoin::CoinDenomination, int>::iterator it = mintMap.begin();
+    while (it != mintMap.end()) {
+        libzerocoin::CoinDenomination denom = it->first;
+        int numberToMint = it->second;
+        while (numberToMint > 0) {
+            CTxOut out;
+            CDeterministicMint dMintReward;
+
+            if (!pwallet->CreateZPIVOutPut(denom, out, dMintReward))
+                return error("%s: failed to create XLBz output", __func__);
+
+            vout.emplace_back(out);
+
+            if (!pwallet->DatabaseMint(dMintReward))
+                return error("%s: failed to database mint reward", __func__);
+
+            --numberToMint;
+        }
+        it++;
     }
 
     return true;

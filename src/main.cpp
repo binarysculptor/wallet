@@ -1749,69 +1749,70 @@ double ConvertBitsToDouble(unsigned int nBits)
 
 int64_t GetBlockValue(int nHeight)
 {
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200 && nHeight > 0)
-            return 250000 * COIN;
-    }
-
     int64_t nSubsidy = 0;
+    int64_t nMoneySupply = chainActive.Tip()->nMoneySupply;
+
+    if (nMoneySupply >= Params().MaxMoneyOut())
+        return 0 * COIN;
+    //don't read too much into the adjustment of block rewards during the chain initialization.
+    //there were challenges getting it started and moving the rewards up and back down. while a
+    //unit test would mitigate the same, this just does it in practice before bringing other nodes online.
     if (nHeight == 0) {
-        nSubsidy = 60001 * COIN;
-    } else if (nHeight < 86400 && nHeight > 0) {
-        nSubsidy = 250 * COIN;
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        nSubsidy = 225 * COIN;
-    } else if (nHeight <= Params().Last_PoW_Block()&& nHeight >= 151200) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().Last_PoW_Block()) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
-        nSubsidy = 40.5 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
-        nSubsidy = 36 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
-        nSubsidy = 31.5 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
-        nSubsidy = 27 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
-        nSubsidy = 22.5 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
-        nSubsidy = 18 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
-        nSubsidy = 13.5 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 9 * COIN;
+        nSubsidy = 22500000 * COIN;
+    } else if (nHeight <= 74 && nHeight > 0) {
+        nSubsidy = 40 * COIN;
+    } else if (nHeight <= 149 && nHeight >= 75) {
+        nSubsidy = 10 * COIN;
+    } else if (nHeight <= Params().Last_PoW_Block() && nHeight >= 150) {
+        nSubsidy = 30 * COIN;
+    } else if (nHeight <= 299 && nHeight > Params().Last_PoW_Block()) {
+        nSubsidy = 40 * COIN;
+    } else if (nHeight <= 7199 && nHeight >= 300) {
+        nSubsidy = 50 * COIN;
+    } else if (nHeight <= 14399 && nHeight >= 7200) {
+        nSubsidy = 1000 * COIN;
+    } else if (nHeight <= 21599 && nHeight >= 14400) {
+        nSubsidy = 2000 * COIN;
+    } else if (nHeight <= 28799 && nHeight >= 21600) {
+        nSubsidy = 3000 * COIN;
+    } else if (nHeight <= 35999 && nHeight >= 28800) {
+        nSubsidy = 4000 * COIN;
+    } else if (nHeight <= 43199 && nHeight >= 36000) {
+        nSubsidy = 5000 * COIN;
+    } else if (nHeight <= 50399 && nHeight >= 43200) {
+        nSubsidy = 4000 * COIN;
+    } else if (nHeight <= 57599 && nHeight >= 50400) {
+        nSubsidy = 3000 * COIN;
+    } else if (nHeight <= 64799 && nHeight >= 57600) {
+        nSubsidy = 2000 * COIN;
+    } else if (nHeight <= 71999 && nHeight >= 64800) {
+        nSubsidy = 1000 * COIN;
+    } else if (nHeight <= 172799 && nHeight >= 72000) {
+        nSubsidy = 500 * COIN;
+    } else if (nHeight <= 345599 && nHeight >= 172800) {
+        nSubsidy = 750 * COIN;
+    } else if (nHeight <= 999999 && nHeight >= 345600) {
+        nSubsidy = 1000 * COIN;
+    } else if (nHeight <= 24999999 && nHeight >= 1000000) {
+        nSubsidy = 750 * COIN;
+    } else if (nHeight <= 49999999 && nHeight >= 25000000) {
+        nSubsidy = 500 * COIN;
     } else {
-        nSubsidy = 5 * COIN;
+        nSubsidy = 1000 * COIN;
     }
     return nSubsidy;
 }
 
-int64_t GetMasternodePayment(int nHeight, int64_t blockValue, bool isZPIVStake)
+int64_t GetMasternodePayment(int nHeight, int64_t blockValue, bool isXlbzStake)
 {
-    int64_t ret = 0;
-
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        if (nHeight < 200)
-            return 0;
-    }
-
-    if (nHeight <= 43200) {
-        ret = blockValue / 5;
-    } else if (nHeight < 86400 && nHeight > 43200) {
-        ret = blockValue / (100 / 30);
-    } else if (nHeight < (Params().NetworkID() == CBaseChainParams::TESTNET ? 145000 : 151200) && nHeight >= 86400) {
-        ret = 50 * COIN;
-    } else if (nHeight <= Params().Last_PoW_Block()&& nHeight >= 151200) {
-        ret = blockValue / 2;
+    if (!isXlbzStake) {
+        return blockValue * 0.75;
     } else {
-        //When zPIV is staked, masternode only gets 2 PIV
-        ret = 3 * COIN;
-        if (isZPIVStake)
-            ret = 2 * COIN;
+        int64_t nPayment = blockValue * 0.65;
+        nPayment += (COIN / 2);
+        nPayment -= (nPayment % COIN);
+        return nPayment;
     }
-
-    return ret;
 }
 
 bool IsInitialBlockDownload()

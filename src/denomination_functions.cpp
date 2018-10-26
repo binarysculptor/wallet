@@ -7,6 +7,33 @@
 using namespace libzerocoin;
 
 // -------------------------------------------------------------------------------------------------------
+// Get exact amounts to mint for CTxOuts. Used to caculate rewards on a Xlbz stake.
+// -------------------------------------------------------------------------------------------------------
+std::map<CoinDenomination, int> calculateOutputs(const CAmount nAmountToMint){
+    std::map<CoinDenomination, int> mapUsed;
+    CAmount nRemainingValue = nAmountToMint;
+
+    // Initialize
+    for (const auto& denom : zerocoinDenomList)
+        mapUsed.insert(std::pair<CoinDenomination, int>(denom, 0));
+
+    LogPrintf("%s: Total=%d Begining Calculate...\r\n", __func__, (nAmountToMint / COIN));
+
+    for (auto& coin : reverse_iterate(zerocoinDenomList)) {
+        CAmount nValue = ZerocoinDenominationToAmount(coin);
+        do {
+            if (nRemainingValue >= nValue) {
+                mapUsed.at(coin)++;
+                nRemainingValue -= nValue;
+
+                LogPrintf("%s: Added=%d Remaining=%d\r\n", __func__, (nValue / COIN), (nRemainingValue / COIN));
+            }
+        } while (nRemainingValue >= nValue);
+    }
+    return mapUsed;
+}
+
+// -------------------------------------------------------------------------------------------------------
 // Number of coins used for either change or a spend given a map of coins used
 // -------------------------------------------------------------------------------------------------------
 int getNumberOfCoinsUsed(
