@@ -52,13 +52,6 @@ bool AccumulatorMap::Load(uint256 nCheckpoint)
     return true;
 }
 
-//Load accumulator map from a hard-checkpoint
-void AccumulatorMap::Load(const AccumulatorCheckpoints::Checkpoint& checkpoint)
-{
-     for (auto it : checkpoint)
-         mapAccumulators.at(it.first)->setValue(it.second);
-}
-
 //Add a zerocoin to the accumulator of its denomination.
 bool AccumulatorMap::Accumulate(const PublicCoin& pubCoin, bool fSkipValidation)
 {
@@ -96,5 +89,3 @@ uint256 AccumulatorMap::GetCheckpoint()
 
     return nCheckpoint;
 }
-
-
