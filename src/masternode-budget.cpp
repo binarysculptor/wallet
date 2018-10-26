@@ -26,11 +26,11 @@ int nSubmittedFinalBudget;
 
 int GetBudgetPaymentCycleBlocks()
 {
-    // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
-    if (Params().NetworkID() == CBaseChainParams::MAIN) return 43200;
+    // Amount of blocks in a 15 days (using 1 minutes per) = (60*24*15)
+    if (Params().NetworkID() == CBaseChainParams::MAIN) return 21600;
     //for testing purposes
 
-    return 144; //ten times per day
+    return 360; //four times per day
 }
 
 bool IsBudgetCollateralValid(uint256 nTxCollateralHash, uint256 nExpectedHash, std::string& strError, int64_t& nTime, int& nConf, bool fBudgetFinalization)
@@ -919,39 +919,8 @@ CAmount CBudgetManager::GetTotalBudget(int nHeight)
     }
 
     //get block value and calculate from that
-    CAmount nSubsidy = 0;
-    if (nHeight <= Params().Last_PoW_Block()&& nHeight >= 151200) {
-        nSubsidy = 50 * COIN;
-    } else if (nHeight <= 302399 && nHeight > Params().Last_PoW_Block()) {
-        nSubsidy = 50 * COIN;
-    } else if (nHeight <= 345599 && nHeight >= 302400) {
-        nSubsidy = 45 * COIN;
-    } else if (nHeight <= 388799 && nHeight >= 345600) {
-        nSubsidy = 40 * COIN;
-    } else if (nHeight <= 431999 && nHeight >= 388800) {
-        nSubsidy = 35 * COIN;
-    } else if (nHeight <= 475199 && nHeight >= 432000) {
-        nSubsidy = 30 * COIN;
-    } else if (nHeight <= 518399 && nHeight >= 475200) {
-        nSubsidy = 25 * COIN;
-    } else if (nHeight <= 561599 && nHeight >= 518400) {
-        nSubsidy = 20 * COIN;
-    } else if (nHeight <= 604799 && nHeight >= 561600) {
-        nSubsidy = 15 * COIN;
-    } else if (nHeight <= 647999 && nHeight >= 604800) {
-        nSubsidy = 10 * COIN;
-    } else if (nHeight >= Params().Zerocoin_Activation_Block()) {
-        nSubsidy = 10 * COIN;
-    } else {
-        nSubsidy = 5 * COIN;
-    }
-
-    // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
-    if (nHeight <= 172800) {
-        return 648000 * COIN;
-    } else {
-        return ((nSubsidy / 100) * 10) * 1440 * 30;
-    }
+    CAmount nSubsidy = GetBlockValue(nHeight);
+    return ((nSubsidy / 100) * 10) * 1440 * 30;
 }
 
 void CBudgetManager::NewBlock()
