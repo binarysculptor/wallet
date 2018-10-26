@@ -11,7 +11,6 @@
 
 #include "init.h"
 
-#include "accumulatorcheckpoints.h"
 #include "accumulators.h"
 #include "activemasternode.h"
 #include "addrman.h"
@@ -1348,9 +1347,6 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 #endif
 
     // ********************************************************* Step 7: load block chain
-
-    //PIVX: Load Accumulator Checkpoints according to network (main/test/regtest)
-    assert(AccumulatorCheckpoints::LoadCheckpoints(Params().NetworkIDString()));
 
     fReindex = GetBoolArg("-reindex", false);
 

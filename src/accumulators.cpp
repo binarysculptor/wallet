@@ -9,7 +9,6 @@
 #include "txdb.h"
 #include "init.h"
 #include "spork.h"
-#include "accumulatorcheckpoints.h"
 #include "zpivchain.h"
 
 using namespace libzerocoin;
@@ -368,21 +367,11 @@ bool GetAccumulatorValue(int& nHeight, const libzerocoin::CoinDenomination denom
     uint256 nCheckpointBeforeMint = chainActive[nHeight]->nAccumulatorCheckpoint;
     if (nHeight > Params().Zerocoin_Block_V2_Start() + 20)
         return GetAccumulatorValueFromDB(nCheckpointBeforeMint, denom, bnAccValue);
-
-    int nHeightCheckpoint = 0;
-    AccumulatorCheckpoints::Checkpoint checkpoint = AccumulatorCheckpoints::GetClosestCheckpoint(nHeight, nHeightCheckpoint);
-    if (nHeightCheckpoint < 0) {
-        //Start at the first zerocoin
-        libzerocoin::Accumulator accumulator(Params().Zerocoin_Params(false), denom);
-        bnAccValue = accumulator.getValue();
-        nHeight = Params().Zerocoin_StartHeight() + 10;
+    else {
+        bnAccValue = 0;
+        nHeight = 0;
         return true;
     }
-
-    nHeight = nHeightCheckpoint;
-    bnAccValue = checkpoint.at(denom);
-
-    return true;
 }
 
 bool GenerateAccumulatorWitness(const PublicCoin &coin, Accumulator& accumulator, AccumulatorWitness& witness, int nSecurityLevel, int& nMintsAdded, string& strError, CBlockIndex* pindexCheckpoint)
