@@ -30,7 +30,7 @@
 
   <key>CFBundleExecutable</key>
   <string>PIVX-Qt</string>
-  
+
   <key>CFBundleName</key>
   <string>PIVX-Qt</string>
 
@@ -38,7 +38,7 @@
   <true/>
 
   <key>CFBundleIdentifier</key>
-  <string>io.pivx.Pivx-Qt</string>
+  <string>io.pivx.Liberty-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
