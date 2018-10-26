@@ -69,7 +69,7 @@ bool AppInit(int argc, char* argv[])
     //
     // Parameters
     //
-    // If Qt is used, parameters/pivx.conf are parsed in qt/pivx.cpp's main()
+    // If Qt is used, parameters/liberty.conf are parsed in qt/pivx.cpp's main()
     ParseParameters(argc, argv);
 
     // Process help and version before taking care about datadir

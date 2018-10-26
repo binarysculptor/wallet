@@ -22,7 +22,7 @@ function ExtractKey {
 function CreateDataDir {
   DIR=$1
   mkdir -p $DIR
-  CONF=$DIR/pivx.conf
+  CONF=$DIR/liberty.conf
   echo "regtest=1" >> $CONF
   echo "keypool=2" >> $CONF
   echo "rpcuser=rt" >> $CONF

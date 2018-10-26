@@ -1,7 +1,7 @@
 # /etc/conf.d/libertyd: config file for /etc/init.d/libertyd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/pivx/pivx.conf"
+#BITCOIND_CONFIGFILE="/etc/pivx/liberty.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
 #BITCOIND_PIDDIR="/var/run/libertyd"

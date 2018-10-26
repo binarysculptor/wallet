@@ -35,10 +35,10 @@ generate one from the shell yourself like this:
 
 bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'
 
-Once you have a password in hand, set rpcpassword= in /etc/pivx/pivx.conf
+Once you have a password in hand, set rpcpassword= in /etc/pivx/liberty.conf
 
 For an example configuration file that describes the configuration settings,
-see contrib/debian/examples/pivx.conf.
+see contrib/debian/examples/liberty.conf.
 
 3. Paths
 ---------------------------------
@@ -46,7 +46,7 @@ see contrib/debian/examples/pivx.conf.
 All three configurations assume several paths that might need to be adjusted.
 
 Binary:              /usr/bin/libertyd
-Configuration file:  /etc/pivx/pivx.conf
+Configuration file:  /etc/pivx/liberty.conf
 Data directory:      /var/lib/libertyd
 PID file:            /var/run/libertyd/libertyd.pid (OpenRC and Upstart)
                      /var/lib/libertyd/libertyd.pid (systemd)

@@ -1720,8 +1720,8 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
                            <string>Show the current status of automatic zPIV minting.
 
 To change the status (restart required):
-- enable: add 'enablezeromint=1' to pivx.conf
-- disable: add 'enablezeromint=0' to pivx.conf
+- enable: add 'enablezeromint=1' to liberty.conf
+- disable: add 'enablezeromint=0' to liberty.conf
 
 To change the percentage (no restart required):
 - menu Settings-&gt;Options-&gt;Percentage of autominted zPIV
