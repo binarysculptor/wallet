@@ -154,11 +154,21 @@ public:
         assert(hashGenesisBlock == uint256("0x0000041e482b9b9691d98eefb48473405c0b8ec31b76df3797c74a78680ef818"));
         assert(genesis.hashMerkleRoot == uint256("0x1b2ef6e2f28be914103a277377ae7729dcd125dfeb8bf97bd5964ba72b6dc39b"));
 
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "pivx.seed.fuzzbawls.pw"));     // Primary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "pivx.seed2.fuzzbawls.pw"));    // Secondary DNS Seeder from Fuzzbawls
-        vSeeds.push_back(CDNSSeedData("coin-server.com", "coin-server.com"));         // Single node address
-        vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net")); // Single node address
-        vSeeds.push_back(CDNSSeedData("178.254.23.111", "178.254.23.111"));           // Single node address
+        vSeeds.push_back(CDNSSeedData("dns-1", "seedns1.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("dns-2", "seedns2.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("dns-3", "seedns3.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("dns-4", "seedns4.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("dns-5", "seedns5.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-1", "node-01.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-2", "node-02.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-3", "node-03.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-4", "node-04.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-5", "node-05.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-6", "node-06.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-7", "node-07.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-8", "node-08.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-9", "node-09.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-10", "node-10.liberty-coin.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 30);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
@@ -246,10 +256,16 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "pivx-testnet.seed.fuzzbawls.pw"));
-        vSeeds.push_back(CDNSSeedData("fuzzbawls.pw", "pivx-testnet.seed2.fuzzbawls.pw"));
-        vSeeds.push_back(CDNSSeedData("s3v3nh4cks.ddns.net", "s3v3nh4cks.ddns.net"));
-        vSeeds.push_back(CDNSSeedData("88.198.192.110", "88.198.192.110"));
+        vSeeds.push_back(CDNSSeedData("node-1", "node-01.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-2", "node-02.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-3", "node-03.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-4", "node-04.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-5", "node-05.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-6", "node-06.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-7", "node-07.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-8", "node-08.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-9", "node-09.liberty-coin.com"));
+        vSeeds.push_back(CDNSSeedData("node-10", "node-10.liberty-coin.com"));
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 139); // Testnet pivx addresses start with 'x' or 'y'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 19);  // Testnet pivx script addresses start with '8' or '9'
