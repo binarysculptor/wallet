@@ -117,7 +117,7 @@ public:
         nTargetTimespan = 1 * 60; // PIVX: 1 day
         nTargetSpacing = 1 * 60;  // PIVX: 1 minute
         nMaturity = 100;
-        nMaxMoneyOut = 21000000 * COIN;
+        nMaxMoneyOut = 999999999 * COIN; //100B -1 XLB max supply
 
         /** Height or Time Based Activations **/
         nLastPOWBlock = 259200;
@@ -238,7 +238,7 @@ public:
         nZercoinActivationTime = 1540857600;
         nMaturity = 15;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
-        nMaxMoneyOut = 43199500 * COIN;
+        nMaxMoneyOut = 625000000 * COIN; //625M XLB max supply
         nEnforceNewSporkKey = 1521604800; //!> Sporks signed after Wednesday, March 21, 2018 4:00:00 AM GMT must use the new spork key
         nRejectOldSporkKey = 1522454400; //!> Reject old spork key after Saturday, March 31, 2018 12:00:00 AM GMT
 
