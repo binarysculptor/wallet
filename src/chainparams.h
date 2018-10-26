@@ -116,7 +116,8 @@ public:
     /** Height or Time Based Activations **/
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     int Last_PoW_Block()const { return nLastPOWBlock; }
-    int Zerocoin_Enabled_Block() const { return Last_PoW_Block() + 20; }
+    int Zerocoin_Activation_Block() const { return nZerocoinActivationBlock; }
+    int Zerocoin_Activation_Time() const {return nZercoinActivationTime; }
 
 protected:
     CChainParams() {}
@@ -170,6 +171,8 @@ protected:
     int nZerocoinHeaderVersion;
     int64_t nBudget_Fee_Confirmations;
     int nZerocoinRequiredStakeDepth;
+    int nZerocoinActivationBlock;
+    int nZercoinActivationTime;
 };
 
 /**
