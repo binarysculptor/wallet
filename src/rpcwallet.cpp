@@ -2538,11 +2538,11 @@ UniValue getzerocoinbalance(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getzerocoinbalance\n"
-            "\nReturn the wallet's total zPIV balance.\n" +
+            "\nReturn the wallet's total XLBz balance.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
-            "amount         (numeric) Total zPIV balance.\n"
+            "amount         (numeric) Total XLBz balance.\n"
 
             "\nExamples:\n" +
             HelpExampleCli("getzerocoinbalance", "") + HelpExampleRpc("getzerocoinbalance", ""));
@@ -2566,7 +2566,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 2)
         throw runtime_error(
             "listmintedzerocoins (fVerbose) (fMatureOnly)\n"
-            "\nList all zPIV mints in the wallet.\n" +
+            "\nList all XLBz mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -2584,7 +2584,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
             "  {\n"
             "    \"serial hash\": \"xxx\",   (string) Mint serial hash in hex format.\n"
             "    \"version\": n,   (numeric) Zerocoin version number.\n"
-            "    \"zPIV ID\": \"xxx\",   (string) Pubcoin in hex format.\n"
+            "    \"XLBz ID\": \"xxx\",   (string) Pubcoin in hex format.\n"
             "    \"denomination\": n,   (numeric) Coin denomination.\n"
             "    \"confirmations\": n   (numeric) Number of confirmations.\n"
             "  }\n"
@@ -2615,7 +2615,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
             UniValue objMint(UniValue::VOBJ);
             objMint.push_back(Pair("serial hash", m.hashSerial.GetHex()));  // Serial hash
             objMint.push_back(Pair("version", m.nVersion));                 // Zerocoin version
-            objMint.push_back(Pair("zPIV ID", m.hashPubcoin.GetHex()));     // PubCoin
+            objMint.push_back(Pair("XLBz ID", m.hashPubcoin.GetHex()));     // PubCoin
             int denom = libzerocoin::ZerocoinDenominationToInt(m.denom);
             objMint.push_back(Pair("denomination", denom));                 // Denomination
             int nConfirmations = (m.nHeight && nBestHeight > m.nHeight) ? nBestHeight - m.nHeight : 0;
@@ -2681,7 +2681,7 @@ UniValue listspentzerocoins(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "listspentzerocoins\n"
-            "\nList all the spent zPIV mints in the wallet.\n" +
+            "\nList all the spent XLBz mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
@@ -2713,11 +2713,11 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "mintzerocoin amount ( utxos )\n"
-            "\nMint the specified zPIV amount\n" +
+            "\nMint the specified XLBz amount\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. amount      (numeric, required) Enter an amount of Piv to convert to zPIV\n"
+            "1. amount      (numeric, required) Enter an amount of Piv to convert to XLBz\n"
             "2. utxos       (string, optional) A json array of objects.\n"
             "                   Each object needs the txid (string) and vout (numeric)\n"
             "  [\n"
@@ -2761,7 +2761,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
 
     int64_t nTime = GetTimeMillis();
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "zPIV is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "XLBz is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked(true);
 
@@ -2824,7 +2824,7 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 5 || params.size() < 4)
         throw runtime_error(
             "spendzerocoin amount mintchange minimizechange securitylevel ( \"address\" )\n"
-            "\nSpend zPIV to a PIV address.\n" +
+            "\nSpend XLBz to a PIV address.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -2869,12 +2869,12 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "zPIV is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "XLBz is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked();
 
     CAmount nAmount = AmountFromValue(params[0]);   // Spending amount
-    bool fMintChange = params[1].get_bool();        // Mint change to zPIV
+    bool fMintChange = params[1].get_bool();        // Mint change to XLBz
     bool fMinimizeChange = params[2].get_bool();    // Minimize change
     int nSecurityLevel = params[3].get_int();       // Security level
     std::string address_str = params.size() > 4 ? params[4].get_str() : "";
@@ -2890,7 +2890,7 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "spendzerocoinmints mints_list (\"address\") \n"
-            "\nSpend zPIV mints to a PIV address.\n" +
+            "\nSpend XLBz mints to a PIV address.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -2927,7 +2927,7 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "zPIV is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "XLBz is currently disabled due to maintenance.");
 
     std::string address_str = "";
     if (params.size() > 1) {
@@ -3062,7 +3062,7 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzPIVTracker* zpivTracker = pwalletMain->zpivTracker.get();
+    CXLBzTracker* zpivTracker = pwalletMain->zpivTracker.get();
     set<CMintMeta> setMints = zpivTracker->ListMints(false, false, true);
     vector<CMintMeta> vMintsToFind(setMints.begin(), setMints.end());
     vector<CMintMeta> vMintsMissing;
@@ -3115,7 +3115,7 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CzPIVTracker* zpivTracker = pwalletMain->zpivTracker.get();
+    CXLBzTracker* zpivTracker = pwalletMain->zpivTracker.get();
     set<CMintMeta> setMints = zpivTracker->ListMints(false, false, false);
     list<CZerocoinSpend> listSpends = walletdb.ListSpentCoins();
     list<CZerocoinSpend> listUnconfirmedSpends;
@@ -3220,7 +3220,7 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
 
             "\nArguments:\n"
             "1. \"include_spent\"        (bool, required) Include mints that have already been spent\n"
-            "2. \"denomination\"         (integer, optional) Export a specific denomination of zPIV\n"
+            "2. \"denomination\"         (integer, optional) Export a specific denomination of XLBz\n"
 
             "\nResult:\n"
             "[                   (array of json object)\n"
@@ -3232,8 +3232,8 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
             "    \"t\": \"txid\",    (string) The txid that the coin was minted in\n"
             "    \"h\": n,         (numeric) The height the tx was added to the blockchain\n"
             "    \"u\": used,      (boolean) Whether the mint has been spent\n"
-            "    \"v\": version,   (numeric) The version of the zPIV\n"
-            "    \"k\": \"privkey\"  (string) The zPIV private key (V2+ zPIV only)\n"
+            "    \"v\": version,   (numeric) The version of the XLBz\n"
+            "    \"k\": \"privkey\"  (string) The XLBz private key (V2+ XLBz only)\n"
             "  }\n"
             "  ,...\n"
             "]\n"
@@ -3252,7 +3252,7 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
     if (params.size() == 2)
         denomination = libzerocoin::IntToZerocoinDenomination(params[1].get_int());
 
-    CzPIVTracker* zpivTracker = pwalletMain->zpivTracker.get();
+    CXLBzTracker* zpivTracker = pwalletMain->zpivTracker.get();
     set<CMintMeta> setMints = zpivTracker->ListMints(!fIncludeSpent, false, false);
 
     UniValue jsonList(UniValue::VARR);
@@ -3303,7 +3303,7 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "{\n"
             "  \"added\": n,        (numeric) The quantity of zerocoin mints that were added\n"
-            "  \"value\": amount    (numeric) The total zPIV value of zerocoin mints that were added\n"
+            "  \"value\": amount    (numeric) The total XLBz value of zerocoin mints that were added\n"
             "}\n"
 
             "\nExamples\n" +
@@ -3383,7 +3383,7 @@ UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
     if(fHelp || !params.empty())
         throw runtime_error(
             "reconsiderzerocoins\n"
-            "\nCheck archived zPIV list to see if any mints were added to the blockchain.\n" +
+            "\nCheck archived XLBz list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
@@ -3452,7 +3452,7 @@ UniValue setzpivseed(const UniValue& params, bool fHelp)
     uint256 seed;
     seed.SetHex(params[0].get_str());
 
-    CzPIVWallet* zwallet = pwalletMain->getZWallet();
+    CXLBzWallet* zwallet = pwalletMain->getZWallet();
     bool fSuccess = zwallet->SetMasterSeed(seed, true);
     if (fSuccess)
         zwallet->SyncWithChain();
@@ -3468,18 +3468,18 @@ UniValue getzpivseed(const UniValue& params, bool fHelp)
     if(fHelp || !params.empty())
         throw runtime_error(
             "getzpivseed\n"
-            "\nCheck archived zPIV list to see if any mints were added to the blockchain.\n" +
+            "\nCheck archived XLBz list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult\n"
-            "\"seed\" : s,  (string) The deterministic zPIV seed.\n"
+            "\"seed\" : s,  (string) The deterministic XLBz seed.\n"
 
             "\nExamples\n" +
             HelpExampleCli("getzpivseed", "") + HelpExampleRpc("getzpivseed", ""));
 
     EnsureWalletIsUnlocked();
 
-    CzPIVWallet* zwallet = pwalletMain->getZWallet();
+    CXLBzWallet* zwallet = pwalletMain->getZWallet();
     uint256 seed = zwallet->GetMasterSeed();
 
     UniValue ret(UniValue::VOBJ);
@@ -3493,12 +3493,12 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
     if(fHelp || params.size() != 2)
         throw runtime_error(
             "generatemintlist\n"
-            "\nShow mints that are derived from the deterministic zPIV seed.\n" +
+            "\nShow mints that are derived from the deterministic XLBz seed.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments\n"
-            "1. \"count\"  : n,  (numeric) Which sequential zPIV to start with.\n"
-            "2. \"range\"  : n,  (numeric) How many zPIV to generate.\n"
+            "1. \"count\"  : n,  (numeric) Which sequential XLBz to start with.\n"
+            "2. \"range\"  : n,  (numeric) How many XLBz to generate.\n"
 
             "\nResult:\n"
             "[\n"
@@ -3518,7 +3518,7 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
 
     int nCount = params[0].get_int();
     int nRange = params[1].get_int();
-    CzPIVWallet* zwallet = pwalletMain->zwalletMain;
+    CXLBzWallet* zwallet = pwalletMain->zwalletMain;
 
     UniValue arrRet(UniValue::VARR);
     for (int i = nCount; i < nCount + nRange; i++) {
@@ -3541,13 +3541,13 @@ UniValue dzpivstate(const UniValue& params, bool fHelp) {
     if (fHelp || params.size() != 0)
         throw runtime_error(
                 "dzpivstate\n"
-                        "\nThe current state of the mintpool of the deterministic zPIV wallet.\n" +
+                        "\nThe current state of the mintpool of the deterministic XLBz wallet.\n" +
                 HelpRequiringPassphrase() + "\n"
 
                         "\nExamples\n" +
                 HelpExampleCli("mintpoolstatus", "") + HelpExampleRpc("mintpoolstatus", ""));
 
-    CzPIVWallet* zwallet = pwalletMain->zwalletMain;
+    CXLBzWallet* zwallet = pwalletMain->zwalletMain;
     UniValue obj(UniValue::VOBJ);
     int nCount, nCountLastUsed;
     zwallet->GetState(nCount, nCountLastUsed);
@@ -3558,7 +3558,7 @@ UniValue dzpivstate(const UniValue& params, bool fHelp) {
 }
 
 
-void static SearchThread(CzPIVWallet* zwallet, int nCountStart, int nCountEnd)
+void static SearchThread(CXLBzWallet* zwallet, int nCountStart, int nCountEnd)
 {
     LogPrintf("%s: start=%d end=%d\n", __func__, nCountStart, nCountEnd);
     CWalletDB walletDB(pwalletMain->strWalletFile);
@@ -3593,12 +3593,12 @@ UniValue searchdzpiv(const UniValue& params, bool fHelp)
     if(fHelp || params.size() != 3)
         throw runtime_error(
             "searchdzpiv\n"
-            "\nMake an extended search for deterministically generated zPIV that have not yet been recognized by the wallet.\n" +
+            "\nMake an extended search for deterministically generated XLBz that have not yet been recognized by the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments\n"
-            "1. \"count\"       (numeric) Which sequential zPIV to start with.\n"
-            "2. \"range\"       (numeric) How many zPIV to generate.\n"
+            "1. \"count\"       (numeric) Which sequential XLBz to start with.\n"
+            "2. \"range\"       (numeric) How many XLBz to generate.\n"
             "3. \"threads\"     (numeric) How many threads should this operation consume.\n"
 
             "\nExamples\n" +
@@ -3616,7 +3616,7 @@ UniValue searchdzpiv(const UniValue& params, bool fHelp)
 
     int nThreads = params[2].get_int();
 
-    CzPIVWallet* zwallet = pwalletMain->zwalletMain;
+    CXLBzWallet* zwallet = pwalletMain->zwalletMain;
 
     boost::thread_group* dzpivThreads = new boost::thread_group();
     int nRangePerThread = nRange / nThreads;

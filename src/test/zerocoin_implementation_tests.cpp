@@ -504,7 +504,7 @@ BOOST_AUTO_TEST_CASE(deterministic_tests)
     CWalletDB walletdb(strWalletFile, "cr+");
 
     CWallet wallet(strWalletFile);
-    CzPIVWallet zWallet(wallet.strWalletFile);
+    CXLBzWallet zWallet(wallet.strWalletFile);
     zWallet.SetMasterSeed(seedMaster);
     wallet.setZWallet(&zWallet);
 

@@ -58,12 +58,12 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Enable SwiftX, show confirmations for locked transactions (bool, default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Enable automatic wallet backups triggered after each zPIV minting (0-1, "
+"Enable automatic wallet backups triggered after each XLBz minting (0-1, "
 "default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Enable or disable staking functionality for PIV inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Enable or disable staking functionality for zPIV inputs (0-1, default: %u)"),
+"Enable or disable staking functionality for XLBz inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Enable spork administration functionality with the appropriate private key."),
 QT_TRANSLATE_NOOP("liberty-core", ""
@@ -171,7 +171,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "Show N confirmations for a successfully locked transaction (0-9999, default: "
 "%u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Specify custom backup path to add a copy of any automatic zPIV backup. If "
+"Specify custom backup path to add a copy of any automatic XLBz backup. If "
 "set as dir, every backup generates a timestamped file. If set as file, will "
 "rewrite to that file every backup. If backuppath is set as well, 4 backups "
 "will happen"),
@@ -410,7 +410,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Randomly drop 1 of every <n> network messages
 QT_TRANSLATE_NOOP("liberty-core", "Randomly fuzz 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("liberty-core", "Rebuild block chain index from current blk000??.dat files"),
 QT_TRANSLATE_NOOP("liberty-core", "Receive and display P2P network alerts (default: %u)"),
-QT_TRANSLATE_NOOP("liberty-core", "Reindex the PIV and zPIV money supply statistics"),
+QT_TRANSLATE_NOOP("liberty-core", "Reindex the PIV and XLBz money supply statistics"),
 QT_TRANSLATE_NOOP("liberty-core", "Reindex the accumulator database"),
 QT_TRANSLATE_NOOP("liberty-core", "Reindexing zerocoin database..."),
 QT_TRANSLATE_NOOP("liberty-core", "Reindexing zerocoin failed"),
@@ -462,7 +462,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Synchronizing budgets..."),
 QT_TRANSLATE_NOOP("liberty-core", "Synchronizing masternode winners..."),
 QT_TRANSLATE_NOOP("liberty-core", "Synchronizing masternodes..."),
 QT_TRANSLATE_NOOP("liberty-core", "Synchronizing sporks..."),
-QT_TRANSLATE_NOOP("liberty-core", "Syncing zPIV wallet..."),
+QT_TRANSLATE_NOOP("liberty-core", "Syncing XLBz wallet..."),
 QT_TRANSLATE_NOOP("liberty-core", "The coin spend has been used"),
 QT_TRANSLATE_NOOP("liberty-core", "The new spend coin transaction did not verify"),
 QT_TRANSLATE_NOOP("liberty-core", "The selected mint coin is an invalid coin"),
@@ -499,11 +499,11 @@ QT_TRANSLATE_NOOP("liberty-core", "Use UPnP to map the listening port (default: 
 QT_TRANSLATE_NOOP("liberty-core", "Use a custom max chain reorganization depth (default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", "Use the test network"),
 QT_TRANSLATE_NOOP("liberty-core", "Username for JSON-RPC connections"),
-QT_TRANSLATE_NOOP("liberty-core", "Value is below the smallest available denomination (= 1) of zPIV"),
+QT_TRANSLATE_NOOP("liberty-core", "Value is below the smallest available denomination (= 1) of XLBz"),
 QT_TRANSLATE_NOOP("liberty-core", "Value more than Obfuscation pool maximum allows."),
 QT_TRANSLATE_NOOP("liberty-core", "Verifying blocks..."),
 QT_TRANSLATE_NOOP("liberty-core", "Verifying wallet..."),
-QT_TRANSLATE_NOOP("liberty-core", "Version 1 zPIV require a security level of 100 to successfully spend."),
+QT_TRANSLATE_NOOP("liberty-core", "Version 1 XLBz require a security level of 100 to successfully spend."),
 QT_TRANSLATE_NOOP("liberty-core", "Wallet %s resides outside data directory %s"),
 QT_TRANSLATE_NOOP("liberty-core", "Wallet is locked."),
 QT_TRANSLATE_NOOP("liberty-core", "Wallet needed to be rewritten: restart PIVX Core to complete"),

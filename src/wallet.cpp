@@ -2128,9 +2128,9 @@ bool CWallet::SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInp
         }
     }
 
-    //zPIV
+    //XLBz
     if (GetBoolArg("-zpivstake", true) && !IsSporkActive(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
-        //Only update zPIV set once per update interval
+        //Only update XLBz set once per update interval
         bool fUpdate = false;
         static int64_t nTimeLastUpdate = 0;
         if (GetAdjustedTime() - nTimeLastUpdate > nStakeSetUpdateTime) {
@@ -2190,7 +2190,7 @@ bool CWallet::MintableCoins()
         }
     }
 
-    // zPIV
+    // XLBz
     if (nZpivBalance > 0) {
         set<CMintMeta> setMints = zpivTracker->ListMints(true, true, true);
         for (auto mint : setMints) {
@@ -4011,29 +4011,29 @@ void CWallet::AutoZeromint()
     CAmount nMintAmount = 0;
     CAmount nToMintAmount = 0;
 
-    // zPIV are integers > 0, so we can't mint 10% of 9 PIV
+    // XLBz are integers > 0, so we can't mint 10% of 9 PIV
     if (nBalance < 10){
-        LogPrint("zero", "CWallet::AutoZeromint(): available balance (%ld) too small for minting zPIV\n", nBalance);
+        LogPrint("zero", "CWallet::AutoZeromint(): available balance (%ld) too small for minting XLBz\n", nBalance);
         return;
     }
 
-    // Percentage of zPIV we already have
+    // Percentage of XLBz we already have
     double dPercentage = 100 * (double)nZerocoinBalance / (double)(nZerocoinBalance + nBalance);
 
     // Check if minting is actually needed
     if(dPercentage >= nZeromintPercentage){
-        LogPrint("zero", "CWallet::AutoZeromint() @block %ld: percentage of existing zPIV (%lf%%) already >= configured percentage (%d%%). No minting needed...\n",
+        LogPrint("zero", "CWallet::AutoZeromint() @block %ld: percentage of existing XLBz (%lf%%) already >= configured percentage (%d%%). No minting needed...\n",
                   chainActive.Tip()->nHeight, dPercentage, nZeromintPercentage);
         return;
     }
 
-    // zPIV amount needed for the target percentage
+    // XLBz amount needed for the target percentage
     nToMintAmount = ((nZerocoinBalance + nBalance) * nZeromintPercentage / 100);
 
-    // zPIV amount missing from target (must be minted)
+    // XLBz amount missing from target (must be minted)
     nToMintAmount = (nToMintAmount - nZerocoinBalance) / COIN;
 
-    // Use the biggest denomination smaller than the needed zPIV We'll only mint exact denomination to make minting faster.
+    // Use the biggest denomination smaller than the needed XLBz We'll only mint exact denomination to make minting faster.
     // Exception: for big amounts use 6666 (6666 = 1*5000 + 1*1000 + 1*500 + 1*100 + 1*50 + 1*10 + 1*5 + 1) to create all
     // possible denominations to avoid having 5000 denominations only.
     // If a preferred denomination is used (means nPreferredDenom != 0) do nothing until we have enough PIV to mint this denomination
@@ -4080,7 +4080,7 @@ void CWallet::AutoZeromint()
         nZerocoinBalance = GetZerocoinBalance(false);
         nBalance = GetUnlockedCoins();
         dPercentage = 100 * (double)nZerocoinBalance / (double)(nZerocoinBalance + nBalance);
-        LogPrintf("CWallet::AutoZeromint() @ block %ld: successfully minted %ld zPIV. Current percentage of zPIV: %lf%%\n",
+        LogPrintf("CWallet::AutoZeromint() @ block %ld: successfully minted %ld XLBz. Current percentage of XLBz: %lf%%\n",
                   chainActive.Tip()->nHeight, nMintAmount, dPercentage);
         // Re-adjust startup time to delay next Automint for 5 minutes
         nStartupTime = GetAdjustedTime();
@@ -4568,7 +4568,7 @@ bool CWallet::CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransa
             reservekey->ReturnKey();
     }
 
-    // Sign if these are liberty outputs - NOTE that zPIV outputs are signed later in SoK
+    // Sign if these are liberty outputs - NOTE that XLBz outputs are signed later in SoK
     if (!isZCSpendChange) {
         int nIn = 0;
         for (const std::pair<const CWalletTx*, unsigned int>& coin : setCoins) {
@@ -4622,7 +4622,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
     if (nVersion >= libzerocoin::PrivateCoin::PUBKEY_VERSION) {
         CKey key;
         if (!zerocoinSelected.GetKeyPair(key))
-            return error("%s: failed to set zPIV privkey mint version=%d", __func__, nVersion);
+            return error("%s: failed to set XLBz privkey mint version=%d", __func__, nVersion);
 
         privateCoin.setPrivKey(key.GetPrivKey());
     }
@@ -4679,7 +4679,7 @@ bool CWallet::MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, con
         }
 
         if (IsSerialKnown(spend.getCoinSerialNumber())) {
-            //Tried to spend an already spent zPIV
+            //Tried to spend an already spent XLBz
             receipt.SetStatus(_("The coin spend has been used"), ZPIV_SPENT_USED_ZPIV);
 
             uint256 hashSerial = GetSerialHash(spend.getCoinSerialNumber());
@@ -4719,7 +4719,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
     }
 
     if (nValue < 1) {
-        receipt.SetStatus(_("Value is below the smallest available denomination (= 1) of zPIV"), nStatus);
+        receipt.SetStatus(_("Value is below the smallest available denomination (= 1) of XLBz"), nStatus);
         return false;
     }
 
@@ -4732,7 +4732,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
     CAmount nValueSelected = 0;
     int nCoinsReturned = 0; // Number of coins returned in change from function below (for debug)
     int nNeededSpends = 0;  // Number of spends which would be needed if selection failed
-    const int nMaxSpends = Params().Zerocoin_MaxSpendsPerTransaction(); // Maximum possible spends for one zPIV transaction
+    const int nMaxSpends = Params().Zerocoin_MaxSpendsPerTransaction(); // Maximum possible spends for one XLBz transaction
     vector<CMintMeta> vMintsToFetch;
     if (vSelectedMints.empty()) {
         setMints = zpivTracker->ListMints(true, true, true); // need to find mints to spend
@@ -4748,7 +4748,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
         if(!fWholeNumber)
             nValueToSelect = static_cast<CAmount>(ceil(dValue) * COIN);
 
-        // Select the zPIV mints to use in this spend
+        // Select the XLBz mints to use in this spend
         std::map<libzerocoin::CoinDenomination, CAmount> DenomMap = GetMyZerocoinDistribution();
         list<CMintMeta> listMints(setMints.begin(), setMints.end());
         vMintsToFetch = SelectMintsFromList(nValueToSelect, nValueSelected, nMaxSpends, fMinimizeChange,
@@ -4818,7 +4818,7 @@ bool CWallet::CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel,
         if (mint.GetVersion() < libzerocoin::PrivateCoin::PUBKEY_VERSION) {
             if (nSecurityLevel < 100) {
                 nStatus = ZPIV_SPEND_V1_SEC_LEVEL;
-                receipt.SetStatus(_("Version 1 zPIV require a security level of 100 to successfully spend."), nStatus);
+                receipt.SetStatus(_("Version 1 XLBz require a security level of 100 to successfully spend."), nStatus);
                 return false;
             }
         }
@@ -4959,7 +4959,7 @@ string CWallet::ResetMintZerocoin()
             LogPrintf("%s: failed to archive mint\n", __func__);
     }
 
-    NotifyzPIVReset();
+    NotifyXLBzReset();
 
     string strResult = _("ResetMintZerocoin finished: ") + to_string(updates) + _(" mints updated, ") + to_string(deletions) + _(" mints deleted\n");
     return strResult;
@@ -4999,7 +4999,7 @@ string CWallet::ResetSpentZerocoin()
         }
     }
 
-    NotifyzPIVReset();
+    NotifyXLBzReset();
 
     string strResult = _("ResetSpentZerocoin finished: ") + to_string(removed) + _(" unconfirmed transactions removed\n");
     return strResult;
@@ -5273,7 +5273,7 @@ bool CWallet::SpendZerocoin(CAmount nAmount, int nSecurityLevel, CWalletTx& wtxN
         zpivTracker->Add(dMint, true);
     }
 
-    receipt.SetStatus("Spend Successful", ZPIV_SPEND_OKAY);  // When we reach this point spending zPIV was successful
+    receipt.SetStatus("Spend Successful", ZPIV_SPEND_OKAY);  // When we reach this point spending XLBz was successful
 
     return true;
 }

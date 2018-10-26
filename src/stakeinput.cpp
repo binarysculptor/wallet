@@ -41,7 +41,7 @@ uint32_t CZPivStake::GetChecksum()
     return nChecksum;
 }
 
-// The zPIV block index is the first appearance of the accumulator checksum that was used in the spend
+// The XLBz block index is the first appearance of the accumulator checksum that was used in the spend
 // note that this also means when staking that this checksum should be from a block that is beyond 60 minutes old and
 // 100 blocks deep.
 CBlockIndex* CZPivStake::GetIndexFrom()
@@ -94,7 +94,7 @@ bool CZPivStake::GetModifier(uint64_t& nStakeModifier)
 
 CDataStream CZPivStake::GetUniqueness()
 {
-    //The unique identifier for a zPIV is a hash of the serial
+    //The unique identifier for a XLBz is a hash of the serial
     CDataStream ss(SER_GETHASH, 0);
     ss << hashSerial;
     return ss;
@@ -173,7 +173,7 @@ bool CZPivStake::GetTxFrom(CTransaction& tx)
 
 bool CZPivStake::MarkSpent(CWallet *pwallet, const uint256& txid)
 {
-    CzPIVTracker* zpivTracker = pwallet->zpivTracker.get();
+    CXLBzTracker* zpivTracker = pwallet->zpivTracker.get();
     CMintMeta meta;
     if (!zpivTracker->GetMetaFromStakeHash(hashSerial, meta))
         return error("%s: tracker does not have serialhash", __func__);

@@ -89,7 +89,7 @@ enum AvailableCoinsType {
     STAKABLE_COINS = 6                          // UTXO's that are valid for staking
 };
 
-// Possible states for zPIV send
+// Possible states for XLBz send
 enum ZerocoinSpendStatus {
     ZPIV_SPEND_OKAY = 0,                            // No error
     ZPIV_SPEND_ERROR = 1,                           // Unspecified class of errors, more details are (hopefully) in the returning text
@@ -237,13 +237,13 @@ public:
      */
     mutable CCriticalSection cs_wallet;
 
-    CzPIVWallet* zwalletMain;
+    CXLBzWallet* zwalletMain;
 
     bool fFileBacked;
     bool fWalletUnlockAnonymizeOnly;
     std::string strWalletFile;
     bool fBackupMints;
-    std::unique_ptr<CzPIVTracker> zpivTracker;
+    std::unique_ptr<CXLBzTracker> zpivTracker;
 
     std::set<int64_t> setKeyPool;
     std::map<CKeyID, CKeyMetadata> mapKeyMetadata;
@@ -328,13 +328,13 @@ public:
         return nZeromintPercentage;
     }
 
-    void setZWallet(CzPIVWallet* zwallet)
+    void setZWallet(CXLBzWallet* zwallet)
     {
         zwalletMain = zwallet;
-        zpivTracker = std::unique_ptr<CzPIVTracker>(new CzPIVTracker(strWalletFile));
+        zpivTracker = std::unique_ptr<CXLBzTracker>(new CXLBzTracker(strWalletFile));
     }
 
-    CzPIVWallet* getZWallet() { return zwalletMain; }
+    CXLBzWallet* getZWallet() { return zwalletMain; }
 
     bool isZeromintEnabled()
     {
@@ -528,7 +528,7 @@ public:
     std::set<CTxDestination> GetAccountAddresses(std::string strAccount) const;
 
     bool GetBudgetSystemCollateralTX(CWalletTx& tx, uint256 hash, bool useIX);
-    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization 
+    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization
 
     // get the Obfuscation chain depth for a given input
     int GetRealInputObfuscationRounds(CTxIn in, int rounds) const;
@@ -671,8 +671,8 @@ public:
     /** MultiSig address added */
     boost::signals2::signal<void(bool fHaveMultiSig)> NotifyMultiSigChanged;
 
-    /** zPIV reset */
-    boost::signals2::signal<void()> NotifyzPIVReset;
+    /** XLBz reset */
+    boost::signals2::signal<void()> NotifyXLBzReset;
 
     /** notify wallet file backed up */
     boost::signals2::signal<void (const bool& fSuccess, const std::string& filename)> NotifyWalletBacked;
