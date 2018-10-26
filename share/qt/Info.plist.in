@@ -49,7 +49,7 @@
       <string>com.liberty-coin.PivxPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>pivx</string>
+        <string>liberty</string>
       </array>
     </dict>
   </array>

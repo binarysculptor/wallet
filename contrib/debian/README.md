@@ -4,7 +4,7 @@ Debian
 This directory contains files used to package libertyd/liberty-qt
 for Debian-based Linux systems. If you compile libertyd/liberty-qt yourself, there are some useful files here.
 
-## pivx: URI support ##
+## liberty: URI support ##
 
 
 liberty-qt.desktop  (Gnome / Open Desktop)

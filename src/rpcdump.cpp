@@ -336,7 +336,7 @@ UniValue dumpprivkey(const UniValue& params, bool fHelp)
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. \"pivxaddress\"   (string, required) The pivx address for the private key\n"
+            "1. \"pivxaddress\"   (string, required) The liberty address for the private key\n"
 
             "\nResult:\n"
             "\"key\"                (string) The private key\n"
@@ -434,7 +434,7 @@ UniValue bip38encrypt(const UniValue& params, bool fHelp)
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. \"pivxaddress\"   (string, required) The pivx address for the private key (you must hold the key already)\n"
+            "1. \"pivxaddress\"   (string, required) The liberty address for the private key (you must hold the key already)\n"
             "2. \"passphrase\"   (string, required) The passphrase you want the private key to be encrypted with - Valid special chars: !#$%&'()*+,-./:;<=>?`{|}~ \n"
 
             "\nResult:\n"

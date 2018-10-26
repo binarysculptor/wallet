@@ -41,7 +41,7 @@ QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
     case PIV:
-        return QString("pivx");
+        return QString("liberty");
     case mPIV:
         return QString("mpivx");
     case uPIV:

@@ -19,7 +19,7 @@ _pivx_rpc() {
     $libertyd "${rpcargs[@]}" "$@"
 }
 
-# Add pivx accounts to COMPREPLY
+# Add liberty accounts to COMPREPLY
 _pivx_accounts() {
     local accounts
     accounts=$(_pivx_rpc listaccounts | awk '/".*"/ { a=$1; gsub(/"/, "", a); print a}')

@@ -26,7 +26,7 @@ Table of Contents
 - [Installing gitian](#installing-gitian)
 - [Setting up gitian images](#setting-up-gitian-images)
 - [Getting and building the inputs](#getting-and-building-the-inputs)
-- [Building PIVX](#building-pivx)
+- [Building PIVX](#building-liberty)
 - [Building an alternative repository](#building-an-alternative-repository)
 - [Signing externally](#signing-externally)
 - [Uploading signatures](#uploading-signatures)
@@ -277,12 +277,12 @@ cd ..
 
 **Note**: When sudo asks for a password, enter the password for the user *debian* not for *root*.
 
-Clone the git repositories for pivx and gitian and then checkout the pivx version that you want to build.
+Clone the git repositories for liberty and gitian and then checkout the liberty version that you want to build.
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
 git clone https://github.com/liberty-crypto/wallet.git
-cd pivx
+cd liberty
 git checkout v${VERSION}
 cd ..
 ```
@@ -321,7 +321,7 @@ There will be a lot of warnings printed during build of the images. These can be
 Getting and building the inputs
 --------------------------------
 
-Follow the instructions in [doc/release-process.md](release-process.md) in the pivx repository
+Follow the instructions in [doc/release-process.md](release-process.md) in the liberty repository
 under 'Fetch and build inputs' to install sources which require manual intervention. Also follow
 the next step: 'Seed the Gitian sources cache', which will fetch all necessary source files allowing
 for gitian to work offline.
@@ -330,7 +330,7 @@ Building PIVX
 ----------------
 
 To build PIVX (for Linux, OSX and Windows) just follow the steps under 'perform
-gitian builds' in [doc/release-process.md](release-process.md) in the pivx repository.
+gitian builds' in [doc/release-process.md](release-process.md) in the liberty repository.
 
 This may take a long time as it also builds the dependencies needed for each descriptor.
 These dependencies will be cached after a successful build to avoid rebuilding them when possible.
@@ -345,12 +345,12 @@ tail -f var/build.log
 Output from `gbuild` will look something like
 
 ```bash
-    Initialized empty Git repository in /home/debian/gitian-builder/inputs/pivx/.git/
+    Initialized empty Git repository in /home/debian/gitian-builder/inputs/liberty/.git/
     remote: Reusing existing pack: 35606, done.
     remote: Total 35606 (delta 0), reused 0 (delta 0)
     Receiving objects: 100% (35606/35606), 26.52 MiB | 4.28 MiB/s, done.
     Resolving deltas: 100% (25724/25724), done.
-    From https://github.com/liberty-crypto/pivx
+    From https://github.com/liberty-crypto/liberty
     ... (new tags, new branch etc)
     --- Building for precise x86_64 ---
     Stopping target if it is up
@@ -379,9 +379,9 @@ For example:
 ```bash
 URL=https://github.com/crowning-/wallet.git
 COMMIT=b616fb8ef0d49a919b72b0388b091aaec5849b96
-./bin/gbuild --commit pivx=${COMMIT} --url pivx=${URL} ../pivx/contrib/gitian-descriptors/gitian-linux.yml
-./bin/gbuild --commit pivx=${COMMIT} --url pivx=${URL} ../pivx/contrib/gitian-descriptors/gitian-win.yml
-./bin/gbuild --commit pivx=${COMMIT} --url pivx=${URL} ../pivx/contrib/gitian-descriptors/gitian-osx.yml
+./bin/gbuild --commit liberty=${COMMIT} --url liberty=${URL} ../liberty/contrib/gitian-descriptors/gitian-linux.yml
+./bin/gbuild --commit liberty=${COMMIT} --url liberty=${URL} ../liberty/contrib/gitian-descriptors/gitian-win.yml
+./bin/gbuild --commit liberty=${COMMIT} --url liberty=${URL} ../liberty/contrib/gitian-descriptors/gitian-osx.yml
 ```
 
 Signing externally
@@ -408,6 +408,6 @@ Uploading signatures (not yet implemented)
 ---------------------
 
 In the future it will be possible to push your signatures (both the `.assert` and `.assert.sig` files) to the
-[pivx/gitian.sigs](https://github.com/liberty-crypto/gitian.sigs/) repository, or if that's not possible to create a pull
+[liberty/gitian.sigs](https://github.com/liberty-crypto/gitian.sigs/) repository, or if that's not possible to create a pull
 request.
 There will be an official announcement when this repository is online.

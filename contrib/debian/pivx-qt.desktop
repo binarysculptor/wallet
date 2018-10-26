@@ -8,5 +8,5 @@ Exec=liberty-qt %u
 Terminal=false
 Type=Application
 Icon=pivx128
-MimeType=x-scheme-handler/pivx;
+MimeType=x-scheme-handler/liberty;
 Categories=Office;Finance;

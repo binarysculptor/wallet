@@ -1,7 +1,7 @@
 # /etc/conf.d/libertyd: config file for /etc/init.d/libertyd
 
 # Config file location
-#BITCOIND_CONFIGFILE="/etc/pivx/liberty.conf"
+#BITCOIND_CONFIGFILE="/etc/liberty/liberty.conf"
 
 # What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
 #BITCOIND_PIDDIR="/var/run/libertyd"
@@ -13,8 +13,8 @@
 #BITCOIND_DATADIR="/var/lib/libertyd"
 
 # User and group to own libertyd process
-#BITCOIND_USER="pivx"
-#BITCOIND_GROUP="pivx"
+#BITCOIND_USER="liberty"
+#BITCOIND_GROUP="liberty"
 
 # Path to libertyd executable
 #BITCOIND_BIN="/usr/bin/libertyd"

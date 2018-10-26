@@ -73,7 +73,7 @@ if BUILD_BITCOIN_UTILS
 endif
 
 .PHONY: FORCE
-# pivx core #
+# liberty core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   accumulators.h \

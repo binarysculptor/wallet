@@ -237,8 +237,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "pivx" is a composite category enabling all PIVX-related debug output
-            if (ptrCategory->count(string("pivx"))) {
+            // "liberty" is a composite category enabling all PIVX-related debug output
+            if (ptrCategory->count(string("liberty"))) {
                 ptrCategory->insert(string("obfuscation"));
                 ptrCategory->insert(string("swiftx"));
                 ptrCategory->insert(string("masternode"));
@@ -403,7 +403,7 @@ static std::string FormatException(std::exception* pex, const char* pszThread)
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "pivx";
+    const char* pszModule = "liberty";
 #endif
     if (pex)
         return strprintf(
@@ -427,7 +427,7 @@ boost::filesystem::path GetDefaultDataDir()
 // Windows < Vista: C:\Documents and Settings\Username\Application Data\PIVX
 // Windows >= Vista: C:\Users\Username\AppData\Roaming\PIVX
 // Mac: ~/Library/Application Support/PIVX
-// Unix: ~/.pivx
+// Unix: ~/.liberty
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "PIVX";
@@ -445,7 +445,7 @@ boost::filesystem::path GetDefaultDataDir()
     return pathRet / "PIVX";
 #else
     // Unix
-    return pathRet / ".pivx";
+    return pathRet / ".liberty";
 #endif
 #endif
 }

@@ -332,7 +332,7 @@ HEADERS += src/activemasternode.h \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.h \
            src/crypto/aes_helper.c \
            src/qt/bitcoinamountfield.moc \
-           src/qt/pivx.moc \
+           src/qt/liberty.moc \
            src/qt/intro.moc \
            src/qt/overviewpage.moc \
            src/qt/rpcconsole.moc \
@@ -375,7 +375,7 @@ SOURCES += src/activemasternode.cpp \
            src/obfuscation.cpp \
            src/liberty-cli.cpp \
            src/liberty-tx.cpp \
-           src/pivx.cpp \
+           src/liberty.cpp \
            src/db.cpp \
            src/eccryptoverify.cpp \
            src/ecwrapper.cpp \
@@ -470,7 +470,7 @@ SOURCES += src/activemasternode.cpp \
            src/qt/coincontroltreewidget.cpp \
            src/qt/csvmodelwriter.cpp \
            src/qt/obfuscationconfig.cpp \
-           src/qt/pivx.cpp \
+           src/qt/liberty.cpp \
            src/qt/pivxstrings.cpp \
            src/qt/editaddressdialog.cpp \
            src/qt/guiutil.cpp \
@@ -640,7 +640,7 @@ SOURCES += src/activemasternode.cpp \
            src/leveldb/helpers/memenv/memenv.cc \
            src/leveldb/helpers/memenv/memenv_test.cc \
            src/secp256k1/src/java/org_bitcoin_NativeSecp256k1.c
-RESOURCES += src/qt/pivx.qrc src/qt/pivx_locale.qrc
+RESOURCES += src/qt/liberty.qrc src/qt/pivx_locale.qrc
 
 TRANSLATIONS += src/qt/locale/pivx_bg.ts \
                 src/qt/locale/pivx_de.ts \

@@ -13,7 +13,7 @@ can be found in the contrib/init folder.
 1. Service User
 ---------------------------------
 
-All three startup configurations assume the existence of a "pivx" user
+All three startup configurations assume the existence of a "liberty" user
 and group.  They must be created before attempting to use these scripts.
 
 2. Configuration
@@ -35,7 +35,7 @@ generate one from the shell yourself like this:
 
 bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'
 
-Once you have a password in hand, set rpcpassword= in /etc/pivx/liberty.conf
+Once you have a password in hand, set rpcpassword= in /etc/liberty/liberty.conf
 
 For an example configuration file that describes the configuration settings,
 see contrib/debian/examples/liberty.conf.
@@ -46,15 +46,15 @@ see contrib/debian/examples/liberty.conf.
 All three configurations assume several paths that might need to be adjusted.
 
 Binary:              /usr/bin/libertyd
-Configuration file:  /etc/pivx/liberty.conf
+Configuration file:  /etc/liberty/liberty.conf
 Data directory:      /var/lib/libertyd
 PID file:            /var/run/libertyd/libertyd.pid (OpenRC and Upstart)
                      /var/lib/libertyd/libertyd.pid (systemd)
 
 The configuration file, PID directory (if applicable) and data directory
-should all be owned by the pivx user and group.  It is advised for security
+should all be owned by the liberty user and group.  It is advised for security
 reasons to make the configuration file and data directory only readable by the
-pivx user and group.  Access to liberty-cli and other libertyd rpc clients
+liberty user and group.  Access to liberty-cli and other libertyd rpc clients
 can then be controlled by group membership.
 
 4. Installing Service Configuration

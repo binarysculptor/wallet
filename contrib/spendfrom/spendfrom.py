@@ -33,12 +33,12 @@ def check_json_precision():
         raise RuntimeError("JSON encode/decode loses precision")
 
 def determine_db_dir():
-    """Return the default location of the pivx data directory"""
+    """Return the default location of the liberty data directory"""
     if platform.system() == "Darwin":
         return os.path.expanduser("~/Library/Application Support/PIVX/")
     elif platform.system() == "Windows":
         return os.path.join(os.environ['APPDATA'], "PIVX")
-    return os.path.expanduser("~/.pivx")
+    return os.path.expanduser("~/.liberty")
 
 def read_bitcoin_config(dbdir):
     """Read the liberty.conf file from dbdir, returns dictionary of settings"""
@@ -63,7 +63,7 @@ def read_bitcoin_config(dbdir):
     return dict(config_parser.items("all"))
 
 def connect_JSON(config):
-    """Connect to a pivx JSON-RPC server"""
+    """Connect to a liberty JSON-RPC server"""
     testnet = config.get('testnet', '0')
     testnet = (int(testnet) > 0)  # 0/1 in config file, convert to True/False
     if not 'rpcport' in config:

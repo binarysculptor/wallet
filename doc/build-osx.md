@@ -121,6 +121,6 @@ you can monitor its process by looking at the debug.log file, like this:
 Other commands:
 -------
 
-    ./libertyd -daemon # to start the pivx daemon.
+    ./libertyd -daemon # to start the liberty daemon.
     ./liberty-cli --help  # for a list of command-line options.
     ./liberty-cli help    # When the daemon is running, to get a list of RPC commands
