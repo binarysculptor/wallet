@@ -8,7 +8,7 @@ There are many ways to setup a wallet to support start-many. This guide will wal
 
 ## <a name="option1"></a>Option 1. Importing an existing wallet
 
-This is the way to go if you are consolidating multiple wallets into one that supports start-many. 
+This is the way to go if you are consolidating multiple wallets into one that supports start-many.
 
 ### From your single-instance MasterNode Wallet
 
@@ -80,7 +80,7 @@ Create the masternode.conf file in the same directory as your wallet.dat.
 
 Copy the masternode private key and correspondig collateral output transaction that holds the 1K PIVX.
 
-The masternode private key may be an existing key from [Option 1](#option1), or a newly generated key from [Option 2](#option2). 
+The masternode private key may be an existing key from [Option 1](#option1), or a newly generated key from [Option 2](#option2).
 
 *Please note, the masternode priviate key is not the same as a wallet private key. Never put your wallet private key in the masternode.conf file. That is equivalent to putting your 10,000 PIVX on the remote server and defeats the purpose of a hot/cold setup.*
 
@@ -108,13 +108,13 @@ alias ipaddress:port masternode_private_key collateral_output collateral_output_
 Example:
 
 ```
-mn01 127.0.0.1:51472 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0
-mn02 127.0.0.2:51472 93WaAb3htPJEV8E9aQcN23Jt97bPex7YvWfgMDTUdWJvzmrMqey aa9f1034d973377a5e733272c3d0eced1de22555ad45d6b24abadff8087948d4 0 7gnwGHt17heGpG9Crfeh4KGpYNFugPhJdh:25
+mn01 127.0.0.1:10417 93HaYBVUCYjEMeeH1Y4sBGLALQZE1Yc1K64xiqgX37tGBDQL8Xg 2bcd3c84c84f87eaa86e4e56834c92927a07f9e18718810b92e0d0324456a67c 0
+mn02 127.0.0.2:10417 93WaAb3htPJEV8E9aQcN23Jt97bPex7YvWfgMDTUdWJvzmrMqey aa9f1034d973377a5e733272c3d0eced1de22555ad45d6b24abadff8087948d4 0 7gnwGHt17heGpG9Crfeh4KGpYNFugPhJdh:25
 ```
 
 ## What about the pivx.conf file?
 
-If you are using a masternode.conf file you no longer need the pivx.conf file. The exception is if you need custom settings (thanks oblox). 
+If you are using a masternode.conf file you no longer need the pivx.conf file. The exception is if you need custom settings (thanks oblox).
 
 ## Update pivx.conf on server
 
@@ -131,7 +131,7 @@ If you generated a new masternode private key, you will need to update the maste
 
 ### Remote
 
-If your remote server is not running, start your remote daemon as you normally would. 
+If your remote server is not running, start your remote daemon as you normally would.
 
 I usually confirm that remote is on the correct block by issuing:
 

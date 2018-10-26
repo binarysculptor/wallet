@@ -463,7 +463,7 @@ bool CMasternodeBroadcast::Create(CTxIn txin, CService service, CKey keyCollater
 bool CMasternodeBroadcast::CheckDefaultPort(std::string strService, std::string& strErrorRet, std::string strContext)
 {
     CService service = CService(strService);
-    int nDefaultPort = Params().GetDefaultPort();
+    int nDefaultPort = Params().GetP2PPort();
 
     if (service.GetPort() != nDefaultPort) {
         strErrorRet = strprintf("Invalid port %u for masternode %s, only %d is supported on %s-net.",
@@ -526,8 +526,8 @@ bool CMasternodeBroadcast::CheckAndUpdate(int& nDos)
     }
 
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
-        if (addr.GetPort() != 51472) return false;
-    } else if (addr.GetPort() == 51472)
+        if (addr.GetPort() != Params().GetP2PPort()) return false;
+    } else if (addr.GetPort() == Params().GetP2PPort())
         return false;
 
     //search existing Masternode list, this is where we update existing Masternodes with new mnb broadcasts
