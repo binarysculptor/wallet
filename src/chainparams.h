@@ -74,7 +74,7 @@ public:
     int64_t TargetTimespan() const { return nTargetTimespan; }
     int64_t TargetSpacing() const { return nTargetSpacing; }
     int64_t Interval() const { return nTargetTimespan / nTargetSpacing; }
-    int COINBASE_MATURITY() const { return nMaturity; }
+    int Coinbase_Maturity() const { return nMaturity; }
     CAmount MaxMoneyOut() const { return nMaxMoneyOut; }
     /** Make miner stop after a block is found. In RPC, don't return until nGenProcLimit blocks are generated */
     bool MineBlocksOnDemand() const { return fMineBlocksOnDemand; }
