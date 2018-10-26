@@ -173,12 +173,12 @@ bool CZPivStake::GetTxFrom(CTransaction& tx)
 
 bool CZPivStake::MarkSpent(CWallet *pwallet, const uint256& txid)
 {
-    CXLBzTracker* zpivTracker = pwallet->zpivTracker.get();
+    CXLBzTracker* xlbzTracker = pwallet->xlbzTracker.get();
     CMintMeta meta;
-    if (!zpivTracker->GetMetaFromStakeHash(hashSerial, meta))
+    if (!xlbzTracker->GetMetaFromStakeHash(hashSerial, meta))
         return error("%s: tracker does not have serialhash", __func__);
 
-    zpivTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
+    xlbzTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
     return true;
 }
 

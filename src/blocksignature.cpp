@@ -4,7 +4,7 @@
 
 #include "blocksignature.h"
 #include "main.h"
-#include "zpivchain.h"
+#include "xlbzchain.h"
 
 bool SignBlockWithKey(CBlock& block, const CKey& key)
 {

@@ -23,8 +23,8 @@
 #include "validationinterface.h"
 #include "wallet_ismine.h"
 #include "walletdb.h"
-#include "zpivwallet.h"
-#include "zpivtracker.h"
+#include "xlbzwallet.h"
+#include "xlbztracker.h"
 
 #include <algorithm>
 #include <map>
@@ -221,7 +221,7 @@ public:
     bool DatabaseMint(CDeterministicMint& dMint);
     bool SetMintUnspent(const CBigNum& bnSerial);
     bool UpdateMint(const CBigNum& bnValue, const int& nHeight, const uint256& txid, const libzerocoin::CoinDenomination& denom);
-    string GetUniqueWalletBackupName(bool fzpivAuto) const;
+    string GetUniqueWalletBackupName(bool fxlbzAuto) const;
 
 
     /** Zerocin entry changed.
@@ -243,7 +243,7 @@ public:
     bool fWalletUnlockAnonymizeOnly;
     std::string strWalletFile;
     bool fBackupMints;
-    std::unique_ptr<CXLBzTracker> zpivTracker;
+    std::unique_ptr<CXLBzTracker> xlbzTracker;
 
     std::set<int64_t> setKeyPool;
     std::map<CKeyID, CKeyMetadata> mapKeyMetadata;
@@ -331,7 +331,7 @@ public:
     void setZWallet(CXLBzWallet* zwallet)
     {
         zwalletMain = zwallet;
-        zpivTracker = std::unique_ptr<CXLBzTracker>(new CXLBzTracker(strWalletFile));
+        xlbzTracker = std::unique_ptr<CXLBzTracker>(new CXLBzTracker(strWalletFile));
     }
 
     CXLBzWallet* getZWallet() { return zwalletMain; }
