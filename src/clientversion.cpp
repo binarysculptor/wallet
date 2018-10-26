@@ -13,7 +13,7 @@
  * for both libertyd and liberty-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("PIVX Core");
+const std::string CLIENT_NAME("Liberty Core");
 
 /**
  * Client version number

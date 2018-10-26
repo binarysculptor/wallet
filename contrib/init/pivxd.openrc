@@ -16,7 +16,7 @@ BITCOIND_USER=${BITCOIND_USER:-liberty}
 BITCOIND_GROUP=${BITCOIND_GROUP:-liberty}
 BITCOIND_BIN=${BITCOIND_BIN:-/usr/bin/libertyd}
 
-name="PIVX Core Daemon"
+name="Liberty Core Daemon"
 description="PIVX crypto-currency p2p network daemon"
 
 command="/usr/bin/libertyd"
