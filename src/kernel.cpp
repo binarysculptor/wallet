@@ -36,7 +36,7 @@ static std::map<int, unsigned int> mapStakeModifierCheckpoints =
 // Get time weight
 int64_t GetWeight(int64_t nIntervalBeginning, int64_t nIntervalEnd)
 {
-    return nIntervalEnd - nIntervalBeginning - nStakeMinAge;
+    return nIntervalEnd - nIntervalBeginning - Params().Stake_Min_Age();
 }
 
 // Get the last stake modifier and its generation time from a given block
@@ -258,7 +258,14 @@ bool GetKernelStakeModifier(uint256 hashBlockFrom, uint64_t& nStakeModifier, int
     while (nStakeModifierTime < pindexFrom->GetBlockTime() + nStakeModifierSelectionInterval) {
         if (!pindexNext) {
             // Should never happen
-            return error("Null pindexNext\n");
+            if (pindex->GetBlockTime() + Params().Stake_Min_Age() - nStakeModifierSelectionInterval > GetAdjustedTime())
+                return error("GetKernelStakeModifier() : reached best block %s at height %d from block %s",
+                    pindex->GetBlockHash().ToString().c_str(), pindex->nHeight, hashBlockFrom.ToString().c_str());
+            else
+			{
+                LogPrintf("GetKernelStakeModifier(): FAILED BECAUSE no pindexnext\n");
+				return false;
+			}
         }
 
         pindex = pindexNext;
@@ -298,9 +305,9 @@ bool Stake(CStakeInput* stakeInput, unsigned int nBits, unsigned int nTimeBlockF
     if (nTimeTx < nTimeBlockFrom)
         return error("CheckStakeKernelHash() : nTime violation");
 
-    if (nTimeBlockFrom + nStakeMinAge > nTimeTx) // Min age requirement
-        return error("CheckStakeKernelHash() : min age violation - nTimeBlockFrom=%d nStakeMinAge=%d nTimeTx=%d",
-                     nTimeBlockFrom, nStakeMinAge, nTimeTx);
+    if (nTimeBlockFrom + Params().Stake_Min_Age() > nTimeTx) // Min age requirement
+        return error("CheckStakeKernelHash() : min age violation - nTimeBlockFrom=%d Params().Stake_Min_Age()=%d nTimeTx=%d",
+                     nTimeBlockFrom, Params().Stake_Min_Age(), nTimeTx);
 
     //grab difficulty
     uint256 bnTargetPerCoinDay;
