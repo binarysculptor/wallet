@@ -8,7 +8,7 @@
             "name": "Debug",
             "type": "gdb",
             "request": "launch",
-            "target": "./src/qt/pivx-qt",
+            "target": "./src/qt/liberty-qt",
             "cwd": "${workspaceRoot}"
         }
     ]

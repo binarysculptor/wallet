@@ -12,7 +12,7 @@ PIDFile=/var/lib/libertyd/libertyd.pid
 ExecStart=/usr/bin/libertyd -daemon -pid=/var/lib/libertyd/libertyd.pid \
           -conf=/etc/pivx/pivx.conf -datadir=/var/lib/libertyd
 
-ExecStop=-/usr/bin/pivx-cli -conf=/etc/pivx/pivx.conf \
+ExecStop=-/usr/bin/liberty-cli -conf=/etc/pivx/pivx.conf \
          -datadir=/var/lib/libertyd stop
 
 Restart=always

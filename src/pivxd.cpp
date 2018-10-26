@@ -120,7 +120,7 @@ bool AppInit(int argc, char* argv[])
                 fCommandLine = true;
 
         if (fCommandLine) {
-            fprintf(stderr, "Error: There is no RPC client functionality in libertyd anymore. Use the pivx-cli utility instead.\n");
+            fprintf(stderr, "Error: There is no RPC client functionality in libertyd anymore. Use the liberty-cli utility instead.\n");
             exit(1);
         }
 #ifndef WIN32

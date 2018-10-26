@@ -52,9 +52,9 @@ const QString BITCOIN_IPC_PREFIX("pivx:");
 const char* BIP70_MESSAGE_PAYMENTACK = "PaymentACK";
 const char* BIP70_MESSAGE_PAYMENTREQUEST = "PaymentRequest";
 // BIP71 payment protocol media types
-const char* BIP71_MIMETYPE_PAYMENT = "application/pivx-payment";
-const char* BIP71_MIMETYPE_PAYMENTACK = "application/pivx-paymentack";
-const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/pivx-paymentrequest";
+const char* BIP71_MIMETYPE_PAYMENT = "application/liberty-payment";
+const char* BIP71_MIMETYPE_PAYMENTACK = "application/liberty-paymentack";
+const char* BIP71_MIMETYPE_PAYMENTREQUEST = "application/liberty-paymentrequest";
 // BIP70 max payment request size in bytes (DoS protection)
 const qint64 BIP70_MAX_PAYMENTREQUEST_SIZE = 50000;
 

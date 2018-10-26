@@ -78,7 +78,7 @@ def initialize_chain(test_dir):
     """
     Create (or copy from cache) a 200-block-long chain and
     4 wallets.
-    libertyd and pivx-cli must be in search path.
+    libertyd and liberty-cli must be in search path.
     """
 
     if not os.path.isdir(os.path.join("cache", "node0")):
@@ -90,7 +90,7 @@ def initialize_chain(test_dir):
             if i > 0:
                 args.append("-connect=127.0.0.1:"+str(p2p_port(0)))
             bitcoind_processes[i] = subprocess.Popen(args)
-            subprocess.check_call([ os.getenv("BITCOINCLI", "pivx-cli"), "-datadir="+datadir,
+            subprocess.check_call([ os.getenv("BITCOINCLI", "liberty-cli"), "-datadir="+datadir,
                                     "-rpcwait", "getblockcount"], stdout=devnull)
         devnull.close()
         rpcs = []
@@ -169,7 +169,7 @@ def start_node(i, dirname, extra_args=None, rpchost=None):
     if extra_args is not None: args.extend(extra_args)
     bitcoind_processes[i] = subprocess.Popen(args)
     devnull = open("/dev/null", "w+")
-    subprocess.check_call([ os.getenv("BITCOINCLI", "pivx-cli"), "-datadir="+datadir] +
+    subprocess.check_call([ os.getenv("BITCOINCLI", "liberty-cli"), "-datadir="+datadir] +
                           _rpchost_to_args(rpchost)  +
                           ["-rpcwait", "getblockcount"], stdout=devnull)
     devnull.close()

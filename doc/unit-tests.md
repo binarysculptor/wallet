@@ -12,7 +12,7 @@ To add more libertyd tests, add `BOOST_AUTO_TEST_CASE` functions to the existing
 .cpp files in the test/ directory or add new .cpp files that
 implement new BOOST_AUTO_TEST_SUITE sections.
 
-To run the pivx-qt tests manually, launch src/qt/test/pivx-qt_test
+To run the liberty-qt tests manually, launch src/qt/test/liberty-qt_test
 
-To add more pivx-qt tests, add them to the `src/qt/test/` directory and
+To add more liberty-qt tests, add them to the `src/qt/test/` directory and
 the `src/qt/test/test_main.cpp` file.

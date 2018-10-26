@@ -13,12 +13,12 @@ The following are some helpful notes on how to run PIVX on your native platform.
 
 Unpack the files into a directory and run:
 
-- bin/32/pivx-qt (GUI, 32-bit) or bin/32/libertyd (headless, 32-bit)
-- bin/64/pivx-qt (GUI, 64-bit) or bin/64/libertyd (headless, 64-bit)
+- bin/32/liberty-qt (GUI, 32-bit) or bin/32/libertyd (headless, 32-bit)
+- bin/64/liberty-qt (GUI, 64-bit) or bin/64/libertyd (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run pivx-qt.exe.
+Unpack the files into a directory, and then run liberty-qt.exe.
 
 ### OSX
 
@@ -57,7 +57,7 @@ The Pivx repo's [root README](https://github.com/PIVX-Project/PIVX/blob/master/R
 ### Resources
 
 * Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [PIVX](http://forum.liberty-coin.com/) forum.
-* Join the [PIVX-Dev](https://pivx-dev.slack.com/) Slack group ([Sign-Up](https://pivx-dev.herokuapp.com/)).
+* Join the [PIVX-Dev](https://liberty-dev.slack.com/) Slack group ([Sign-Up](https://liberty-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)

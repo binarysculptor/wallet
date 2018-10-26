@@ -7,7 +7,7 @@
 #  spendfrom.py  # Lists available funds
 #  spendfrom.py --from=ADDRESS --to=ADDRESS --amount=11.00
 #
-# Assumes it will talk to a libertyd or pivx-Qt running
+# Assumes it will talk to a libertyd or liberty-Qt running
 # on localhost.
 #
 # Depends on jsonrpc
@@ -110,7 +110,7 @@ def list_available(libertyd):
         vout = rawtx["vout"][output['vout']]
         pk = vout["scriptPubKey"]
 
-        # This code only deals with ordinary pay-to-pivx-address
+        # This code only deals with ordinary pay-to-liberty-address
         # or pay-to-script-hash outputs right now; anything exotic is ignored.
         if pk["type"] != "pubkeyhash" and pk["type"] != "scripthash":
             continue

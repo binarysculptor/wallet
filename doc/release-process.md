@@ -24,10 +24,10 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/pivx-project/gitian.sigs.git
-    git clone https://github.com/pivx-project/pivx-detached-sigs.git
+    git clone https://github.com/liberty-project/gitian.sigs.git
+    git clone https://github.com/liberty-project/liberty-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/pivx-project/pivx.git
+    git clone https://github.com/liberty-project/pivx.git
 
 ### PIVX maintainers/release engineers, suggestion for writing release notes
 
@@ -102,29 +102,29 @@ The gbuild invocations below <b>DO NOT DO THIS</b> by default.
     pushd ./gitian-builder
     ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-linux.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-linux --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-linux.yml
-    mv build/out/pivx-*.tar.gz build/out/src/pivx-*.tar.gz ../
+    mv build/out/liberty-*.tar.gz build/out/src/liberty-*.tar.gz ../
 
     ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-win.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-win-unsigned --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-win.yml
-    mv build/out/pivx-*-win-unsigned.tar.gz inputs/pivx-win-unsigned.tar.gz
-    mv build/out/pivx-*.zip build/out/pivx-*.exe ../
+    mv build/out/liberty-*-win-unsigned.tar.gz inputs/liberty-win-unsigned.tar.gz
+    mv build/out/liberty-*.zip build/out/liberty-*.exe ../
 
     ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-osx.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-unsigned --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-osx.yml
-    mv build/out/pivx-*-osx-unsigned.tar.gz inputs/pivx-osx-unsigned.tar.gz
-    mv build/out/pivx-*.tar.gz build/out/pivx-*.dmg ../
+    mv build/out/liberty-*-osx-unsigned.tar.gz inputs/liberty-osx-unsigned.tar.gz
+    mv build/out/liberty-*.tar.gz build/out/liberty-*.dmg ../
 
     ./bin/gbuild --memory 3000 --commit pivx=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-aarch64.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-aarch64 --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-aarch64.yml
-    mv build/out/pivx-*.tar.gz build/out/src/pivx-*.tar.gz ../
+    mv build/out/liberty-*.tar.gz build/out/src/liberty-*.tar.gz ../
     popd
 
 Build output expected:
 
-  1. source tarball (`pivx-${VERSION}.tar.gz`)
-  2. linux 32-bit and 64-bit dist tarballs (`pivx-${VERSION}-linux[32|64].tar.gz`)
-  3. windows 32-bit and 64-bit unsigned installers and dist zips (`pivx-${VERSION}-win[32|64]-setup-unsigned.exe`, `pivx-${VERSION}-win[32|64].zip`)
-  4. OS X unsigned installer and dist tarball (`pivx-${VERSION}-osx-unsigned.dmg`, `pivx-${VERSION}-osx64.tar.gz`)
+  1. source tarball (`liberty-${VERSION}.tar.gz`)
+  2. linux 32-bit and 64-bit dist tarballs (`liberty-${VERSION}-linux[32|64].tar.gz`)
+  3. windows 32-bit and 64-bit unsigned installers and dist zips (`liberty-${VERSION}-win[32|64]-setup-unsigned.exe`, `liberty-${VERSION}-win[32|64].zip`)
+  4. OS X unsigned installer and dist tarball (`liberty-${VERSION}-osx-unsigned.dmg`, `liberty-${VERSION}-osx64.tar.gz`)
   5. Gitian signatures (in `gitian.sigs/${VERSION}-<linux|{win,osx}-unsigned>/(your Gitian key)/`)
 
 ### Verify other gitian builders signatures to your own. (Optional)
@@ -162,22 +162,22 @@ Codesigner only: Create Windows/OS X detached signatures:
 
 Codesigner only: Sign the osx binary:
 
-    transfer pivx-osx-unsigned.tar.gz to osx for signing
-    tar xf pivx-osx-unsigned.tar.gz
+    transfer liberty-osx-unsigned.tar.gz to osx for signing
+    tar xf liberty-osx-unsigned.tar.gz
     ./detached-sig-create.sh -s "Key ID"
     Enter the keychain password and authorize the signature
     Move signature-osx.tar.gz back to the gitian host
 
 Codesigner only: Sign the windows binaries:
 
-    tar xf pivx-win-unsigned.tar.gz
+    tar xf liberty-win-unsigned.tar.gz
     ./detached-sig-create.sh -key /path/to/codesign.key
     Enter the passphrase for the key when prompted
     signature-win.tar.gz will be created
 
 Codesigner only: Commit the detached codesign payloads:
 
-    cd ~/pivx-detached-sigs
+    cd ~/liberty-detached-sigs
     checkout the appropriate branch for this release series
     rm -rf *
     tar xf signature-osx.tar.gz
@@ -190,7 +190,7 @@ Codesigner only: Commit the detached codesign payloads:
 Non-codesigners: wait for Windows/OS X detached signatures:
 
 - Once the Windows/OS X builds each have 3 matching signatures, they will be signed with their respective release keys.
-- Detached signatures will then be committed to the [pivx-detached-sigs](https://github.com/PIVX-Project/pivx-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
+- Detached signatures will then be committed to the [liberty-detached-sigs](https://github.com/PIVX-Project/liberty-detached-sigs) repository, which can be combined with the unsigned apps to create signed binaries.
 
 Create (and optionally verify) the signed OS X binary:
 
@@ -198,7 +198,7 @@ Create (and optionally verify) the signed OS X binary:
     ./bin/gbuild -i --commit signature=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-osx-signer.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-osx-signed --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-osx-signer.yml
     ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-osx-signed ../pivx/contrib/gitian-descriptors/gitian-osx-signer.yml
-    mv build/out/pivx-osx-signed.dmg ../pivx-${VERSION}-osx.dmg
+    mv build/out/liberty-osx-signed.dmg ../liberty-${VERSION}-osx.dmg
     popd
 
 Create (and optionally verify) the signed Windows binaries:
@@ -207,8 +207,8 @@ Create (and optionally verify) the signed Windows binaries:
     ./bin/gbuild -i --commit signature=v${VERSION} ../pivx/contrib/gitian-descriptors/gitian-win-signer.yml
     ./bin/gsign --signer $SIGNER --release ${VERSION}-win-signed --destination ../gitian.sigs/ ../pivx/contrib/gitian-descriptors/gitian-win-signer.yml
     ./bin/gverify -v -d ../gitian.sigs/ -r ${VERSION}-win-signed ../pivx/contrib/gitian-descriptors/gitian-win-signer.yml
-    mv build/out/pivx-*win64-setup.exe ../pivx-${VERSION}-win64-setup.exe
-    mv build/out/pivx-*win32-setup.exe ../pivx-${VERSION}-win32-setup.exe
+    mv build/out/liberty-*win64-setup.exe ../liberty-${VERSION}-win64-setup.exe
+    mv build/out/liberty-*win32-setup.exe ../liberty-${VERSION}-win32-setup.exe
     popd
 
 Commit your signature for the signed OS X/Windows binaries:
@@ -230,17 +230,17 @@ sha256sum * > SHA256SUMS
 
 The list of files should be:
 ```
-pivx-${VERSION}-aarch64-linux-gnu.tar.gz
-pivx-${VERSION}-arm-linux-gnueabihf.tar.gz
-pivx-${VERSION}-i686-pc-linux-gnu.tar.gz
-pivx-${VERSION}-x86_64-linux-gnu.tar.gz
-pivx-${VERSION}-osx64.tar.gz
-pivx-${VERSION}-osx.dmg
-pivx-${VERSION}.tar.gz
-pivx-${VERSION}-win32-setup.exe
-pivx-${VERSION}-win32.zip
-pivx-${VERSION}-win64-setup.exe
-pivx-${VERSION}-win64.zip
+liberty-${VERSION}-aarch64-linux-gnu.tar.gz
+liberty-${VERSION}-arm-linux-gnueabihf.tar.gz
+liberty-${VERSION}-i686-pc-linux-gnu.tar.gz
+liberty-${VERSION}-x86_64-linux-gnu.tar.gz
+liberty-${VERSION}-osx64.tar.gz
+liberty-${VERSION}-osx.dmg
+liberty-${VERSION}.tar.gz
+liberty-${VERSION}-win32-setup.exe
+liberty-${VERSION}-win32.zip
+liberty-${VERSION}-win64-setup.exe
+liberty-${VERSION}-win64.zip
 ```
 The `*-debug*` files generated by the gitian build contain debug symbols
 for troubleshooting by developers. It is assumed that anyone that is interested
