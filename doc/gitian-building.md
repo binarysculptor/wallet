@@ -281,7 +281,7 @@ Clone the git repositories for pivx and gitian and then checkout the pivx versio
 
 ```bash
 git clone https://github.com/devrandom/gitian-builder.git
-git clone https://github.com/liberty-crypto/pivx.git
+git clone https://github.com/liberty-crypto/wallet.git
 cd pivx
 git checkout v${VERSION}
 cd ..
@@ -377,7 +377,7 @@ and inputs.
 
 For example:
 ```bash
-URL=https://github.com/crowning-/pivx.git
+URL=https://github.com/crowning-/wallet.git
 COMMIT=b616fb8ef0d49a919b72b0388b091aaec5849b96
 ./bin/gbuild --commit pivx=${COMMIT} --url pivx=${URL} ../pivx/contrib/gitian-descriptors/gitian-linux.yml
 ./bin/gbuild --commit pivx=${COMMIT} --url pivx=${URL} ../pivx/contrib/gitian-descriptors/gitian-win.yml
