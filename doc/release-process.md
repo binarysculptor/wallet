@@ -24,10 +24,10 @@ If you're using the automated script (found in [contrib/gitian-build.sh](/contri
 Check out the source code in the following directory hierarchy.
 
     cd /path/to/your/toplevel/build
-    git clone https://github.com/liberty-project/gitian.sigs.git
-    git clone https://github.com/liberty-project/liberty-detached-sigs.git
+    git clone https://github.com/project-liberty/gitian.sigs.git
+    git clone https://github.com/project-liberty/liberty-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/liberty-project/pivx.git
+    git clone https://github.com/project-liberty/pivx.git
 
 ### PIVX maintainers/release engineers, suggestion for writing release notes
 
