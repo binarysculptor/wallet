@@ -14,7 +14,7 @@ Mandatory Update
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/PIVX-Qt (on Mac) or pivxd/pivx-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/PIVX-Qt (on Mac) or libertyd/pivx-qt (on Linux).
 
 
 Compatibility
@@ -30,7 +30,7 @@ PIVX Core should also work on most other Unix-like systems but is not frequently
 
 **Currently there are issues with the 3.x gitian release on MacOS version 10.13 (High Sierra), no reports of issues on older versions of MacOS.**
 
- 
+
 Notable Changes
 ==============
 
@@ -43,18 +43,18 @@ Detailed release notes follow. This overview includes changes that affect behavi
 ### Core Features
 
 ### Build System
- 
+
 ### P2P Protocol and Network Code
 
 ### GUI
- 
+
 ### RPC/REST
 
 ### Wallet
- 
+
 ### Miscellaneous
- 
- 
+
+
 ## Credits
 
 Thanks to everyone who directly contributed to this release:

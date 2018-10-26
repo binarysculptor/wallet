@@ -15,7 +15,7 @@ Users updating from a previous version after Tuesday, May 8, 2018 12:00:00 AM GM
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/PIVX-Qt (on Mac) or pivxd/pivx-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/PIVX-Qt (on Mac) or libertyd/pivx-qt (on Linux).
 
 
 Compatibility
@@ -36,7 +36,7 @@ frequently tested on them.
 
 **Currently there are issues with the 3.x gitian release on MacOS version 10.13 (High Sierra), no reports of issues on older versions of MacOS.**
 
- 
+
 Notable Changes
 ==============
 
@@ -72,10 +72,10 @@ PIV/zPIV Staking and Masternode Rewards
 
 To encourage the use of zPIV and increase the PIVX zerocoin anonymity set, the PIVX payment schedule has been changed to the following:
 
-If a user staking zPIV wins the reward for their block, the following zPIV reward will be: 
+If a user staking zPIV wins the reward for their block, the following zPIV reward will be:
 - 3 zPIV (3 x 1 denominations) rewarded to the staker, 2 PIV rewarded to the masternode owner and 1 PIV available for the budget. This is a total block reward of 6 PIV, up from 5.
 
-If a user staking PIV wins the reward, the following amounts will be rewarded: 
+If a user staking PIV wins the reward, the following amounts will be rewarded:
 - 2 PIV to the PIV staker, 3 PIV to the Masternode owner and 1 PIV available for the budget. This is a total block reward of 6 PIV, up from 5.
 
 
@@ -96,7 +96,7 @@ The overview tab has been simplified greatly to display only balances that are a
 
 ### Wallet Options
 
-There have been a number of changes to the tasks that you are able to perform from the wallet options. Users will now have the ability to do the following: 
+There have been a number of changes to the tasks that you are able to perform from the wallet options. Users will now have the ability to do the following:
 -	Enable and disable the auto zPIV minting feature. This is enabled by default and the enablezeromint=0 setting in the pivx.conf file will overwrite the GUI option.
 -	The percentage of autominted zPIV can now be set from 1 to 100, changed from 10 – 100.
 -	The stake split threshold can now be set VIA the wallet options. This setting is an advanced feature for those wishing to remain staking regular PIV.
@@ -134,18 +134,18 @@ Note: System write permissions must be appropriate for the location the wallet i
 
 ### Example:
 
-* -backuppath=/\<mynewdir>/        
+* -backuppath=/\<mynewdir>/
 * -walletbackupthreshold=2
 
 Backing up 4 times will result as shown below
 
 
                 date/time
-    backup #1 - 2018-04-20-00-04-00  
-    backup #2 - 2018-04-21-04-20-00  
-    backup #3 - 2018-04-22-00-20-04  
-    backup #4 - 2018-04-23-20-04-00  
-    
+    backup #1 - 2018-04-20-00-04-00
+    backup #2 - 2018-04-21-04-20-00
+    backup #3 - 2018-04-22-00-20-04
+    backup #4 - 2018-04-23-20-04-00
+
     1.
         /<mynewdir>/
             wallet.dat-2018-04-20-00-04-00
@@ -161,7 +161,7 @@ Backing up 4 times will result as shown below
         /<mynewdir>/
             wallet.dat-2018-04-22-00-20-04
             wallet.dat-2018-04-23-20-04-00
-            
+
 
 
 PIVX Daemon & Client (RPC Changes)
@@ -175,8 +175,8 @@ The PIVX client peer bans now have additional RPC commands to manage peers. Peer
 ### Random-cookie RPC authentication
 
 When no `-rpcpassword` is specified, the daemon now uses a special 'cookie' file for authentication. This file is generated with random content when the daemon starts, and deleted when it exits. Its contents are used as authentication token. Read access to this file controls who can access through RPC. By default it is stored in the data directory but its location can be overridden with the option `-rpccookiefile`.
-This is similar to Tor's CookieAuthentication: see https://www.torproject.org/docs/tor-manual.html.en 
-This allows running pivxd without having to do any manual configuration.
+This is similar to Tor's CookieAuthentication: see https://www.torproject.org/docs/tor-manual.html.en
+This allows running libertyd without having to do any manual configuration.
 
 
 ### New RPC command
@@ -185,20 +185,20 @@ This allows running pivxd without having to do any manual configuration.
 This allows for a user (such as a third party integration) to query the blockchain for the current fee rate per kb, and also get a suggested rate per kb for high priority tx's that need to get added to the blockchain asap.
 
 
-### New RPC command 
+### New RPC command
 `findserial`
 
 Search the zerocoin database for a zerocoinspend transaction that contains the given serial. This will be a helpful tool for the PIVX support group, which often times sees users say "I didn't spend that zPIV". This RPC call allows for support to grab the serial, and then find the spend tx on the chain.
 
 
-### New RPC commands 
+### New RPC commands
 `createmasternodebroadcast`
 
 `decodemasternodebroadcast`
 
 `relaymasternodebroadcast`
 
-A new set of rpc commands masternodebroadcast to create masternode broadcast messages offline and relay them from online node later (messages expire in ~1 hour). 
+A new set of rpc commands masternodebroadcast to create masternode broadcast messages offline and relay them from online node later (messages expire in ~1 hour).
 
 
 Network Layer 2 Changes (Proposals / Budgets / SwiftX)
@@ -225,7 +225,7 @@ Technical Changes
 The RPC and REST interfaces are now initialized and controlled using standard libevent instead of the ad-hoc pseudo httpd interface that was used previously. This change introduces a more resource friendly and effective interface.
 
 
-### New Notification Path 
+### New Notification Path
 `blocksizenotify`
 
 A new notification path has been added to allow a script to be executed when receiving blocks larger than the 1MB legacy size. This functions similar to the other notification listeners (`blocknotify`, `walletnotify`, etc).
@@ -255,7 +255,7 @@ Minor Enhancements
 -	Updated PIVX-Qt tooltips
 -	Icon added to the wallet GUI to reflect the status of autominting (active / inactive)
 -	Updated errors causing the blockchain to corrupt when experiencing unexpected wallet shutdowns
--	Updated RPC help outputs & removed the deprecated obfuscation. 
+-	Updated RPC help outputs & removed the deprecated obfuscation.
 -	Refactored code
 -	Various bug fixes
 -	Updated documentation
@@ -313,7 +313,7 @@ Detailed release notes follow. This overview includes changes that affect behavi
  - #536 `5c44f40e9` [Build] Update build system from upstream (Fuzzbawls)
  - #480 `72d8c7d67` [Build] compile/link winshutdownmonitor.cpp on Windows only (Fuzzbawls)
  - #461 `55ec19af0` [Build] libevent-dev dependency added to build-documentation (Mrs-X)
- 
+
 ### P2P Protocol and Network Code
  - #542 `61156def7` [Network] Remove vfReachable and modify IsReachable to only use vfLimited. (Patrick Strateman)
 
@@ -344,7 +344,7 @@ Detailed release notes follow. This overview includes changes that affect behavi
  - #452 `219b68dc9` [Qt] Complete re-design of Qt-wallet (Mrs-X)
  - #440 `011408474` [Qt] Fix empty system tray menu (PeterL73)
  - #442 `248316647` [Qt] Improve checkbox visibility (PeterL73)
- 
+
 ### RPC/REST
  - #562 `772160b1b` [Wallet/RPC] Add argument to mint zerocoin from specific UTXO (warrows)
  - #539 `b6a02e9d6` [RPC] Allow watchonly coins to be shown for listunspent (blondfrogs)
@@ -370,7 +370,7 @@ Detailed release notes follow. This overview includes changes that affect behavi
  - #488 `d09cf916a` [Wallet] Fixes an autocombinerewards bug with above max size TXs (warrows)
  - #448 `222ef6e6b` [Wallet] Return change to sender when minting zPIV. (presstab)
  - #445 `fc570fc1e` [Wallet] Only require 1 mint to be added before spending zPIV. (presstab)
- 
+
 ### Miscellaneous
  - #559 `d2b017217` [Bug] Segfault with -enableswifttx=0 / -enableswifttx=false (Mrs-X)
  - #494 `8180b7884` [Bug] remove use of variable length buffer (rejectedpromise)
@@ -383,8 +383,8 @@ Detailed release notes follow. This overview includes changes that affect behavi
  - #528 `1c1412246` [Docs] Readme changes (Sieres)
  - #471 `18e5accb6` [Docs] Readme SeeSaw reward mechanism reference. (Dexaran)
  - #426 `3418a64d2` [Docs] Use mainnet port for example in masternode.conf file (Fuzzbawls)
- 
- 
+
+
 ## Credits
 
 Thanks to everyone who directly contributed to this release:

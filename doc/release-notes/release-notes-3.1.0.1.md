@@ -7,7 +7,7 @@ Please report bugs using the issue tracker at github: <https://github.com/pivx-p
 How to Upgrade
 ==============
 
-If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/PIVX-Qt (on Mac) or pivxd/pivx-qt (on Linux).
+If you are running an older version, shut it down. Wait until it has completely shut down (which might take a few minutes for older versions), then run the installer (on Windows) or just copy over /Applications/PIVX-Qt (on Mac) or libertyd/pivx-qt (on Linux).
 
 
 Compatibility
@@ -23,14 +23,14 @@ PIVX Core should also work on most other Unix-like systems but is not frequently
 
 **Currently there are issues with the 3.x gitian release on MacOS version 10.13 (High Sierra), no reports of issues on older versions of MacOS.**
 
- 
+
 Notable Changes
 ==============
 
 Windows masternode.conf bug
 --------------
 
-Windows Masternode Controller wallets were experiencing an issue with reading the `masternode.conf` file during startup that prevented the wallet from opening properly. 
+Windows Masternode Controller wallets were experiencing an issue with reading the `masternode.conf` file during startup that prevented the wallet from opening properly.
 
 Windows file icons
 -------------

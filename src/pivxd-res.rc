@@ -17,13 +17,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "PIVX"
-            VALUE "FileDescription",    "pivxd (OSS daemon/client for PIVX)"
+            VALUE "FileDescription",    "libertyd (OSS daemon/client for PIVX)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "pivxd"
+            VALUE "InternalName",       "libertyd"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "pivxd.exe"
-            VALUE "ProductName",        "pivxd"
+            VALUE "OriginalFilename",   "libertyd.exe"
+            VALUE "ProductName",        "libertyd"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END
