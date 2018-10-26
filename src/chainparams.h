@@ -110,8 +110,6 @@ public:
     int ModifierUpgradeBlock() const { return nModifierUpdateBlock; }
     int Last_PoW_Block()const { return nLastPoWBlock; }
     unsigned int Stake_Min_Age() const { return nStakeMinAge; }
-    int Zerocoin_Activation_Block() const { return nZerocoinActivationBlock; }
-    int Zerocoin_Activation_Time() const {return nZercoinActivationTime; }
 
 protected:
     CChainParams() {}
@@ -160,8 +158,6 @@ protected:
     int nZerocoinHeaderVersion;
     int64_t nBudget_Fee_Confirmations;
     int nZerocoinRequiredStakeDepth;
-    int nZerocoinActivationBlock;
-    int nZercoinActivationTime;
 };
 
 /**

@@ -21,11 +21,11 @@ void CheckBudgetValue(int nHeight, std::string strNetwork, CAmount nExpectedValu
 BOOST_AUTO_TEST_CASE(budget_value)
 {
     SelectParams(CBaseChainParams::TESTNET);
-    int nHeightTest = Params().Zerocoin_Activation_Block() + 1;
+    int nHeightTest = 1;
     CheckBudgetValue(nHeightTest, "testnet", 7300*COIN);
 
     SelectParams(CBaseChainParams::MAIN);
-    nHeightTest = Params().Zerocoin_Activation_Block() + 1;
+    nHeightTest = 1;
     CheckBudgetValue(nHeightTest, "mainnet", 43200*COIN);
 }
 

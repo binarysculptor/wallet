@@ -660,10 +660,7 @@ bool CMasternodeBroadcast::Sign(CKey& keyCollateralAddress)
     sigTime = GetAdjustedTime();
 
     std::string strMessage;
-    if(chainActive.Height() < Params().Zerocoin_Activation_Block())
-    	strMessage = GetOldStrMessage();
-    else
-    	strMessage = GetNewStrMessage();
+    strMessage = GetNewStrMessage();
 
     if (!obfuScationSigner.SignMessage(strMessage, errorMessage, sig, keyCollateralAddress))
     	return error("CMasternodeBroadcast::Sign() - Error: %s", errorMessage);

@@ -1450,44 +1450,38 @@ bool AppInit2(boost::thread_group& threadGroup, CScheduler& scheduler)
 
                 // Drop all information from the zerocoinDB and repopulate
                 if (GetBoolArg("-reindexzerocoin", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_Activation_Block()) {
-                        uiInterface.InitMessage(_("Reindexing zerocoin database..."));
-                        std::string strError = ReindexZerocoinDB();
-                        if (strError != "") {
-                            strLoadError = strError;
-                            break;
-                        }
+                    uiInterface.InitMessage(_("Reindexing zerocoin database..."));
+                    std::string strError = ReindexZerocoinDB();
+                    if (strError != "") {
+                        strLoadError = strError;
+                        break;
                     }
                 }
 
                 // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
                 if (GetBoolArg("-reindexmoneysupply", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_Activation_Block()) {
-                        RecalculateZPIVMinted();
-                        RecalculateZPIVSpent();
-                    }
+                    RecalculateZPIVMinted();
+                    RecalculateZPIVSpent();
                     RecalculatePIVSupply(1);
                 }
 
                 // Force recalculation of accumulators.
                 if (GetBoolArg("-reindexaccumulators", false)) {
-                    if (chainActive.Height() > Params().Zerocoin_Activation_Block()) {
-                        CBlockIndex *pindex = chainActive[Params().Zerocoin_Activation_Block()];
-                        while (pindex->nHeight < chainActive.Height()) {
-                            if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
-                                       pindex->nAccumulatorCheckpoint))
-                                listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
-                            pindex = chainActive.Next(pindex);
-                        }
-                        // PIVX: recalculate Accumulator Checkpoints that failed to database properly
-                        if (!listAccCheckpointsNoDB.empty()) {
-                            uiInterface.InitMessage(_("Calculating missing accumulators..."));
-                            LogPrintf("%s : finding missing checkpoints\n", __func__);
+                    CBlockIndex *pindex = chainActive.Genesis();
+                    while (pindex->nHeight < chainActive.Height()) {
+                        if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
+                                    pindex->nAccumulatorCheckpoint))
+                            listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
+                        pindex = chainActive.Next(pindex);
+                    }
+                    // PIVX: recalculate Accumulator Checkpoints that failed to database properly
+                    if (!listAccCheckpointsNoDB.empty()) {
+                        uiInterface.InitMessage(_("Calculating missing accumulators..."));
+                        LogPrintf("%s : finding missing checkpoints\n", __func__);
 
-                            string strError;
-                            if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
-                                return InitError(strError);
-                        }
+                        string strError;
+                        if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
+                            return InitError(strError);
                     }
                 }
 

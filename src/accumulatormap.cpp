@@ -1,4 +1,5 @@
-// Copyright (c) 2017-2018 The PIVX developers
+// Copyright (c) 2017-2018 The PIVX Developers
+// Copyright (c) 2018 The Liberty Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -51,6 +52,13 @@ bool AccumulatorMap::Load(uint256 nCheckpoint)
     }
     return true;
 }
+
+//Load accumulator map from a hard-checkpoint
+// void AccumulatorMap::Load(const AccumulatorCheckpoints::Checkpoint& checkpoint)
+// {
+//      for (auto it : checkpoint)
+//          mapAccumulators.at(it.first)->setValue(it.second);
+// }
 
 //Add a zerocoin to the accumulator of its denomination.
 bool AccumulatorMap::Accumulate(const PublicCoin& pubCoin, bool fSkipValidation)

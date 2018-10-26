@@ -122,8 +122,6 @@ public:
         /** Height or Time Based Activations **/
         nLastPoWBlock = 225;
         nModifierUpdateBlock = 1;
-        nZerocoinActivationBlock = 245;
-        nZercoinActivationTime = 1540857600;
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -145,10 +143,10 @@ public:
         genesis.vtx.push_back(txNew);
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
-        genesis.nVersion = 1;
+        genesis.nVersion = 5;
         genesis.nTime = 1540072799;
         genesis.nBits = 504365040;
-        genesis.nNonce = 1366751;
+        genesis.nNonce = 1165199;
 
         //For all those who fork Liberty coin:
         //We bless you with the gift of a genesis block creator (courtesy of Helium coin); go make something great!
@@ -173,7 +171,7 @@ public:
                 std::cout << " merklehash: 0x"  << genesis.hashMerkleRoot.ToString().c_str() <<  "\n";
             }
         } else {
-            assert(hashGenesisBlock == uint256("0x00000c14d49f1caea9efa0dfdff9920de60e1ba586b3ff1cf07e905f8c012321"));
+            assert(hashGenesisBlock == uint256("0x00000cf0f0aa7d22d3857e579f60a5577ab709fe97af98f47bb9c679a92b3713"));
             assert(genesis.hashMerkleRoot == uint256("0xbff44217a82b3a7975225053503c553bc63b0f594f51a15ee2d9a5007c281b01"));
         }
 
@@ -228,7 +226,7 @@ public:
         nMintRequiredConfirmations = 20; //the maximum amount of confirmations until accumulated in 19
         nRequiredAccumulation = 1;
         nDefaultSecurityLevel = 100; //full security level for accumulators
-        nZerocoinHeaderVersion = 4; //Block headers must be this version once zerocoin is active
+        nZerocoinHeaderVersion = 5; //Block headers must be this version once zerocoin is active
         nZerocoinRequiredStakeDepth = 200; //The required confirmations for a zpiv to be stakable
         nStakeMinAge = 60 * 60 * 3; //The number of seconds that a utxo must be old before it can qualify for staking
         nBudget_Fee_Confirmations = 6; // Number of confirmations for the finalization fee
@@ -264,15 +262,13 @@ public:
         nTargetTimespan = 1 * 60; // PIVX: 1 day
         nTargetSpacing = 1 * 60;  // PIVX: 1 minute
         nLastPoWBlock = 200;
-        nZerocoinActivationBlock = 220;
-        nZercoinActivationTime = 1540857600;
         nMaturity = 15;
         nModifierUpdateBlock = 51197; //approx Mon, 17 Apr 2017 04:00:00 GMT
         nMaxMoneyOut = 625000000 * COIN; //625M XLB max supply
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1540073799;
-        genesis.nNonce = 1613928;
+        genesis.nNonce = 387866;
 
         hashGenesisBlock = genesis.GetHash();
         if (regenerate) {
@@ -295,7 +291,7 @@ public:
 
             }
         } else {
-            assert(hashGenesisBlock == uint256("0x00000583310b89a91d9348f4d78d7af1ae6035b5f7f038bd95a59ec8d6605539"));
+            assert(hashGenesisBlock == uint256("0x0000065ed3a02cf18afda7c4f6d8acdf99573a9ce2d8326b68bd19a46e31aeaf"));
             assert(genesis.hashMerkleRoot == uint256("0xbff44217a82b3a7975225053503c553bc63b0f594f51a15ee2d9a5007c281b01"));
         }
 

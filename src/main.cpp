@@ -882,7 +882,7 @@ bool CheckZerocoinMint(const uint256& txHash, const CTxOut& txout, CValidationSt
 
 bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin, const CBlockIndex* pindex)
 {
-    if (pindex->nHeight >= Params().Zerocoin_Activation_Block() && Params().NetworkID() != CBaseChainParams::TESTNET) {
+    if (Params().NetworkID() != CBaseChainParams::TESTNET) {
         //See if this coin has already been added to the blockchain
         uint256 txid;
         int nHeight;
@@ -898,17 +898,15 @@ bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin,
 bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend, CBlockIndex* pindex, const uint256& hashBlock)
 {
     //Check to see if the zPIV is properly signed
-    if (pindex->nHeight >= Params().Zerocoin_Activation_Block()) {
-        if (!spend.HasValidSignature())
-            return error("%s: V2 zPIV spend does not have a valid signature", __func__);
+    if (!spend.HasValidSignature())
+        return error("%s: V2 zPIV spend does not have a valid signature", __func__);
 
-        libzerocoin::SpendType expectedType = libzerocoin::SpendType::SPEND;
-        if (tx.IsCoinStake())
-            expectedType = libzerocoin::SpendType::STAKE;
-        if (spend.getSpendType() != expectedType) {
-            return error("%s: trying to spend zPIV without the correct spend type. txid=%s", __func__,
-                         tx.GetHash().GetHex());
-        }
+    libzerocoin::SpendType expectedType = libzerocoin::SpendType::SPEND;
+    if (tx.IsCoinStake())
+        expectedType = libzerocoin::SpendType::STAKE;
+    if (spend.getSpendType() != expectedType) {
+        return error("%s: trying to spend zPIV without the correct spend type. txid=%s", __func__,
+                        tx.GetHash().GetHex());
     }
 
     //Reject serial's that are already in the blockchain
@@ -1005,7 +1003,7 @@ bool CheckZerocoinSpend(const CTransaction& tx, bool fVerifySignature, CValidati
     return fValidated;
 }
 
-bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, CValidationState& state)
+bool CheckTransaction(const CTransaction& tx, CValidationState& state)
 {
     // Basic checks that don't depend on any context
     if (tx.vin.empty())
@@ -1039,31 +1037,29 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, CValidationS
         if (!MoneyRange(nValueOut))
             return state.DoS(100, error("CheckTransaction() : txout total out of range"),
                 REJECT_INVALID, "bad-txns-txouttotal-toolarge");
-        if (fZerocoinActive && txout.IsZerocoinMint()) {
+        if (txout.IsZerocoinMint()) {
             if(!CheckZerocoinMint(tx.GetHash(), txout, state, true))
                 return state.DoS(100, error("CheckTransaction() : invalid zerocoin mint"));
         }
-        if (fZerocoinActive && txout.scriptPubKey.IsZerocoinSpend())
+        if (txout.scriptPubKey.IsZerocoinSpend())
             nZCSpendCount++;
     }
 
-    if (fZerocoinActive) {
-        if (nZCSpendCount > Params().Zerocoin_MaxSpendsPerTransaction())
-            return state.DoS(100, error("CheckTransaction() : there are more zerocoin spends than are allowed in one transaction"));
+    if (nZCSpendCount > Params().Zerocoin_MaxSpendsPerTransaction())
+        return state.DoS(100, error("CheckTransaction() : there are more zerocoin spends than are allowed in one transaction"));
 
-        if (tx.IsZerocoinSpend()) {
-            //require that a zerocoinspend only has inputs that are zerocoins
-            for (const CTxIn& in : tx.vin) {
-                if (!in.scriptSig.IsZerocoinSpend())
-                    return state.DoS(100,
-                                     error("CheckTransaction() : zerocoinspend contains inputs that are not zerocoins"));
-            }
-
-            // Do not require signature verification if this is initial sync and a block over 24 hours old
-            bool fVerifySignature = !IsInitialBlockDownload() && (GetTime() - chainActive.Tip()->GetBlockTime() < (60*60*24));
-            if (!CheckZerocoinSpend(tx, fVerifySignature, state))
-                return state.DoS(100, error("CheckTransaction() : invalid zerocoin spend"));
+    if (tx.IsZerocoinSpend()) {
+        //require that a zerocoinspend only has inputs that are zerocoins
+        for (const CTxIn& in : tx.vin) {
+            if (!in.scriptSig.IsZerocoinSpend())
+                return state.DoS(100,
+                                    error("CheckTransaction() : zerocoinspend contains inputs that are not zerocoins"));
         }
+
+        // Do not require signature verification if this is initial sync and a block over 24 hours old
+        bool fVerifySignature = !IsInitialBlockDownload() && (GetTime() - chainActive.Tip()->GetBlockTime() < (60*60*24));
+        if (!CheckZerocoinSpend(tx, fVerifySignature, state))
+            return state.DoS(100, error("CheckTransaction() : invalid zerocoin spend"));
     }
 
     // Check for duplicate inputs
@@ -1083,12 +1079,12 @@ bool CheckTransaction(const CTransaction& tx, bool fZerocoinActive, CValidationS
         if (tx.vin[0].scriptSig.size() < 2 || tx.vin[0].scriptSig.size() > 150)
             return state.DoS(100, error("CheckTransaction() : coinbase script size=%d", tx.vin[0].scriptSig.size()),
                 REJECT_INVALID, "bad-cb-length");
-    } else if (fZerocoinActive && tx.IsZerocoinSpend()) {
+    } else if (tx.IsZerocoinSpend()) {
         if(tx.vin.size() < 1 || static_cast<int>(tx.vin.size()) > Params().Zerocoin_MaxSpendsPerTransaction())
             return state.DoS(10, error("CheckTransaction() : Zerocoin Spend has more than allowed txin's"), REJECT_INVALID, "bad-zerocoinspend");
     } else {
         BOOST_FOREACH (const CTxIn& txin, tx.vin)
-            if (txin.prevout.IsNull() && (fZerocoinActive && !txin.scriptSig.IsZerocoinSpend()))
+            if (txin.prevout.IsNull() && !txin.scriptSig.IsZerocoinSpend())
                 return state.DoS(10, error("CheckTransaction() : prevout is null"),
                     REJECT_INVALID, "bad-txns-prevout-null");
     }
@@ -1165,7 +1161,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
     if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE) && tx.ContainsZerocoins())
         return state.DoS(10, error("AcceptToMemoryPool : Zerocoin transactions are temporarily disabled for maintenance"), REJECT_INVALID, "bad-tx");
 
-    if (!CheckTransaction(tx, chainActive.Height() >= Params().Zerocoin_Activation_Block(), state))
+    if (!CheckTransaction(tx, state))
         return state.DoS(100, error("AcceptToMemoryPool: : CheckTransaction failed"), REJECT_INVALID, "bad-tx");
 
     // Coinbase is only valid in a block, not as a loose transaction
@@ -1413,7 +1409,7 @@ bool AcceptableInputs(CTxMemPool& pool, CValidationState& state, const CTransact
         *pfMissingInputs = false;
 
 
-    if (!CheckTransaction(tx, chainActive.Height() >= Params().Zerocoin_Activation_Block(), state))
+    if (!CheckTransaction(tx, state))
         return error("AcceptableInputs: : CheckTransaction failed");
 
     // Coinbase is only valid in a block, not as a loose transaction
@@ -2257,7 +2253,7 @@ void ThreadScriptCheck()
 
 void RecalculateZPIVMinted()
 {
-    CBlockIndex *pindex = chainActive[Params().Zerocoin_Activation_Block()];
+    CBlockIndex *pindex = chainActive.Genesis();
     int nHeightEnd = chainActive.Height();
     while (true) {
         if (pindex->nHeight % 1000 == 0)
@@ -2284,7 +2280,7 @@ void RecalculateZPIVMinted()
 
 void RecalculateZPIVSpent()
 {
-    CBlockIndex* pindex = chainActive[Params().Zerocoin_Activation_Block()];
+    CBlockIndex* pindex = chainActive.Genesis();
     while (true) {
         if (pindex->nHeight % 1000 == 0)
             LogPrintf("%s : block %d...\n", __func__, pindex->nHeight);
@@ -2325,8 +2321,6 @@ bool RecalculatePIVSupply(int nHeightStart)
 
     CBlockIndex* pindex = chainActive[nHeightStart];
     CAmount nSupplyPrev = pindex->pprev->nMoneySupply;
-    if (nHeightStart == Params().Zerocoin_Activation_Block())
-        nSupplyPrev = CAmount(5449796547496199);
 
     while (true) {
         if (pindex->nHeight % 1000 == 0)
@@ -2383,14 +2377,11 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
         uiInterface.ShowProgress(_("Calculating missing accumulators..."), 0);
         LogPrintf("%s : finding missing checkpoints\n", __func__);
 
-        //search the chain to see when zerocoin started
-        int nZerocoinStart = Params().Zerocoin_Activation_Block();
-
         // find each checkpoint that is missing
-        CBlockIndex* pindex = chainActive[nZerocoinStart];
+        CBlockIndex* pindex = chainActive.Genesis();
         while (pindex) {
             uiInterface.ShowProgress(_("Calculating missing accumulators..."),
-                std::max(1, std::min(99, (int)((double)(pindex->nHeight - nZerocoinStart) / (double)(chainActive.Height() - nZerocoinStart) * 100))));
+                std::max(1, std::min(99, (int)((double)pindex->nHeight / (double)chainActive.Height() * 100))));
 
             if (ShutdownRequested())
                 return false;
@@ -3605,16 +3596,9 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
         return state.DoS(50, error("CheckBlockHeader() : proof of work failed"),
             REJECT_INVALID, "high-hash");
 
-    // Version 4 header must be used after Params().Zerocoin_Activation_Block(). And never before.
-    if (block.GetBlockTime() > Params().Zerocoin_Activation_Time()) {
-        if(block.nVersion < Params().Zerocoin_HeaderVersion())
-            return state.DoS(50, error("CheckBlockHeader() : block version must be above 4 after ZerocoinStartHeight"),
-            REJECT_INVALID, "block-version");
-    } else {
-        if (block.nVersion >= Params().Zerocoin_HeaderVersion())
-            return state.DoS(50, error("CheckBlockHeader() : block version must be below 4 before ZerocoinStartHeight"),
-            REJECT_INVALID, "block-version");
-    }
+    if(block.nVersion < Params().Zerocoin_HeaderVersion())
+        return state.DoS(50, error("CheckBlockHeader() : block version must be above 5 after ZerocoinStartHeight"),
+        REJECT_INVALID, "block-version");
 
     return true;
 }
@@ -3735,10 +3719,9 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     }
 
     // Check transactions
-    bool fZerocoinActive = block.GetBlockTime() > Params().Zerocoin_Activation_Time();
     vector<CBigNum> vBlockSerials;
     for (const CTransaction& tx : block.vtx) {
-        if (!CheckTransaction(tx, fZerocoinActive, state))
+        if (!CheckTransaction(tx, state))
             return error("CheckBlock() : CheckTransaction failed");
 
         // double check that there are no double spent zPIV spends in this block
@@ -3760,7 +3743,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
     BOOST_FOREACH (const CTransaction& tx, block.vtx) {
         nSigOps += GetLegacySigOpCount(tx);
     }
-    unsigned int nMaxBlockSigOps = fZerocoinActive ? MAX_BLOCK_SIGOPS_CURRENT : MAX_BLOCK_SIGOPS_LEGACY;
+    unsigned int nMaxBlockSigOps = MAX_BLOCK_SIGOPS_CURRENT;
     if (nSigOps > nMaxBlockSigOps)
         return state.DoS(100, error("CheckBlock() : out-of-bounds SigOpCount"),
             REJECT_INVALID, "bad-blk-sigops", true);
@@ -3824,22 +3807,9 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     if (pcheckpoint && nHeight < pcheckpoint->nHeight)
         return state.DoS(0, error("%s : forked chain older than last checkpoint (height %d)", __func__, nHeight));
 
-    // Reject block.nVersion=1 blocks when 95% (75% on testnet) of the network has upgraded:
-    if (block.nVersion < 2 &&
-        CBlockIndex::IsSuperMajority(2, pindexPrev, Params().RejectBlockOutdatedMajority())) {
-        return state.Invalid(error("%s : rejected nVersion=1 block", __func__),
-            REJECT_OBSOLETE, "bad-version");
-    }
-
-    // Reject block.nVersion=2 blocks when 95% (75% on testnet) of the network has upgraded:
-    if (block.nVersion < 3 && CBlockIndex::IsSuperMajority(3, pindexPrev, Params().RejectBlockOutdatedMajority())) {
-        return state.Invalid(error("%s : rejected nVersion=2 block", __func__),
-            REJECT_OBSOLETE, "bad-version");
-    }
-
     // Reject block.nVersion=4 blocks when 95% (75% on testnet) of the network has upgraded:
-    if (block.nVersion < 5 && CBlockIndex::IsSuperMajority(5, pindexPrev, Params().RejectBlockOutdatedMajority())) {
-        return state.Invalid(error("%s : rejected nVersion=4 block", __func__),
+    if (block.nVersion < 5 && nHeight > 2500 && CBlockIndex::IsSuperMajority(5, pindexPrev, Params().RejectBlockOutdatedMajority())) {
+        return state.Invalid(error("%s : rejected nVersion=%d block", __func__, block.nVersion),
                              REJECT_OBSOLETE, "bad-version");
     }
 
@@ -3959,9 +3929,6 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
 
 bool ContextualCheckZerocoinStake(int nHeight, CStakeInput* stake)
 {
-    if (nHeight < Params().Zerocoin_Activation_Block())
-        return error("%s: zPIV stake block is less than allowed start height", __func__);
-
     if (CZPivStake* zPIV = dynamic_cast<CZPivStake*>(stake)) {
         CBlockIndex* pindexFrom = zPIV->GetIndexFrom();
         if (!pindexFrom)

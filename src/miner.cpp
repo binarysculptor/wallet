@@ -112,11 +112,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     if (Params().MineBlocksOnDemand())
         pblock->nVersion = GetArg("-blockversion", pblock->nVersion);
 
-    bool fZerocoinActive = GetAdjustedTime() >= Params().Zerocoin_Activation_Time();
-    if(fZerocoinActive)
-        pblock->nVersion = 5;   // Supports CLTV activation
-    else
-        pblock->nVersion = 1;
+    pblock->nVersion = 5;   // Supports CLTV activation
 
     // Create coinbase tx
     CMutableTransaction txNew;
@@ -453,7 +449,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
         if (nHeight >= pCheckpointCache.first || pCheckpointCache.second.first != hashBlockLastAccumulated) {
 
             AccumulatorMap mapAccumulators(Params().Zerocoin_Params());
-            if (fZerocoinActive && !CalculateAccumulatorCheckpoint(nHeight, nCheckpoint, mapAccumulators)) {
+            if (!CalculateAccumulatorCheckpoint(nHeight, nCheckpoint, mapAccumulators)) {
                 LogPrintf("%s: failed to get accumulator checkpoint\n", __func__);
             } else {
                 // the next time the accumulator checkpoint should be recalculated ( the next height that is multiple of 10)
