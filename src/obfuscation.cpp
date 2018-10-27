@@ -2101,7 +2101,7 @@ std::string CObfuscationPool::GetMessageByID(int messageID)
     }
 }
 
-bool CObfuScationSigner::IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey)
+bool CObfuScationSigner::IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey, std::pair<int, CAmount> tierMeta)
 {
     CScript payee2;
     payee2 = GetScriptForDestination(pubkey.GetID());
@@ -2111,8 +2111,10 @@ bool CObfuScationSigner::IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey)
     if (GetTransaction(vin.prevout.hash, txVin, hash, true)) {
         BOOST_FOREACH (CTxOut out, txVin.vout) {
             for (auto entry : Params().Masternode_Collateral_Map()) {
-                if (out.nValue == entry.second && out.scriptPubKey == payee2)
+                if (out.nValue == entry.second && out.scriptPubKey == payee2) {
+                    tierMeta = make_pair(entry.first,entry.second);
                     return true;
+                }
             }
         }
     }

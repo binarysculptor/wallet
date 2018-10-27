@@ -215,7 +215,8 @@ void CMasternode::Check(bool forceCheck)
     if (!unitTest) {
         CValidationState state;
         CMutableTransaction tx = CMutableTransaction();
-        CTxOut vout = CTxOut(9999.99 * COIN, obfuScationPool.collateralPubKey);
+        CAmount collateralInputCheckAmount = Params().Masternode_Input_Check_Map()[(int)GetTier()];
+        CTxOut vout = CTxOut(collateralInputCheckAmount, obfuScationPool.collateralPubKey);
         tx.vin.push_back(vin);
         tx.vout.push_back(vout);
 
@@ -327,6 +328,27 @@ bool CMasternode::IsValidNetAddr()
     // should probably be a bit smarter if one day we start to implement tests for this
     return Params().NetworkID() == CBaseChainParams::REGTEST ||
            (IsReachable(addr) && addr.IsRoutable());
+}
+
+int CMasternode::GetTier()
+{
+    if(nTier == TIER_UNKNOWN) {
+        CTransaction txVin;
+        uint256 hash;
+        if (GetTransaction(vin.prevout.hash, txVin, hash, true)) {
+            BOOST_FOREACH (CTxOut out, txVin.vout) {
+                for (auto entry : Params().Masternode_Collateral_Map()) {
+                    if (out.nValue == entry.second) {
+                        nTier = entry.first;
+                        return nTier;
+                    }
+                }
+            }
+        } else {
+            nTier = 0;
+        }
+    }
+    return nTier;
 }
 
 CMasternodeBroadcast::CMasternodeBroadcast()
@@ -585,7 +607,8 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
 
     CValidationState state;
     CMutableTransaction tx = CMutableTransaction();
-    CTxOut vout = CTxOut(9999.99 * COIN, obfuScationPool.collateralPubKey);
+    CAmount collateralInputCheckAmount = Params().Masternode_Input_Check_Map()[(int)GetTier()];
+    CTxOut vout = CTxOut(collateralInputCheckAmount, obfuScationPool.collateralPubKey);
     tx.vin.push_back(vin);
     tx.vout.push_back(vout);
 

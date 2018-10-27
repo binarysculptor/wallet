@@ -124,6 +124,14 @@ public:
         MASTERNODE_POS_ERROR
     };
 
+    enum tier {
+        TIER_UNKNOWN = -1,
+        TIER_NONE = 0,
+        TIER_ONE = 1,
+        TIER_TWO = 2,
+        TIER_THREE = 3
+    };
+
     CTxIn vin;
     CService addr;
     CPubKey pubKeyCollateralAddress;
@@ -143,6 +151,7 @@ public:
     int nScanningErrorCount;
     int nLastScanningErrorBlockHeight;
     CMasternodePing lastPing;
+    int nTier = -1;
 
     int64_t nLastDsee;  // temporary, do not save. Remove after migration to v12
     int64_t nLastDseep; // temporary, do not save. Remove after migration to v12
@@ -283,6 +292,7 @@ public:
 
     int64_t GetLastPaid();
     bool IsValidNetAddr();
+    int GetTier();
 };
 
 
