@@ -367,7 +367,7 @@ void PrivacyDialog::sendXLBz()
 
     if(!fWholeNumber && fMintChange){
         QString strFeeWarning = "You've entered an amount with fractional digits and want the change to be converted to Zerocoin.<br /><br /><b>";
-        strFeeWarning += QString::number(dzFee, 'f', 8) + " PIV </b>will be added to the standard transaction fees!<br />";
+        strFeeWarning += QString::number(dzFee, 'f', 8) + " XLB </b>will be added to the standard transaction fees!<br />";
         QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm additional Fees"),
             strFeeWarning,
             QMessageBox::Yes | QMessageBox::Cancel,
@@ -840,7 +840,7 @@ void PrivacyDialog::updateSPORK16Status()
     } else if (!fMaintenanceMode && !fButtonsEnabled) {
         // Mint XLBz
         ui->pushButtonMintXLBz->setEnabled(true);
-        ui->pushButtonMintXLBz->setToolTip(tr("PrivacyDialog", "Enter an amount of PIV to convert to XLBz", 0));
+        ui->pushButtonMintXLBz->setToolTip(tr("PrivacyDialog", "Enter an amount of XLB to convert to XLBz", 0));
 
         // Spend XLBz
         ui->pushButtonSpendXLBz->setEnabled(true);

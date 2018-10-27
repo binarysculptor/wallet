@@ -442,7 +442,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Buy PIV</string>
+      <string>Buy XLB</string>
      </property>
      <property name="icon">
       <iconset resource="../liberty.qrc">
@@ -512,7 +512,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>PIV</string>
+      <string>XLB</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -1704,7 +1704,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>PIV</string>
+      <string>XLB</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="UnitsInputPIV">
@@ -1751,7 +1751,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Sell PIV</string>
+      <string>Sell XLB</string>
      </property>
      <property name="icon">
       <iconset resource="../liberty">
@@ -1777,7 +1777,7 @@
          </font>
         </property>
         <property name="text">
-         <string>PIV Available:</string>
+         <string>XLB Available:</string>
         </property>
        </widget>
       </item>
@@ -2221,7 +2221,7 @@
          </font>
         </property>
         <property name="text">
-         <string>PIV</string>
+         <string>XLB</string>
         </property>
        </widget>
       </item>
@@ -2762,7 +2762,7 @@
       </font>
      </property>
      <property name="text">
-      <string>PIV Balance:</string>
+      <string>XLB Balance:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_12">
@@ -2813,7 +2813,7 @@
       </font>
      </property>
      <property name="text">
-      <string>PIV Available:</string>
+      <string>XLB Available:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_14">
@@ -2832,7 +2832,7 @@
       </font>
      </property>
      <property name="text">
-      <string>PIV Pending:</string>
+      <string>XLB Pending:</string>
      </property>
     </widget>
     <widget class="QLabel" name="PIVPendingLabel">
@@ -2928,7 +2928,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Bittrex PIV Deposit Address:</string>
+      <string>Bittrex XLB Deposit Address:</string>
      </property>
     </widget>
     <widget class="QPushButton" name="GenDepositBTN">

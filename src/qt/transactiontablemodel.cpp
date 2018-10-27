@@ -344,7 +344,7 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
     case TransactionRecord::SendToSelf:
         return tr("Payment to yourself");
     case TransactionRecord::StakeMint:
-        return tr("PIV Stake");
+        return tr("XLB Stake");
     case TransactionRecord::StakeZPIV:
         return tr("XLBz Stake");
     case TransactionRecord::Generated:
@@ -360,15 +360,15 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
     case TransactionRecord::Obfuscated:
         return tr("Obfuscated");
     case TransactionRecord::ZerocoinMint:
-        return tr("Converted PIV to XLBz");
+        return tr("Converted XLB to XLBz");
     case TransactionRecord::ZerocoinSpend:
         return tr("Spent XLBz");
     case TransactionRecord::RecvFromZerocoinSpend:
-        return tr("Received PIV from XLBz");
+        return tr("Received XLB from XLBz");
     case TransactionRecord::ZerocoinSpend_Change_zPiv:
         return tr("Minted Change as XLBz from XLBz Spend");
     case TransactionRecord::ZerocoinSpend_FromMe:
-        return tr("Converted XLBz to PIV");
+        return tr("Converted XLBz to XLB");
 
     default:
         return QString();

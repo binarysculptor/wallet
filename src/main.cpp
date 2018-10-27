@@ -2866,7 +2866,7 @@ void static UpdateTip(CBlockIndex* pindexNew)
 {
     chainActive.SetTip(pindexNew);
 
-    // If turned on AutoZeromint will automatically convert PIV to XLBz
+    // If turned on AutoZeromint will automatically convert XLB to XLBz
     if (pwalletMain->isZeromintEnabled ())
         pwalletMain->AutoZeromint ();
 

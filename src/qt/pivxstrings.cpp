@@ -61,7 +61,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "Enable automatic wallet backups triggered after each XLBz minting (0-1, "
 "default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Enable or disable staking functionality for PIV inputs (0-1, default: %u)"),
+"Enable or disable staking functionality for XLB inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Enable or disable staking functionality for XLBz inputs (0-1, default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
@@ -100,10 +100,10 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Failed to find coin set amongst held coins with less than maxNumber of Spends"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Fees (in PIV/Kb) smaller than this are considered zero fee for relaying "
+"Fees (in XLB/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Fees (in PIV/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in XLB/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -197,10 +197,10 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
-"transaction that are not equal 10000 PIV."),
+"transaction that are not equal 10000 XLB."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough funds for this transaction that are not equal 10000 "
-"PIV."),
+"XLB."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Use separate SOCKS5 proxy to reach peers via Tor hidden services (default: "
 "%s)"),
@@ -321,7 +321,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Failed to read block"),
 QT_TRANSLATE_NOOP("liberty-core", "Failed to select a zerocoin"),
 QT_TRANSLATE_NOOP("liberty-core", "Failed to wipe zerocoinDB"),
 QT_TRANSLATE_NOOP("liberty-core", "Failed to write coin serial number into wallet"),
-QT_TRANSLATE_NOOP("liberty-core", "Fee (in PIV/kB) to add to transactions you send (default: %s)"),
+QT_TRANSLATE_NOOP("liberty-core", "Fee (in XLB/kB) to add to transactions you send (default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", "Finalizing transaction."),
 QT_TRANSLATE_NOOP("liberty-core", "Force safe mode (default: %u)"),
 QT_TRANSLATE_NOOP("liberty-core", "Found enough users, signing ( waiting %s )"),
@@ -410,7 +410,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Randomly drop 1 of every <n> network messages
 QT_TRANSLATE_NOOP("liberty-core", "Randomly fuzz 1 of every <n> network messages"),
 QT_TRANSLATE_NOOP("liberty-core", "Rebuild block chain index from current blk000??.dat files"),
 QT_TRANSLATE_NOOP("liberty-core", "Receive and display P2P network alerts (default: %u)"),
-QT_TRANSLATE_NOOP("liberty-core", "Reindex the PIV and XLBz money supply statistics"),
+QT_TRANSLATE_NOOP("liberty-core", "Reindex the XLB and XLBz money supply statistics"),
 QT_TRANSLATE_NOOP("liberty-core", "Reindex the accumulator database"),
 QT_TRANSLATE_NOOP("liberty-core", "Reindexing zerocoin database..."),
 QT_TRANSLATE_NOOP("liberty-core", "Reindexing zerocoin failed"),
