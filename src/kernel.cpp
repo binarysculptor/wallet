@@ -20,7 +20,7 @@ bool fTestNet = false; //Params().NetworkID() == CBaseChainParams::TESTNET;
 // Modifier interval: time to elapse before new modifier is computed
 // Set to 3-hour for production network and 20-minute for test network
 unsigned int nModifierInterval;
-int nStakeTargetSpacing = 60;
+int nStakeTargetSpacing = 15;
 unsigned int getIntervalVersion(bool fTestNet)
 {
     if (fTestNet)
