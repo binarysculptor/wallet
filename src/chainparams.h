@@ -92,6 +92,8 @@ public:
     std::string SporkKey() const { return strSporkKey; }
     std::string ObfuscationPoolDummyAddress() const { return strObfuscationPoolDummyAddress; }
     int64_t Budget_Fee_Confirmations() const { return nBudget_Fee_Confirmations; }
+    std::map<int, CAmount> Masternode_Collateral_Map() const { return mapMasternodeCollateral; }
+    std::map<int, CAmount> Masternode_Input_Check_Map() const { return mapMasternodeInputCheck; }
 
     CBaseChainParams::Network NetworkID() const { return networkID; }
 
@@ -158,6 +160,16 @@ protected:
     int nZerocoinHeaderVersion;
     int64_t nBudget_Fee_Confirmations;
     int nZerocoinRequiredStakeDepth;
+    std::map<int, CAmount> mapMasternodeCollateral = {
+        {1, 50000 * COIN},
+        {2, 95000 * COIN},
+        {3, 140000 * COIN}
+    };
+    std::map<int, CAmount> mapMasternodeInputCheck = {
+        {1, 49999.99 * COIN},
+        {2, 94999.99 * COIN},
+        {3, 139999.99 * COIN}
+    };
 };
 
 /**
