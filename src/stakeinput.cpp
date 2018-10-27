@@ -127,7 +127,7 @@ bool CZPivStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
     CTxOut outReward;
     libzerocoin::CoinDenomination denomStaked = libzerocoin::AmountToZerocoinDenomination(this->GetValue());
     CDeterministicMint dMint;
-    if (!pwallet->CreateZPIVOutPut(denomStaked, outReward, dMint))
+    if (!pwallet->CreateZXLBOutPut(denomStaked, outReward, dMint))
         return error("%s: failed to create XLBz output", __func__);
     vout.emplace_back(outReward);
 
@@ -150,7 +150,7 @@ bool CZPivStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
             CTxOut out;
             CDeterministicMint dMintReward;
 
-            if (!pwallet->CreateZPIVOutPut(denom, out, dMintReward))
+            if (!pwallet->CreateZXLBOutPut(denom, out, dMintReward))
                 return error("%s: failed to create XLBz output", __func__);
 
             vout.emplace_back(out);

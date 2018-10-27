@@ -58,8 +58,8 @@ public:
      */
     enum Unit {
         XLB,
-        mPIV,
-        uPIV
+        mXLB,
+        uXLB
     };
 
     enum SeparatorStyle {
