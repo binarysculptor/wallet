@@ -42,4 +42,4 @@ inline uint512 uint512S(const char* str)
     return rv;
 }
 
-#endif // PIVX_UINT512_H
+#endif //LIBERTY_UINT512_H

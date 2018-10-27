@@ -45,4 +45,4 @@ private:
     uint512 GetZerocoinSeed(uint32_t n);
 };
 
-#endif //PIVX_ZPIVWALLET_H
+#endif //LIBERTY_ZPIVWALLET_H

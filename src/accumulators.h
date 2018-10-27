@@ -29,4 +29,4 @@ uint32_t GetChecksum(const CBigNum &bnValue);
 int GetChecksumHeight(uint32_t nChecksum, libzerocoin::CoinDenomination denomination);
 bool ValidateAccumulatorCheckpoint(const CBlock& block, CBlockIndex* pindex, AccumulatorMap& mapAccumulators);
 
-#endif //PIVX_ACCUMULATORS_H
+#endif //LIBERTY_ACCUMULATORS_H

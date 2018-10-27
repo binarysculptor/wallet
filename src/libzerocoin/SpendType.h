@@ -16,4 +16,4 @@ namespace libzerocoin {
     };
 }
 
-#endif //PIVX_SPENDTYPE_H
+#endif //LIBERTY_SPENDTYPE_H

@@ -1,7 +1,7 @@
 Liberty Core integration/staging repository
 =====================================
 
-[![Build Status](https://travis-ci.org/project-liberty/Liberty.svg?branch=master)](https://travis-ci.org/project-liberty/Liberty) [![GitHub version](https://badge.fury.io/gh/Liberty-Project%2FPIVX.svg)](https://badge.fury.io/gh/Liberty-Project%2FPIVX)
+[![Build Status](https://travis-ci.org/project-liberty/Liberty.svg?branch=master)](https://travis-ci.org/project-liberty/Liberty) [![GitHub version](https://badge.fury.io/gh/Liberty-Project%2FPIVX.svg)](https://badge.fury.io/gh/Liberty-Project%2Fwallet)
 
 Liberty is an open source crypto-currency focused on fast private transactions with low transaction fees & environmental footprint.  It utilizes a custom Proof of Stake protocol for securing its network and uses an innovative variable seesaw reward mechanism that dynamically balances 90% of its block reward size between masternodes and staking nodes and 10% dedicated for budget proposals. The goal of Liberty is to achieve a decentralized sustainable crypto currency with near instant full-time private transactions, fair governance and community intelligence.
 - Anonymized transactions using the [_Zerocoin Protocol_](http://www.liberty-coin.com/xlbz).

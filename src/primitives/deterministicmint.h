@@ -64,4 +64,4 @@ public:
     };
 };
 
-#endif //PIVX_DETERMINISTICMINT_H
+#endif //LIBERTY_DETERMINISTICMINT_H

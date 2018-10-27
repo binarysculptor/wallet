@@ -23,4 +23,4 @@ public:
     void Reset();
     void Reset(libzerocoin::ZerocoinParams* params2);
 };
-#endif //PIVX_ACCUMULATORMAP_H
+#endif //LIBERTY_ACCUMULATORMAP_H

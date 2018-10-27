@@ -965,4 +965,4 @@ public:
     }
 };
 
-#endif // PIVX_SERIALIZE_H
+#endif //LIBERTY_SERIALIZE_H

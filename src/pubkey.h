@@ -263,4 +263,4 @@ public:
     ~ECCVerifyHandle();
 };
 
-#endif // PIVX_PUBKEY_H
+#endif //LIBERTY_PUBKEY_H

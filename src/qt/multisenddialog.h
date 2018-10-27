@@ -38,4 +38,4 @@ private:
     WalletModel* model;
 };
 
-#endif // PIVX_QT_MULTISENDDIALOG_H
+#endif //LIBERTY_QT_MULTISENDDIALOG_H

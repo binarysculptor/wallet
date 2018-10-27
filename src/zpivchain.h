@@ -38,4 +38,4 @@ bool TxOutToPublicCoin(const CTxOut& txout, libzerocoin::PublicCoin& pubCoin, CV
 std::list<libzerocoin::CoinDenomination> ZerocoinSpendListFromBlock(const CBlock& block);
 
 
-#endif //PIVX_ZPIVCHAIN_H
+#endif //LIBERTY_ZPIVCHAIN_H

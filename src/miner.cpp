@@ -36,7 +36,7 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// PIVXMiner
+// LibertyMiner
 //
 
 //
@@ -520,7 +520,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     {
         LOCK(cs_main);
         if (pblock->hashPrevBlock != chainActive.Tip()->GetBlockHash())
-            return error("PIVXMiner : generated block is stale");
+            return error("LibertyMiner : generated block is stale");
     }
 
     // Remove key from key pool
@@ -540,7 +540,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     if (!ProcessNewBlock(state, NULL, pblock)) {
         if (pblock->IsZerocoinStake())
             pwalletMain->xlbzTracker->RemovePending(pblock->vtx[1].GetHash());
-        return error("PIVXMiner : ProcessNewBlock, block not accepted");
+        return error("LibertyMiner : ProcessNewBlock, block not accepted");
     }
 
     for (CNode* node : vNodes) {
@@ -558,7 +558,7 @@ int nMintableLastCheck = 0;
 
 void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
 {
-    LogPrintf("PIVXMiner started\n");
+    LogPrintf("LibertyMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
     RenameThread("liberty-miner");
 
@@ -651,7 +651,7 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
             continue;
         }
 
-        LogPrintf("Running PIVXMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+        LogPrintf("Running LibertyMiner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
             ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //

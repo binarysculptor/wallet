@@ -50,4 +50,4 @@ public:
 };
 
 
-#endif //PIVX_MINTPOOL_H
+#endif //LIBERTY_MINTPOOL_H

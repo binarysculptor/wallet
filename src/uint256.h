@@ -410,4 +410,4 @@ inline uint512 uint512S(const std::string& str)
     return rv;
 }
 
-#endif // PIVX_UINT256_H
+#endif //LIBERTY_UINT256_H

@@ -247,4 +247,4 @@ public:
     int GetNeededSpends();
 };
 
-#endif //PIVX_ZEROCOIN_H
+#endif //LIBERTY_ZEROCOIN_H

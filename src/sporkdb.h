@@ -25,4 +25,4 @@ public:
 };
 
 
-#endif //PIVX_CSPORKDB_H
+#endif //LIBERTY_CSPORKDB_H

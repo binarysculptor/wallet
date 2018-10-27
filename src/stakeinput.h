@@ -87,4 +87,4 @@ public:
 };
 
 
-#endif //PIVX_STAKEINPUT_H
+#endif //LIBERTY_STAKEINPUT_H

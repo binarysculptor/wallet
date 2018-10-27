@@ -48,4 +48,4 @@ public:
     void Clear();
 };
 
-#endif //PIVX_ZPIVTRACKER_H
+#endif //LIBERTY_ZPIVTRACKER_H
