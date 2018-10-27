@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_ZPIVTRACKER_H
-#define PIVX_ZPIVTRACKER_H
+#ifndef LIBERTY_ZPIVTRACKER_H
+#define LIBERTY_ZPIVTRACKER_H
 
 #include "primitives/zerocoin.h"
 #include <list>

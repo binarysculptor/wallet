@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_ZEROCOIN_H
-#define PIVX_ZEROCOIN_H
+#ifndef LIBERTY_ZEROCOIN_H
+#define LIBERTY_ZEROCOIN_H
 
 #include <amount.h>
 #include <limits.h>
@@ -122,7 +122,7 @@ public:
     {
         return this->GetValue() == other.GetValue();
     }
-    
+
     // Copy another CZerocoinMint
     inline CZerocoinMint& operator=(const CZerocoinMint& other) {
         denomination = other.GetDenomination();
@@ -136,7 +136,7 @@ public:
         privkey = other.GetPrivKey();
         return *this;
     }
-    
+
     // why 6 below (SPOCK)
     inline bool checkUnused(int denom, int Height) const {
         if (IsUsed() == false && GetDenomination() == denomination && GetRandomness() != 0 && GetSerialNumber() != 0 && GetHeight() != -1 && GetHeight() != INT_MAX && GetHeight() >= 1 && (GetHeight() + 6 <= Height)) {
@@ -217,7 +217,7 @@ public:
     uint256 GetHash() const;
     void SetMintCount(int nMintsAdded) { this->nMintCount = nMintsAdded; }
     int GetMintCount() const { return nMintCount; }
- 
+
     ADD_SERIALIZE_METHODS;
 
     template <typename Stream, typename Operation>

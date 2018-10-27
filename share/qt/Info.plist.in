@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>PIVX-Qt</string>
+  <string>Liberty-Qt</string>
 
   <key>CFBundleName</key>
-  <string>PIVX-Qt</string>
+  <string>Liberty-Qt</string>
 
   <key>LSHasLocalizedDisplayName</key>
   <true/>
@@ -46,7 +46,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>com.liberty-coin.PivxPayment</string>
+      <string>com.liberty-coin.LibertyPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>liberty</string>
@@ -60,7 +60,7 @@
       <key>UTTypeIdentifier</key>
       <string>com.liberty-coin.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Pivx payment request</string>
+      <string>Liberty payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -71,7 +71,7 @@
         <string>application/x-liberty-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>pivxpaymentrequest</string>
+          <string>libertypaymentrequest</string>
         </array>
       </dict>
     </dict>

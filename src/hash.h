@@ -5,8 +5,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_HASH_H
-#define PIVX_HASH_H
+#ifndef LIBERTY_HASH_H
+#define LIBERTY_HASH_H
 
 #include "crypto/ripemd160.h"
 #include "crypto/sha256.h"

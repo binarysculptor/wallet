@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_BLOCKSIGNATURE_H
-#define PIVX_BLOCKSIGNATURE_H
+#ifndef LIBERTY_BLOCKSIGNATURE_H
+#define LIBERTY_BLOCKSIGNATURE_H
 
 #include "key.h"
 #include "primitives/block.h"

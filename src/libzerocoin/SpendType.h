@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef PIVX_SPENDTYPE_H
-#define PIVX_SPENDTYPE_H
+#ifndef LIBERTY_SPENDTYPE_H
+#define LIBERTY_SPENDTYPE_H
 
 #include <cstdint>
 

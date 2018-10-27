@@ -16,8 +16,8 @@ BEGIN
     BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
-            VALUE "CompanyName",        "Pivx"
-            VALUE "FileDescription",    "liberty-cli (OSS RPC client for Pivx)"
+            VALUE "CompanyName",        "Liberty"
+            VALUE "FileDescription",    "liberty-cli (OSS RPC client for Liberty)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "liberty-cli"
             VALUE "LegalCopyright",     COPYRIGHT_STR

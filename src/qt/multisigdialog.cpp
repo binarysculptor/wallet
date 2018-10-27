@@ -780,7 +780,7 @@ bool MultisigDialog::createRedeemScript(int m, vector<string> vKeys, CScript& re
         for(vector<string>::iterator it = vKeys.begin(); it != vKeys.end(); ++it) {
             string keyString = *it;
 #ifdef ENABLE_WALLET
-            // Case 1: PIVX address and we have full public key:
+            // Case 1: Liberty address and we have full public key:
             CBitcoinAddress address(keyString);
             if (pwalletMain && address.IsValid()) {
                 CKeyID keyID;
@@ -1065,4 +1065,3 @@ void MultisigDialog::on_addPrivKeyButton_clicked()
 
     ui->keyList->addWidget(keyFrame);
 }
-

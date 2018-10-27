@@ -1,14 +1,14 @@
 .TH PIVD "1" "February 2017" "libertyd 2.1.4.1"
 .SH NAME
-PIVX \- peer-to-peer network based digital currency
+Liberty \- peer-to-peer network based digital currency
 .SH SYNOPSIS
 libertyd [options] <command> [params]
 .TP
 libertyd [options] help <command> \- Get help for a command
 .SH DESCRIPTION
-This  manual page documents the libertyd program. PIVX is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
+This  manual page documents the libertyd program. Liberty is a peer-to-peer digital currency. Peer-to-peer (P2P) means that there is no central authority to issue new money or keep track of transactions. Instead, these tasks are managed collectively by the nodes of the network. Advantages:
 
-PIVX can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the PIVX system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
+Liberty can be sent easily through the Internet, without having to trust middlemen. Transactions are designed to be irreversible. Be safe from instability caused by fractional reserve banking and central banks. The limited inflation of the Liberty system’s money supply is distributed evenly (by CPU power) throughout the network, not monopolized by banks.
 
 .SH OPTIONS
 .TP
@@ -70,10 +70,10 @@ This help message
 \fBbackupwallet 'destination'\fR
 Safely copies *wallet.dat* to 'destination', which can be a directory or a path with filename.
 .TP
-\fBgetaccount 'pivxaddress'\fR
+\fBgetaccount 'libertyaddress'\fR
 Returns the account associated with the given address.
 .TP
-\fBsetaccount 'pivxaddress' ['account']\fR
+\fBsetaccount 'libertyaddress' ['account']\fR
 Sets the ['account'] associated with the given address. ['account'] may be omitted to remove an address from ['account'].
 .TP
 \fBgetaccountaddress 'account'\fR
@@ -115,8 +115,8 @@ Returns a new liberty address for receiving payments. If 'account' is specified 
 \fBgetreceivedbyaccount 'account' ['minconf=1']\fR
 Returns the total amount received by addresses associated with 'account' in transactions with at least ['minconf'] confirmations.
 .TP
-\fBgetreceivedbyaddress 'pivxaddress' ['minconf=1']\fR
-Returns the total amount received by 'pivxaddress' in transactions with at least ['minconf'] confirmations.
+\fBgetreceivedbyaddress 'libertyaddress' ['minconf=1']\fR
+Returns the total amount received by 'libertyaddress' in transactions with at least ['minconf'] confirmations.
 .TP
 \fBgettransaction 'txid'\fR
 Returns information about a specific transaction, given hexadecimal transaction ID.
@@ -168,21 +168,21 @@ Returns a list of the last ['count'] transactions for 'account' \- for all accou
 \fBmove <'fromaccount'> <'toaccount'> <'amount'> ['minconf=1'] ['comment']\fR
 Moves funds between accounts.
 .TP
-\fBsendfrom* <'account'> <'pivxaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
-Sends amount from account's balance to 'pivxaddress'. This method will fail if there is less than amount PIV with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
+\fBsendfrom* <'account'> <'libertyaddress'> <'amount'> ['minconf=1'] ['comment'] ['comment-to']\fR
+Sends amount from account's balance to 'libertyaddress'. This method will fail if there is less than amount PIV with ['minconf'] confirmations in the account's balance (unless account is the empty-string-named default account; it behaves like the *sendtoaddress* method). Returns transaction ID on success.
 .TP
-\fBsendtoaddress 'pivxaddress' 'amount' ['comment'] ['comment-to']\fR
-Sends amount from the server's available balance to 'pivxaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
+\fBsendtoaddress 'libertyaddress' 'amount' ['comment'] ['comment-to']\fR
+Sends amount from the server's available balance to 'libertyaddress'. amount is a real and is rounded to the nearest 0.01. Returns transaction id on success.
 .TP
 \fBstop\fR
 Stops the liberty server.
 .TP
-\fBvalidateaddress 'pivxaddress'\fR
-Checks that 'pivxaddress' looks like a proper PIVX address. Returns an object containing:
+\fBvalidateaddress 'libertyaddress'\fR
+Checks that 'libertyaddress' looks like a proper Liberty address. Returns an object containing:
 
     "isvalid" : true or false.
     "ismine"  : true if the address is in the server's wallet.
-    "address" : pivxaddress.
+    "address" : libertyaddress.
 
     *note: ismine and address are only returned if the address is valid.
 

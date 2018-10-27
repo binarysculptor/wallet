@@ -11,7 +11,7 @@
 
 /**
  * CBaseChainParams defines the base parameters (shared between liberty-cli and libertyd)
- * of a given instance of the Pivx system.
+ * of a given instance of the Liberty system.
  */
 class CBaseChainParams
 {

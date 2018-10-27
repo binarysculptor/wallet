@@ -1,7 +1,7 @@
 <!--- Remove this description and sections that do not apply -->
 
 This issue tracker is only for technical issues related to Liberty Core.
-General PIVX questions and/or support requests and are best directed to the [PIVX Discord](https://discord.liberty-coin.com).
+General Liberty questions and/or support requests and are best directed to the [Liberty Discord](https://discord.liberty-coin.com).
 
 ### Describe the issue
 
