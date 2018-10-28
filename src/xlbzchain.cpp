@@ -303,8 +303,7 @@ libzerocoin::CoinSpend TxInToZerocoinSpend(const CTxIn& txin)
     dataTxIn.insert(dataTxIn.end(), txin.scriptSig.begin() + BIGNUM_SIZE, txin.scriptSig.end());
     CDataStream serializedCoinSpend(dataTxIn, SER_NETWORK, PROTOCOL_VERSION);
 
-    libzerocoin::ZerocoinParams* paramsAccumulator = Params().Zerocoin_Params();
-    libzerocoin::CoinSpend spend(Params().Zerocoin_Params(), paramsAccumulator, serializedCoinSpend);
+    libzerocoin::CoinSpend spend(Params().Zerocoin_Params(), serializedCoinSpend);
 
     return spend;
 }

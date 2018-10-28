@@ -344,7 +344,7 @@ Test_MintCoin()
 bool Test_InvalidCoin()
 {
 	CBigNum coinValue;
-	
+
 	try {
 		// Pick a random non-prime CBigNum
 		for (uint32_t i = 0; i < NON_PRIME_TESTS; i++) {
@@ -352,25 +352,25 @@ bool Test_InvalidCoin()
 			coinValue = coinValue * 2;
 			if (!coinValue.isPrime()) break;
 		}
-				
+
 		PublicCoin pubCoin(g_Params);
 		if (pubCoin.validate()) {
 			// A blank coin should not be valid!
 			return false;
-		}		
-		
+		}
+
 		PublicCoin pubCoin2(g_Params, coinValue, ZQ_ONE);
 		if (pubCoin2.validate()) {
 			// A non-prime coin should not be valid!
 			return false;
 		}
-		
+
 		PublicCoin pubCoin3 = pubCoin2;
 		if (pubCoin2.validate()) {
 			// A copy of a non-prime coin should not be valid!
 			return false;
 		}
-		
+
 		// Serialize and deserialize the coin
 		CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
 		ss << pubCoin;
@@ -379,12 +379,12 @@ bool Test_InvalidCoin()
 			// A deserialized copy of a non-prime coin should not be valid!
 			return false;
 		}
-		
+
 	} catch (runtime_error &e) {
 		cout << "Caught exception: " << e.what() << endl;
 		return false;
 	}
-	
+
 	return true;
 }
 
@@ -419,22 +419,22 @@ Test_MintAndSpend()
 		cc << *gCoins[0];
 		PrivateCoin myCoin(g_Params,cc);
 
-		CoinSpend spend(g_Params, g_Params, myCoin, acc, 0, wAcc, 0, SpendType::SPEND);
+		CoinSpend spend(g_Params, myCoin, acc, 0, wAcc, 0, SpendType::SPEND);
         spend.Verify(acc);
 
 		// Serialize the proof and deserialize into newSpend
 		CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
 		ss << spend;
 		gProofSize = ss.size();
-		CoinSpend newSpend(g_Params, g_Params, ss);
+		CoinSpend newSpend(g_Params, ss);
 
 		// See if we can verify the deserialized proof (return our result)
 		bool ret =  newSpend.Verify(acc);
-		
+
 		// Extract the serial number
 		CBigNum serialNumber = newSpend.getCoinSerialNumber();
 		gSerialNumberSize = ceil((double)serialNumber.bitSize() / 8.0);
-		
+
 		return ret;
 	} catch (runtime_error &e) {
 		cout << e.what() << endl;
@@ -488,7 +488,7 @@ BOOST_AUTO_TEST_SUITE(libzerocoin)
 BOOST_AUTO_TEST_CASE(libzerocoin_tests)
 {
 	cout << "libzerocoin v" << ZEROCOIN_VERSION_STRING << " test utility." << endl << endl;
-	
+
 	Test_RunAllTests();
 }
 BOOST_AUTO_TEST_SUITE_END()

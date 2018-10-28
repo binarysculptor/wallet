@@ -37,8 +37,9 @@ Accumulator::Accumulator(const ZerocoinParams* p, const CoinDenomination d, cons
 
     if(bnValue != 0)
         this->value = bnValue;
-    else
+    else {
         this->value = this->params->accumulatorBase;
+    }
 }
 
 void Accumulator::increment(const CBigNum& bnValue) {
