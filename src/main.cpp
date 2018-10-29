@@ -3597,7 +3597,7 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
             REJECT_INVALID, "high-hash");
 
     if(block.nVersion < Params().Zerocoin_HeaderVersion())
-        return state.DoS(50, error("CheckBlockHeader() : block version must be above 5 after ZerocoinStartHeight"),
+        return state.DoS(50, error("CheckBlockHeader() : block version must be above 5 for Liberty"),
         REJECT_INVALID, "block-version");
 
     return true;

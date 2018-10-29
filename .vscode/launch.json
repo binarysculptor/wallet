@@ -9,7 +9,7 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceFolder}/src/qt/liberty-qt",
-        "args": ["-debug", "-printstakemodifier"],
+        "args": ["-debug", "forcednsseed"],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
         "environment": [],
