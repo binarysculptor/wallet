@@ -405,7 +405,7 @@ bool CCryptoKeyStore::AddDeterministicSeed(const uint256& seed)
     }
                 //the use case for this is no password set seed, mint dXLBz,
 
-    return error("s%: Failed to %s\n", __func__, strErr);
+    return error("%s: Failed to %s\n", __func__, strErr);
 }
 
 bool CCryptoKeyStore::GetDeterministicSeed(const uint256& hashSeed, uint256& seedOut)
