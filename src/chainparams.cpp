@@ -108,7 +108,7 @@ public:
         pchMessageStart[3] = 0x8f;
         vAlertPubKey = ParseHex("04e0b61287c79205a4d894963238cc5d0227fe95eead9573ccd9b20debb71022b0f18a6406dd798bdbe3cbd9c801d9b5f7df5c045f709d816d406dc828172e3bac");
         nP2pPort = 10417;
-        bnProofOfWorkLimit = ~uint256(0);
+        bnProofOfWorkLimit = ~uint256(0) >> 20;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 8100; // 75%
         nRejectBlockOutdatedMajority = 10260; // 95%
@@ -144,9 +144,9 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 5;
-        genesis.nTime = 1540072799;
+        genesis.nTime = 1541016901; //Wednesday, October 31, 2018 8:15:01 PM
         genesis.nBits = 504365040;
-        genesis.nNonce = 1165199;
+        genesis.nNonce = 293085;
 
         //For all those who fork Liberty coin:
         //We bless you with the gift of a genesis block creator (courtesy of Helium coin); go make something great!
@@ -171,7 +171,7 @@ public:
                 std::cout << " merklehash: 0x"  << genesis.hashMerkleRoot.ToString().c_str() <<  "\n";
             }
         } else {
-            assert(hashGenesisBlock == uint256("0x00000cf0f0aa7d22d3857e579f60a5577ab709fe97af98f47bb9c679a92b3713"));
+            assert(hashGenesisBlock == uint256("0x00000c47870615eb2df4cb253910e7e0c861eddf94b62cf6089360e3569db9ab"));
             assert(genesis.hashMerkleRoot == uint256("0xbff44217a82b3a7975225053503c553bc63b0f594f51a15ee2d9a5007c281b01"));
         }
 
