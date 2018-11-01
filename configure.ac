@@ -15,7 +15,7 @@ AC_CONFIG_MACRO_DIR([build-aux/m4])
 BITCOIN_DAEMON_NAME=libertyd
 BITCOIN_GUI_NAME=liberty-qt
 BITCOIN_CLI_NAME=liberty-cli
-BITCOIN_TX_NAME=liberty-tx
+BITCOIN_TX_NAME=liberty-txgit stay
 
 dnl Unless the user specified ARFLAGS, force it to be cr
 AC_ARG_VAR(ARFLAGS, [Flags for the archiver, defaults to <cr> if not set])
