@@ -1685,19 +1685,4 @@ border:1px solid #333;
 }
 
 QCalendarWidget QWidget#qt_calendar_navigationbar { /* Calendar widget navigation bar */
-background-color:#231861;
-font-weight:bold;
-}
-
-QCalendarWidget QAbstractItemView { /* Calendar widget days */
-alternate-background-color:#dedbe5;
-background-color:#fff;
-}
-
-QCalendarWidget QAbstractItemView:enabled { /* Calendar widget weekdays in month */
-color:#333;
-}
-
-QCalendarWidget QAbstractItemView:disabled { /* Calendar widget days not in month */
-color:#818181;
-}
+backgrou
