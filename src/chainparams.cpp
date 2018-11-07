@@ -91,7 +91,7 @@ public:
         nTargetTimespan = 1 * 60; // Liberty: 1 day
         nTargetSpacing = 1 * 60;  // Liberty: 1 minute
         nMaturity = 100;
-        nMaxMoneyOut = 99999999999 * COIN;
+        nMaxMoneyOut = 9999999999 * COIN;
         nLastPoWBlock = 200;
 
         /**
