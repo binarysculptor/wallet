@@ -177,6 +177,7 @@ bool IsBlockValueValid(const CBlock& block, const CBlockIndex* pindex, CAmount n
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (pindexPrev == NULL) return true;
+    if (pindexPrev->GetBlockHash() == Params().HashGenesisBlock() || pindex->nHeight <= 1) return true;
 
     int nHeight = 0;
     if (pindexPrev->GetBlockHash() == block.hashPrevBlock) {
