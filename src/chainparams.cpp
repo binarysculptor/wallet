@@ -88,8 +88,8 @@ public:
         nEnforceBlockUpgradeMajority = 1;
         nRejectBlockOutdatedMajority = 950;
         nToCheckBlockUpgradeMajority = 1000;
-        nTargetTimespan = 1 * 60; // Liberty: 1 day
-        nTargetSpacing = 1 * 60;  // Liberty: 1 minute
+        nTargetTimespan = 1 * 60; 
+        nTargetSpacing = 1 * 60;  
         nMaturity = 100;
         nMaxMoneyOut = 9999999999 * COIN;
         nLastPoWBlock = 200;

@@ -352,7 +352,6 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
         /* Liberty features */
-        {"liberty", "masternode", &masternode, true, true, false},
         {"liberty", "listmasternodes", &listmasternodes, true, true, false},
         {"liberty", "getmasternodecount", &getmasternodecount, true, true, false},
         {"liberty", "masternodeconnect", &masternodeconnect, true, true, false},
@@ -368,7 +367,6 @@ static const CRPCCommand vRPCCommands[] =
         {"liberty", "getmasternodestatus", &getmasternodestatus, true, true, false},
         {"liberty", "getmasternodewinners", &getmasternodewinners, true, true, false},
         {"liberty", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"liberty", "mnbudget", &mnbudget, true, true, false},
         {"liberty", "preparebudget", &preparebudget, true, true, false},
         {"liberty", "submitbudget", &submitbudget, true, true, false},
         {"liberty", "mnbudgetvote", &mnbudgetvote, true, true, false},

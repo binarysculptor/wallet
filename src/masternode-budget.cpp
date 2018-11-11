@@ -27,11 +27,9 @@ int nSubmittedFinalBudget;
 
 int GetBudgetPaymentCycleBlocks()
 {
-    // Amount of blocks in a months period of time (using 1 minutes per) = (60*24*30)
-    if (Params().NetworkID() == CBaseChainParams::MAIN) return 43200;
-    //for testing purposes
-
-    return 144; //ten times per day
+    return (Params().NetworkID() == CBaseChainParams::MAIN)
+        ? (86400 / Params().TargetSpacing()) * 15 // every 15 days
+        : (86400 / Params().TargetSpacing()) / 4; // 4 times per day
 }
 
 bool IsBudgetCollateralValid(uint256 nTxCollateralHash, uint256 nExpectedHash, std::string& strError, int64_t& nTime, int& nConf, bool fBudgetFinalization)
@@ -120,7 +118,6 @@ void CBudgetManager::CheckOrphanVotes()
 {
     LOCK(cs);
 
-
     std::string strError = "";
     std::map<uint256, CBudgetVote>::iterator it1 = mapOrphanMasternodeBudgetVotes.begin();
     while (it1 != mapOrphanMasternodeBudgetVotes.end()) {
@@ -161,15 +158,9 @@ void CBudgetManager::SubmitFinalBudget()
         return;
     }
 
-     // Submit final budget during the last 2 days (2880 blocks) before payment for Mainnet, about 9 minutes (9 blocks) for Testnet
-    int finalizationWindow = ((GetBudgetPaymentCycleBlocks() / 30) * 2);
+    int finalizationDivisor = (Params().NetworkID() == CBaseChainParams::TESTNET) ? 5 : 8;
 
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        // NOTE: 9 blocks for testnet is way to short to have any masternode submit an automatic vote on the finalized(!) budget,
-        //       because those votes are only submitted/relayed once every 56 blocks in CFinalizedBudget::AutoCheck()
-
-        finalizationWindow = 64; // 56 + 4 finalization confirmations + 4 minutes buffer for propagation
-    }
+    int finalizationWindow = (GetBudgetPaymentCycleBlocks() / finalizationDivisor);
 
     int nFinalizationStart = nBlockStart - finalizationWindow;
  
@@ -912,16 +903,15 @@ std::string CBudgetManager::GetRequiredPaymentsString(int nBlockHeight)
 
 CAmount CBudgetManager::GetTotalBudget(int nHeight)
 {
-    if (chainActive.Tip() == NULL) return 0;
+    CBlockIndex* pindex = chainActive.Tip();
+    
+    if (pindex == NULL) return 0;
+    if (pindex->nMoneySupply >= Params().MaxMoneyOut()) return 0;
 
-    if (Params().NetworkID() == CBaseChainParams::TESTNET) {
-        CAmount nSubsidy = 500 * COIN;
-        return ((nSubsidy / 100) * 10) * 146;
-    }
-
-    //get block value and calculate from that
     CAmount nSubsidy = GetBlockValue(nHeight);
-    return ((nSubsidy / 100) * 10) * 1440 * 30;
+    int nCycleBlocks = GetBudgetPaymentCycleBlocks();
+
+    return ((nSubsidy / 100) * 10) * nCycleBlocks;
 }
 
 void CBudgetManager::NewBlock()
