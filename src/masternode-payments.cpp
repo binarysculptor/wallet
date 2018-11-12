@@ -285,7 +285,7 @@ std::string GetRequiredPaymentsString(int nBlockHeight)
     }
 }
 
-void CMasternodePayments::FillBlockPayee(CMutableTransaction &txNew, int64_t nFees, bool fProofOfStake, bool fXLBzStake)
+void CMasternodePayments::FillBlockPayee(CMutableTransaction &txNew, int64_t nFees, bool fProofOfStake, bool fXLIBzStake)
 {
     CBlockIndex* pindexPrev = chainActive.Tip();
     if (!pindexPrev) return;
@@ -306,7 +306,7 @@ void CMasternodePayments::FillBlockPayee(CMutableTransaction &txNew, int64_t nFe
     }
 
     CAmount blockValue = GetBlockValue(pindexPrev->nHeight);
-    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, fXLBzStake);
+    CAmount masternodePayment = GetMasternodePayment(pindexPrev->nHeight, blockValue, fXLIBzStake);
 
     if (hasPayment) {
         if (fProofOfStake) {

@@ -677,7 +677,7 @@
                        <item row="4" column="0">
                         <widget class="QLabel" name="labelLockedBalanceText">
                          <property name="toolTip">
-                          <string>Locked XLB or Masternode collaterals. These are excluded from XLBz minting.</string>
+                          <string>Locked XLB or Masternode collaterals. These are excluded from XLIBz minting.</string>
                          </property>
                          <property name="text">
                           <string>Locked:</string>
@@ -696,7 +696,7 @@
                           <cursorShape>IBeamCursor</cursorShape>
                          </property>
                          <property name="toolTip">
-                          <string>Locked XLB or Masternode collaterals. These are excluded from XLBz minting.</string>
+                          <string>Locked XLB or Masternode collaterals. These are excluded from XLIBz minting.</string>
                          </property>
                          <property name="text">
                           <string notr="true">0.000 000 00 XLB</string>
@@ -852,12 +852,12 @@
                           </font>
                          </property>
                          <property name="text">
-                          <string>XLBz Balance</string>
+                          <string>XLIBz Balance</string>
                          </property>
                         </widget>
                        </item>
                        <item>
-                        <widget class="QLabel" name="labelXLBzPercent">
+                        <widget class="QLabel" name="labelXLIBzPercent">
                          <property name="text">
                           <string notr="true">0 %</string>
                          </property>
@@ -906,7 +906,7 @@
                         <widget class="QLabel" name="labelzBalanceMatureText">
                          <property name="toolTip">
                           <string>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These XLBz are spendable.</string>
+These XLIBz are spendable.</string>
                          </property>
                          <property name="text">
                           <string>Available:</string>
@@ -923,7 +923,7 @@ These XLBz are spendable.</string>
                          </property>
                          <property name="toolTip">
                           <string>Mature: more than 20 confirmation and more than 1 mint of the same denomination after it was minted.
-These XLBz are spendable.</string>
+These XLIBz are spendable.</string>
                          </property>
                          <property name="text">
                           <string notr="true">0.000 000 00 XLB</string>
@@ -998,7 +998,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
                        <item row="4" column="0">
                         <widget class="QLabel" name="labelzBalanceText">
                          <property name="toolTip">
-                          <string>Your current XLBz balance, unconfirmed and immature XLBz included.</string>
+                          <string>Your current XLIBz balance, unconfirmed and immature XLIBz included.</string>
                          </property>
                          <property name="text">
                           <string>Total:</string>
@@ -1017,7 +1017,7 @@ Immature: confirmed, but less than 1 mint of the same denomination after it was 
                           <cursorShape>IBeamCursor</cursorShape>
                          </property>
                          <property name="toolTip">
-                          <string>Your current XLBz balance, unconfirmed and immature XLBz included.</string>
+                          <string>Your current XLIBz balance, unconfirmed and immature XLIBz included.</string>
                          </property>
                          <property name="text">
                           <string notr="true">0.000 000 00 XLB</string>

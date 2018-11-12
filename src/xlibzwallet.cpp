@@ -3,18 +3,18 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "xlbzwallet.h"
+#include "xlibzwallet.h"
 #include "main.h"
 #include "txdb.h"
 #include "walletdb.h"
 #include "init.h"
 #include "wallet.h"
 #include "primitives/deterministicmint.h"
-#include "xlbzchain.h"
+#include "xlibzchain.h"
 
 using namespace libzerocoin;
 
-CXLBzWallet::CXLBzWallet(std::string strWalletFile)
+CXlibzWallet::CXlibzWallet(std::string strWalletFile)
 {
     this->strWalletFile = strWalletFile;
     CWalletDB walletdb(strWalletFile);
@@ -22,7 +22,7 @@ CXLBzWallet::CXLBzWallet(std::string strWalletFile)
     uint256 hashSeed;
     bool fFirstRun = !walletdb.ReadCurrentSeedHash(hashSeed);
 
-    //Check for old db version of storing xlbz seed
+    //Check for old db version of storing xlibz seed
     if (fFirstRun) {
         uint256 seed;
         if (walletdb.ReadZXLBSeed_deprecated(seed)) {
@@ -31,10 +31,10 @@ CXLBzWallet::CXLBzWallet(std::string strWalletFile)
             hashSeed = Hash(seed.begin(), seed.end());
             if (pwalletMain->AddDeterministicSeed(seed)) {
                 if (walletdb.EraseZXLBSeed_deprecated()) {
-                    LogPrintf("%s: Updated XLBz seed databasing\n", __func__);
+                    LogPrintf("%s: Updated XLIBz seed databasing\n", __func__);
                     fFirstRun = false;
                 } else {
-                    LogPrintf("%s: failed to remove old xlbz seed\n", __func__);
+                    LogPrintf("%s: failed to remove old xlibz seed\n", __func__);
                 }
             }
         }
@@ -56,7 +56,7 @@ CXLBzWallet::CXLBzWallet(std::string strWalletFile)
         key.MakeNewKey(true);
         seed = key.GetPrivKey_256();
         seedMaster = seed;
-        LogPrintf("%s: first run of xlbz wallet detected, new seed generated. Seedhash=%s\n", __func__, Hash(seed.begin(), seed.end()).GetHex());
+        LogPrintf("%s: first run of xlibz wallet detected, new seed generated. Seedhash=%s\n", __func__, Hash(seed.begin(), seed.end()).GetHex());
     } else if (!pwalletMain->GetDeterministicSeed(hashSeed, seed)) {
         LogPrintf("%s: failed to get deterministic seed for hashseed %s\n", __func__, hashSeed.GetHex());
         return;
@@ -69,7 +69,7 @@ CXLBzWallet::CXLBzWallet(std::string strWalletFile)
     this->mintPool = CMintPool(nCountLastUsed);
 }
 
-bool CXLBzWallet::SetMasterSeed(const uint256& seedMaster, bool fResetCount)
+bool CXlibzWallet::SetMasterSeed(const uint256& seedMaster, bool fResetCount)
 {
 
     CWalletDB walletdb(strWalletFile);
@@ -94,18 +94,18 @@ bool CXLBzWallet::SetMasterSeed(const uint256& seedMaster, bool fResetCount)
     return true;
 }
 
-void CXLBzWallet::Lock()
+void CXlibzWallet::Lock()
 {
     seedMaster = 0;
 }
 
-void CXLBzWallet::AddToMintPool(const std::pair<uint256, uint32_t>& pMint, bool fVerbose)
+void CXlibzWallet::AddToMintPool(const std::pair<uint256, uint32_t>& pMint, bool fVerbose)
 {
     mintPool.Add(pMint, fVerbose);
 }
 
 //Add the next 20 mints to the mint pool
-void CXLBzWallet::GenerateMintPool(uint32_t nCountStart, uint32_t nCountEnd)
+void CXlibzWallet::GenerateMintPool(uint32_t nCountStart, uint32_t nCountEnd)
 {
 
     //Is locked
@@ -156,7 +156,7 @@ void CXLBzWallet::GenerateMintPool(uint32_t nCountStart, uint32_t nCountEnd)
 }
 
 // pubcoin hashes are stored to db so that a full accounting of mints belonging to the seed can be tracked without regenerating
-bool CXLBzWallet::LoadMintPoolFromDB()
+bool CXlibzWallet::LoadMintPoolFromDB()
 {
     map<uint256, vector<pair<uint256, uint32_t> > > mapMintPool = CWalletDB(strWalletFile).MapMintPool();
 
@@ -167,20 +167,20 @@ bool CXLBzWallet::LoadMintPoolFromDB()
     return true;
 }
 
-void CXLBzWallet::RemoveMintsFromPool(const std::vector<uint256>& vPubcoinHashes)
+void CXlibzWallet::RemoveMintsFromPool(const std::vector<uint256>& vPubcoinHashes)
 {
     for (const uint256& hash : vPubcoinHashes)
         mintPool.Remove(hash);
 }
 
-void CXLBzWallet::GetState(int& nCount, int& nLastGenerated)
+void CXlibzWallet::GetState(int& nCount, int& nLastGenerated)
 {
     nCount = this->nCountLastUsed + 1;
     nLastGenerated = mintPool.CountOfLastGenerated();
 }
 
 //Catch the counter up with the chain
-void CXLBzWallet::SyncWithChain(bool fGenerateMintPool)
+void CXlibzWallet::SyncWithChain(bool fGenerateMintPool)
 {
     uint32_t nLastCountUsed = 0;
     bool found = true;
@@ -204,7 +204,7 @@ void CXLBzWallet::SyncWithChain(bool fGenerateMintPool)
             if (ShutdownRequested())
                 return;
 
-            if (pwalletMain->xlbzTracker->HasPubcoinHash(pMint.first)) {
+            if (pwalletMain->xlibzTracker->HasPubcoinHash(pMint.first)) {
                 mintPool.Remove(pMint.first);
                 continue;
             }
@@ -281,7 +281,7 @@ void CXLBzWallet::SyncWithChain(bool fGenerateMintPool)
     }
 }
 
-bool CXLBzWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const uint256& txid, const CoinDenomination& denom)
+bool CXlibzWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const uint256& txid, const CoinDenomination& denom)
 {
     if (!mintPool.Has(bnValue))
         return error("%s: value not in pool", __func__);
@@ -327,8 +327,8 @@ bool CXLBzWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const 
         pwalletMain->AddToWallet(wtx);
     }
 
-    // Add to xlbzTracker which also adds to database
-    pwalletMain->xlbzTracker->Add(dMint, true);
+    // Add to xlibzTracker which also adds to database
+    pwalletMain->xlibzTracker->Add(dMint, true);
     
     //Update the count if it is less than the mint's count
     if (nCountLastUsed < pMint.second) {
@@ -351,7 +351,7 @@ bool IsValidCoinValue(const CBigNum& bnValue)
     bnValue.isPrime();
 }
 
-void CXLBzWallet::SeedToZXLB(const uint512& seedZerocoin, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key)
+void CXlibzWallet::SeedToZXLB(const uint512& seedZerocoin, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key)
 {
     ZerocoinParams* params = Params().Zerocoin_Params();
 
@@ -400,7 +400,7 @@ void CXLBzWallet::SeedToZXLB(const uint512& seedZerocoin, CBigNum& bnValue, CBig
     }
 }
 
-uint512 CXLBzWallet::GetZerocoinSeed(uint32_t n)
+uint512 CXlibzWallet::GetZerocoinSeed(uint32_t n)
 {
     CDataStream ss(SER_GETHASH, 0);
     ss << seedMaster << n;
@@ -408,14 +408,14 @@ uint512 CXLBzWallet::GetZerocoinSeed(uint32_t n)
     return zerocoinSeed;
 }
 
-void CXLBzWallet::UpdateCount()
+void CXlibzWallet::UpdateCount()
 {
     nCountLastUsed++;
     CWalletDB walletdb(strWalletFile);
     walletdb.WriteZXLBCount(nCountLastUsed);
 }
 
-void CXLBzWallet::GenerateDeterministicZXLB(CoinDenomination denom, PrivateCoin& coin, CDeterministicMint& dMint, bool fGenerateOnly)
+void CXlibzWallet::GenerateDeterministicZXLB(CoinDenomination denom, PrivateCoin& coin, CDeterministicMint& dMint, bool fGenerateOnly)
 {
     GenerateMint(nCountLastUsed + 1, denom, coin, dMint);
     if (fGenerateOnly)
@@ -425,7 +425,7 @@ void CXLBzWallet::GenerateDeterministicZXLB(CoinDenomination denom, PrivateCoin&
     //LogPrintf("%s : Generated new deterministic mint. Count=%d pubcoin=%s seed=%s\n", __func__, nCount, coin.getPublicCoin().getValue().GetHex().substr(0,6), seedZerocoin.GetHex().substr(0, 4));
 }
 
-void CXLBzWallet::GenerateMint(const uint32_t& nCount, const CoinDenomination denom, PrivateCoin& coin, CDeterministicMint& dMint)
+void CXlibzWallet::GenerateMint(const uint32_t& nCount, const CoinDenomination denom, PrivateCoin& coin, CDeterministicMint& dMint)
 {
     uint512 seedZerocoin = GetZerocoinSeed(nCount);
     CBigNum bnValue;
@@ -446,7 +446,7 @@ void CXLBzWallet::GenerateMint(const uint32_t& nCount, const CoinDenomination de
     dMint.SetDenomination(denom);
 }
 
-bool CXLBzWallet::RegenerateMint(const CDeterministicMint& dMint, CZerocoinMint& mint)
+bool CXlibzWallet::RegenerateMint(const CDeterministicMint& dMint, CZerocoinMint& mint)
 {
     //Check that the seed is correct    todo:handling of incorrect, or multiple seeds
     uint256 hashSeed = Hash(seedMaster.begin(), seedMaster.end());

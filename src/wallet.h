@@ -23,8 +23,8 @@
 #include "validationinterface.h"
 #include "wallet_ismine.h"
 #include "walletdb.h"
-#include "xlbzwallet.h"
-#include "xlbztracker.h"
+#include "xlibzwallet.h"
+#include "xlibztracker.h"
 
 #include <algorithm>
 #include <map>
@@ -89,7 +89,7 @@ enum AvailableCoinsType {
     STAKABLE_COINS = 6                          // UTXO's that are valid for staking
 };
 
-// Possible states for XLBz send
+// Possible states for XLIBz send
 enum ZerocoinSpendStatus {
     ZXLB_SPEND_OKAY = 0,                            // No error
     ZXLB_SPEND_ERROR = 1,                           // Unspecified class of errors, more details are (hopefully) in the returning text
@@ -213,7 +213,7 @@ public:
     std::string ResetMintZerocoin();
     std::string ResetSpentZerocoin();
     void ReconsiderZerocoins(std::list<CZerocoinMint>& listMintsRestored, std::list<CDeterministicMint>& listDMintsRestored);
-    void XLBzBackupWallet();
+    void XLIBzBackupWallet();
     bool GetZerocoinKey(const CBigNum& bnSerial, CKey& key);
     bool CreateZXLBOutPut(libzerocoin::CoinDenomination denomination, CTxOut& outMint, CDeterministicMint& dMint);
     bool GetMint(const uint256& hashSerial, CZerocoinMint& mint);
@@ -221,7 +221,7 @@ public:
     bool DatabaseMint(CDeterministicMint& dMint);
     bool SetMintUnspent(const CBigNum& bnSerial);
     bool UpdateMint(const CBigNum& bnValue, const int& nHeight, const uint256& txid, const libzerocoin::CoinDenomination& denom);
-    string GetUniqueWalletBackupName(bool fxlbzAuto) const;
+    string GetUniqueWalletBackupName(bool fxlibzAuto) const;
 
 
     /** Zerocin entry changed.
@@ -237,13 +237,13 @@ public:
      */
     mutable CCriticalSection cs_wallet;
 
-    CXLBzWallet* zwalletMain;
+    CXlibzWallet* zwalletMain;
 
     bool fFileBacked;
     bool fWalletUnlockAnonymizeOnly;
     std::string strWalletFile;
     bool fBackupMints;
-    std::unique_ptr<CXLBzTracker> xlbzTracker;
+    std::unique_ptr<CXlibzTracker> xlibzTracker;
 
     std::set<int64_t> setKeyPool;
     std::map<CKeyID, CKeyMetadata> mapKeyMetadata;
@@ -328,20 +328,20 @@ public:
         return nZeromintPercentage;
     }
 
-    void setZWallet(CXLBzWallet* zwallet)
+    void setZWallet(CXlibzWallet* zwallet)
     {
         zwalletMain = zwallet;
-        xlbzTracker = std::unique_ptr<CXLBzTracker>(new CXLBzTracker(strWalletFile));
+        xlibzTracker = std::unique_ptr<CXlibzTracker>(new CXlibzTracker(strWalletFile));
     }
 
-    CXLBzWallet* getZWallet() { return zwalletMain; }
+    CXlibzWallet* getZWallet() { return zwalletMain; }
 
     bool isZeromintEnabled()
     {
         return fEnableZeromint;
     }
 
-    void setXLBzAutoBackups(bool fEnabled)
+    void setXLIBzAutoBackups(bool fEnabled)
     {
         fBackupMints = fEnabled;
     }
@@ -669,8 +669,8 @@ public:
     /** MultiSig address added */
     boost::signals2::signal<void(bool fHaveMultiSig)> NotifyMultiSigChanged;
 
-    /** XLBz reset */
-    boost::signals2::signal<void()> NotifyXLBzReset;
+    /** XLIBz reset */
+    boost::signals2::signal<void()> NotifyXLIBzReset;
 
     /** notify wallet file backed up */
     boost::signals2::signal<void (const bool& fSuccess, const std::string& filename)> NotifyWalletBacked;

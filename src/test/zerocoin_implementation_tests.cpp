@@ -15,8 +15,8 @@
 #include <iostream>
 #include <accumulators.h>
 #include "wallet.h"
-#include "xlbzwallet.h"
-#include "xlbzchain.h"
+#include "xlibzwallet.h"
+#include "xlibzchain.h"
 
 using namespace libzerocoin;
 
@@ -504,7 +504,7 @@ BOOST_AUTO_TEST_CASE(deterministic_tests)
     CWalletDB walletdb(strWalletFile, "cr+");
 
     CWallet wallet(strWalletFile);
-    CXLBzWallet zWallet(wallet.strWalletFile);
+    CXlibzWallet zWallet(wallet.strWalletFile);
     zWallet.SetMasterSeed(seedMaster);
     wallet.setZWallet(&zWallet);
 

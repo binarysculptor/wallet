@@ -33,7 +33,7 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #include "validationinterface.h"
-#include "xlbzchain.h"
+#include "xlibzchain.h"
 
 #include "libzerocoin/Denominations.h"
 #include "primitives/zerocoin.h"
@@ -896,16 +896,16 @@ bool ContextualCheckZerocoinMint(const CTransaction& tx, const PublicCoin& coin,
 
 bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend, CBlockIndex* pindex, const uint256& hashBlock)
 {
-    //Check to see if the XLBz is properly signed
+    //Check to see if the XLIBz is properly signed
     //if (pindex->nHeight >= Params().Zerocoin_StartHeight()) {
         if (!spend.HasValidSignature())
-            return error("%s: V2 XLBz spend does not have a valid signature", __func__);
+            return error("%s: V2 XLIBz spend does not have a valid signature", __func__);
 
         libzerocoin::SpendType expectedType = libzerocoin::SpendType::SPEND;
         if (tx.IsCoinStake())
             expectedType = libzerocoin::SpendType::STAKE;
         if (spend.getSpendType() != expectedType) {
-            return error("%s: trying to spend XLBz without the correct spend type. txid=%s", __func__,
+            return error("%s: trying to spend XLIBz without the correct spend type. txid=%s", __func__,
                 tx.GetHash().GetHex());
         }
     //}
@@ -913,14 +913,14 @@ bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend
     //Reject serial's that are already in the blockchain
     int nHeightTx = 0;
     if (IsSerialInBlockchain(spend.getCoinSerialNumber(), nHeightTx))
-        return error("%s : XLBz spend with serial %s is already in block %d\n", __func__,
+        return error("%s : XLIBz spend with serial %s is already in block %d\n", __func__,
             spend.getCoinSerialNumber().GetHex(), nHeightTx);
 
     //Reject serial's that are not in the acceptable value range
     //bool fUseV1Params = spend.getVersion() < libzerocoin::PrivateCoin::PUBKEY_VERSION;
     // if (pindex->nHeight > Params().Zerocoin_Block_EnforceSerialRange() &&
     //     !spend.HasValidSerial(Params().Zerocoin_Params(fUseV1Params)))
-    //     return error("%s : XLBz spend with serial %s from tx %s is not in valid range\n", __func__,
+    //     return error("%s : XLIBz spend with serial %s from tx %s is not in valid range\n", __func__,
     //         spend.getCoinSerialNumber().GetHex(), tx.GetHash().GetHex());
 
     return true;
@@ -1226,7 +1226,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
             //Check that txid is not already in the chain
             int nHeightTx = 0;
             if (IsTransactionInChain(tx.GetHash(), nHeightTx))
-                return state.Invalid(error("AcceptToMemoryPool : XLBz spend tx %s already in block %d",
+                return state.Invalid(error("AcceptToMemoryPool : XLIBz spend tx %s already in block %d",
                                          tx.GetHash().GetHex(), nHeightTx),
                     REJECT_DUPLICATE, "bad-txns-inputs-spent");
 
@@ -1238,7 +1238,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                 if (!ContextualCheckZerocoinSpend(tx, spend, chainActive.Tip(), 0))
                     return state.Invalid(error("%s: ContextualCheckZerocoinSpend failed for tx %s", __func__,
                                              tx.GetHash().GetHex()),
-                        REJECT_INVALID, "bad-txns-invalid-xlbz");
+                        REJECT_INVALID, "bad-txns-invalid-xlibz");
             }
         } else {
             LOCK(pool.cs);
@@ -1260,7 +1260,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CValidationState& state, const CTransa
                 }
             }
 
-            // Check that XLBz mints are not already known
+            // Check that XLIBz mints are not already known
             if (tx.IsZerocoinMint()) {
                 for (auto& out : tx.vout) {
                     if (!out.IsZerocoinMint())
@@ -1773,9 +1773,9 @@ int64_t GetBlockValue(int nHeight)
     return nSubsidy;
 }
 
-int64_t GetMasternodePayment(int nHeight, int64_t blockValue, bool isXlbzStake)
+int64_t GetMasternodePayment(int nHeight, int64_t blockValue, bool isXLibzStake)
 {
-    if (!isXlbzStake) {
+    if (!isXLibzStake) {
         return blockValue * 0.75;
     } else {
         int64_t nPayment = blockValue * 0.65;
@@ -2329,7 +2329,7 @@ void RecalculateZXLBSpent()
         if (pindex->nHeight % 1000 == 0)
             LogPrintf("%s : block %d...\n", __func__, pindex->nHeight);
 
-        //Rewrite XLBz supply
+        //Rewrite XLIBz supply
         CBlock block;
         assert(ReadBlockFromDisk(block, pindex));
 
@@ -2338,13 +2338,13 @@ void RecalculateZXLBSpent()
         //Reset the supply to previous block
         pindex->mapZerocoinSupply = pindex->pprev->mapZerocoinSupply;
 
-        //Add mints to XLBz supply
+        //Add mints to XLIBz supply
         for (auto denom : libzerocoin::zerocoinDenomList) {
             long nDenomAdded = count(pindex->vMintDenominationsInBlock.begin(), pindex->vMintDenominationsInBlock.end(), denom);
             pindex->mapZerocoinSupply.at(denom) += nDenomAdded;
         }
 
-        //Remove spends from XLBz supply
+        //Remove spends from XLIBz supply
         for (auto denom : listDenomsSpent)
             pindex->mapZerocoinSupply.at(denom)--;
 
@@ -2647,7 +2647,7 @@ bool ConnectBlock(
                     return state.DoS(100, error("%s: failed to add block %s with invalid zerocoinspend", __func__, tx.GetHash().GetHex()), REJECT_INVALID);
             }
 
-            // Check that XLBz mints are not already known
+            // Check that XLIBz mints are not already known
             if (tx.IsZerocoinMint()) {
                 for (auto& out : tx.vout) {
                     if (!out.IsZerocoinMint())
@@ -2668,7 +2668,7 @@ bool ConnectBlock(
                 return state.DoS(100, error("ConnectBlock() : inputs missing/spent"),
                     REJECT_INVALID, "bad-txns-inputs-missingorspent");
 
-            // Check that XLBz mints are not already known
+            // Check that XLIBz mints are not already known
             if (tx.IsZerocoinMint()) {
                 for (auto& out : tx.vout) {
                     if (!out.IsZerocoinMint())
@@ -2714,9 +2714,9 @@ bool ConnectBlock(
         pos.nTxOffset += ::GetSerializeSize(tx, SER_DISK, CLIENT_VERSION);
     }
 
-    //Track XLBz money supply in the block index
+    //Track XLIBz money supply in the block index
     if (!UpdateZXLBSupply(block, pindex))
-        return state.DoS(100, error("%s: Failed to calculate new XLBz supply for block=%s height=%d", __func__, block.GetHash().GetHex(), pindex->nHeight), REJECT_INVALID);
+        return state.DoS(100, error("%s: Failed to calculate new XLIBz supply for block=%s height=%d", __func__, block.GetHash().GetHex(), pindex->nHeight), REJECT_INVALID);
 
     // track money supply and mint amount info
     CAmount nMoneySupplyPrev = pindex->pprev ? pindex->pprev->nMoneySupply : 0;
@@ -2773,7 +2773,7 @@ bool ConnectBlock(
         setDirtyBlockIndex.insert(pindex);
     }
 
-    //Record XLBz serials
+    //Record XLIBz serials
     set<uint256> setAddedTx;
     for (pair<CoinSpend, uint256> pSpend : vSpends) {
         // Send signal to wallet if this is ours
@@ -2911,7 +2911,7 @@ void static UpdateTip(CBlockIndex* pindexNew)
 {
     chainActive.SetTip(pindexNew);
 
-    // If turned on AutoZeromint will automatically convert Liberty to XLBz
+    // If turned on AutoZeromint will automatically convert Liberty to XLIBz
     if (pwalletMain->isZeromintEnabled())
         pwalletMain->AutoZeromint();
 
@@ -3777,13 +3777,13 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         if (!CheckTransaction(tx, state))
             return error("CheckBlock() : CheckTransaction failed");
 
-        // double check that there are no double spent XLBz spends in this block
+        // double check that there are no double spent XLIBz spends in this block
         if (tx.IsZerocoinSpend()) {
             for (const CTxIn& txIn : tx.vin) {
                 if (txIn.scriptSig.IsZerocoinSpend()) {
                     libzerocoin::CoinSpend spend = TxInToZerocoinSpend(txIn);
                     if (count(vBlockSerials.begin(), vBlockSerials.end(), spend.getCoinSerialNumber()))
-                        return state.DoS(100, error("%s : Double spending of XLBz serial %s in block\n Block: %s",
+                        return state.DoS(100, error("%s : Double spending of XLIBz serial %s in block\n Block: %s",
                                                   __func__, spend.getCoinSerialNumber().GetHex(), block.ToString()));
                     vBlockSerials.emplace_back(spend.getCoinSerialNumber());
                 }
@@ -3989,21 +3989,21 @@ bool AcceptBlockHeader(const CBlock& block, CValidationState& state, CBlockIndex
 bool ContextualCheckZerocoinStake(int nHeight, CStakeInput* stake)
 {
     // if (nHeight < Params().Zerocoin_StartHeight())
-    //     return error("%s: XLBz stake block is less than allowed start height", __func__);
+    //     return error("%s: XLIBz stake block is less than allowed start height", __func__);
 
-    if (CXLBzStake* XLBz = dynamic_cast<CXLBzStake*>(stake)) {
-        CBlockIndex* pindexFrom = XLBz->GetIndexFrom();
+    if (CXlibzStake* XLIBz = dynamic_cast<CXlibzStake*>(stake)) {
+        CBlockIndex* pindexFrom = XLIBz->GetIndexFrom();
         if (!pindexFrom)
-            return error("%s: failed to get index associated with XLBz stake checksum", __func__);
+            return error("%s: failed to get index associated with XLIBz stake checksum", __func__);
 
         if (chainActive.Height() - pindexFrom->nHeight < Params().Zerocoin_RequiredStakeDepth())
-            return error("%s: XLBz stake does not have required confirmation depth", __func__);
+            return error("%s: XLIBz stake does not have required confirmation depth", __func__);
 
         //The checksum needs to be the exact checksum from 200 blocks ago
         uint256 nCheckpoint200 = chainActive[nHeight - Params().Zerocoin_RequiredStakeDepth()]->nAccumulatorCheckpoint;
-        uint32_t nChecksum200 = ParseChecksum(nCheckpoint200, libzerocoin::AmountToZerocoinDenomination(XLBz->GetValue()));
-        if (nChecksum200 != XLBz->GetChecksum())
-            return error("%s: accumulator checksum is different than the block 200 blocks previous. stake=%d block200=%d", __func__, XLBz->GetChecksum(), nChecksum200);
+        uint32_t nChecksum200 = ParseChecksum(nCheckpoint200, libzerocoin::AmountToZerocoinDenomination(XLIBz->GetValue()));
+        if (nChecksum200 != XLIBz->GetChecksum())
+            return error("%s: accumulator checksum is different than the block 200 blocks previous. stake=%d block200=%d", __func__, XLIBz->GetChecksum(), nChecksum200);
     } else {
         return error("%s: dynamic_cast of stake ptr failed", __func__);
     }
@@ -4054,7 +4054,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
             return error("%s: null stake ptr", __func__);
 
         if (stake->IsZXLB() && !ContextualCheckZerocoinStake(pindexPrev->nHeight, stake.get()))
-            return state.DoS(100, error("%s: staked XLBz fails context checks", __func__));
+            return state.DoS(100, error("%s: staked XLIBz fails context checks", __func__));
 
         uint256 hash = block.GetHash();
         if (!mapProofOfStake.count(hash)) // add to mapProofOfStake
@@ -4182,7 +4182,7 @@ bool ProcessNewBlock(CValidationState& state, CNode* pfrom, CBlock* pblock, CDis
         }
     }
     if (nMints || nSpends)
-        LogPrintf("%s : block contains %d XLBz mints and %d XLBz spends\n", __func__, nMints, nSpends);
+        LogPrintf("%s : block contains %d XLIBz mints and %d XLIBz spends\n", __func__, nMints, nSpends);
 
     if (!CheckBlockSignature(*pblock))
         return error("ProcessNewBlock() : bad proof-of-stake block signature");

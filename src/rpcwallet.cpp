@@ -17,7 +17,7 @@
 #include "utilmoneystr.h"
 #include "wallet.h"
 #include "walletdb.h"
-#include "xlbzchain.h"
+#include "xlibzchain.h"
 
 #include <stdint.h>
 
@@ -2535,11 +2535,11 @@ UniValue getzerocoinbalance(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getzerocoinbalance\n"
-            "\nReturn the wallet's total XLBz balance.\n" +
+            "\nReturn the wallet's total XLIBz balance.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
-            "amount         (numeric) Total XLBz balance.\n"
+            "amount         (numeric) Total XLIBz balance.\n"
 
             "\nExamples:\n" +
             HelpExampleCli("getzerocoinbalance", "") + HelpExampleRpc("getzerocoinbalance", ""));
@@ -2563,7 +2563,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "listmintedzerocoins\n"
-            "\nList all XLBz mints in the wallet.\n" +
+            "\nList all XLIBz mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
@@ -2580,7 +2580,7 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
     EnsureWalletIsUnlocked(true);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    set<CMintMeta> setMints = pwalletMain->xlbzTracker->ListMints(true, false, true);
+    set<CMintMeta> setMints = pwalletMain->xlibzTracker->ListMints(true, false, true);
 
     UniValue jsonList(UniValue::VARR);
     for (const CMintMeta& meta : setMints)
@@ -2615,7 +2615,7 @@ UniValue listzerocoinamounts(const UniValue& params, bool fHelp)
     EnsureWalletIsUnlocked(true);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    set<CMintMeta> setMints = pwalletMain->xlbzTracker->ListMints(true, true, true);
+    set<CMintMeta> setMints = pwalletMain->xlibzTracker->ListMints(true, true, true);
 
     std::map<libzerocoin::CoinDenomination, CAmount> spread;
     for (const auto& denom : libzerocoin::zerocoinDenomList)
@@ -2639,7 +2639,7 @@ UniValue listspentzerocoins(const UniValue& params, bool fHelp)
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "listspentzerocoins\n"
-            "\nList all the spent XLBz mints in the wallet.\n" +
+            "\nList all the spent XLIBz mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
@@ -2671,11 +2671,11 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
             "mintzerocoin amount ( utxos )\n"
-            "\nMint the specified XLBz amount\n" +
+            "\nMint the specified XLIBz amount\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. amount      (numeric, required) Enter an amount of XLB to convert to XLBz\n"
+            "1. amount      (numeric, required) Enter an amount of XLB to convert to XLIBz\n"
             "2. utxos       (string, optional) A json array of objects.\n"
             "                   Each object needs the txid (string) and vout (numeric)\n"
             "  [\n"
@@ -2719,7 +2719,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
 
     int64_t nTime = GetTimeMillis();
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "XLBz is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "XLIBz is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked(true);
 
@@ -2782,7 +2782,7 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     if (fHelp || params.size() > 5 || params.size() < 4)
         throw runtime_error(
             "spendzerocoin amount mintchange minimizechange securitylevel ( \"address\" )\n"
-            "\nSpend XLBz to a Liberty address.\n" +
+            "\nSpend XLIBz to a Liberty address.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
@@ -2827,13 +2827,13 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
-        throw JSONRPCError(RPC_WALLET_ERROR, "XLBz is currently disabled due to maintenance.");
+        throw JSONRPCError(RPC_WALLET_ERROR, "XLIBz is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked();
 
     int64_t nTimeStart = GetTimeMillis();
     CAmount nAmount = AmountFromValue(params[0]);   // Spending amount
-    bool fMintChange = params[1].get_bool();        // Mint change to XLBz
+    bool fMintChange = params[1].get_bool();        // Mint change to XLIBz
     bool fMinimizeChange = params[2].get_bool();    // Minimize change
     int nSecurityLevel = params[3].get_int();       // Security level
 
@@ -2931,8 +2931,8 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CXLBzTracker* xlbzTracker = pwalletMain->xlbzTracker.get();
-    set<CMintMeta> setMints = xlbzTracker->ListMints(false, false, true);
+    CXlibzTracker* xlibzTracker = pwalletMain->xlibzTracker.get();
+    set<CMintMeta> setMints = xlibzTracker->ListMints(false, false, true);
     vector<CMintMeta> vMintsToFind(setMints.begin(), setMints.end());
     vector<CMintMeta> vMintsMissing;
     vector<CMintMeta> vMintsToUpdate;
@@ -2943,14 +2943,14 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
     // update the meta data of mints that were marked for updating
     UniValue arrUpdated(UniValue::VARR);
     for (CMintMeta meta : vMintsToUpdate) {
-        xlbzTracker->UpdateState(meta);
+        xlibzTracker->UpdateState(meta);
         arrUpdated.push_back(meta.hashPubcoin.GetHex());
     }
 
     // delete any mints that were unable to be located on the blockchain
     UniValue arrDeleted(UniValue::VARR);
     for (CMintMeta mint : vMintsMissing) {
-        xlbzTracker->Archive(mint);
+        xlibzTracker->Archive(mint);
         arrDeleted.push_back(mint.hashPubcoin.GetHex());
     }
 
@@ -2984,8 +2984,8 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     CWalletDB walletdb(pwalletMain->strWalletFile);
-    CXLBzTracker* xlbzTracker = pwalletMain->xlbzTracker.get();
-    set<CMintMeta> setMints = xlbzTracker->ListMints(false, false, false);
+    CXlibzTracker* xlibzTracker = pwalletMain->xlibzTracker.get();
+    set<CMintMeta> setMints = xlibzTracker->ListMints(false, false, false);
     list<CZerocoinSpend> listSpends = walletdb.ListSpentCoins();
     list<CZerocoinSpend> listUnconfirmedSpends;
 
@@ -3007,7 +3007,7 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
     for (CZerocoinSpend spend : listUnconfirmedSpends) {
         for (auto& meta : setMints) {
             if (meta.hashSerial == GetSerialHash(spend.GetSerial())) {
-                xlbzTracker->SetPubcoinNotUsed(meta.hashPubcoin);
+                xlibzTracker->SetPubcoinNotUsed(meta.hashPubcoin);
                 walletdb.EraseZerocoinSpendSerialEntry(spend.GetSerial());
                 RemoveSerialFromDB(spend.GetSerial());
                 UniValue obj(UniValue::VOBJ);
@@ -3089,7 +3089,7 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
 
             "\nArguments:\n"
             "1. \"include_spent\"        (bool, required) Include mints that have already been spent\n"
-            "2. \"denomination\"         (integer, optional) Export a specific denomination of XLBz\n"
+            "2. \"denomination\"         (integer, optional) Export a specific denomination of XLIBz\n"
 
             "\nResult:\n"
             "[                   (array of json object)\n"
@@ -3101,8 +3101,8 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
             "    \"t\": \"txid\",    (string) The txid that the coin was minted in\n"
             "    \"h\": n,         (numeric) The height the tx was added to the blockchain\n"
             "    \"u\": used,      (boolean) Whether the mint has been spent\n"
-            "    \"v\": version,   (numeric) The version of the XLBz\n"
-            "    \"k\": \"privkey\"  (string) The XLBz private key (V2+ XLBz only)\n"
+            "    \"v\": version,   (numeric) The version of the XLIBz\n"
+            "    \"k\": \"privkey\"  (string) The XLIBz private key (V2+ XLIBz only)\n"
             "  }\n"
             "  ,...\n"
             "]\n"
@@ -3121,8 +3121,8 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
     if (params.size() == 2)
         denomination = libzerocoin::IntToZerocoinDenomination(params[1].get_int());
 
-    CXLBzTracker* xlbzTracker = pwalletMain->xlbzTracker.get();
-    set<CMintMeta> setMints = xlbzTracker->ListMints(!fIncludeSpent, false, false);
+    CXlibzTracker* xlibzTracker = pwalletMain->xlibzTracker.get();
+    set<CMintMeta> setMints = xlibzTracker->ListMints(!fIncludeSpent, false, false);
 
     UniValue jsonList(UniValue::VARR);
     for (const CMintMeta& meta : setMints) {
@@ -3172,7 +3172,7 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
             "\nResult:\n"
             "{\n"
             "  \"added\": n,        (numeric) The quantity of zerocoin mints that were added\n"
-            "  \"value\": amount    (numeric) The total XLBz value of zerocoin mints that were added\n"
+            "  \"value\": amount    (numeric) The total XLIBz value of zerocoin mints that were added\n"
             "}\n"
 
             "\nExamples\n" +
@@ -3236,7 +3236,7 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
         CZerocoinMint mint(denom, bnValue, bnRandom, bnSerial, fUsed, nVersion, &privkey);
         mint.SetTxHash(txid);
         mint.SetHeight(nHeight);
-        pwalletMain->xlbzTracker->Add(mint, true);
+        pwalletMain->xlibzTracker->Add(mint, true);
         count++;
         nValue += libzerocoin::ZerocoinDenominationToAmount(denom);
     }
@@ -3252,7 +3252,7 @@ UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
     if(fHelp || !params.empty())
         throw runtime_error(
             "reconsiderzerocoins\n"
-            "\nCheck archived XLBz list to see if any mints were added to the blockchain.\n" +
+            "\nCheck archived XLIBz list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult:\n"
@@ -3298,30 +3298,30 @@ UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
     return arrRet;
 }
 
-UniValue setxlbzseed(const UniValue& params, bool fHelp)
+UniValue setxlibzseed(const UniValue& params, bool fHelp)
 {
     if(fHelp || params.size() != 1)
         throw runtime_error(
-            "setxlbzseed \"seed\"\n"
-            "\nSet the wallet's deterministic xlbz seed to a specific value.\n" +
+            "setxlibzseed \"seed\"\n"
+            "\nSet the wallet's deterministic xlibz seed to a specific value.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. \"seed\"        (string, required) The deterministic xlbz seed.\n"
+            "1. \"seed\"        (string, required) The deterministic xlibz seed.\n"
 
             "\nResult\n"
             "\"success\" : b,  (boolean) Whether the seed was successfully set.\n"
 
             "\nExamples\n" +
-            HelpExampleCli("setxlbzseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5") +
-            HelpExampleRpc("setxlbzseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5"));
+            HelpExampleCli("setxlibzseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5") +
+            HelpExampleRpc("setxlibzseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5"));
 
     EnsureWalletIsUnlocked();
 
     uint256 seed;
     seed.SetHex(params[0].get_str());
 
-    CXLBzWallet* zwallet = pwalletMain->getZWallet();
+    CXlibzWallet* zwallet = pwalletMain->getZWallet();
     bool fSuccess = zwallet->SetMasterSeed(seed, true);
     if (fSuccess)
         zwallet->SyncWithChain();
@@ -3332,23 +3332,23 @@ UniValue setxlbzseed(const UniValue& params, bool fHelp)
     return ret;
 }
 
-UniValue getxlbzseed(const UniValue& params, bool fHelp)
+UniValue getxlibzseed(const UniValue& params, bool fHelp)
 {
     if(fHelp || !params.empty())
         throw runtime_error(
-            "getxlbzseed\n"
-            "\nCheck archived XLBz list to see if any mints were added to the blockchain.\n" +
+            "getxlibzseed\n"
+            "\nCheck archived XLIBz list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nResult\n"
-            "\"seed\" : s,  (string) The deterministic XLBz seed.\n"
+            "\"seed\" : s,  (string) The deterministic XLIBz seed.\n"
 
             "\nExamples\n" +
-            HelpExampleCli("getxlbzseed", "") + HelpExampleRpc("getxlbzseed", ""));
+            HelpExampleCli("getxlibzseed", "") + HelpExampleRpc("getxlibzseed", ""));
 
     EnsureWalletIsUnlocked();
 
-    CXLBzWallet* zwallet = pwalletMain->getZWallet();
+    CXlibzWallet* zwallet = pwalletMain->getZWallet();
     uint256 seed = zwallet->GetMasterSeed();
 
     UniValue ret(UniValue::VOBJ);
@@ -3362,12 +3362,12 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
     if(fHelp || params.size() != 2)
         throw runtime_error(
             "generatemintlist\n"
-            "\nShow mints that are derived from the deterministic XLBz seed.\n" +
+            "\nShow mints that are derived from the deterministic XLIBz seed.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments\n"
-            "1. \"count\"  : n,  (numeric) Which sequential XLBz to start with.\n"
-            "2. \"range\"  : n,  (numeric) How many XLBz to generate.\n"
+            "1. \"count\"  : n,  (numeric) Which sequential XLIBz to start with.\n"
+            "2. \"range\"  : n,  (numeric) How many XLIBz to generate.\n"
 
             "\nResult:\n"
             "[\n"
@@ -3387,7 +3387,7 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
 
     int nCount = params[0].get_int();
     int nRange = params[1].get_int();
-    CXLBzWallet* zwallet = pwalletMain->zwalletMain;
+    CXlibzWallet* zwallet = pwalletMain->zwalletMain;
 
     UniValue arrRet(UniValue::VARR);
     for (int i = nCount; i < nCount + nRange; i++) {
@@ -3406,28 +3406,28 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
     return arrRet;
 }
 
-UniValue dxlbzstate(const UniValue& params, bool fHelp) {
+UniValue dxlibzstate(const UniValue& params, bool fHelp) {
     if (fHelp || params.size() != 0)
         throw runtime_error(
-                "dxlbzstate\n"
-                        "\nThe current state of the mintpool of the deterministic XLBz wallet.\n" +
+                "dxlibzstate\n"
+                        "\nThe current state of the mintpool of the deterministic XLIBz wallet.\n" +
                 HelpRequiringPassphrase() + "\n"
 
                         "\nExamples\n" +
                 HelpExampleCli("mintpoolstatus", "") + HelpExampleRpc("mintpoolstatus", ""));
 
-    CXLBzWallet* zwallet = pwalletMain->zwalletMain;
+    CXlibzWallet* zwallet = pwalletMain->zwalletMain;
     UniValue obj(UniValue::VOBJ);
     int nCount, nCountLastUsed;
     zwallet->GetState(nCount, nCountLastUsed);
-    obj.push_back(Pair("dxlbz_count", nCount));
+    obj.push_back(Pair("dxlibz_count", nCount));
     obj.push_back(Pair("mintpool_count", nCountLastUsed));
 
     return obj;
 }
 
 
-void static SearchThread(CXLBzWallet* zwallet, int nCountStart, int nCountEnd)
+void static SearchThread(CXlibzWallet* zwallet, int nCountStart, int nCountEnd)
 {
     LogPrintf("%s: start=%d end=%d\n", __func__, nCountStart, nCountEnd);
     CWalletDB walletDB(pwalletMain->strWalletFile);
@@ -3457,21 +3457,21 @@ void static SearchThread(CXLBzWallet* zwallet, int nCountStart, int nCountEnd)
     }
 }
 
-UniValue searchdxlbz(const UniValue& params, bool fHelp)
+UniValue searchdxlibz(const UniValue& params, bool fHelp)
 {
     if(fHelp || params.size() != 3)
         throw runtime_error(
-            "searchdxlbz\n"
-            "\nMake an extended search for deterministically generated XLBz that have not yet been recognized by the wallet.\n" +
+            "searchdxlibz\n"
+            "\nMake an extended search for deterministically generated XLIBz that have not yet been recognized by the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments\n"
-            "1. \"count\"       (numeric) Which sequential XLBz to start with.\n"
-            "2. \"range\"       (numeric) How many XLBz to generate.\n"
+            "1. \"count\"       (numeric) Which sequential XLIBz to start with.\n"
+            "2. \"range\"       (numeric) How many XLIBz to generate.\n"
             "3. \"threads\"     (numeric) How many threads should this operation consume.\n"
 
             "\nExamples\n" +
-            HelpExampleCli("searchdxlbz", "1, 100, 2") + HelpExampleRpc("searchdxlbz", "1, 100, 2"));
+            HelpExampleCli("searchdxlibz", "1, 100, 2") + HelpExampleRpc("searchdxlibz", "1, 100, 2"));
 
     EnsureWalletIsUnlocked();
 
@@ -3485,9 +3485,9 @@ UniValue searchdxlbz(const UniValue& params, bool fHelp)
 
     int nThreads = params[2].get_int();
 
-    CXLBzWallet* zwallet = pwalletMain->zwalletMain;
+    CXlibzWallet* zwallet = pwalletMain->zwalletMain;
 
-    boost::thread_group* dxlbzThreads = new boost::thread_group();
+    boost::thread_group* dxlibzThreads = new boost::thread_group();
     int nRangePerThread = nRange / nThreads;
 
     int nPrevThreadEnd = nCount - 1;
@@ -3495,12 +3495,12 @@ UniValue searchdxlbz(const UniValue& params, bool fHelp)
         int nStart = nPrevThreadEnd + 1;;
         int nEnd = nStart + nRangePerThread;
         nPrevThreadEnd = nEnd;
-        dxlbzThreads->create_thread(boost::bind(&SearchThread, zwallet, nStart, nEnd));
+        dxlibzThreads->create_thread(boost::bind(&SearchThread, zwallet, nStart, nEnd));
     }
 
-    dxlbzThreads->join_all();
+    dxlibzThreads->join_all();
 
-    zwallet->RemoveMintsFromPool(pwalletMain->xlbzTracker->GetSerialHashes());
+    zwallet->RemoveMintsFromPool(pwalletMain->xlibzTracker->GetSerialHashes());
     zwallet->SyncWithChain(false);
 
     //todo: better response

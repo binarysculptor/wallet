@@ -14,7 +14,7 @@
 
 class CDeterministicMint;
 
-class CXLBzWallet
+class CXlibzWallet
 {
 private:
     uint256 seedMaster;
@@ -23,7 +23,7 @@ private:
     CMintPool mintPool;
 
 public:
-    CXLBzWallet(std::string strWalletFile);
+    CXlibzWallet(std::string strWalletFile);
 
     void AddToMintPool(const std::pair<uint256, uint32_t>& pMint, bool fVerbose);
     bool SetMasterSeed(const uint256& seedMaster, bool fResetCount = false);

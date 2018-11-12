@@ -260,16 +260,16 @@ bool CCryptoKeyStore::Unlock(const CKeyingMaterial& vMasterKeyIn)
 
             uint256 nSeed;
             if (!GetDeterministicSeed(hashSeed, nSeed)) {
-                return error("Failed to read XLBz seed from DB. Wallet is probably corrupt.");
+                return error("Failed to read XLIBz seed from DB. Wallet is probably corrupt.");
             }
             pwalletMain->zwalletMain->SetMasterSeed(nSeed, false);
         } else {
-            // First time this wallet has been unlocked with dXLBz
+            // First time this wallet has been unlocked with dXLIBz
             // Borrow random generator from the key class so that we don't have to worry about randomness
             CKey key;
             key.MakeNewKey(true);
             uint256 seed = key.GetPrivKey_256();
-            LogPrintf("%s: first run of xlbz wallet detected, new seed generated. Seedhash=%s\n", __func__, Hash(seed.begin(), seed.end()).GetHex());
+            LogPrintf("%s: first run of xlibz wallet detected, new seed generated. Seedhash=%s\n", __func__, Hash(seed.begin(), seed.end()).GetHex());
             pwalletMain->zwalletMain->SetMasterSeed(seed, true);
             pwalletMain->zwalletMain->GenerateMintPool();
         }
@@ -402,9 +402,9 @@ bool CCryptoKeyStore::AddDeterministicSeed(const uint256& seed)
         if (db.WriteZXLBSeed(hashSeed, ToByteVector(seed))) {
             return true;
         }
-        strErr = "save xlbzseed to wallet";
+        strErr = "save xlibzseed to wallet";
     }
-                //the use case for this is no password set seed, mint dXLBz,
+                //the use case for this is no password set seed, mint dXLIBz,
 
     return error("s%: Failed to %s\n", __func__, strErr);
 }

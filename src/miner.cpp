@@ -26,7 +26,7 @@
 #include "accumulators.h"
 #include "blocksignature.h"
 #include "spork.h"
-#include "xlbzchain.h"
+#include "xlibzchain.h"
 
 
 #include <boost/thread.hpp>
@@ -206,8 +206,8 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                     nTotalIn = tx.GetZerocoinSpent();
 
                     //Give a high priority to zerocoinspends to get into the next block
-                    //Priority = (age^6+100000)*amount - gives higher priority to xlbzs that have been in mempool long
-                    //and higher priority to xlbzs that are large in value
+                    //Priority = (age^6+100000)*amount - gives higher priority to xlibzs that have been in mempool long
+                    //and higher priority to xlibzs that are large in value
                     int64_t nTimeSeen = GetAdjustedTime();
                     double nConfs = 100000;
 
@@ -221,7 +221,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
                     double nTimePriority = std::pow(GetAdjustedTime() - nTimeSeen, 6);
 
-                    // XLBz spends can have very large priority, use non-overflowing safe functions
+                    // XLIBz spends can have very large priority, use non-overflowing safe functions
                     dPriority = double_safe_addition(dPriority, (nTimePriority * nConfs));
                     dPriority = double_safe_multiplication(dPriority, nTotalIn);
 
@@ -269,7 +269,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
 
                 int nConf = nHeight - coins->nHeight;
 
-                // XLBz spends can have very large priority, use non-overflowing safe functions
+                // XLIBz spends can have very large priority, use non-overflowing safe functions
                 dPriority = double_safe_addition(dPriority, ((double)nValueIn * nConf));
 
             }
@@ -342,7 +342,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
             if (!view.HaveInputs(tx))
                 continue;
 
-            // double check that there are no double spent XLBz spends in this block or tx
+            // double check that there are no double spent XLIBz spends in this block or tx
             if (tx.IsZerocoinSpend()) {
                 int nHeightTx = 0;
                 if (IsTransactionInChain(tx.GetHash(), nHeightTx))
@@ -363,7 +363,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
                         vTxSerials.emplace_back(spend.getCoinSerialNumber());
                     }
                 }
-                //This XLBz serial has already been included in the block, do not add this tx.
+                //This XLIBz serial has already been included in the block, do not add this tx.
                 if (fDoubleSerial)
                     continue;
             }
@@ -550,7 +550,7 @@ bool ProcessBlockFound(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     CValidationState state;
     if (!ProcessNewBlock(state, NULL, pblock)) {
         if (pblock->IsZerocoinStake())
-            pwalletMain->xlbzTracker->RemovePending(pblock->vtx[1].GetHash());
+            pwalletMain->xlibzTracker->RemovePending(pblock->vtx[1].GetHash());
         return error("LibertyMiner : ProcessNewBlock, block not accepted");
     }
 
@@ -644,13 +644,13 @@ void BitcoinMiner(CWallet* pwallet, bool fProofOfStake)
                 CBigNum bnSerial = spend.getCoinSerialNumber();
                 CKey key;
                 if (!pwallet->GetZerocoinKey(bnSerial, key)) {
-                    LogPrintf("%s: failed to find XLBz with serial %s, unable to sign block\n", __func__, bnSerial.GetHex());
+                    LogPrintf("%s: failed to find XLIBz with serial %s, unable to sign block\n", __func__, bnSerial.GetHex());
                     continue;
                 }
 
-                //Sign block with the XLBz key
+                //Sign block with the XLIBz key
                 if (!SignBlockWithKey(*pblock, key)) {
-                    LogPrintf("BitcoinMiner(): Signing new block with XLBz key failed \n");
+                    LogPrintf("BitcoinMiner(): Signing new block with XLIBz key failed \n");
                     continue;
                 }
             } else if (!SignBlock(*pblock, *pwallet)) {

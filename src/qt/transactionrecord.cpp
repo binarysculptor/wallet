@@ -11,7 +11,7 @@
 #include "swifttx.h"
 #include "timedata.h"
 #include "wallet.h"
-#include "xlbzchain.h"
+#include "xlibzchain.h"
 
 #include <stdint.h>
 
@@ -54,8 +54,8 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
         if (!wtx.IsZerocoinSpend() && !ExtractDestination(wtx.vout[1].scriptPubKey, address))
             return parts;
 
-        if (wtx.IsZerocoinSpend() && (fZSpendFromMe || wallet->xlbzTracker->HasMintTx(hash))) {
-            //XLBz stake reward
+        if (wtx.IsZerocoinSpend() && (fZSpendFromMe || wallet->xlibzTracker->HasMintTx(hash))) {
+            //XLIBz stake reward
             sub.involvesWatchAddress = false;
             sub.type = TransactionRecord::StakeZXLB;
             sub.address = mapValue["zerocoinmint"];
@@ -98,7 +98,7 @@ QList<TransactionRecord> TransactionRecord::decomposeTransaction(const CWallet* 
                 isminetype mine = wallet->IsMine(txout);
                 TransactionRecord sub(hash, nTime);
                 sub.involvesWatchAddress = mine & ISMINE_WATCH_ONLY;
-                sub.type = TransactionRecord::ZerocoinSpend_Change_XLBz;
+                sub.type = TransactionRecord::ZerocoinSpend_Change_XLIBz;
                 sub.address = mapValue["zerocoinmint"];
                 if (!fFeeAssigned) {
                     sub.debit -= (wtx.GetZerocoinSpent() - wtx.GetValueOut());
@@ -315,7 +315,7 @@ bool IsZXLBType(TransactionRecord::Type type)
         case TransactionRecord::ZerocoinMint:
         case TransactionRecord::ZerocoinSpend:
         case TransactionRecord::RecvFromZerocoinSpend:
-        case TransactionRecord::ZerocoinSpend_Change_XLBz:
+        case TransactionRecord::ZerocoinSpend_Change_XLIBz:
         case TransactionRecord::ZerocoinSpend_FromMe:
             return true;
         default:

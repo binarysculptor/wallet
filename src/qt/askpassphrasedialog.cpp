@@ -75,7 +75,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     }
 
     // Set checkbox "For anonymization, automint, and staking only" depending on from where we were called
-    if (context == Context::Unlock_Menu || context == Context::Mint_XLBz || context == Context::BIP_38) {
+    if (context == Context::Unlock_Menu || context == Context::Mint_XLIBz || context == Context::BIP_38) {
         ui->anonymizationCheckBox->setChecked(true);
     }
     else {
@@ -83,7 +83,7 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     }
 
     // It doesn't make sense to show the checkbox for sending XLB because you wouldn't check it anyway.
-    if (context == Context::Send_XLB || context == Context::Send_XLBz) {
+    if (context == Context::Send_XLB || context == Context::Send_XLIBz) {
         ui->anonymizationCheckBox->hide();
     }
 

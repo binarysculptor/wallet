@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "xlbzcontroldialog.h"
-#include "ui_xlbzcontroldialog.h"
+#include "xlibzcontroldialog.h"
+#include "ui_xlibzcontroldialog.h"
 
 #include "accumulators.h"
 #include "main.h"
@@ -13,12 +13,12 @@
 using namespace std;
 using namespace libzerocoin;
 
-std::set<std::string> XLBzControlDialog::setSelectedMints;
-std::set<CMintMeta> XLBzControlDialog::setMints;
+std::set<std::string> XLIBzControlDialog::setSelectedMints;
+std::set<CMintMeta> XLIBzControlDialog::setMints;
 
-XLBzControlDialog::XLBzControlDialog(QWidget *parent) :
+XLIBzControlDialog::XLIBzControlDialog(QWidget *parent) :
     QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
-    ui(new Ui::XLBzControlDialog),
+    ui(new Ui::XLIBzControlDialog),
     model(0)
 {
     ui->setupUi(this);
@@ -32,19 +32,19 @@ XLBzControlDialog::XLBzControlDialog(QWidget *parent) :
     connect(ui->pushButtonAll, SIGNAL(clicked()), this, SLOT(ButtonAllClicked()));
 }
 
-XLBzControlDialog::~XLBzControlDialog()
+XLIBzControlDialog::~XLIBzControlDialog()
 {
     delete ui;
 }
 
-void XLBzControlDialog::setModel(WalletModel *model)
+void XLIBzControlDialog::setModel(WalletModel *model)
 {
     this->model = model;
     updateList();
 }
 
 //Update the tree widget
-void XLBzControlDialog::updateList()
+void XLIBzControlDialog::updateList()
 {
     // need to prevent the slot from being called each time something is changed
     ui->treeWidget->blockSignals(true);
@@ -129,7 +129,7 @@ void XLBzControlDialog::updateList()
 }
 
 // Update the list when a checkbox is clicked
-void XLBzControlDialog::updateSelection(QTreeWidgetItem* item, int column)
+void XLIBzControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 {
     // only want updates from non top level items that are available to spend
     if (item->parent() && column == COLUMN_CHECKBOX && !item->isDisabled()){
@@ -151,7 +151,7 @@ void XLBzControlDialog::updateSelection(QTreeWidgetItem* item, int column)
 }
 
 // Update the Quantity and Amount display
-void XLBzControlDialog::updateLabels()
+void XLIBzControlDialog::updateLabels()
 {
     int64_t nAmount = 0;
     for (const CMintMeta& mint : setMints) {
@@ -160,14 +160,14 @@ void XLBzControlDialog::updateLabels()
     }
 
     //update this dialog's labels
-    ui->labelXLBz_int->setText(QString::number(nAmount));
+    ui->labelXLIBz_int->setText(QString::number(nAmount));
     ui->labelQuantity_int->setText(QString::number(setSelectedMints.size()));
 
     //update PrivacyDialog labels
-    privacyDialog->setXLBzControlLabels(nAmount, setSelectedMints.size());
+    privacyDialog->setXLIBzControlLabels(nAmount, setSelectedMints.size());
 }
 
-std::vector<CMintMeta> XLBzControlDialog::GetSelectedMints()
+std::vector<CMintMeta> XLIBzControlDialog::GetSelectedMints()
 {
     std::vector<CMintMeta> listReturn;
     for (const CMintMeta& mint : setMints) {
@@ -179,7 +179,7 @@ std::vector<CMintMeta> XLBzControlDialog::GetSelectedMints()
 }
 
 // select or deselect all of the mints
-void XLBzControlDialog::ButtonAllClicked()
+void XLIBzControlDialog::ButtonAllClicked()
 {
     ui->treeWidget->blockSignals(true);
     Qt::CheckState state = Qt::Checked;

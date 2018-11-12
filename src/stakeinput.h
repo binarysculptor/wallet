@@ -28,10 +28,10 @@ public:
 };
 
 
-// XLBzStake can take two forms
+// XLIBzStake can take two forms
 // 1) the stake candidate, which is a zcmint that is attempted to be staked
-// 2) a staked xlbz, which is a zcspend that has successfully staked
-class CXLBzStake : public CStakeInput
+// 2) a staked xlibz, which is a zcspend that has successfully staked
+class CXlibzStake : public CStakeInput
 {
 private:
     uint32_t nChecksum;
@@ -40,7 +40,7 @@ private:
     uint256 hashSerial;
 
 public:
-    explicit CXLBzStake(libzerocoin::CoinDenomination denom, const uint256& hashSerial)
+    explicit CXlibzStake(libzerocoin::CoinDenomination denom, const uint256& hashSerial)
     {
         this->denom = denom;
         this->hashSerial = hashSerial;
@@ -48,7 +48,7 @@ public:
         fMint = true;
     }
 
-    explicit CXLBzStake(const libzerocoin::CoinSpend& spend);
+    explicit CXlibzStake(const libzerocoin::CoinSpend& spend);
 
     CBlockIndex* GetIndexFrom() override;
     bool GetTxFrom(CTransaction& tx) override;
@@ -64,13 +64,13 @@ public:
     uint32_t GetChecksum();
 };
 
-class CXlbStake : public CStakeInput
+class CXLibStake : public CStakeInput
 {
 private:
     CTransaction txFrom;
     unsigned int nPosition;
 public:
-    CXlbStake()
+    CXLibStake()
     {
         this->pindexFrom = nullptr;
     }

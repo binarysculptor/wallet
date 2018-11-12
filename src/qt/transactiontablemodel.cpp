@@ -346,7 +346,7 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
     case TransactionRecord::StakeMint:
         return tr("XLB Stake");
     case TransactionRecord::StakeZXLB:
-        return tr("XLBz Stake");
+        return tr("XLIBz Stake");
     case TransactionRecord::Generated:
         return tr("Mined");
     case TransactionRecord::ObfuscationDenominate:
@@ -360,15 +360,15 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
     case TransactionRecord::Obfuscated:
         return tr("Obfuscated");
     case TransactionRecord::ZerocoinMint:
-        return tr("Converted XLB to XLBz");
+        return tr("Converted XLB to XLIBz");
     case TransactionRecord::ZerocoinSpend:
-        return tr("Spent XLBz");
+        return tr("Spent XLIBz");
     case TransactionRecord::RecvFromZerocoinSpend:
-        return tr("Received XLB from XLBz");
-    case TransactionRecord::ZerocoinSpend_Change_XLBz:
-        return tr("Minted Change as XLBz from XLBz Spend");
+        return tr("Received XLB from XLIBz");
+    case TransactionRecord::ZerocoinSpend_Change_XLIBz:
+        return tr("Minted Change as XLIBz from XLIBz Spend");
     case TransactionRecord::ZerocoinSpend_FromMe:
-        return tr("Converted XLBz to XLB");
+        return tr("Converted XLIBz to XLB");
 
     default:
         return QString();
@@ -423,10 +423,10 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord* wtx, b
     case TransactionRecord::SendToOther:
         return QString::fromStdString(wtx->address) + watchAddress;
     case TransactionRecord::ZerocoinMint:
-    case TransactionRecord::ZerocoinSpend_Change_XLBz:
-        return tr("Anonymous (XLBz Transaction)");
+    case TransactionRecord::ZerocoinSpend_Change_XLIBz:
+        return tr("Anonymous (XLIBz Transaction)");
     case TransactionRecord::StakeZXLB:
-        return tr("Anonymous (XLBz Stake)");
+        return tr("Anonymous (XLIBz Stake)");
     case TransactionRecord::SendToSelf:
     default:
         return tr("(n/a)") + watchAddress;

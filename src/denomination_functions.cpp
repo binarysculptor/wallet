@@ -8,7 +8,7 @@
 using namespace libzerocoin;
 
 // -------------------------------------------------------------------------------------------------------
-// Get exact amounts to mint for CTxOuts. Used to caculate rewards on a XLBz stake.
+// Get exact amounts to mint for CTxOuts. Used to caculate rewards on a XLIBz stake.
 // -------------------------------------------------------------------------------------------------------
 std::map<CoinDenomination, int> calculateOutputs(const CAmount nAmountToMint){
     std::map<CoinDenomination, int> mapUsed;

@@ -118,12 +118,12 @@ UniValue blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool tx
 
     result.push_back(Pair("moneysupply",ValueFromAmount(blockindex->nMoneySupply)));
 
-    UniValue xlbzObj(UniValue::VOBJ);
+    UniValue xlibzObj(UniValue::VOBJ);
     for (auto denom : libzerocoin::zerocoinDenomList) {
-        xlbzObj.push_back(Pair(to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
+        xlibzObj.push_back(Pair(to_string(denom), ValueFromAmount(blockindex->mapZerocoinSupply.at(denom) * (denom*COIN))));
     }
-    xlbzObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
-    result.push_back(Pair("XLBzsupply", xlbzObj));
+    xlibzObj.push_back(Pair("total", ValueFromAmount(blockindex->GetZerocoinSupply())));
+    result.push_back(Pair("XLIBzsupply", xlibzObj));
 
     return result;
 }
@@ -323,17 +323,17 @@ UniValue getblock(const UniValue& params, bool fHelp)
             "  \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
             "  \"nextblockhash\" : \"hash\"       (string) The hash of the next block\n"
             "  \"moneysupply\" : \"supply\"       (numeric) The money supply when this block was added to the blockchain\n"
-            "  \"XLBzsupply\" :\n"
+            "  \"XLIBzsupply\" :\n"
             "  {\n"
-            "     \"1\" : n,            (numeric) supply of 1 XLBz denomination\n"
-            "     \"5\" : n,            (numeric) supply of 5 XLBz denomination\n"
-            "     \"10\" : n,           (numeric) supply of 10 XLBz denomination\n"
-            "     \"50\" : n,           (numeric) supply of 50 XLBz denomination\n"
-            "     \"100\" : n,          (numeric) supply of 100 XLBz denomination\n"
-            "     \"500\" : n,          (numeric) supply of 500 XLBz denomination\n"
-            "     \"1000\" : n,         (numeric) supply of 1000 XLBz denomination\n"
-            "     \"5000\" : n,         (numeric) supply of 5000 XLBz denomination\n"
-            "     \"total\" : n,        (numeric) The total supply of all XLBz denominations\n"
+            "     \"1\" : n,            (numeric) supply of 1 XLIBz denomination\n"
+            "     \"5\" : n,            (numeric) supply of 5 XLIBz denomination\n"
+            "     \"10\" : n,           (numeric) supply of 10 XLIBz denomination\n"
+            "     \"50\" : n,           (numeric) supply of 50 XLIBz denomination\n"
+            "     \"100\" : n,          (numeric) supply of 100 XLIBz denomination\n"
+            "     \"500\" : n,          (numeric) supply of 500 XLIBz denomination\n"
+            "     \"1000\" : n,         (numeric) supply of 1000 XLIBz denomination\n"
+            "     \"5000\" : n,         (numeric) supply of 5000 XLIBz denomination\n"
+            "     \"total\" : n,        (numeric) The total supply of all XLIBz denominations\n"
             "  }\n"
             "}\n"
 

@@ -11,7 +11,7 @@
 #include "stakeinput.h"
 #include "wallet.h"
 
-CXLBzStake::CXLBzStake(const libzerocoin::CoinSpend& spend)
+CXlibzStake::CXlibzStake(const libzerocoin::CoinSpend& spend)
 {
     this->nChecksum = spend.getAccumulatorChecksum();
     this->denom = spend.getDenomination();
@@ -21,7 +21,7 @@ CXLBzStake::CXLBzStake(const libzerocoin::CoinSpend& spend)
     fMint = false;
 }
 
-int CXLBzStake::GetChecksumHeightFromMint()
+int CXlibzStake::GetChecksumHeightFromMint()
 {
     int nHeightChecksum = chainActive.Height() - Params().Zerocoin_RequiredStakeDepth();
 
@@ -32,20 +32,20 @@ int CXLBzStake::GetChecksumHeightFromMint()
     return GetChecksumHeight(nChecksum, denom);
 }
 
-int CXLBzStake::GetChecksumHeightFromSpend()
+int CXlibzStake::GetChecksumHeightFromSpend()
 {
     return GetChecksumHeight(nChecksum, denom);
 }
 
-uint32_t CXLBzStake::GetChecksum()
+uint32_t CXlibzStake::GetChecksum()
 {
     return nChecksum;
 }
 
-// The XLBz block index is the first appearance of the accumulator checksum that was used in the spend
+// The XLIBz block index is the first appearance of the accumulator checksum that was used in the spend
 // note that this also means when staking that this checksum should be from a block that is beyond 60 minutes old and
 // 100 blocks deep.
-CBlockIndex* CXLBzStake::GetIndexFrom()
+CBlockIndex* CXlibzStake::GetIndexFrom()
 {
     if (pindexFrom)
         return pindexFrom;
@@ -67,13 +67,13 @@ CBlockIndex* CXLBzStake::GetIndexFrom()
     return pindexFrom;
 }
 
-CAmount CXLBzStake::GetValue()
+CAmount CXlibzStake::GetValue()
 {
     return denom * COIN;
 }
 
 //Use the first accumulator checkpoint that occurs 60 minutes after the block being staked from
-bool CXLBzStake::GetModifier(uint64_t& nStakeModifier)
+bool CXlibzStake::GetModifier(uint64_t& nStakeModifier)
 {
     CBlockIndex* pindex = GetIndexFrom();
     if (!pindex)
@@ -93,15 +93,15 @@ bool CXLBzStake::GetModifier(uint64_t& nStakeModifier)
     }
 }
 
-CDataStream CXLBzStake::GetUniqueness()
+CDataStream CXlibzStake::GetUniqueness()
 {
-    //The unique identifier for a XLBz is a hash of the serial
+    //The unique identifier for a XLIBz is a hash of the serial
     CDataStream ss(SER_GETHASH, 0);
     ss << hashSerial;
     return ss;
 }
 
-bool CXLBzStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+bool CXlibzStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
     CBlockIndex* pindexCheckpoint = GetIndexFrom();
     if (!pindexCheckpoint)
@@ -122,27 +122,27 @@ bool CXLBzStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
     return true;
 }
 
-bool CXLBzStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
+bool CXlibzStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
 {
-    //Create an output returning the XLBz that was staked
+    //Create an output returning the XLIBz that was staked
     CTxOut outReward;
     libzerocoin::CoinDenomination denomStaked = libzerocoin::AmountToZerocoinDenomination(this->GetValue());
     CDeterministicMint dMint;
     if (!pwallet->CreateZXLBOutPut(denomStaked, outReward, dMint))
-        return error("%s: failed to create XLBz output", __func__);
+        return error("%s: failed to create XLIBz output", __func__);
     vout.emplace_back(outReward);
 
     //Add new staked denom to our wallet
     if (!pwallet->DatabaseMint(dMint))
-        return error("%s: failed to database the staked XLBz", __func__);
+        return error("%s: failed to database the staked XLIBz", __func__);
 
     //Now, we need to find out what the masternode reward will be for this block
     CAmount masternodeReward = GetMasternodePayment(chainActive.Height(), nTotal, true);
-    CAmount XLBzToMint = nTotal - masternodeReward;
+    CAmount XLIBzToMint = nTotal - masternodeReward;
 
-    LogPrintf("%s: Total=%d Masternode=%d Staker=%d\r\n", __func__, (nTotal / COIN), (masternodeReward / COIN), (XLBzToMint / COIN));   
+    LogPrintf("%s: Total=%d Masternode=%d Staker=%d\r\n", __func__, (nTotal / COIN), (masternodeReward / COIN), (XLIBzToMint / COIN));   
 
-    std::map<libzerocoin::CoinDenomination, int> mintMap = calculateOutputs(XLBzToMint);
+    std::map<libzerocoin::CoinDenomination, int> mintMap = calculateOutputs(XLIBzToMint);
     std::map<libzerocoin::CoinDenomination, int>::iterator it = mintMap.begin();
     while (it != mintMap.end()) {
         libzerocoin::CoinDenomination denom = it->first;
@@ -152,7 +152,7 @@ bool CXLBzStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
             CDeterministicMint dMintReward;
             
             if (!pwallet->CreateZXLBOutPut(denom, out, dMintReward))
-                return error("%s: failed to create XLBz output", __func__);
+                return error("%s: failed to create XLIBz output", __func__);
             
             vout.emplace_back(out);
 
@@ -167,48 +167,48 @@ bool CXLBzStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nT
     return true;
 }
 
-bool CXLBzStake::GetTxFrom(CTransaction& tx)
+bool CXlibzStake::GetTxFrom(CTransaction& tx)
 {
     return false;
 }
 
-bool CXLBzStake::MarkSpent(CWallet *pwallet, const uint256& txid)
+bool CXlibzStake::MarkSpent(CWallet *pwallet, const uint256& txid)
 {
-    CXLBzTracker* xlbzTracker = pwallet->xlbzTracker.get();
+    CXlibzTracker* xlibzTracker = pwallet->xlibzTracker.get();
     CMintMeta meta;
-    if (!xlbzTracker->GetMetaFromStakeHash(hashSerial, meta))
+    if (!xlibzTracker->GetMetaFromStakeHash(hashSerial, meta))
         return error("%s: tracker does not have serialhash", __func__);
 
-    xlbzTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
+    xlibzTracker->SetPubcoinUsed(meta.hashPubcoin, txid);
     return true;
 }
 
 //!Liberty Stake
-bool CXlbStake::SetInput(CTransaction txPrev, unsigned int n)
+bool CXLibStake::SetInput(CTransaction txPrev, unsigned int n)
 {
     this->txFrom = txPrev;
     this->nPosition = n;
     return true;
 }
 
-bool CXlbStake::GetTxFrom(CTransaction& tx)
+bool CXLibStake::GetTxFrom(CTransaction& tx)
 {
     tx = txFrom;
     return true;
 }
 
-bool CXlbStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
+bool CXLibStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
 {
     txIn = CTxIn(txFrom.GetHash(), nPosition);
     return true;
 }
 
-CAmount CXlbStake::GetValue()
+CAmount CXLibStake::GetValue()
 {
     return txFrom.vout[nPosition].nValue;
 }
 
-bool CXlbStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
+bool CXLibStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTotal)
 {
     vector<valtype> vSolutions;
     txnouttype whichType;
@@ -243,7 +243,7 @@ bool CXlbStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount nTo
     return true;
 }
 
-bool CXlbStake::GetModifier(uint64_t& nStakeModifier)
+bool CXLibStake::GetModifier(uint64_t& nStakeModifier)
 {
     int nStakeModifierHeight = 0;
     int64_t nStakeModifierTime = 0;
@@ -257,7 +257,7 @@ bool CXlbStake::GetModifier(uint64_t& nStakeModifier)
     return true;
 }
 
-CDataStream CXlbStake::GetUniqueness()
+CDataStream CXLibStake::GetUniqueness()
 {
     //The unique identifier for a Liberty stake is the outpoint
     CDataStream ss(SER_NETWORK, 0);
@@ -266,7 +266,7 @@ CDataStream CXlbStake::GetUniqueness()
 }
 
 //The block that the UTXO was added to the chain
-CBlockIndex* CXlbStake::GetIndexFrom()
+CBlockIndex* CXLibStake::GetIndexFrom()
 {
     uint256 hashBlock = 0;
     CTransaction tx;

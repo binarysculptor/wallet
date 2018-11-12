@@ -15,7 +15,7 @@
 #include "sendcoinsentry.h"
 #include "walletmodel.h"
 #include "coincontrol.h"
-#include "xlbzcontroldialog.h"
+#include "xlibzcontroldialog.h"
 #include "spork.h"
 #include "askpassphrasedialog.h"
 
@@ -35,14 +35,14 @@ PrivacyDialog::PrivacyDialog(QWidget* parent) : QDialog(parent, Qt::WindowSystem
     nDisplayUnit = 0; // just make sure it's not unitialized
     ui->setupUi(this);
 
-    // "Spending 999999 XLBz ought to be enough for anybody." - Bill Gates, 2017
-    ui->XLBzpayAmount->setValidator( new QDoubleValidator(0.0, 21000000.0, 20, this) );
+    // "Spending 999999 XLIBz ought to be enough for anybody." - Bill Gates, 2017
+    ui->XLIBzpayAmount->setValidator( new QDoubleValidator(0.0, 21000000.0, 20, this) );
     ui->labelMintAmountValue->setValidator( new QIntValidator(0, 999999, this) );
 
     // Default texts for (mini-) coincontrol
     ui->labelCoinControlQuantity->setText (tr("Coins automatically selected"));
     ui->labelCoinControlAmount->setText (tr("Coins automatically selected"));
-    ui->labelXLBzSyncStatus->setText("(" + tr("out of sync") + ")");
+    ui->labelXLIBzSyncStatus->setText("(" + tr("out of sync") + ")");
 
     // Sunken frame for minting messages
     ui->TEMintStatus->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
@@ -160,18 +160,18 @@ void PrivacyDialog::on_addressBookButton_clicked()
     dlg.setModel(walletModel->getAddressTableModel());
     if (dlg.exec()) {
         ui->payTo->setText(dlg.getReturnValue());
-        ui->XLBzpayAmount->setFocus();
+        ui->XLIBzpayAmount->setFocus();
     }
 }
 
-void PrivacyDialog::on_pushButtonMintXLBz_clicked()
+void PrivacyDialog::on_pushButtonMintXLIBz_clicked()
 {
     if (!walletModel || !walletModel->getOptionsModel())
         return;
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
         QMessageBox::information(this, tr("Mint Zerocoin"),
-                                 tr("XLBz is currently undergoing maintenance."), QMessageBox::Ok,
+                                 tr("XLIBz is currently undergoing maintenance."), QMessageBox::Ok,
                                  QMessageBox::Ok);
         return;
     }
@@ -182,7 +182,7 @@ void PrivacyDialog::on_pushButtonMintXLBz_clicked()
     // Request unlock if wallet was locked or unlocked for mixing:
     WalletModel::EncryptionStatus encStatus = walletModel->getEncryptionStatus();
     if (encStatus == walletModel->Locked) {
-        WalletModel::UnlockContext ctx(walletModel->requestUnlock(AskPassphraseDialog::Context::Mint_XLBz, true));
+        WalletModel::UnlockContext ctx(walletModel->requestUnlock(AskPassphraseDialog::Context::Mint_XLIBz, true));
         if (!ctx.isValid()) {
             // Unlock wallet was cancelled
             ui->TEMintStatus->setPlainText(tr("Error: Your wallet is locked. Please enter the wallet passphrase first."));
@@ -199,7 +199,7 @@ void PrivacyDialog::on_pushButtonMintXLBz_clicked()
         return;
     }
 
-    ui->TEMintStatus->setPlainText(tr("Minting ") + ui->labelMintAmountValue->text() + " XLBz...");
+    ui->TEMintStatus->setPlainText(tr("Minting ") + ui->labelMintAmountValue->text() + " XLIBz...");
     ui->TEMintStatus->repaint ();
 
     int64_t nTime = GetTimeMillis();
@@ -217,7 +217,7 @@ void PrivacyDialog::on_pushButtonMintXLBz_clicked()
     double fDuration = (double)(GetTimeMillis() - nTime)/1000.0;
 
     // Minting successfully finished. Show some stats for entertainment.
-    QString strStatsHeader = tr("Successfully minted ") + ui->labelMintAmountValue->text() + tr(" XLBz in ") +
+    QString strStatsHeader = tr("Successfully minted ") + ui->labelMintAmountValue->text() + tr(" XLIBz in ") +
                              QString::number(fDuration) + tr(" sec. Used denominations:\n");
 
     // Clear amount to avoid double spending when accidentally clicking twice
@@ -275,7 +275,7 @@ void PrivacyDialog::on_pushButtonSpentReset_clicked()
     return;
 }
 
-void PrivacyDialog::on_pushButtonSpendXLBz_clicked()
+void PrivacyDialog::on_pushButtonSpendXLIBz_clicked()
 {
 
     if (!walletModel || !walletModel->getOptionsModel() || !pwalletMain)
@@ -283,39 +283,39 @@ void PrivacyDialog::on_pushButtonSpendXLBz_clicked()
 
     if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE)) {
         QMessageBox::information(this, tr("Mint Zerocoin"),
-                                 tr("XLBz is currently undergoing maintenance."), QMessageBox::Ok, QMessageBox::Ok);
+                                 tr("XLIBz is currently undergoing maintenance."), QMessageBox::Ok, QMessageBox::Ok);
         return;
     }
 
     // Request unlock if wallet was locked or unlocked for mixing:
     WalletModel::EncryptionStatus encStatus = walletModel->getEncryptionStatus();
     if (encStatus == walletModel->Locked || encStatus == walletModel->UnlockedForAnonymizationOnly) {
-        WalletModel::UnlockContext ctx(walletModel->requestUnlock(AskPassphraseDialog::Context::Send_XLBz, true));
+        WalletModel::UnlockContext ctx(walletModel->requestUnlock(AskPassphraseDialog::Context::Send_XLIBz, true));
         if (!ctx.isValid()) {
             // Unlock wallet was cancelled
             return;
         }
-        // Wallet is unlocked now, sedn XLBz
-        sendXLBz();
+        // Wallet is unlocked now, sedn XLIBz
+        sendXLIBz();
         return;
     }
-    // Wallet already unlocked or not encrypted at all, send XLBz
-    sendXLBz();
+    // Wallet already unlocked or not encrypted at all, send XLIBz
+    sendXLIBz();
 }
 
-void PrivacyDialog::on_pushButtonXLBzControl_clicked()
+void PrivacyDialog::on_pushButtonXLIBzControl_clicked()
 {
     if (!walletModel || !walletModel->getOptionsModel())
         return;
 
-    XLBzControlDialog* XLBzControl = new XLBzControlDialog(this);
-    XLBzControl->setModel(walletModel);
-    XLBzControl->exec();
+    XLIBzControlDialog* XLIBzControl = new XLIBzControlDialog(this);
+    XLIBzControl->setModel(walletModel);
+    XLIBzControl->exec();
 }
 
-void PrivacyDialog::setXLBzControlLabels(int64_t nAmount, int nQuantity)
+void PrivacyDialog::setXLIBzControlLabels(int64_t nAmount, int nQuantity)
 {
-    ui->labelXLBzSelected_int->setText(QString::number(nAmount));
+    ui->labelXLIBzSelected_int->setText(QString::number(nAmount));
     ui->labelQuantitySelected_int->setText(QString::number(nQuantity));
 }
 
@@ -324,7 +324,7 @@ static inline int64_t roundint64(double d)
     return (int64_t)(d > 0 ? d + 0.5 : d - 0.5);
 }
 
-void PrivacyDialog::sendXLBz()
+void PrivacyDialog::sendXLIBz()
 {
     QSettings settings;
 
@@ -342,24 +342,24 @@ void PrivacyDialog::sendXLBz()
     }
 
     // Double is allowed now
-    double dAmount = ui->XLBzpayAmount->text().toDouble();
+    double dAmount = ui->XLIBzpayAmount->text().toDouble();
     CAmount nAmount = roundint64(dAmount* COIN);
 
     // Check amount validity
     if (!MoneyRange(nAmount) || nAmount <= 0.0) {
         QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Invalid Send Amount"), QMessageBox::Ok, QMessageBox::Ok);
-        ui->XLBzpayAmount->setFocus();
+        ui->XLIBzpayAmount->setFocus();
         return;
     }
 
-    // Convert change to XLBz
+    // Convert change to XLIBz
     bool fMintChange = ui->checkBoxMintChange->isChecked();
 
     // Persist minimize change setting
     fMinimizeChange = ui->checkBoxMinimizeChange->isChecked();
     settings.setValue("fMinimizeChange", fMinimizeChange);
 
-    // Warn for additional fees if amount is not an integer and change as XLBz is requested
+    // Warn for additional fees if amount is not an integer and change as XLIBz is requested
     bool fWholeNumber = floor(dAmount) == dAmount;
     double dzFee = 0.0;
 
@@ -376,7 +376,7 @@ void PrivacyDialog::sendXLBz()
 
         if (retval != QMessageBox::Yes) {
             // Sending canceled
-            ui->XLBzpayAmount->setFocus();
+            ui->XLIBzpayAmount->setFocus();
             return;
         }
     }
@@ -395,7 +395,7 @@ void PrivacyDialog::sendXLBz()
 
     // General info
     QString strQuestionString = tr("Are you sure you want to send?<br /><br />");
-    QString strAmount = "<b>" + QString::number(dAmount, 'f', 8) + " XLBz</b>";
+    QString strAmount = "<b>" + QString::number(dAmount, 'f', 8) + " XLIBz</b>";
     QString strAddress = tr(" to address ") + QString::fromStdString(address.ToString()) + strAddressLabel + " <br />";
 
     if(ui->payTo->text().isEmpty()){
@@ -421,18 +421,18 @@ void PrivacyDialog::sendXLBz()
     ui->TEMintStatus->setPlainText(tr("Spending Zerocoin.\nComputationally expensive, might need several minutes depending on the selected Security Level and your hardware.\nPlease be patient..."));
     ui->TEMintStatus->repaint();
 
-    // use mints from XLBz selector if applicable
+    // use mints from XLIBz selector if applicable
     vector<CMintMeta> vMintsToFetch;
     vector<CZerocoinMint> vMintsSelected;
-    if (!XLBzControlDialog::setSelectedMints.empty()) {
-        vMintsToFetch = XLBzControlDialog::GetSelectedMints();
+    if (!XLIBzControlDialog::setSelectedMints.empty()) {
+        vMintsToFetch = XLIBzControlDialog::GetSelectedMints();
 
         for (auto& meta : vMintsToFetch) {
             if (meta.nVersion < libzerocoin::PrivateCoin::PUBKEY_VERSION) {
                 //version 1 coins have to use full security level to successfully spend.
                 if (nSecurityLevel < 100) {
-                    QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Version 1 XLBz require a security level of 100 to successfully spend."), QMessageBox::Ok, QMessageBox::Ok);
-                    ui->TEMintStatus->setPlainText(tr("Failed to spend XLBz"));
+                    QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Version 1 XLIBz require a security level of 100 to successfully spend."), QMessageBox::Ok, QMessageBox::Ok);
+                    ui->TEMintStatus->setPlainText(tr("Failed to spend XLIBz"));
                     ui->TEMintStatus->repaint();
                     return;
                 }
@@ -447,7 +447,7 @@ void PrivacyDialog::sendXLBz()
         }
     }
 
-    // Spend XLBz
+    // Spend XLIBz
     CWalletTx wtxNew;
     CZerocoinSpendReceipt receipt;
     bool fSuccess = false;
@@ -463,14 +463,14 @@ void PrivacyDialog::sendXLBz()
     // Display errors during spend
     if (!fSuccess) {
         if (receipt.GetStatus() == ZXLB_SPEND_V1_SEC_LEVEL) {
-            QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Version 1 XLBz require a security level of 100 to successfully spend."), QMessageBox::Ok, QMessageBox::Ok);
-            ui->TEMintStatus->setPlainText(tr("Failed to spend XLBz"));
+            QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Version 1 XLIBz require a security level of 100 to successfully spend."), QMessageBox::Ok, QMessageBox::Ok);
+            ui->TEMintStatus->setPlainText(tr("Failed to spend XLIBz"));
             ui->TEMintStatus->repaint();
             return;
         }
 
         int nNeededSpends = receipt.GetNeededSpends(); // Number of spends we would need for this transaction
-        const int nMaxSpends = Params().Zerocoin_MaxSpendsPerTransaction(); // Maximum possible spends for one XLBz transaction
+        const int nMaxSpends = Params().Zerocoin_MaxSpendsPerTransaction(); // Maximum possible spends for one XLIBz transaction
         if (nNeededSpends > nMaxSpends) {
             QString strStatusMessage = tr("Too much inputs (") + QString::number(nNeededSpends, 10) + tr(") needed.\nMaximum allowed: ") + QString::number(nMaxSpends, 10);
             strStatusMessage += tr("\nEither mint higher denominations (so fewer inputs are needed) or reduce the amount to spend.");
@@ -481,14 +481,14 @@ void PrivacyDialog::sendXLBz()
             QMessageBox::warning(this, tr("Spend Zerocoin"), receipt.GetStatusMessage().c_str(), QMessageBox::Ok, QMessageBox::Ok);
             ui->TEMintStatus->setPlainText(tr("Spend Zerocoin failed with status = ") +QString::number(receipt.GetStatus(), 10) + "\n" + "Message: " + QString::fromStdString(receipt.GetStatusMessage()));
         }
-        ui->XLBzpayAmount->setFocus();
+        ui->XLIBzpayAmount->setFocus();
         ui->TEMintStatus->repaint();
         ui->TEMintStatus->verticalScrollBar()->setValue(ui->TEMintStatus->verticalScrollBar()->maximum()); // Automatically scroll to end of text
         return;
     }
 
     if (walletModel && walletModel->getAddressTableModel()) {
-        // If XLBz was spent successfully update the addressbook with the label
+        // If XLIBz was spent successfully update the addressbook with the label
         std::string labelText = ui->addAsLabel->text().toStdString();
         if (!labelText.empty())
             walletModel->updateAddressBookLabels(address.Get(), labelText, "send");
@@ -496,9 +496,9 @@ void PrivacyDialog::sendXLBz()
             walletModel->updateAddressBookLabels(address.Get(), "(no label)", "send");
     }
 
-    // Clear xlbz selector in case it was used
-    XLBzControlDialog::setSelectedMints.clear();
-    ui->labelXLBzSelected_int->setText(QString("0"));
+    // Clear xlibz selector in case it was used
+    XLIBzControlDialog::setSelectedMints.clear();
+    ui->labelXLIBzSelected_int->setText(QString("0"));
     ui->labelQuantitySelected_int->setText(QString("0"));
 
     // Some statistics for entertainment
@@ -506,7 +506,7 @@ void PrivacyDialog::sendXLBz()
     CAmount nValueIn = 0;
     int nCount = 0;
     for (CZerocoinSpend spend : receipt.GetSpends()) {
-        strStats += tr("XLBz Spend #: ") + QString::number(nCount) + ", ";
+        strStats += tr("XLIBz Spend #: ") + QString::number(nCount) + ", ";
         strStats += tr("denomination: ") + QString::number(spend.GetDenomination()) + ", ";
         strStats += tr("serial: ") + spend.GetSerial().ToString().c_str() + "\n";
         strStats += tr("Spend is 1 of : ") + QString::number(spend.GetMintCount()) + " mints in the accumulator\n";
@@ -522,7 +522,7 @@ void PrivacyDialog::sendXLBz()
         strStats += tr("address: ");
         CTxDestination dest;
         if(txout.scriptPubKey.IsZerocoinMint())
-            strStats += tr("XLBz Mint");
+            strStats += tr("XLIBz Mint");
         else if(ExtractDestination(txout.scriptPubKey, dest))
             strStats += tr(CBitcoinAddress(dest).ToString().c_str());
         strStats += "\n";
@@ -537,7 +537,7 @@ void PrivacyDialog::sendXLBz()
     strReturn += strStats;
 
     // Clear amount to avoid double spending when accidentally clicking twice
-    ui->XLBzpayAmount->setText ("0");
+    ui->XLIBzpayAmount->setText ("0");
 
     ui->TEMintStatus->setPlainText(strReturn);
     ui->TEMintStatus->repaint();
@@ -652,7 +652,7 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
         mapImmature.insert(make_pair(denom, 0));
     }
 
-    std::vector<CMintMeta> vMints = pwalletMain->xlbzTracker->GetMints(false);
+    std::vector<CMintMeta> vMints = pwalletMain->xlibzTracker->GetMints(false);
     map<libzerocoin::CoinDenomination, int> mapMaturityHeights = GetMintMaturityHeight();
     for (auto& meta : vMints){
         // All denominations
@@ -695,7 +695,7 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
 
         strDenomStats = strUnconfirmed + QString::number(mapDenomBalances.at(denom)) + " x " +
                         QString::number(nCoins) + " = <b>" +
-                        QString::number(nSumPerCoin) + " XLBz </b>";
+                        QString::number(nSumPerCoin) + " XLIBz </b>";
 
         switch (nCoins) {
             case libzerocoin::CoinDenomination::ZQ_ONE:
@@ -733,10 +733,10 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
         nLockedBalance = walletModel->getLockedBalance();
     }
 
-    ui->labelzAvailableAmount->setText(QString::number(zerocoinBalance/COIN) + QString(" XLBz "));
-    ui->labelzAvailableAmount_2->setText(QString::number(matureZerocoinBalance/COIN) + QString(" XLBz "));
-    ui->labelzAvailableAmount_4->setText(QString::number(zerocoinBalance/COIN) + QString(" XLBz "));
-    ui->labelXLBzAmountValue->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, balance - immatureBalance - nLockedBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelzAvailableAmount->setText(QString::number(zerocoinBalance/COIN) + QString(" XLIBz "));
+    ui->labelzAvailableAmount_2->setText(QString::number(matureZerocoinBalance/COIN) + QString(" XLIBz "));
+    ui->labelzAvailableAmount_4->setText(QString::number(zerocoinBalance/COIN) + QString(" XLIBz "));
+    ui->labelXLIBzAmountValue->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, balance - immatureBalance - nLockedBalance, false, BitcoinUnits::separatorAlways));
 
     // Display AutoMint status
     updateAutomintStatus();
@@ -745,13 +745,13 @@ void PrivacyDialog::setBalance(const CAmount& balance, const CAmount& unconfirme
     updateSPORK16Status();
 
     // Display global supply
-    ui->labelZsupplyAmount->setText(QString::number(chainActive.Tip()->GetZerocoinSupply()/COIN) + QString(" <b>XLBz </b> "));
-    ui->labelZsupplyAmount_2->setText(QString::number(chainActive.Tip()->GetZerocoinSupply()/COIN) + QString(" <b>XLBz </b> "));
+    ui->labelZsupplyAmount->setText(QString::number(chainActive.Tip()->GetZerocoinSupply()/COIN) + QString(" <b>XLIBz </b> "));
+    ui->labelZsupplyAmount_2->setText(QString::number(chainActive.Tip()->GetZerocoinSupply()/COIN) + QString(" <b>XLIBz </b> "));
 
     for (auto denom : libzerocoin::zerocoinDenomList) {
         int64_t nSupply = chainActive.Tip()->mapZerocoinSupply.at(denom);
         QString strSupply = QString::number(nSupply) + " x " + QString::number(denom) + " = <b>" +
-                            QString::number(nSupply*denom) + " XLBz </b> ";
+                            QString::number(nSupply*denom) + " XLIBz </b> ";
         switch (denom) {
             case libzerocoin::CoinDenomination::ZQ_ONE:
                 ui->labelZsupplyAmount1->setText(strSupply);
@@ -797,7 +797,7 @@ void PrivacyDialog::updateDisplayUnit()
 
 void PrivacyDialog::showOutOfSyncWarning(bool fShow)
 {
-    ui->labelXLBzSyncStatus->setVisible(fShow);
+    ui->labelXLIBzSyncStatus->setVisible(fShow);
 }
 
 void PrivacyDialog::keyPressEvent(QKeyEvent* event)
@@ -828,23 +828,23 @@ void PrivacyDialog::updateAutomintStatus()
 void PrivacyDialog::updateSPORK16Status()
 {
     // Update/enable labels, buttons and tooltips depending on the current SPORK_16 status
-    bool fButtonsEnabled =  ui->pushButtonMintXLBz->isEnabled();
+    bool fButtonsEnabled =  ui->pushButtonMintXLIBz->isEnabled();
     bool fMaintenanceMode = GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE);
     if (fMaintenanceMode && fButtonsEnabled) {
-        // Mint XLBz
-        ui->pushButtonMintXLBz->setEnabled(false);
-        ui->pushButtonMintXLBz->setToolTip(tr("XLBz is currently disabled due to maintenance."));
+        // Mint XLIBz
+        ui->pushButtonMintXLIBz->setEnabled(false);
+        ui->pushButtonMintXLIBz->setToolTip(tr("XLIBz is currently disabled due to maintenance."));
 
-        // Spend XLBz
-        ui->pushButtonSpendXLBz->setEnabled(false);
-        ui->pushButtonSpendXLBz->setToolTip(tr("XLBz is currently disabled due to maintenance."));
+        // Spend XLIBz
+        ui->pushButtonSpendXLIBz->setEnabled(false);
+        ui->pushButtonSpendXLIBz->setToolTip(tr("XLIBz is currently disabled due to maintenance."));
     } else if (!fMaintenanceMode && !fButtonsEnabled) {
-        // Mint XLBz
-        ui->pushButtonMintXLBz->setEnabled(true);
-        ui->pushButtonMintXLBz->setToolTip(tr("PrivacyDialog", "Enter an amount of Liberty to convert to XLBz", 0));
+        // Mint XLIBz
+        ui->pushButtonMintXLIBz->setEnabled(true);
+        ui->pushButtonMintXLIBz->setToolTip(tr("PrivacyDialog", "Enter an amount of Liberty to convert to XLIBz", 0));
 
-        // Spend XLBz
-        ui->pushButtonSpendXLBz->setEnabled(true);
-        ui->pushButtonSpendXLBz->setToolTip(tr("Spend Zerocoin. Without 'Pay To:' address creates payments to yourself."));
+        // Spend XLIBz
+        ui->pushButtonSpendXLIBz->setEnabled(true);
+        ui->pushButtonSpendXLIBz->setToolTip(tr("Spend Zerocoin. Without 'Pay To:' address creates payments to yourself."));
     }
 }
