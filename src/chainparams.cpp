@@ -110,9 +110,9 @@ public:
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 4;
         genesis.nAccumulatorCheckpoint = 0;
-        genesis.nTime = 1533927507;
+        genesis.nTime = 1542060000;
         genesis.nBits = 504365040;
-        genesis.nNonce = 210520;
+        genesis.nNonce = 115752;
 
         //For all those who fork Liberty coin:
         //We bless you with the gift of a genesis block creator (courtesy of Helium coin); go make something great!
@@ -137,7 +137,7 @@ public:
                 std::cout << " merklehash: 0x"  << genesis.hashMerkleRoot.ToString().c_str() <<  "\n";
             }
         } else {
-            assert(hashGenesisBlock == uint256("0x000009c70711802dc84d6c3d6397308bbf6dd4860b4a1d63a873828aa9e3872a"));
+            assert(hashGenesisBlock == uint256("0x000007c2691250ffc124372e912f9dea4272240040363ac0d7a394fade8a4798"));
             assert(genesis.hashMerkleRoot == uint256("0xbff44217a82b3a7975225053503c553bc63b0f594f51a15ee2d9a5007c281b01"));
         }
 
@@ -231,7 +231,7 @@ public:
 
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1540073799;
-        genesis.nNonce = 338962;
+        genesis.nNonce = 703542;
 
         hashGenesisBlock = genesis.GetHash();
         if (regenerate) {
@@ -254,7 +254,7 @@ public:
 
             }
         } else {
-            assert(hashGenesisBlock == uint256("0x00000b8b870527abdd3592cfb34dd463c46413929bcfd2cdcb637feea3eae73d"));
+            assert(hashGenesisBlock == uint256("0x00000f4c080d58c3ce9ec79d7ecd8504b07675d6233a8373298f20ce865ccef0"));
             assert(genesis.hashMerkleRoot == uint256("0xbff44217a82b3a7975225053503c553bc63b0f594f51a15ee2d9a5007c281b01"));
         }
 
