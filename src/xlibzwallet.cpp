@@ -25,12 +25,12 @@ CXlibzWallet::CXlibzWallet(std::string strWalletFile)
     //Check for old db version of storing xlibz seed
     if (fFirstRun) {
         uint256 seed;
-        if (walletdb.ReadZXLBSeed_deprecated(seed)) {
+        if (walletdb.ReadZXLIBSeed_deprecated(seed)) {
             //Update to new format, erase old
             seedMaster = seed;
             hashSeed = Hash(seed.begin(), seed.end());
             if (pwalletMain->AddDeterministicSeed(seed)) {
-                if (walletdb.EraseZXLBSeed_deprecated()) {
+                if (walletdb.EraseZXLIBSeed_deprecated()) {
                     LogPrintf("%s: Updated XLIBz seed databasing\n", __func__);
                     fFirstRun = false;
                 } else {
@@ -85,8 +85,8 @@ bool CXlibzWallet::SetMasterSeed(const uint256& seedMaster, bool fResetCount)
     nCountLastUsed = 0;
 
     if (fResetCount)
-        walletdb.WriteZXLBCount(nCountLastUsed);
-    else if (!walletdb.ReadZXLBCount(nCountLastUsed))
+        walletdb.WriteZXLIBCount(nCountLastUsed);
+    else if (!walletdb.ReadZXLIBCount(nCountLastUsed))
         nCountLastUsed = 0;
 
     mintPool.Reset();
@@ -147,7 +147,7 @@ void CXlibzWallet::GenerateMintPool(uint32_t nCountStart, uint32_t nCountEnd)
         CBigNum bnSerial;
         CBigNum bnRandomness;
         CKey key;
-        SeedToZXLB(seedZerocoin, bnValue, bnSerial, bnRandomness, key);
+        SeedToZXLIB(seedZerocoin, bnValue, bnSerial, bnRandomness, key);
 
         mintPool.Add(bnValue, i);
         CWalletDB(strWalletFile).WriteMintPoolPair(hashSeed, GetPubCoinHash(bnValue), i);
@@ -293,7 +293,7 @@ bool CXlibzWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const
     CBigNum bnSerial;
     CBigNum bnRandomness;
     CKey key;
-    SeedToZXLB(seedZerocoin, bnValueGen, bnSerial, bnRandomness, key);
+    SeedToZXLIB(seedZerocoin, bnValueGen, bnSerial, bnRandomness, key);
 
     //Sanity check
     if (bnValueGen != bnValue)
@@ -334,7 +334,7 @@ bool CXlibzWallet::SetMintSeen(const CBigNum& bnValue, const int& nHeight, const
     if (nCountLastUsed < pMint.second) {
         CWalletDB walletdb(strWalletFile);
         nCountLastUsed = pMint.second;
-        walletdb.WriteZXLBCount(nCountLastUsed);
+        walletdb.WriteZXLIBCount(nCountLastUsed);
     }
 
     //remove from the pool
@@ -351,7 +351,7 @@ bool IsValidCoinValue(const CBigNum& bnValue)
     bnValue.isPrime();
 }
 
-void CXlibzWallet::SeedToZXLB(const uint512& seedZerocoin, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key)
+void CXlibzWallet::SeedToZXLIB(const uint512& seedZerocoin, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key)
 {
     ZerocoinParams* params = Params().Zerocoin_Params();
 
@@ -412,10 +412,10 @@ void CXlibzWallet::UpdateCount()
 {
     nCountLastUsed++;
     CWalletDB walletdb(strWalletFile);
-    walletdb.WriteZXLBCount(nCountLastUsed);
+    walletdb.WriteZXLIBCount(nCountLastUsed);
 }
 
-void CXlibzWallet::GenerateDeterministicZXLB(CoinDenomination denom, PrivateCoin& coin, CDeterministicMint& dMint, bool fGenerateOnly)
+void CXlibzWallet::GenerateDeterministicZXLIB(CoinDenomination denom, PrivateCoin& coin, CDeterministicMint& dMint, bool fGenerateOnly)
 {
     GenerateMint(nCountLastUsed + 1, denom, coin, dMint);
     if (fGenerateOnly)
@@ -432,7 +432,7 @@ void CXlibzWallet::GenerateMint(const uint32_t& nCount, const CoinDenomination d
     CBigNum bnSerial;
     CBigNum bnRandomness;
     CKey key;
-    SeedToZXLB(seedZerocoin, bnValue, bnSerial, bnRandomness, key);
+    SeedToZXLIB(seedZerocoin, bnValue, bnSerial, bnRandomness, key);
     coin = PrivateCoin(Params().Zerocoin_Params(), denom, bnSerial, bnRandomness);
     coin.setPrivKey(key.GetPrivKey());
     coin.setVersion(PrivateCoin::CURRENT_VERSION);

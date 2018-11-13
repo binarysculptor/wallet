@@ -39,7 +39,7 @@ public:
         Encrypt,        /** Encrypt unencrypted wallet */
         ToggleLock,     /** Toggle wallet lock state */
         ChangePass,     /** Change passphrase */
-        Send_XLB,       /** Send XLB */
+        Send_XLIB,       /** Send XLIB */
         Send_XLIBz,      /** Send XLIBz */
         Mint_XLIBz,      /** Mint XLIBz */
         BIP_38,         /** BIP38 menu */

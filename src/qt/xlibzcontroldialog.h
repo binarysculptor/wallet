@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef ZXLBCONTROLDIALOG_H
-#define ZXLBCONTROLDIALOG_H
+#ifndef ZXLIBCONTROLDIALOG_H
+#define ZXLIBCONTROLDIALOG_H
 
 #include <QDialog>
 #include <QTreeWidgetItem>
@@ -54,4 +54,4 @@ private slots:
     void ButtonAllClicked();
 };
 
-#endif // ZXLBCONTROLDIALOG_H
+#endif // ZXLIBCONTROLDIALOG_H

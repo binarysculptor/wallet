@@ -133,7 +133,7 @@ CAmount CXlibzTracker::GetBalance(bool fConfirmedOnly, bool fUnconfirmedOnly) co
     }
 
     {
-        //LOCK(cs_xlbtracker);
+        //LOCK(cs_xlibtracker);
         // Get Unused coins
         for (auto& it : mapSerialHashes) {
             CMintMeta meta = it.second;

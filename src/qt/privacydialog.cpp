@@ -462,7 +462,7 @@ void PrivacyDialog::sendXLIBz()
 
     // Display errors during spend
     if (!fSuccess) {
-        if (receipt.GetStatus() == ZXLB_SPEND_V1_SEC_LEVEL) {
+        if (receipt.GetStatus() == ZXLIB_SPEND_V1_SEC_LEVEL) {
             QMessageBox::warning(this, tr("Spend Zerocoin"), tr("Version 1 XLIBz require a security level of 100 to successfully spend."), QMessageBox::Ok, QMessageBox::Ok);
             ui->TEMintStatus->setPlainText(tr("Failed to spend XLIBz"));
             ui->TEMintStatus->repaint();
@@ -516,7 +516,7 @@ void PrivacyDialog::sendXLIBz()
 
     CAmount nValueOut = 0;
     for (const CTxOut& txout: wtxNew.vout) {
-        strStats += tr("value out: ") + FormatMoney(txout.nValue).c_str() + " XLB, ";
+        strStats += tr("value out: ") + FormatMoney(txout.nValue).c_str() + " XLIB, ";
         nValueOut += txout.nValue;
 
         strStats += tr("address: ");

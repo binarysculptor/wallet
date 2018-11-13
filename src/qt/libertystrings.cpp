@@ -100,10 +100,10 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Failed to find coin set amongst held coins with less than maxNumber of Spends"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Fees (in XLB/Kb) smaller than this are considered zero fee for relaying "
+"Fees (in XLIB/Kb) smaller than this are considered zero fee for relaying "
 "(default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Fees (in XLB/Kb) smaller than this are considered zero fee for transaction "
+"Fees (in XLIB/Kb) smaller than this are considered zero fee for transaction "
 "creation (default: %s)"),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Flush database activity from memory pool to disk log every <n> megabytes "
@@ -197,7 +197,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough Obfuscation non-denominated funds for this "
-"transaction that are not equal 10000 XLB."),
+"transaction that are not equal 10000 XLIB."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough funds for this transaction that are not equal 10000 "
 "Liberty."),

@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef LIBERTY_ZXLBCHAIN_H
-#define LIBERTY_ZXLBCHAIN_H
+#ifndef LIBERTY_ZXLIBCHAIN_H
+#define LIBERTY_ZXLIBCHAIN_H
 
 #include "libzerocoin/Coin.h"
 #include "libzerocoin/Denominations.h"
@@ -38,4 +38,4 @@ bool TxOutToPublicCoin(const CTxOut& txout, libzerocoin::PublicCoin& pubCoin, CV
 std::list<libzerocoin::CoinDenomination> ZerocoinSpendListFromBlock(const CBlock& block);
 
 
-#endif //LIBERTY_ZXLBCHAIN_H
+#endif //LIBERTY_ZXLIBCHAIN_H

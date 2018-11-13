@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef LIBERTY_ZXLBTRACKER_H
-#define LIBERTY_ZXLBTRACKER_H
+#ifndef LIBERTY_ZXLIBTRACKER_H
+#define LIBERTY_ZXLIBTRACKER_H
 
 #include "primitives/zerocoin.h"
 #include <list>
@@ -48,4 +48,4 @@ public:
     void Clear();
 };
 
-#endif //LIBERTY_ZXLBTRACKER_H
+#endif //LIBERTY_ZXLIBTRACKER_H

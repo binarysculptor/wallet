@@ -35,7 +35,7 @@ class TxViewDelegate : public QAbstractItemDelegate
 {
     Q_OBJECT
 public:
-    TxViewDelegate() : QAbstractItemDelegate(), unit(BitcoinUnits::XLB)
+    TxViewDelegate() : QAbstractItemDelegate(), unit(BitcoinUnits::XLIB)
     {
     }
 
@@ -194,7 +194,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
 
     // Liberty Balance
     CAmount nTotalBalance = balance + unconfirmedBalance;
-    CAmount xlbAvailableBalance = balance - immatureBalance - nLockedBalance;
+    CAmount xlibAvailableBalance = balance - immatureBalance - nLockedBalance;
     CAmount nUnlockedBalance = nTotalBalance - nLockedBalance;
 
     // Liberty Watch-Only Balance
@@ -209,11 +209,11 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     QString sPercentage = "";
     getPercentage(nUnlockedBalance, zerocoinBalance, sPercentage, szPercentage);
     // Combined balances
-    CAmount availableTotalBalance = xlbAvailableBalance + matureZerocoinBalance;
+    CAmount availableTotalBalance = xlibAvailableBalance + matureZerocoinBalance;
     CAmount sumTotalBalance = nTotalBalance + zerocoinBalance;
 
     // Liberty labels
-    ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, xlbAvailableBalance, false, BitcoinUnits::separatorAlways));
+    ui->labelBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, xlibAvailableBalance, false, BitcoinUnits::separatorAlways));
     ui->labelUnconfirmed->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, unconfirmedBalance, false, BitcoinUnits::separatorAlways));
     ui->labelImmature->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, immatureBalance, false, BitcoinUnits::separatorAlways));
     ui->labelLockedBalance->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, nLockedBalance, false, BitcoinUnits::separatorAlways));
@@ -237,7 +237,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     ui->labelTotalz->setText(BitcoinUnits::floorHtmlWithUnit(nDisplayUnit, sumTotalBalance, false, BitcoinUnits::separatorAlways));
 
     // Percentage labels
-    ui->labelXLBPercent->setText(sPercentage);
+    ui->labelXLIBPercent->setText(sPercentage);
     ui->labelXLIBzPercent->setText(szPercentage);
 
     // Adjust bubble-help according to AutoMint settings
@@ -263,7 +263,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
     bool showWatchOnly = nTotalWatchBalance != 0;
 
     // Liberty Available
-    bool showLibertyAvailable = settingShowAllBalances || xlbAvailableBalance != nTotalBalance;
+    bool showLibertyAvailable = settingShowAllBalances || xlibAvailableBalance != nTotalBalance;
     bool showWatchOnlyLibertyAvailable = showLibertyAvailable || nAvailableWatchBalance != nTotalWatchBalance;
     ui->labelBalanceText->setVisible(showLibertyAvailable || showWatchOnlyLibertyAvailable);
     ui->labelBalance->setVisible(showLibertyAvailable || showWatchOnlyLibertyAvailable);
@@ -303,7 +303,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
 
     // Percent split
     bool showPercentages = ! (zerocoinBalance == 0 && nTotalBalance == 0);
-    ui->labelXLBPercent->setVisible(showPercentages);
+    ui->labelXLIBPercent->setVisible(showPercentages);
     ui->labelXLIBzPercent->setVisible(showPercentages);
 
     static int cachedTxLocks = 0;

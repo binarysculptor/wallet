@@ -80,7 +80,7 @@ unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
 int64_t nReserveBalance = 0;
 
-/** Fees smaller than this (in uxlb) are considered zero fee (for relaying and mining)
+/** Fees smaller than this (in uxlib) are considered zero fee (for relaying and mining)
  * We are ~100 times smaller then bitcoin now (2015-06-23), set minRelayTxFee only 10 times higher
  * so it's still 10 times lower comparing to bitcoin.
  */
@@ -2295,7 +2295,7 @@ void ThreadScriptCheck()
     scriptcheckqueue.Thread();
 }
 
-void RecalculateZXLBMinted()
+void RecalculateZXLIBMinted()
 {
     CBlockIndex* pindex = chainActive.Genesis();
     int nHeightEnd = chainActive.Height();
@@ -2322,7 +2322,7 @@ void RecalculateZXLBMinted()
     }
 }
 
-void RecalculateZXLBSpent()
+void RecalculateZXLIBSpent()
 {
     CBlockIndex* pindex = chainActive.Genesis();
     while (true) {
@@ -2469,7 +2469,7 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
     return true;
 }
 
-bool UpdateZXLBSupply(const CBlock& block, CBlockIndex* pindex)
+bool UpdateZXLIBSupply(const CBlock& block, CBlockIndex* pindex)
 {
     std::list<CZerocoinMint> listMints;
     //bool fFilterInvalid = pindex->nHeight >= Params().Zerocoin_Block_RecalculateAccumulators();
@@ -2715,7 +2715,7 @@ bool ConnectBlock(
     }
 
     //Track XLIBz money supply in the block index
-    if (!UpdateZXLBSupply(block, pindex))
+    if (!UpdateZXLIBSupply(block, pindex))
         return state.DoS(100, error("%s: Failed to calculate new XLIBz supply for block=%s height=%d", __func__, block.GetHash().GetHex(), pindex->nHeight), REJECT_INVALID);
 
     // track money supply and mint amount info
@@ -4053,7 +4053,7 @@ bool AcceptBlock(CBlock& block, CValidationState& state, CBlockIndex** ppindex, 
         if (!stake)
             return error("%s: null stake ptr", __func__);
 
-        if (stake->IsZXLB() && !ContextualCheckZerocoinStake(pindexPrev->nHeight, stake.get()))
+        if (stake->IsZXLIB() && !ContextualCheckZerocoinStake(pindexPrev->nHeight, stake.get()))
             return state.DoS(100, error("%s: staked XLIBz fails context checks", __func__));
 
         uint256 hash = block.GetHash();

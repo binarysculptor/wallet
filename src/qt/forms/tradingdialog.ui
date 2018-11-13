@@ -2813,7 +2813,7 @@
       </font>
      </property>
      <property name="text">
-      <string>XLB Available:</string>
+      <string>XLIB Available:</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_14">
@@ -2832,7 +2832,7 @@
       </font>
      </property>
      <property name="text">
-      <string>XLB Pending:</string>
+      <string>XLIB Pending:</string>
      </property>
     </widget>
     <widget class="QLabel" name="LibertyPendingLabel">
@@ -2928,7 +2928,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Bittrex XLB Deposit Address:</string>
+      <string>Bittrex XLIB Deposit Address:</string>
      </property>
     </widget>
     <widget class="QPushButton" name="GenDepositBTN">
@@ -2941,7 +2941,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Generate XLB Deposit Address</string>
+      <string>Generate XLIB Deposit Address</string>
      </property>
      <property name="icon">
       <iconset resource="../liberty.qrc">

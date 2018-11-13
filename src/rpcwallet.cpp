@@ -2675,7 +2675,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
             HelpRequiringPassphrase() + "\n"
 
             "\nArguments:\n"
-            "1. amount      (numeric, required) Enter an amount of XLB to convert to XLIBz\n"
+            "1. amount      (numeric, required) Enter an amount of XLIB to convert to XLIBz\n"
             "2. utxos       (string, optional) A json array of objects.\n"
             "                   Each object needs the txid (string) and vout (numeric)\n"
             "  [\n"
@@ -3444,7 +3444,7 @@ void static SearchThread(CXlibzWallet* zwallet, int nCountStart, int nCountEnd)
             CBigNum bnSerial;
             CBigNum bnRandomness;
             CKey key;
-            zwallet->SeedToZXLB(zerocoinSeed, bnValue, bnSerial, bnRandomness, key);
+            zwallet->SeedToZXLIB(zerocoinSeed, bnValue, bnSerial, bnRandomness, key);
 
             uint256 hashPubcoin = GetPubCoinHash(bnValue);
             zwallet->AddToMintPool(make_pair(hashPubcoin, i), true);
