@@ -345,7 +345,7 @@ QString TransactionTableModel::formatTxType(const TransactionRecord* wtx) const
         return tr("Payment to yourself");
     case TransactionRecord::StakeMint:
         return tr("XLIB Stake");
-    case TransactionRecord::StakeZXLIB:
+    case TransactionRecord::StakeXLIBZ:
         return tr("XLIBz Stake");
     case TransactionRecord::Generated:
         return tr("Mined");
@@ -380,7 +380,7 @@ QVariant TransactionTableModel::txAddressDecoration(const TransactionRecord* wtx
     switch (wtx->type) {
     case TransactionRecord::Generated:
     case TransactionRecord::StakeMint:
-    case TransactionRecord::StakeZXLIB:
+    case TransactionRecord::StakeXLIBZ:
     case TransactionRecord::MNReward:
         return QIcon(":/icons/tx_mined");
     case TransactionRecord::RecvWithObfuscation:
@@ -425,7 +425,7 @@ QString TransactionTableModel::formatTxToAddress(const TransactionRecord* wtx, b
     case TransactionRecord::ZerocoinMint:
     case TransactionRecord::ZerocoinSpend_Change_XLIBz:
         return tr("Anonymous (XLIBz Transaction)");
-    case TransactionRecord::StakeZXLIB:
+    case TransactionRecord::StakeXLIBZ:
         return tr("Anonymous (XLIBz Stake)");
     case TransactionRecord::SendToSelf:
     default:
