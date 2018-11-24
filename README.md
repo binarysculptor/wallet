@@ -1,21 +1,13 @@
 # Liberty
 
-[![Build Status](https://travis-ci.org/project-liberty/liberty.svg?branch=master)](https://travis-ci.org/project-liberty/liberty)  [![GitHub version](https://badge.fury.io/gh/project-liberty%2Fliberty.svg)](https://badge.fury.io/gh/project-liberty%2Fliberty) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/project-liberty/liberty/issues) [![HitCount](http://hits.dwyl.io/mo-bay/project-liberty/liberty.svg)](http://hits.dwyl.io/mo-bay/project-liberty/liberty)
-
-
-
-Liberty is the digital form of rupees, which is a currency used throughout South Asia. Liberty is intended to provide a digital currency to a growing number of residents in emerging markets that are unable to access bank accounts and credit cards.
-
-
 # Specifications :
 
-  - Proof of Stake with MN & Governance
-  - Zerocoin v2 with staking 
-  - Instant Transactions via SwiftTx
-  - DAO Governance
-  - 60sec block time
-  - 20k for Masternodes
-
+  - Proof of Stake
+  - Masternodes (Tiers will be introduced in Q1 2019)
+  - Privacy coin features via Zerocoin (Version 2)
+  - Always fast, 60 second block times
+  - SwiftX features allows near intantaneous, confirmed transactions for point-of-sale situations
+  - Town Hall for voting on community projects and initiatives
 
 Mainnet Ports :
   - P2P 10417
@@ -25,41 +17,55 @@ Testnet Ports :
   - P2P 20417
   - RPC 20416
 
-A total of 39M Liberty's were premined to swap the community's holding at [Block 1](https://find.liberty-coin.com/block/1)
+Payout Schedule
+======================
 
+Was XLIBz Staked | Masternode | Staker 
+---------------- | ---------- | -------------
+False | 75% | 25%
+True | 65% | 35%
 
-### Block Rewards
+* Privacy coins (XLIBz) must be rounded to the nearest whole number so these numbers may not always be 100% mathematically correct. However, we want to encourage users to stake their privacy coins so we will round up to the nearest whole number if at all possible.
 
-Find out more about our block reward & governance structure and percentages on our [website](https://www.liberty-coin.com) .
+Block Reward Schedule
+=======================
 
-License
-----
+Start Height | End Height | Block Reward
+------------- | ------------- | -------------
+0 | 0| 22.5M XLIB
+1 |74 | 40 XLIB
+75 | 149 | 10 XLIB
+150 | 299 | 30 XLIB
+300 | 449 | 40 XLIB
+450 | 7,199 | 50 XLIB
+7,200 | 14,399 | 1,000 XLIB
+14,400 | 21,599 | 2,000 XLIB
+21,600 | 28,799 | 3,000 XLIB
+28,800 | 35,999 | 4,000 XLIB
+36,000 | 43,199 | 5,000 XLIB
+43,200 | 50,399 | 4,000 XLIB
+50,400 | 57,599 | 3,000 XLIB
+57,600 | 64,799 | 2,000 XLIB
+64,800 | 71,999 | 1,000 XLIB
+72,000 | 172,799 | 500 XLIB
+172,800 | 345,599 | 750 XLIB
+345,600 | 999,999 | 1,000 XLIB
+1,000,000 | 24,999,999 | 750 XLIB
+25,000,000 | 49,999,999 | 500 XLIB
+50,000,000 | *MAX SUPPLY* | 1,000 XLIB
 
-MIT
+*Max Supply is 9,999,999,999 XLIB
 
+Premine Allocation
+=======================
 
-**Free Software, Hell Yeah!**
+The premine for Liberty coin (XLIB) was 22.5 million coins.
 
-[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+The previous generation of Liberty Coin (LBRT) ended at block 242,943. At that block there was approximately 1.7 million coins in circulation. The new generation of Liberty Coin offered at 1 LBRT -> 10 XLIB swap to the new chain.
 
+LBRT Coins | XLIB Coins | Premine Remainder
+---------- | ------------ | ---------------
+1,700,000 | 17,000,000 | 22.5M - 17M = 5.5M XLIB
 
-   [dill]: <https://github.com/joemccann/dillinger>
-   [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-   [john gruber]: <http://daringfireball.net>
-   [df1]: <http://daringfireball.net/projects/markdown/>
-   [markdown-it]: <https://github.com/markdown-it/markdown-it>
-   [Ace Editor]: <http://ace.ajax.org>
-   [node.js]: <http://nodejs.org>
-   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
-   [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-   [express]: <http://expressjs.com>
-   [AngularJS]: <http://angularjs.org>
-   [Gulp]: <http://gulpjs.com>
+Thus, if every single owner of LBRT coins claimed their XLIB coins before the December 15, 2018 deadline, there would be be a balance of 5.5 million coins. Instead of burning these coins, however, the Liberty Coin team will offer an additional, limited-supply aidrop to all Bitcoin HODLers that have at least 1 BTC in their  account at a snapshot block to be announced. why would we do this? Simple! We want the world to know about Liberty Coin and how much more it brings to the table! This will be a first come, first serve registration airdrop and we'll announce more details AFTER we have completed the initial swap process for our LBRT -> XLIB transition. In the meantime, saavy investors can purchse XLIB coins from [CryptoBridge](https://wallet.crypto-bridge.org/market/BRIDGE.XLIB_BRIDGE.BTC), the only offical exchange for Liberty Coin, LLC.
 
-   [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-   [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-   [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-   [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-   [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-   [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
