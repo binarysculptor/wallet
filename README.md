@@ -17,6 +17,15 @@ Testnet Ports :
   - P2P 20417
   - RPC 20416
 
+Payout Schedule
+======================
+
+Was XLIBz Staked | Masternode | Staker 
+---------------- | ---------- | -------------
+False | 75% | 25%
+True | 65% | 35%
+
+* Privacy coins (XLIBz) must be rounded to the nearest whole number so these numbers may not always be 100% mathematically correct. However, we want to encourage users to stake their privacy coins so we will round up to the nearest whole number if at all possible.
 
 Block Reward Schedule
 =======================
