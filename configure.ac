@@ -13,7 +13,7 @@ AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_MACRO_DIR([build-aux/m4])
 
 BITCOIN_DAEMON_NAME=libertyd
-BITCOIN_GUI_NAME=Liberty-Qt
+BITCOIN_GUI_NAME=liberty-qt
 BITCOIN_CLI_NAME=liberty-cli
 BITCOIN_TX_NAME=liberty-tx
 
