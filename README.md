@@ -5,6 +5,7 @@
   - Proof of Stake
   - Masternodes (Tiers will be introduced in Q1 2019)
   - Privacy coin features via Zerocoin (Version 2)
+  - First coin to use masternodes working togehter with mobile device to enable true mobile-staking (Q2-3 2019)
   - Always fast, 60 second block times
   - SwiftX features allows near intantaneous, confirmed transactions for point-of-sale situations
   - Town Hall for voting on community projects and initiatives
