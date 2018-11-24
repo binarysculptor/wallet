@@ -58,11 +58,7 @@ namespace libzerocoin
 
     // Now generate the two core ZK proofs:
     // 3. Proves that the committed public coin is in the Accumulator (PoK of "witness")
-<<<<<<< HEAD
     this->accumulatorPoK = AccumulatorProofOfKnowledge(&params->accumulatorParams, fullCommitmentToCoinUnderAccParams, witness);
-=======
-    this->accumulatorPoK = AccumulatorProofOfKnowledge(&paramsAcc->accumulatorParams, fullCommitmentToCoinUnderAccParams, witness);
->>>>>>> 64071d142... Merge #688: [Zerocoin]  RPC import/export zerocoins private key standardized + Cleanup in AccPoK and SoK to avoid redundant calculations.
 
     // 4. Proves that the coin is correct w.r.t. serial number and hidden coin secret
     // (This proof is bound to the coin 'metadata', i.e., transaction hash)
