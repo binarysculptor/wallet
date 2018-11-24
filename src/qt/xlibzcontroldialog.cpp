@@ -63,7 +63,7 @@ void XLIBzControlDialog::updateList()
     QFlags<Qt::ItemFlag> flgTristate = Qt::ItemIsEnabled | Qt::ItemIsUserCheckable | Qt::ItemIsTristate;
     map<libzerocoin::CoinDenomination, int> mapDenomPosition;
     for (auto denom : libzerocoin::zerocoinDenomList) {
-        CZPivControlWidgetItem* itemDenom(new CZPivControlWidgetItem);
+        CXLIBzControlWidgetItem* itemDenom(new CXLIBzControlWidgetItem);
         ui->treeWidget->addTopLevelItem(itemDenom);
 
         //keep track of where this is positioned in tree widget
@@ -85,7 +85,7 @@ void XLIBzControlDialog::updateList()
     for (const CMintMeta& mint : setMints) {
         // assign this mint to the correct denomination in the tree view
         libzerocoin::CoinDenomination denom = mint.denom;
-        CZPivControlWidgetItem *itemMint = new CZPivControlWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
+        CXLIBzControlWidgetItem *itemMint = new CXLIBzControlWidgetItem(ui->treeWidget->topLevelItem(mapDenomPosition.at(denom)));
 
         // if the mint is already selected, then it needs to have the checkbox checked
         std::string strPubCoinHash = mint.hashPubcoin.GetHex();
