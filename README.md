@@ -6,7 +6,7 @@
   - Masternodes (Tiers will be introduced in Q1 2019)
   - Privacy coin features via Zerocoin (Version 2)
   - Always fast, 60 second block times
-  - SwiftX features allows for near intantaneous transactions for point-of-sale sitations
+  - SwiftX features allows near intantaneous, confirmed transactions for point-of-sale situations
   - Town Hall for voting on community projects and initiatives
 
 Mainnet Ports :
