@@ -1,10 +1,13 @@
 # Liberty
 
+Liberty Coin, LLC, is a truly unique cryptocurrency and being a legally recognized business in the United States is only the tip of this vertiable iceberg. That said, before going into our awesomeness, let's talk about history for a moment: After our initial launch in June of 2018, it became almost immediately obvious that we had missed the mark and failed to deliver a whitepaper and vision that captivated our target audience. The following weeks on exchange were nothing short of abysmal and thus, we knew  that a "redo" was in order". After copious time invested in research and development, a decision was made to move forward with a privacy coin that would protect the anonymity of Liberty citizens. To that same end, we have also been working diligently on an iOS app that should be ready for Apple Store submission within a matter of weeks. Our goal at Liberty Coin is to make crypto-commerce so easy your Grandma can do it and also enable powerful features that make it suitable for for point-of-sale transactions (even when they don't know each other and desire to keep their true identities secret).
+
 # Specifications :
 
   - Proof of Stake
   - Masternodes (Tiers will be introduced in Q1 2019)
   - Privacy coin features via Zerocoin (Version 2)
+  - First coin to use masternodes working togehter with mobile devices to enable true mobile-staking (Q2-3 2019)
   - Always fast, 60 second block times
   - SwiftX features allows near intantaneous, confirmed transactions for point-of-sale situations
   - Town Hall for voting on community projects and initiatives
