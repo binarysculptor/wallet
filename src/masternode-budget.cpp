@@ -12,6 +12,7 @@
 #include "masternode.h"
 #include "masternodeman.h"
 #include "obfuscation.h"
+#include "spork.h"
 #include "util.h"
 #include <boost/filesystem.hpp>
 
@@ -1448,6 +1449,13 @@ bool CBudgetProposal::IsValid(std::string& strError, bool fCheckCollateral)
     if (GetNays() - GetYeas() > mnodeman.CountEnabled(ActiveProtocol()) / 10) {
         strError = "Proposal " + strProposalName + ": Active removal";
         return false;
+    }
+
+    if(IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
+        if (GetSporkValue(SPORK_17_PROPOSAL_VETO) == GetHash()) {
+            strError = strprintf("%s: proposal %s has been vetoed.", __func__, strProposalName);
+            return false;
+        }
     }
 
     if (nBlockStart < 0) {
