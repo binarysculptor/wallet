@@ -1763,7 +1763,7 @@ UniValue walletpassphrase(const UniValue& params, bool fHelp)
             "\nArguments:\n"
             "1. \"passphrase\"     (string, required) The wallet passphrase\n"
             "2. timeout            (numeric, required) The time to keep the decryption key in seconds.\n"
-            "3. anonymizeonly      (boolean, optional, default=flase) If is true sending functions are disabled."
+            "3. anonymizeonly      (boolean, optional, default=false) If is true sending functions are disabled."
 
             "\nNote:\n"
             "Issuing the walletpassphrase command while the wallet is already unlocked will set a new unlock\n"
@@ -2881,7 +2881,6 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
     std::string address_str = params.size() > 4 ? params[4].get_str() : "";
 
     vector<CZerocoinMint> vMintsSelected;
-
     return DoXLibzSpend(nAmount, fMintChange, fMinimizeChange, nSecurityLevel, vMintsSelected, address_str);
 }
 
@@ -2966,10 +2965,8 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
         vMintsSelected.emplace_back(mint);
         nAmount += mint.GetDenominationAsAmount();
     }
-
     return DoXLibzSpend(nAmount, false, true, 100, vMintsSelected, address_str);
 }
-
 
 extern UniValue DoXLibzSpend(const CAmount nAmount, bool fMintChange, bool fMinimizeChange, const int nSecurityLevel, vector<CZerocoinMint>& vMintsSelected, std::string address_str)
 {
@@ -2983,6 +2980,7 @@ extern UniValue DoXLibzSpend(const CAmount nAmount, bool fMintChange, bool fMini
         address = CBitcoinAddress(address_str);
         if(!address.IsValid())
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid XLIB address");
+      
         fSuccess = pwalletMain->SpendZerocoin(nAmount, nSecurityLevel, wtx, receipt, vMintsSelected, fMintChange, fMinimizeChange, &address);
     } else                   // Spend to newly generated local address
         fSuccess = pwalletMain->SpendZerocoin(nAmount, nSecurityLevel, wtx, receipt, vMintsSelected, fMintChange, fMinimizeChange);

@@ -243,7 +243,6 @@ void TransactionView::setModel(WalletModel* model)
                     mapperThirdPartyTxUrls->setMapping(thirdPartyTxUrlAction, listUrls[i].trimmed());
                 }
             }
-
             connect(model->getOptionsModel(), SIGNAL(hideOrphansChanged(bool)), this, SLOT(updateHideOrphans(bool)));
         }
 
@@ -346,7 +345,6 @@ void TransactionView::updateHideOrphans(bool fHide)
         hideOrphansAction->setChecked(fHide);
 
 }
-
 
 void TransactionView::chooseWatchonly(int idx)
 {

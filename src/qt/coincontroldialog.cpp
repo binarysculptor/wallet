@@ -176,15 +176,6 @@ void CoinControlDialog::setModel(WalletModel* model)
     }
 }
 
-// helper function str_pad
-QString CoinControlDialog::strPad(QString s, int nPadLength, QString sPadding)
-{
-    while (s.length() < nPadLength)
-        s = sPadding + s;
-
-    return s;
-}
-
 // ok button
 void CoinControlDialog::buttonBoxClicked(QAbstractButton* button)
 {

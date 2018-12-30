@@ -23,7 +23,6 @@ bool CXLibzControlWidgetItem::operator<(const QTreeWidgetItem &other) const {
     return QTreeWidgetItem::operator<(other);
 }
 
-
 XLibzControlDialog::XLibzControlDialog(QWidget *parent) :
     QDialog(parent, Qt::WindowSystemMenuHint | Qt::WindowTitleHint | Qt::WindowCloseButtonHint),
     ui(new Ui::XLibzControlDialog),
@@ -50,6 +49,7 @@ void XLibzControlDialog::setModel(WalletModel *model)
     this->model = model;
     updateList();
 }
+
 
 //Update the tree widget
 void XLibzControlDialog::updateList()

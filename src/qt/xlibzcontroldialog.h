@@ -23,8 +23,7 @@ class CXLibzControlWidgetItem : public QTreeWidgetItem
 public:
     explicit CXLibzControlWidgetItem(QTreeWidget *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
     explicit CXLibzControlWidgetItem(int type = Type) : QTreeWidgetItem(type) {}
-    explicit CXLibzControlWidgetItem(QTreeWidgetItem *parent, int type = Type) : QTreeWidgetItem(parent, type) {}
-
+    explicit CXLibzControlWidgetItem(QTreeWidgetItem *parent, int type = Type) : QTreeWidgetItem(parent, type) {
     bool operator<(const QTreeWidgetItem &other) const;
 };
 
@@ -58,8 +57,9 @@ private:
         COLUMN_CONFIRMATIONS,
         COLUMN_ISSPENDABLE
     };
+    
     friend class CXLibzControlWidgetItem;
-
+    
 private slots:
     void updateSelection(QTreeWidgetItem* item, int column);
     void ButtonAllClicked();
