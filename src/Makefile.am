@@ -72,8 +72,8 @@ if BUILD_BITCOIN_UTILS
   bin_PROGRAMS += liberty-cli liberty-tx
 endif
 
-.PHONY: FORCE
-# Liberty Core #
+.PHONY: FORCE check-symbols check-security
+# Liberty Coin #
 BITCOIN_CORE_H = \
   activemasternode.h \
   accumulators.h \

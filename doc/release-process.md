@@ -97,7 +97,7 @@ NOTE: Offline builds must use the --url flag to ensure Gitian fetches only from 
 
 The gbuild invocations below <b>DO NOT DO THIS</b> by default.
 
-### Build and sign Liberty Core for Linux, Windows, and OS X:
+### Build and sign Liberty Coin for Linux, Windows, and OS X:
 
     pushd ./gitian-builder
     ./bin/gbuild --memory 3000 --commit liberty=v${VERSION} ../liberty/contrib/gitian-descriptors/gitian-linux.yml

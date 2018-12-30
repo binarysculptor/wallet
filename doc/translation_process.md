@@ -1,7 +1,7 @@
 Translations
 ============
 
-The Liberty Core project has been designed to support multiple localisations. This makes adding new phrases, and completely new languages easily achievable. For managing all application translations, Liberty Core makes use of the Transifex online translation management tool.
+The Liberty Coin project has been designed to support multiple localisations. This makes adding new phrases, and completely new languages easily achievable. For managing all application translations, Liberty Coin makes use of the Transifex online translation management tool.
 
 ### Helping to translate (using Transifex)
 Transifex is setup to monitor the GitHub repo for updates, and when code containing new translations is found, Transifex will process any changes. It may take several hours after a pull-request has been merged, to appear in the Transifex web interface.
@@ -106,6 +106,6 @@ To create a new language template, you will need to edit the languages manifest 
 **Note:** that the language translation file **must end in `.qm`** (the compiled extension), and not `.ts`.
 
 ### Questions and general assistance
-The Liberty Core translation maintainers include *Fuzzbawls and s3v3nh4cks*. You can find them, and others, in the [Liberty Discord](https://discord.liberty-coin.com).
+The Liberty Coin translation maintainers include *Fuzzbawls and s3v3nh4cks*. You can find them, and others, in the [Liberty Discord](https://discord.liberty-coin.com).
 
 Announcements will be posted during application pre-releases to notify translators to check for updates.

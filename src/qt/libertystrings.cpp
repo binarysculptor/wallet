@@ -32,7 +32,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Calculated accumulator checkpoint is not what is recorded by block index"),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Cannot obtain a lock on data directory %s. Liberty Core is probably already "
+"Cannot obtain a lock on data directory %s. Liberty Coin is probably already "
 "running."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Change automatic finalized budget voting behavior. mode=auto: Vote for only "
@@ -192,9 +192,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "the OpenSSL Toolkit <https://www.openssl.org/> and cryptographic software "
 "written by Eric Young and UPnP software written by Thomas Bernard."),
 QT_TRANSLATE_NOOP("liberty-core", ""
-"Unable to bind to %s on this computer. Liberty Core is probably already running."),
-"Total length of network version string (%i) exceeds maximum length (%i). "
-"Reduce the number or size of uacomments."),
+"Unable to bind to %s on this computer. Liberty Coin is probably already running."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Unable to locate enough Obfuscation denominated funds for this transaction."),
 QT_TRANSLATE_NOOP("liberty-core", ""
@@ -214,7 +212,7 @@ QT_TRANSLATE_NOOP("liberty-core", ""
 "pay if you send a transaction."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Warning: Please check that your computer's date and time are correct! If "
-"your clock is wrong Liberty Core will not work properly."),
+"your clock is wrong Liberty Coin will not work properly."),
 QT_TRANSLATE_NOOP("liberty-core", ""
 "Warning: The network does not appear to fully agree! Some miners appear to "
 "be experiencing issues."),
@@ -271,7 +269,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Connect to a node to retrieve peer addresses,
 QT_TRANSLATE_NOOP("liberty-core", "Connection options:"),
 QT_TRANSLATE_NOOP("liberty-core", "Copyright (C) 2009-%i The Bitcoin Core Developers"),
 QT_TRANSLATE_NOOP("liberty-core", "Copyright (C) 2014-%i The Dash Core Developers"),
-QT_TRANSLATE_NOOP("liberty-core", "Copyright (C) 2015-%i The Liberty Core Developers"),
+QT_TRANSLATE_NOOP("liberty-core", "Copyright (C) 2015-%i The Liberty Coin Developers"),
 QT_TRANSLATE_NOOP("liberty-core", "Corrupted block database detected"),
 QT_TRANSLATE_NOOP("liberty-core", "Could not parse masternode.conf"),
 QT_TRANSLATE_NOOP("liberty-core", "Debugging/Testing options:"),
@@ -300,7 +298,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Error initializing wallet database environmen
 QT_TRANSLATE_NOOP("liberty-core", "Error loading block database"),
 QT_TRANSLATE_NOOP("liberty-core", "Error loading wallet.dat"),
 QT_TRANSLATE_NOOP("liberty-core", "Error loading wallet.dat: Wallet corrupted"),
-QT_TRANSLATE_NOOP("liberty-core", "Error loading wallet.dat: Wallet requires newer version of Liberty Core"),
+QT_TRANSLATE_NOOP("liberty-core", "Error loading wallet.dat: Wallet requires newer version of Liberty Coin"),
 QT_TRANSLATE_NOOP("liberty-core", "Error opening block database"),
 QT_TRANSLATE_NOOP("liberty-core", "Error reading from database, shutting down."),
 QT_TRANSLATE_NOOP("liberty-core", "Error recovering public key."),
@@ -339,7 +337,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Incompatible mode."),
 QT_TRANSLATE_NOOP("liberty-core", "Incompatible version."),
 QT_TRANSLATE_NOOP("liberty-core", "Incorrect or no genesis block found. Wrong datadir for network?"),
 QT_TRANSLATE_NOOP("liberty-core", "Information"),
-QT_TRANSLATE_NOOP("liberty-core", "Initialization sanity check failed. Liberty Core is shutting down."),
+QT_TRANSLATE_NOOP("liberty-core", "Initialization sanity check failed. Liberty Coin is shutting down."),
 QT_TRANSLATE_NOOP("liberty-core", "Input is not valid."),
 QT_TRANSLATE_NOOP("liberty-core", "Insufficient funds"),
 QT_TRANSLATE_NOOP("liberty-core", "Insufficient funds."),
@@ -510,7 +508,7 @@ QT_TRANSLATE_NOOP("liberty-core", "Verifying wallet..."),
 QT_TRANSLATE_NOOP("liberty-core", "Version 1 XLIBz require a security level of 100 to successfully spend."),
 QT_TRANSLATE_NOOP("liberty-core", "Wallet %s resides outside data directory %s"),
 QT_TRANSLATE_NOOP("liberty-core", "Wallet is locked."),
-QT_TRANSLATE_NOOP("liberty-core", "Wallet needed to be rewritten: restart Liberty Core to complete"),
+QT_TRANSLATE_NOOP("liberty-core", "Wallet needed to be rewritten: restart Liberty Coin to complete"),
 QT_TRANSLATE_NOOP("liberty-core", "Wallet options:"),
 QT_TRANSLATE_NOOP("liberty-core", "Wallet window title"),
 QT_TRANSLATE_NOOP("liberty-core", "Warning"),
