@@ -347,7 +347,7 @@ void AddressTableModel::updateEntry(const QString& address,
     const QString& purpose,
     int status)
 {
-    // Update address book model from Liberty Core
+    // Update address book model from Liberty Coin
     priv->updateEntry(address, label, isMine, purpose, status);
 }
 

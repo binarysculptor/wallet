@@ -20,13 +20,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Liberty"
-            VALUE "FileDescription",    "Liberty Core (OSS GUI client for Liberty)"
+            VALUE "FileDescription",    "Liberty Coin (OSS GUI client for Liberty)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
             VALUE "InternalName",       "liberty-qt"
             VALUE "LegalCopyright",     COPYRIGHT_STR
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
             VALUE "OriginalFilename",   "liberty-qt.exe"
-            VALUE "ProductName",        "Liberty Core"
+            VALUE "ProductName",        "Liberty Coin"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

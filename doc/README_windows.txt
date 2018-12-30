@@ -1,4 +1,4 @@
-Liberty Core
+Liberty Coin
 =====================
 
 Intro
@@ -13,7 +13,7 @@ Setup
 -----
 Unpack the files into a directory and run Liberty-Qt.exe.
 
-Liberty Core is the original Liberty client and it builds the backbone of the network.
+Liberty Coin is the original Liberty client and it builds the backbone of the network.
 However, it downloads and stores the entire history of Liberty transactions;
 depending on the speed of your computer and network connection, the synchronization
 process can take anywhere from a few hours to a day or more.
