@@ -112,7 +112,7 @@ CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn, CWallet* pwallet, 
     if (Params().MineBlocksOnDemand())
         pblock->nVersion = GetArg("-blockversion", pblock->nVersion);
 
-    bool cltvActive = GetAdjustedTime() >= Params().CheckLockTimeVerify_StartTime();
+    bool cltvActive = (uint64_t)GetAdjustedTime() >= Params().CheckLockTimeVerify_StartTime();
     pblock->nVersion = cltvActive ? 5 : 4;
 
     // Create coinbase tx
