@@ -94,7 +94,7 @@ public:
         nMaturity = 100;
         nMaxMoneyOut = 9999999999 * COIN;
         nLastPoWBlock = 200;
-
+        nCheckLockTimeVerify_StartTime = 1547078401; // Thursday, January 10, 2019 12:00:01 AM
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
          * be spent as it did not originally exist in the database.
@@ -229,7 +229,6 @@ public:
         nLastPoWBlock = 200;
         nMaturity = 15;
         nMaxMoneyOut = 43199500 * COIN;
-
         //! Modify the testnet genesis block so the timestamp is valid for a later start.
         genesis.nTime = 1540073799;
         genesis.nNonce = 703542;
