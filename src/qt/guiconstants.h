@@ -24,7 +24,7 @@ static const bool DEFAULT_SPLASHSCREEN = true;
 /* Transaction list -- unconfirmed transaction */
 #define COLOR_UNCONFIRMED QColor(43, 72, 120)
 /* Transaction list -- negative amount */
-#define COLOR_NEGATIVE QColor(281, 68, 53)
+#define COLOR_NEGATIVE QColor(201, 68, 53)
 /* Transaction list -- bare address (without label) */
 #define COLOR_BAREADDRESS QColor(140, 140, 140)
 /* Transaction list -- TX status decoration - open until date */
