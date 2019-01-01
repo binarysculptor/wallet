@@ -2308,9 +2308,9 @@ void ThreadScriptCheck()
     scriptcheckqueue.Thread();
 }
 
-void RecalculateZXLIBMinted()
+void RecalculateXLibzMinted()
 {
-    CBlockIndex* pindex = chainActive.Genesis();
+    CBlockIndex* pindex = chainActive[1];
     int nHeightEnd = chainActive.Height();
     while (true) {
         if (pindex->nHeight % 1000 == 0)
@@ -2335,9 +2335,9 @@ void RecalculateZXLIBMinted()
     }
 }
 
-void RecalculateZXLIBSpent()
+void RecalculateXLibzSpent()
 {
-    CBlockIndex* pindex = chainActive.Genesis();
+    CBlockIndex* pindex = chainActive[1];
     while (true) {
         if (pindex->nHeight % 1000 == 0)
             LogPrintf("%s : block %d...\n", __func__, pindex->nHeight);
@@ -2378,8 +2378,6 @@ bool RecalculateLibertySupply(int nHeightStart)
 
     CBlockIndex* pindex = chainActive[nHeightStart];
     CAmount nSupplyPrev = pindex->pprev->nMoneySupply;
-    // if (nHeightStart == Params().Zerocoin_StartHeight())
-    //     nSupplyPrev = CAmount(5449796547496199);
 
     while (true) {
         if (pindex->nHeight % 1000 == 0)
@@ -2436,11 +2434,8 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
         uiInterface.ShowProgress(_("Calculating missing accumulators..."), 0);
         LogPrintf("%s : finding missing checkpoints\n", __func__);
 
-        //search the chain to see when zerocoin started
-        //int nZerocoinStart = Params().Zerocoin_Block_V2_Start();
-
         // find each checkpoint that is missing
-        CBlockIndex* pindex = chainActive.Genesis();
+        CBlockIndex* pindex = chainActive[1];
         while (pindex) {
             uiInterface.ShowProgress(
                 _("Calculating missing accumulators..."), 
@@ -2482,18 +2477,14 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
     return true;
 }
 
-bool UpdateZXLIBSupply(const CBlock& block, CBlockIndex* pindex, bool fJustCheck)
+bool UpdateXLibzSupply(const CBlock& block, CBlockIndex* pindex, bool fJustCheck)
 {
     std::list<CZerocoinMint> listMints;
-    //bool fFilterInvalid = pindex->nHeight >= Params().Zerocoin_Block_RecalculateAccumulators();
     BlockToZerocoinMintList(block, listMints);
     std::list<libzerocoin::CoinDenomination> listSpends = ZerocoinSpendListFromBlock(block);
 
-    // Initialize zerocoin supply to the supply from previous block
-    if (pindex->pprev && pindex->pprev->GetBlockHeader().nVersion > 3) {
-        for (auto& denom : zerocoinDenomList) {
-            pindex->mapZerocoinSupply.at(denom) = pindex->pprev->mapZerocoinSupply.at(denom);
-        }
+    for (auto& denom : zerocoinDenomList) {
+        pindex->mapZerocoinSupply.at(denom) = pindex->pprev->mapZerocoinSupply.at(denom);
     }
 
     // Track zerocoin money supply
@@ -2737,7 +2728,7 @@ bool ConnectBlock(
     }
 
     //Track XLIBz money supply in the block index
-    if (!UpdateZXLIBSupply(block, pindex,fJustCheck))
+    if (!UpdateXLibzSupply(block, pindex,fJustCheck))
         return state.DoS(100, error("%s: Failed to calculate new XLIBz supply for block=%s height=%d", __func__, block.GetHash().GetHex(), pindex->nHeight), REJECT_INVALID);
 
     // track money supply and mint amount info

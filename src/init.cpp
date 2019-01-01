@@ -545,7 +545,7 @@ std::string HelpMessage(HelpMessageMode mode)
     strUsage += HelpMessageOpt("-zeromintpercentage=<n>", strprintf(_("Percentage of automatically minted Zerocoin  (1-100, default: %u)"), 10));
     strUsage += HelpMessageOpt("-preferredDenom=<n>", strprintf(_("Preferred Denomination for automatically minted Zerocoin  (1/5/10/50/100/500/1000/5000), 0 for no preference. default: %u)"), 0));
     strUsage += HelpMessageOpt("-backupxlibz=<n>", strprintf(_("Enable automatic wallet backups triggered after each XLIBz minting (0-1, default: %u)"), 1));
-    strUsage += HelpMessageOpt("-xlibzbackuppath=<dir|file>", _("Specify custom backup path to add a copy of any automatic XLIBz backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backuppath is set as well, 4 backups will happen"));
+    strUsage += HelpMessageOpt("-xlibzbackuppath=<dir|file>", _("Specify custom backup path to add a copy of any automatic XLIBz backup. If set as dir, every backup generates a timestamped file. If set as file, will rewrite to that file every backup. If backup path is set as well, 4 backups will happen"));
 #endif // ENABLE_WALLET
     strUsage += HelpMessageOpt("-reindexzerocoin=<n>", strprintf(_("Delete all zerocoin spends and mints that have been recorded to the blockchain database and reindex them (0-1, default: %u)"), 0));
 
@@ -1459,51 +1459,41 @@ bool AppInit2()
                     break;
                 }
 
-                // Populate list of invalid/fraudulent outpoints that are banned from the chain
-                //invalid_out::LoadOutpoints();
-                //invalid_out::LoadSerials();
-
                 // Drop all information from the zerocoinDB and repopulate
                 if (GetBoolArg("-reindexzerocoin", false)) {
-                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
                         uiInterface.InitMessage(_("Reindexing zerocoin database..."));
                         std::string strError = ReindexZerocoinDB();
                         if (strError != "") {
                             strLoadError = strError;
                             break;
                         }
-                    //}
                 }
 
                 // Recalculate money supply for blocks that are impacted by accounting issue after zerocoin activation
                 if (GetBoolArg("-reindexmoneysupply", false)) {
-                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
-                        RecalculateZXLIBMinted();
-                        RecalculateZXLIBSpent();
-                    //}
+                    RecalculateXLibzMinted();
+                    RecalculateXLibzSpent();
                     RecalculateLibertySupply(1);
                 }
 
                 // Force recalculation of accumulators.
                 if (GetBoolArg("-reindexaccumulators", false)) {
-                    //if (chainActive.Height() > Params().Zerocoin_StartHeight()) {
-                        CBlockIndex *pindex = chainActive.Genesis();
-                        while (pindex->nHeight < chainActive.Height()) {
-                            if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
-                                       pindex->nAccumulatorCheckpoint))
-                                listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
-                            pindex = chainActive.Next(pindex);
-                        }
-                        // Liberty: recalculate Accumulator Checkpoints that failed to database properly
-                        if (!listAccCheckpointsNoDB.empty()) {
-                            uiInterface.InitMessage(_("Calculating missing accumulators..."));
-                            LogPrintf("%s : finding missing checkpoints\n", __func__);
+                    CBlockIndex *pindex = chainActive.Genesis();
+                    while (pindex->nHeight < chainActive.Height()) {
+                        if (!count(listAccCheckpointsNoDB.begin(), listAccCheckpointsNoDB.end(),
+                                    pindex->nAccumulatorCheckpoint))
+                            listAccCheckpointsNoDB.emplace_back(pindex->nAccumulatorCheckpoint);
+                        pindex = chainActive.Next(pindex);
+                    }
+                    // Liberty: recalculate Accumulator Checkpoints that failed to database properly
+                    if (!listAccCheckpointsNoDB.empty()) {
+                        uiInterface.InitMessage(_("Calculating missing accumulators..."));
+                        LogPrintf("%s : finding missing checkpoints\n", __func__);
 
-                            string strError;
-                            if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
-                                return InitError(strError);
-                        }
-                    //}
+                        string strError;
+                        if (!ReindexAccumulators(listAccCheckpointsNoDB, strError))
+                            return InitError(strError);
+                    }
                 }
 
                 uiInterface.InitMessage(_("Verifying blocks..."));
@@ -1846,17 +1836,6 @@ bool AppInit2()
 
 // XX42 Remove/refactor code below. Until then provide safe defaults
     nAnonymizeLibertyAmount = 2;
-
-//    nLiquidityProvider = GetArg("-liquidityprovider", 0); //0-100
-//    if (nLiquidityProvider != 0) {
-//        obfuScationPool.SetMinBlockSpacing(std::min(nLiquidityProvider, 100) * 15);
-//        fEnableZeromint = true;
-//        nZeromintPercentage = 99999;
-//    }
-//
-//    nAnonymizeLibertyAmount = GetArg("-anonymizelibertyamount", 0);
-//    if (nAnonymizeLibertyAmount > 999999) nAnonymizeLibertyAmount = 999999;
-//    if (nAnonymizeLibertyAmount < 2) nAnonymizeLibertyAmount = 2;
 
     fEnableSwiftTX = GetBoolArg("-enableswifttx", fEnableSwiftTX);
     nSwiftTXDepth = GetArg("-swifttxdepth", nSwiftTXDepth);
