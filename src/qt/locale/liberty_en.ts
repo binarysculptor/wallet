@@ -6867,7 +6867,7 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
     </message>
     <message>
         <location line="+1"/>
-        <source>Copyright (C) 2015-%i The Liberty Core Developers</source>
+        <source>Copyright (C) 2018-%i The Liberty Coin Developers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

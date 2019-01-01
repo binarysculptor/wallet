@@ -5250,8 +5250,8 @@ Either mint higher denominations (so fewer inputs are needed) or reduce the amou
         <translation>Всички права запазени (c) 2014-%i Dash Core разработчици</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Liberty Core Developers</source>
-        <translation>Всички права запазени (c) 2015-%i Liberty Core разработчици</translation>
+        <source>Copyright (C) 2018-%i The Liberty Coin Developers</source>
+        <translation>Всички права запазени (c) 2018-%i Liberty Core разработчици</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>

@@ -5266,8 +5266,8 @@ Ofwel het munten van hogere denominaties (dus minder invoer nodig) of het te bes
         <translation>Copyright (C) 2014-%i The Dash Kernontwikkelaars</translation>
     </message>
     <message>
-        <source>Copyright (C) 2015-%i The Liberty Core Developers</source>
-        <translation>Copyright (C) 2015-%i The Liberty Kernontwikkelaars</translation>
+        <source>Copyright (C) 2018-%i The Liberty Coin Developers</source>
+        <translation>Copyright (C) 2018-%i The Liberty Kernontwikkelaars</translation>
     </message>
     <message>
         <source>Corrupted block database detected</source>
