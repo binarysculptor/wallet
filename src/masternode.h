@@ -7,12 +7,16 @@
 #define MASTERNODE_H
 
 #include "base58.h"
+#include "chainparams.h"
 #include "key.h"
 #include "main.h"
 #include "net.h"
 #include "sync.h"
 #include "timedata.h"
 #include "util.h"
+#include <boost/assign/list_of.hpp>
+#include <iterator>
+#include <map>
 
 #define MASTERNODE_MIN_CONFIRMATIONS 15
 #define MASTERNODE_MIN_MNP_SECONDS (10 * 60)
@@ -22,6 +26,7 @@
 #define MASTERNODE_REMOVAL_SECONDS (130 * 60)
 #define MASTERNODE_CHECK_SECONDS 5
 
+using namespace boost::assign;
 using namespace std;
 
 class CMasternode;
@@ -30,7 +35,6 @@ class CMasternodePing;
 extern map<int64_t, uint256> mapCacheBlockHashes;
 
 bool GetBlockHash(uint256& hash, int nBlockHeight);
-
 
 //
 // The Masternode Ping Class : Contains a different serialize method for sending pings from masternodes throughout the network
@@ -101,7 +105,7 @@ public:
 };
 
 //
-// The Masternode Class. For managing the Obfuscation process. It contains the input of the 10000 Liberty, signature to prove
+// The Masternode Class. For managing the Obfuscation process. It contains the input of the XLIB collateral, signature to prove
 // it's the one who own that ip address and code for calculating the payment election.
 //
 class CMasternode
@@ -110,6 +114,9 @@ private:
     // critical section to protect the inner data structures
     mutable CCriticalSection cs;
     int64_t lastTimeChecked;
+
+protected:
+    CAmount GetCollateralCheckAmount();
 
 public:
     enum state {
@@ -143,9 +150,7 @@ public:
     int nScanningErrorCount;
     int nLastScanningErrorBlockHeight;
     CMasternodePing lastPing;
-
-    int64_t nLastDsee;  // temporary, do not save. Remove after migration to v12
-    int64_t nLastDseep; // temporary, do not save. Remove after migration to v12
+    
 
     CMasternode();
     CMasternode(const CMasternode& other);
@@ -182,6 +187,7 @@ public:
         swap(*this, from);
         return *this;
     }
+
     friend bool operator==(const CMasternode& a, const CMasternode& b)
     {
         return a.vin == b.vin;
@@ -222,6 +228,8 @@ public:
 
     bool UpdateFromNewBroadcast(CMasternodeBroadcast& mnb);
 
+    static bool IsMasternodeCollateral(CAmount amountToCheck);
+    
     inline uint64_t SliceHash(uint256& hash, int slice)
     {
         uint64_t n = 0;
@@ -266,6 +274,8 @@ public:
         return cacheInputAge + (chainActive.Tip()->nHeight - cacheInputAgeBlock);
     }
 
+    //returns the tier of this masternode and the collateral amount used for it.
+    std::pair<tier,CAmount> GetMasternodeTierInfo();
     std::string GetStatus();
 
     std::string Status()
@@ -281,8 +291,11 @@ public:
         return strStatus;
     }
 
+
+
     int64_t GetLastPaid();
     bool IsValidNetAddr();
+    //std::string ToString() const;
 };
 
 
@@ -302,8 +315,6 @@ public:
     bool Sign(CKey& keyCollateralAddress);
     bool VerifySignature();
     void Relay();
-    std::string GetOldStrMessage();
-    std::string GetNewStrMessage();
 
     ADD_SERIALIZE_METHODS;
 
@@ -333,6 +344,9 @@ public:
     static bool Create(CTxIn vin, CService service, CKey keyCollateralAddressNew, CPubKey pubKeyCollateralAddressNew, CKey keyMasternodeNew, CPubKey pubKeyMasternodeNew, std::string& strErrorRet, CMasternodeBroadcast& mnbRet);
     static bool Create(std::string strService, std::string strKey, std::string strTxHash, std::string strOutputIndex, std::string& strErrorRet, CMasternodeBroadcast& mnbRet, bool fOffline = false);
     static bool CheckDefaultPort(std::string strService, std::string& strErrorRet, std::string strContext);
+
+private:
+    std::string GetBroadcastMessage();
 };
 
 #endif

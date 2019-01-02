@@ -14,9 +14,6 @@
 #include "sync.h"
 #include "wallet.h"
 
-#define MASTERNODE_REQUIRED_AMOUNT                 50000
-#define MASTERNODE_ACCEPTABLE_INPUTS_CHECK_AMOUNT  49999.99
-
 #define ACTIVE_MASTERNODE_INITIAL 0 // initial state
 #define ACTIVE_MASTERNODE_SYNC_IN_PROCESS 1
 #define ACTIVE_MASTERNODE_INPUT_TOO_NEW 2

@@ -2,6 +2,20 @@
     "files.associations": {
         "iostream": "cpp",
         "memory": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "__locale": "cpp",
+        "bitset": "cpp",
+        "__hash": "cpp",
+        "optional": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "system_error": "cpp",
+        "thread": "cpp",
+        "type_traits": "cpp",
+        "typeindex": "cpp",
+        "variant": "cpp",
+        "vector": "cpp",
+        "ios": "cpp",
+        "*.ipp": "cpp"
     }
 }

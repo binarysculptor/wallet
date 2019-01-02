@@ -9,11 +9,14 @@
 #include "obfuscation.h"
 #include "sync.h"
 #include "util.h"
+#include "chainparams.h"
 
 // keep track of the scanning errors I've seen
-map<uint256, int> mapSeenMasternodeScanningErrors;
+std::map<uint256, int> mapSeenMasternodeScanningErrors;
 // cache block hashes as we calculate them
 std::map<int64_t, uint256> mapCacheBlockHashes;
+// cache of collateral outpoints to the corresponding tier info
+std::map<uint256, std::pair<tier,CAmount>> mapOutpointTiers;
 
 //Get the last hash that matches the modulus given. Processed in reverse order
 bool GetBlockHash(uint256& hash, int nBlockHeight)
@@ -77,8 +80,6 @@ CMasternode::CMasternode()
     nScanningErrorCount = 0;
     nLastScanningErrorBlockHeight = 0;
     lastTimeChecked = 0;
-    nLastDsee = 0;  // temporary, do not save. Remove after migration to v12
-    nLastDseep = 0; // temporary, do not save. Remove after migration to v12
 }
 
 CMasternode::CMasternode(const CMasternode& other)
@@ -102,8 +103,6 @@ CMasternode::CMasternode(const CMasternode& other)
     nScanningErrorCount = other.nScanningErrorCount;
     nLastScanningErrorBlockHeight = other.nLastScanningErrorBlockHeight;
     lastTimeChecked = 0;
-    nLastDsee = other.nLastDsee;   // temporary, do not save. Remove after migration to v12
-    nLastDseep = other.nLastDseep; // temporary, do not save. Remove after migration to v12
 }
 
 CMasternode::CMasternode(const CMasternodeBroadcast& mnb)
@@ -127,8 +126,6 @@ CMasternode::CMasternode(const CMasternodeBroadcast& mnb)
     nScanningErrorCount = 0;
     nLastScanningErrorBlockHeight = 0;
     lastTimeChecked = 0;
-    nLastDsee = 0;  // temporary, do not save. Remove after migration to v12
-    nLastDseep = 0; // temporary, do not save. Remove after migration to v12
 }
 
 //
@@ -213,9 +210,13 @@ void CMasternode::Check(bool forceCheck)
     }
 
     if (!unitTest) {
+        if(fDebug) {
+            LogPrint("masternode", "%s: conducting collateral checks\n", __func__);
+        }
+        
         CValidationState state;
         CMutableTransaction tx = CMutableTransaction();
-        CTxOut vout = CTxOut(MASTERNODE_ACCEPTABLE_INPUTS_CHECK_AMOUNT * COIN, obfuScationPool.collateralPubKey);
+        CTxOut vout = CTxOut(GetCollateralCheckAmount(), obfuScationPool.collateralPubKey);
         tx.vin.push_back(vin);
         tx.vout.push_back(vout);
 
@@ -328,6 +329,85 @@ bool CMasternode::IsValidNetAddr()
     return Params().NetworkID() == CBaseChainParams::REGTEST ||
            (IsReachable(addr) && addr.IsRoutable());
 }
+
+CAmount CMasternode::GetCollateralCheckAmount() 
+{
+    CAmount collateralCheckAmount;
+    
+    std::pair<tier, CAmount> tierInfo = GetMasternodeTierInfo();
+    
+    collateralCheckAmount = tierInfo.second - CENT;
+
+    if(fDebug) {
+        LogPrint("masternode", 
+            "%s: tier:%d collateral:%d XLIB\n", __func__, tierInfo.first, collateralCheckAmount / COIN);
+    }
+    
+    return collateralCheckAmount;
+}
+
+bool CMasternode::IsMasternodeCollateral(CAmount amount) {
+    
+    map<tier,CAmount>::iterator it = Params().MasternodeTiers().begin();
+    
+    while (it != Params().MasternodeTiers().end()) {
+        if( (*it).second == amount) {
+            if(fDebug) {
+                LogPrint("masternode", "%s: collateral=%s, tier=%s\n", __func__, (*it).second / COIN, (int)(*it).first);
+            }
+            return true;
+        } 
+        ++it;
+    }
+    return false;
+}
+
+//returns the tier of this masternode and the collateral amount used for it.
+std::pair<tier, CAmount> CMasternode::GetMasternodeTierInfo()
+{
+    if (mapOutpointTiers.count(vin.prevout.hash)) {
+        return mapOutpointTiers[vin.prevout.hash];
+    }
+
+    CTransaction txVin;
+    uint256 hash;
+    if (GetTransaction(vin.prevout.hash, txVin, hash, true)) {
+        BOOST_FOREACH (CTxOut out, txVin.vout) {
+            auto it = Params().MasternodeTiers().begin();
+            while(it != Params().MasternodeTiers().end()) {
+                if(it->second == out.nValue) {
+                    mapOutpointTiers[vin.prevout.hash] = make_pair(it->first,it->second);
+                    if(fDebug) {
+                        LogPrint("masternode", "%s: masternodeTier found for collateral address. addr=%s\n",
+                                    __func__, CBitcoinAddress(pubKeyCollateralAddress.GetID()).ToString());
+                    }
+                    break;
+                }
+                it++;
+            }
+        }
+    } else {
+        mapOutpointTiers[vin.prevout.hash] = make_pair(TIER_UNKNOWN, (CAmount)0);
+        if(fDebug)
+            LogPrint("masternode", "%s: masternodeTier not found for collateral address. addr=%s\n",
+                        __func__, CBitcoinAddress(pubKeyCollateralAddress.GetID()).ToString());
+    }
+
+    return mapOutpointTiers[vin.prevout.hash];
+}
+
+// std::string CMasternode::ToString() const
+// {
+//     std::stringstream s;
+//     s << strprintf("CMasternode(vin=%s, addr=%s, pubKeyCollateralAddress=%d, pubKeyMasternode=%s)\n",
+//         vin.GetHex().ToString(),
+//         addr.ToString(),
+//         pubKeyCollateralAddress.ToLibertyAddress().ToString().c_str(),
+//         pubKeyMasternode.GetHex().ToString().c_str()
+//         );
+
+//     return s.ToString();
+// }
 
 CMasternodeBroadcast::CMasternodeBroadcast()
 {
@@ -517,8 +597,7 @@ bool CMasternodeBroadcast::CheckAndUpdate(int& nDos)
     }
 
     std::string errorMessage = "";
-    if (!obfuScationSigner.VerifyMessage(pubKeyCollateralAddress, sig, GetNewStrMessage(), errorMessage)
-    		&& !obfuScationSigner.VerifyMessage(pubKeyCollateralAddress, sig, GetOldStrMessage(), errorMessage))
+    if (!obfuScationSigner.VerifyMessage(pubKeyCollateralAddress, sig, GetBroadcastMessage(), errorMessage))
     {
         // don't ban for old masternodes, their sigs could be broken because of the bug
         nDos = protocolVersion < MIN_PEER_MNANNOUNCE ? 0 : 100;
@@ -547,7 +626,7 @@ bool CMasternodeBroadcast::CheckAndUpdate(int& nDos)
     // masternode is not enabled yet/already, nothing to update
     if (!pmn->IsEnabled()) return true;
 
-    // mn.pubkey = pubkey, IsVinAssociatedWithPubkey is validated once below,
+    // mn.pubkey = pubkey, IsValidMasternode is validated once below,
     //   after that they just need to match
     if (pmn->pubKeyCollateralAddress == pubKeyCollateralAddress && !pmn->IsBroadcastedWithin(MASTERNODE_MIN_MNB_SECONDS)) {
         //take the newest entry
@@ -583,9 +662,13 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
             mnodeman.Remove(pmn->vin);
     }
 
+    if(fDebug) {
+        LogPrint("masternode", "%s: conducting collateral checks...\n", __func__);
+    }
+
     CValidationState state;
     CMutableTransaction tx = CMutableTransaction();
-    CTxOut vout = CTxOut(MASTERNODE_ACCEPTABLE_INPUTS_CHECK_AMOUNT * COIN, obfuScationPool.collateralPubKey);
+    CTxOut vout = CTxOut(GetCollateralCheckAmount(), obfuScationPool.collateralPubKey);
     tx.vin.push_back(vin);
     tx.vout.push_back(vout);
 
@@ -605,7 +688,7 @@ bool CMasternodeBroadcast::CheckInputsAndAdd(int& nDoS)
         }
     }
 
-    LogPrint("masternode", "mnb - Accepted Masternode entry\n");
+    LogPrint("masternode", "mnb - accepted masternode entry\n");
 
     if (GetInputAge(vin) < MASTERNODE_MIN_CONFIRMATIONS) {
         LogPrint("masternode","mnb - Input must have at least %d confirmations\n", MASTERNODE_MIN_CONFIRMATIONS);
@@ -660,10 +743,7 @@ bool CMasternodeBroadcast::Sign(CKey& keyCollateralAddress)
     sigTime = GetAdjustedTime();
 
     std::string strMessage;
-    //if(chainActive.Height() < Params().Zerocoin_Block_V2_Start())
-    //	strMessage = GetOldStrMessage();
-    //else
-    	strMessage = GetNewStrMessage();
+    strMessage = GetBroadcastMessage();
 
     if (!obfuScationSigner.SignMessage(strMessage, errorMessage, sig, keyCollateralAddress))
     	return error("CMasternodeBroadcast::Sign() - Error: %s", errorMessage);
@@ -679,25 +759,13 @@ bool CMasternodeBroadcast::VerifySignature()
 {
     std::string errorMessage;
 
-    if(!obfuScationSigner.VerifyMessage(pubKeyCollateralAddress, sig, GetNewStrMessage(), errorMessage)
-            && !obfuScationSigner.VerifyMessage(pubKeyCollateralAddress, sig, GetOldStrMessage(), errorMessage))
+    if(!obfuScationSigner.VerifyMessage(pubKeyCollateralAddress, sig, GetBroadcastMessage(), errorMessage))
         return error("CMasternodeBroadcast::VerifySignature() - Error: %s", errorMessage);
 
     return true;
 }
 
-std::string CMasternodeBroadcast::GetOldStrMessage()
-{
-    std::string strMessage;
-
-    std::string vchPubKey(pubKeyCollateralAddress.begin(), pubKeyCollateralAddress.end());
-    std::string vchPubKey2(pubKeyMasternode.begin(), pubKeyMasternode.end());
-    strMessage = addr.ToString() + std::to_string(sigTime) + vchPubKey + vchPubKey2 + std::to_string(protocolVersion);
-
-    return strMessage;
-}
-
-std:: string CMasternodeBroadcast::GetNewStrMessage()
+std::string CMasternodeBroadcast::GetBroadcastMessage()
 {
     std::string strMessage;
 

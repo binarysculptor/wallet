@@ -204,6 +204,16 @@ public:
         return std::vector<unsigned char>(vch, vch + size());
     }
 
+    // inline CBitcoinAddress ToLibertyAddress()
+    // {
+    //     CScript payee;
+    //     payee = GetScriptForDestination(GetID());
+    //     CTxDestination address;
+    //     ExtractDestination(payee, address);
+    //     CBitcoinAddress friendlyAddress(address);
+
+    //     return friendlyAddress;
+    // }
 };
 
 struct CExtPubKey {

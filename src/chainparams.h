@@ -15,13 +15,24 @@
 #include "uint256.h"
 
 #include "libzerocoin/Params.h"
+
+#include <boost/assign/list_of.hpp>
 #include <vector>
+#include <map>
+using namespace boost::assign;
 
 typedef unsigned char MessageStartChars[MESSAGE_START_SIZE];
 
 struct CDNSSeedData {
     std::string name, host;
     CDNSSeedData(const std::string& strName, const std::string& strHost) : name(strName), host(strHost) {}
+};
+
+enum tier {
+    TIER_UNKNOWN = 0,
+    TIER_ONE = 1,
+    TIER_TWO = 2,
+    TIER_THREE = 3
 };
 
 /**
@@ -107,6 +118,7 @@ public:
     /** Height or Time Based Activations **/
     int Last_PoW_Block() const { return nLastPoWBlock; }
     unsigned int Stake_Min_Age() const { return nStakeMinAge; }
+    std::map<tier, CAmount> MasternodeTiers() const { return mapMasternodeTiers; }
 
 
 protected:
@@ -156,6 +168,11 @@ protected:
     int nZerocoinRequiredStakeDepth;
     unsigned int nStakeMinAge;
     uint64_t nCheckLockTimeVerify_StartTime;
+    std::map<tier, CAmount> mapMasternodeTiers = 
+    boost::assign::map_list_of
+        (TIER_ONE, 50000 * COIN)
+        (TIER_TWO, 90000 * COIN)
+        (TIER_THREE, 120000 * COIN);
 };
 
 /**

@@ -247,8 +247,8 @@ public:
 class CObfuScationSigner
 {
 public:
-    /// Is the inputs associated with this public key? (and there is 10000 Liberty - checking if valid masternode)
-    bool IsVinAssociatedWithPubkey(CTxIn& vin, CPubKey& pubkey);
+    /// Is the inputs associated with this public key? (and there is a valid collateral amount - checking if valid masternode)
+    bool IsValidMasternode(CTxIn& vin, CPubKey& pubkey);
     /// Set the private/public key values, returns true if successful
     bool GetKeysFromSecret(std::string strSecret, CKey& keyRet, CPubKey& pubkeyRet);
     /// Set the private/public key values, returns true if successful
