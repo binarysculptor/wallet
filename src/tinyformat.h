@@ -489,7 +489,8 @@ public:
         // can't if TINFORMAT_ERROR is used to throw an exception!
         m_fmt = printFormatStringLiteral(m_out, m_fmt);
         if (*m_fmt != '\0')
-            TINYFORMAT_ERROR("tinyformat: Too many conversion specifiers in format string");
+            //TINYFORMAT_ERROR("tinyformat: Too many conversion specifiers in format string");
+            printf("too many conversion specifiers in format string: %s\n", m_fmt);
     }
 
     ~FormatIterator()
@@ -678,7 +679,8 @@ inline const char* FormatIterator::streamStateFromFormat(std::ostream& out,
     int variablePrecision)
 {
     if (*fmtStart != '%') {
-        TINYFORMAT_ERROR("tinyformat: Not enough conversion specifiers in format string");
+        //TINYFORMAT_ERROR("tinyformat: Not enough conversion specifiers in format string");
+        printf("not enough conversion specifiers in format string: %s\n", fmtStart);
         return fmtStart;
     }
     // Reset stream state to defaults.
