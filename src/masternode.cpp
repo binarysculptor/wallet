@@ -338,7 +338,7 @@ CAmount CMasternode::GetCollateralCheckAmount()
     
     collateralCheckAmount = tierInfo.second - CENT;
 
-    if(fDebug) {
+    if(GetBoolArg("-printmntierchecks", false)) {
         LogPrint("masternode", 
             "%s: tier:%d collateral:%d XLIB\n", __func__, tierInfo.first, collateralCheckAmount / COIN);
     }
@@ -352,7 +352,7 @@ bool CMasternode::IsMasternodeCollateral(CAmount amount) {
     
     while (it != Params().MasternodeTiers().end()) {
         if( (*it).second == amount) {
-            if(fDebug) {
+            if(GetBoolArg("-printmntierchecks", false)) {
                 LogPrint("masternode", "%s: collateral=%s, tier=%s\n", __func__, (*it).second / COIN, (int)(*it).first);
             }
             return true;
@@ -377,7 +377,7 @@ std::pair<tier, CAmount> CMasternode::GetMasternodeTierInfo()
             while(it != Params().MasternodeTiers().end()) {
                 if(it->second == out.nValue) {
                     mapOutpointTiers[vin.prevout.hash] = make_pair(it->first,it->second);
-                    if(fDebug) {
+                    if(GetBoolArg("-printmntierchecks", false)) {
                         LogPrint("masternode", "%s: masternodeTier found for collateral address. addr=%s\n",
                                     __func__, CBitcoinAddress(pubKeyCollateralAddress.GetID()).ToString());
                     }
@@ -388,7 +388,7 @@ std::pair<tier, CAmount> CMasternode::GetMasternodeTierInfo()
         }
     } else {
         mapOutpointTiers[vin.prevout.hash] = make_pair(TIER_UNKNOWN, (CAmount)0);
-        if(fDebug)
+        if(GetBoolArg("-printmntierchecks", false))
             LogPrint("masternode", "%s: masternodeTier not found for collateral address. addr=%s\n",
                         __func__, CBitcoinAddress(pubKeyCollateralAddress.GetID()).ToString());
     }
