@@ -2,13 +2,14 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef LIBERTY_ZXLIBTRACKER_H
-#define LIBERTY_ZXLIBTRACKER_H
+#ifndef LIBERTY_XLIBZTRACKER_H
+#define LIBERTY_XLIBZTRACKER_H
 
 #include "primitives/zerocoin.h"
 #include <list>
 
 class CDeterministicMint;
+class CXlibzWallet;
 
 class CXlibzTracker
 {
@@ -21,7 +22,7 @@ private:
 public:
     CXlibzTracker(std::string strWalletFile);
     ~CXlibzTracker();
-    void Add(const CDeterministicMint& dMint, bool isNew = false, bool isArchived = false);
+    void Add(const CDeterministicMint& dMint, bool isNew = false, bool isArchived = false, CXlibzWallet* xlibzWallet = NULL);
     void Add(const CZerocoinMint& mint, bool isNew = false, bool isArchived = false);
     bool Archive(CMintMeta& meta);
     bool HasPubcoin(const CBigNum& bnValue) const;
@@ -38,7 +39,7 @@ public:
     std::vector<uint256> GetSerialHashes();
     std::vector<CMintMeta> GetMints(bool fConfirmedOnly) const;
     CAmount GetUnconfirmedBalance() const;
-    std::set<CMintMeta> ListMints(bool fUnusedOnly, bool fMatureOnly, bool fUpdateStatus);
+    std::set<CMintMeta> ListMints(bool fUnusedOnly, bool fMatureOnly, bool fUpdateStatus, bool fWrongSeed = false);
     void RemovePending(const uint256& txid);
     void SetPubcoinUsed(const uint256& hashPubcoin, const uint256& txid);
     void SetPubcoinNotUsed(const uint256& hashPubcoin);
@@ -48,4 +49,4 @@ public:
     void Clear();
 };
 
-#endif //LIBERTY_ZXLIBTRACKER_H
+#endif //LIBERTY_XLIBZTRACKER_H

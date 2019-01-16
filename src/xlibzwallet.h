@@ -3,8 +3,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef LIBERTY_ZXLIBWALLET_H
-#define LIBERTY_ZXLIBWALLET_H
+#ifndef LIBERTY_XLIBZWALLET_H
+#define LIBERTY_XLIBZWALLET_H
 
 #include <map>
 #include "libzerocoin/Coin.h"
@@ -41,9 +41,10 @@ public:
     void UpdateCount();
     void Lock();
     void SeedToZXLIB(const uint512& seed, CBigNum& bnValue, CBigNum& bnSerial, CBigNum& bnRandomness, CKey& key);
+    bool CheckSeed(const CDeterministicMint& dMint);
 
 private:
     uint512 GetZerocoinSeed(uint32_t n);
 };
 
-#endif //LIBERTY_ZXLIBWALLET_H
+#endif //LIBERTY_XLIBZWALLET_H

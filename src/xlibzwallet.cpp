@@ -446,12 +446,19 @@ void CXlibzWallet::GenerateMint(const uint32_t& nCount, const CoinDenomination d
     dMint.SetDenomination(denom);
 }
 
-bool CXlibzWallet::RegenerateMint(const CDeterministicMint& dMint, CZerocoinMint& mint)
+bool CXlibzWallet::CheckSeed(const CDeterministicMint& dMint)
 {
     //Check that the seed is correct    todo:handling of incorrect, or multiple seeds
     uint256 hashSeed = Hash(seedMaster.begin(), seedMaster.end());
-    if (hashSeed != dMint.GetSeedHash())
+    return hashSeed == dMint.GetSeedHash();
+}
+
+bool CXlibzWallet::RegenerateMint(const CDeterministicMint& dMint, CZerocoinMint& mint)
+{
+    if (!CheckSeed(dMint)) {
+        uint256 hashSeed = Hash(seedMaster.begin(), seedMaster.end());
         return error("%s: master seed does not match!\ndmint:\n %s \nhashSeed: %s\nseed: %s", __func__, dMint.ToString(), hashSeed.GetHex(), seedMaster.GetHex());
+    }
 
     //Generate the coin
     PrivateCoin coin(Params().Zerocoin_Params(), dMint.GetDenomination(), false);
