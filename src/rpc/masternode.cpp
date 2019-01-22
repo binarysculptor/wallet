@@ -215,7 +215,7 @@ UniValue masternodecurrent (const UniValue& params, bool fHelp)
             "\nexamples:\n" +
             HelpExampleCli("masternodecurrent", "") + HelpExampleRpc("masternodecurrent", ""));
 
-    CMasternode* winner = mnodeman.GetCurrentMasterNode(1);
+    CMasternode* winner = mnodeman.GetCurrentMasterNode();
     if (winner) {
         UniValue obj(UniValue::VOBJ);
 
@@ -720,7 +720,7 @@ UniValue getmasternodescores (const UniValue& params, bool fHelp)
         uint256 nHigh = 0;
         CMasternode* pBestMasternode = NULL;
         BOOST_FOREACH (CMasternode& mn, vMasternodes) {
-            uint256 n = mn.CalculateScore(1, nHeight - 100);
+            uint256 n = mn.CalculateScore(nHeight - 100);
             if (n > nHigh) {
                 nHigh = n;
                 pBestMasternode = &mn;
