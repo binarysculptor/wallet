@@ -41,6 +41,7 @@ void budgetToJSON(CBudgetProposal* pbudgetProposal, UniValue& bObj)
     bObj.push_back(Pair("TotalPayment", ValueFromAmount(pbudgetProposal->GetAmount() * pbudgetProposal->GetTotalPaymentCount())));
     bObj.push_back(Pair("MonthlyPayment", ValueFromAmount(pbudgetProposal->GetAmount())));
     bObj.push_back(Pair("IsEstablished", pbudgetProposal->IsEstablished()));
+    bObj.push_back(Pair("CompactHash", (int64_t)pbudgetProposal->GetHash().GetCompact()));
 
     std::string strError = "";
     bObj.push_back(Pair("IsValid", pbudgetProposal->IsValid(strError)));
@@ -592,6 +593,7 @@ UniValue getbudgetprojection(const UniValue& params, bool fHelp)
             "    \"TotalPayment\": xxx.xxx,      (numeric) Total payment amount\n"
             "    \"MonthlyPayment\": xxx.xxx,    (numeric) Monthly payment amount\n"
             "    \"IsEstablished\": true|false,  (boolean) Established (true) or (false)\n"
+            "    \"CompactHash\": n,             (numeric) Numeric expression of the proposal hash\n"
             "    \"IsValid\": true|false,        (boolean) Valid (true) or Invalid (false)\n"
             "    \"IsValidReason\": \"xxxx\",      (string) Error message, if any\n"
             "    \"fValid\": true|false,         (boolean) Valid (true) or Invalid (false)\n"
@@ -656,6 +658,7 @@ UniValue getbudgetinfo(const UniValue& params, bool fHelp)
             "    \"TotalPayment\": xxx.xxx,      (numeric) Total payment amount\n"
             "    \"MonthlyPayment\": xxx.xxx,    (numeric) Monthly payment amount\n"
             "    \"IsEstablished\": true|false,  (boolean) Established (true) or (false)\n"
+            "    \"CompactHash\": n,             (numeric) Numeric expression of the proposal hash\n"
             "    \"IsValid\": true|false,        (boolean) Valid (true) or Invalid (false)\n"
             "    \"IsValidReason\": \"xxxx\",      (string) Error message, if any\n"
             "    \"fValid\": true|false,         (boolean) Valid (true) or Invalid (false)\n"
