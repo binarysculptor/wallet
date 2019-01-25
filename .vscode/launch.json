@@ -8,13 +8,11 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/src/qt/Liberty-Qt",
-            "args": ["-debug", "-printstakemodifier"],
+            "program": "${workspaceFolder}/src/qt/liberty-qt",
+            "args": ["-debug"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            "environment": [],
-            "externalConsole": true,
-            "MIMode": "lldb"
+            "environment": []
         }
     ]
 }
