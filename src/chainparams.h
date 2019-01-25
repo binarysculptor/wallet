@@ -107,6 +107,8 @@ public:
     /** Height or Time Based Activations **/
     int Last_PoW_Block() const { return nLastPoWBlock; }
     unsigned int Stake_Min_Age() const { return nStakeMinAge; }
+    int Stake_Min_Confirmations() const { return nStakeMinConfirmations; }
+    CAmount Stake_Min_Amount() const { return nStakeMinAmount; }
 
 
 protected:
@@ -155,6 +157,8 @@ protected:
     int64_t nBudget_Fee_Confirmations;
     int nZerocoinRequiredStakeDepth;
     unsigned int nStakeMinAge;
+    int nStakeMinConfirmations;
+    CAmount nStakeMinAmount;
     uint64_t nCheckLockTimeVerify_StartTime;
 };
 
