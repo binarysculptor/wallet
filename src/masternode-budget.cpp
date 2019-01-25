@@ -1452,7 +1452,7 @@ bool CBudgetProposal::IsValid(std::string& strError, bool fCheckCollateral)
     }
 
     if(IsSporkActive(SPORK_14_NEW_PROTOCOL_ENFORCEMENT)) {
-        if (GetSporkValue(SPORK_17_PROPOSAL_VETO) == GetHash()) {
+        if (GetSporkValue(SPORK_17_PROPOSAL_VETO) == GetHash().GetCompact()) {
             strError = strprintf("%s: proposal %s has been vetoed.", __func__, strProposalName);
             return false;
         }
