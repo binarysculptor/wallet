@@ -31,7 +31,7 @@ DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_
 END_FOLD
 
 BEGIN_FOLD distdir
-DOCKER_EXEC ./make VERSION=$HOST
+DOCKER_EXEC ../make VERSION=$HOST
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
