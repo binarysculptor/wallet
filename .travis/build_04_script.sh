@@ -33,6 +33,8 @@ END_FOLD
 echo "next is make VERSION=$HOST" 
 pwd
 ls -la
+cd ..
+ls -la
 
 BEGIN_FOLD distdir
 DOCKER_EXEC make VERSION=$HOST
