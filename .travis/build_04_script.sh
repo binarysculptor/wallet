@@ -18,8 +18,10 @@ fi
 BEGIN_FOLD autogen
 if [ -n "$CONFIG_SHELL" ]; then
   DOCKER_EXEC "$CONFIG_SHELL" -c "./autogen.sh"
+  echo "DOCKER_EXEC CONFIG_SHELL -c ./autogen.sh"
 else
   DOCKER_EXEC ./autogen.sh
+  echo "else DOCKER_EXEC ./autogen.sh"
 fi
 END_FOLD
 
