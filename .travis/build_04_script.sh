@@ -31,6 +31,8 @@ DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_
 END_FOLD
 
 echo "next is make VERSION=$HOST" 
+pwd
+ls -la
 
 BEGIN_FOLD distdir
 DOCKER_EXEC make VERSION=$HOST
