@@ -12,9 +12,6 @@ export TRAVIS_COMMIT_LOG
 DOCKER_EXEC pwd
 pwd
 ls -la
-DOCKER_EXEC useradd -ms /bin/bash travis
-DOCKER_EXEC usermod -aG sudo travis
-ls -la
 
 OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
 BITCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
@@ -33,9 +30,12 @@ END_FOLD
 mkdir build
 cd build || (echo "could not enter build directory"; exit 1)
 
+DOCKER_EXEC pwd
+pwd
+ls -la
+
 BEGIN_FOLD configure
-echo "1 DOCKER_EXEC ls"
-   DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
+   DOCKER_EXEC CONFIG_SHELL= ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
 END_FOLD
 
 DOCKER_EXEC ls -la
@@ -54,7 +54,7 @@ END_FOLD
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 BEGIN_FOLD configure
-   DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
+   DOCKER_EXEC CONFIG_SHELL= ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && cd ../../ && DOCKER_EXEC make $GOAL V=1 ; false )
 END_FOLD
 
 pwd
