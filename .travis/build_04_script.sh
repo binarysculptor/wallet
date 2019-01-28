@@ -34,6 +34,8 @@ END_FOLD
 
 find -O3 -L /home/travis/ -name "makefile"
 find -O3 -L /home/travis/ -name "Makefile"
+find -O3 -L /root/ -name "makefile"
+find -O3 -L /root/ -name "Makefile"
 echo "next is make VERSION=$HOST" 
 DOCKER_EXEC pwd
 pwd
