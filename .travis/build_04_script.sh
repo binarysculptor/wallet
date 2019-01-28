@@ -35,7 +35,7 @@ cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
 echo "1 DOCKER_EXEC ls"
-   DOCKER_EXEC ../configure && ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
+   DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
 END_FOLD
 
 DOCKER_EXEC ls -la
@@ -54,7 +54,7 @@ END_FOLD
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 BEGIN_FOLD configure
-   DOCKER_EXEC ./configure && ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
+   DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
 END_FOLD
 
 pwd
