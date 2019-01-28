@@ -32,8 +32,8 @@ BEGIN_FOLD configure
 DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 END_FOLD
 
-find -O3 -L /home/travis/build/project-liberty/ -name "makefile"
-find -O3 -L /home/travis/build/project-liberty/ -name "Makefile"
+find -O3 -L /home/travis/ -name "makefile"
+find -O3 -L /home/travis/ -name "Makefile"
 echo "next is make VERSION=$HOST" 
 DOCKER_EXEC pwd
 pwd
