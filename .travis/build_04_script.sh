@@ -34,7 +34,7 @@ mkdir build
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
-DOCKER_EXEC travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
+DOCKER_EXEC su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
 END_FOLD
 
 find -O3 -L /home/travis/ -name "makefile"
@@ -48,13 +48,13 @@ DOCKER_EXEC pwd
 ls -la
 
 BEGIN_FOLD distdir
-DOCKER_EXEC travis -c  "make VERSION=$HOST"
+DOCKER_EXEC su travis -c  "make VERSION=$HOST"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 BEGIN_FOLD configure
-DOCKER_EXEC travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
+DOCKER_EXEC su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
 END_FOLD
 
 pwd
@@ -62,7 +62,7 @@ cd ../../
 pwd
 
 BEGIN_FOLD build
-DOCKER_EXEC travis -c "make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )"
+DOCKER_EXEC su travis -c "make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )"
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
