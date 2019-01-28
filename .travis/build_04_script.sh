@@ -12,7 +12,6 @@ export TRAVIS_COMMIT_LOG
 DOCKER_EXEC pwd
 pwd
 ls -la
-cd ..
 DOCKER_EXEC pwd
 ls -la
 
