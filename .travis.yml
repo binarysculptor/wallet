@@ -1,7 +1,7 @@
 sudo: required
 dist: trusty
 os: linux
-language: ruby
+language: minimal
 cache:
   ccache: true
   directories:
@@ -26,8 +26,6 @@ env:
     - SDK_URL=https://bitcoincore.org/depends-sources/sdks
     - WINEDEBUG=fixme-all
     - DOCKER_PACKAGES="build-essential libtool autotools-dev automake pkg-config bsdmainutils curl git ca-certificates ccache"
-services:
-  - docker
 before_install:
   - set -o errexit; source .travis/build_01_before_install.sh
 install:
