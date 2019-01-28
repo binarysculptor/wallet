@@ -9,8 +9,8 @@ export LC_ALL=C.UTF-8
 TRAVIS_COMMIT_LOG=$(git log --format=fuller -1)
 export TRAVIS_COMMIT_LOG
 
+echo "DOCKER_EXEC pwd"
 DOCKER_EXEC pwd
-pwd
 ls -la
 
 OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
@@ -27,15 +27,20 @@ else
 fi
 END_FOLD
 
-mkdir build
-cd build || (echo "could not enter build directory"; exit 1)
+DOCKER_EXEC mkdir build
+DOCKER_EXEC cd build || (echo "could not enter build directory"; exit 1)
+
+pwd
+echo "ls -la"
 ls -la
+echo "ls -la ../"
 ls -la ../
+echo "ls -la ../../"
 ls -la ../../
 
 BEGIN_FOLD configure
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
-    ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+  DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 END_FOLD
 
 echo "next is make VERSION=$HOST" 
@@ -47,10 +52,10 @@ ls -la ../../
 
 BEGIN_FOLD distdir
 #DOCKER_EXEC make VERSION=$HOST
-   make VERSION=$HOST
+   DOCKER_EXEC make VERSION=$HOST
 END_FOLD
 
-cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
+DOCKER_EXEC cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 pwd
 ls -la
@@ -59,7 +64,7 @@ ls -la ../../
 
 BEGIN_FOLD configure
    # DOCKER_EXEC CONFIG_SHELL= ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
-   ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
+   DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
 END_FOLD
 
 pwd
