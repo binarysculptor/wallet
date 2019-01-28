@@ -26,7 +26,7 @@ BEGIN_FOLD autogen
 if [ -n "$CONFIG_SHELL" ]; then
   DOCKER_EXEC "$CONFIG_SHELL" -c "./autogen.sh"
 else
-  DOCKER_EXEC su travis -c "./autogen.sh"
+  DOCKER_EXEC ./autogen.sh
 fi
 END_FOLD
 
@@ -34,11 +34,10 @@ mkdir build
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
-DOCKER_EXEC su travis -c "../configure && ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
+DOCKER_EXEC ../configure && ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 END_FOLD
 
-find -O3 -L /home/travis/ -name "makefile"
-find -O3 -L /home/travis/ -name "Makefile"
+DOCKER_EXEC ls -la
 echo "next is make VERSION=$HOST" 
 DOCKER_EXEC pwd
 pwd
@@ -54,7 +53,8 @@ END_FOLD
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 BEGIN_FOLD configure
-DOCKER_EXEC su travis -c "./configure && ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
+DOCKER_EXEC ls -la ./configure
+#DOCKER_EXEC ./configure && ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 END_FOLD
 
 pwd
