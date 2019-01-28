@@ -34,7 +34,9 @@ mkdir build
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
-DOCKER_EXEC ../configure && ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+echo "1 DOCKER_EXEC ls"
+DOCKER_EXEC ls -la ./configure
+#DOCKER_EXEC ../configure && ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 END_FOLD
 
 DOCKER_EXEC ls -la
@@ -47,12 +49,13 @@ DOCKER_EXEC pwd
 ls -la
 
 BEGIN_FOLD distdir
-DOCKER_EXEC make VERSION=$HOST
+#DOCKER_EXEC make VERSION=$HOST
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 BEGIN_FOLD configure
+echo "2 DOCKER_EXEC ls"
 DOCKER_EXEC ls -la ./configure
 #DOCKER_EXEC ./configure && ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 END_FOLD
@@ -62,18 +65,18 @@ cd ../../
 pwd
 
 BEGIN_FOLD build
-DOCKER_EXEC make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
+#DOCKER_EXEC make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
   BEGIN_FOLD unit-tests
-  DOCKER_EXEC LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib make $MAKEJOBS check VERBOSE=1
+  #DOCKER_EXEC LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib make $MAKEJOBS check VERBOSE=1
   END_FOLD
 fi
 
 if [ "$RUN_BENCH" = "true" ]; then
   BEGIN_FOLD bench
-  DOCKER_EXEC LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib $OUTDIR/bin/bench_liberty -scaling=0.001
+  #DOCKER_EXEC LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/depends/$HOST/lib $OUTDIR/bin/bench_liberty -scaling=0.001
   END_FOLD
 fi
 
@@ -83,6 +86,6 @@ fi
 
 if [ "$RUN_FUNCTIONAL_TESTS" = "true" ]; then
   BEGIN_FOLD functional-tests
-  DOCKER_EXEC test/functional/test_runner.py --combinedlogslen=4000 --coverage --quiet --failfast ${extended}
+  #DOCKER_EXEC test/functional/test_runner.py --combinedlogslen=4000 --coverage --quiet --failfast ${extended}
   END_FOLD
 fi
