@@ -12,7 +12,6 @@ export TRAVIS_COMMIT_LOG
 DOCKER_EXEC pwd
 pwd
 ls -la
-DOCKER_EXEC useradd -ms /bin/bash travis
 DOCKER_EXEC usermod -aG sudo travis
 ls -la
 
@@ -26,7 +25,7 @@ BEGIN_FOLD autogen
 if [ -n "$CONFIG_SHELL" ]; then
   DOCKER_EXEC "$CONFIG_SHELL" -c "./autogen.sh"
 else
-  DOCKER_EXEC su travis -c "./autogen.sh"
+  DOCKER_EXEC ./autogen.sh
 fi
 END_FOLD
 
