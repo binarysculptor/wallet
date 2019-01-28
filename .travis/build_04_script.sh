@@ -12,7 +12,8 @@ export TRAVIS_COMMIT_LOG
 DOCKER_EXEC pwd
 pwd
 ls -la
-DOCKER_EXEC pwd
+DOCKER_EXEC useradd -ms /bin/bash travis
+DOCKER_EXEC usermod -aG sudo travis
 ls -la
 
 OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
@@ -24,10 +25,8 @@ fi
 BEGIN_FOLD autogen
 if [ -n "$CONFIG_SHELL" ]; then
   DOCKER_EXEC "$CONFIG_SHELL" -c "./autogen.sh"
-  echo "DOCKER_EXEC CONFIG_SHELL -c ./autogen.sh"
 else
-  DOCKER_EXEC ./autogen.sh
-  echo "else DOCKER_EXEC ./autogen.sh"
+  DOCKER_EXEC su travis -c "./autogen.sh"
 fi
 END_FOLD
 
@@ -35,7 +34,7 @@ mkdir build
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
-DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+DOCKER_EXEC travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
 END_FOLD
 
 find -O3 -L /home/travis/ -name "makefile"
@@ -49,13 +48,13 @@ DOCKER_EXEC pwd
 ls -la
 
 BEGIN_FOLD distdir
-DOCKER_EXEC make VERSION=$HOST
+DOCKER_EXEC travis -c  "make VERSION=$HOST"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 BEGIN_FOLD configure
-DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+DOCKER_EXEC travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
 END_FOLD
 
 pwd
@@ -63,7 +62,7 @@ cd ../../
 pwd
 
 BEGIN_FOLD build
-DOCKER_EXEC make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
+DOCKER_EXEC travis -c "make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )"
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
