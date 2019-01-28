@@ -12,6 +12,7 @@ export TRAVIS_COMMIT_LOG
 DOCKER_EXEC pwd
 pwd
 ls -la
+DOCKER_EXEC useradd -ms /bin/bash travis
 DOCKER_EXEC usermod -aG sudo travis
 ls -la
 
