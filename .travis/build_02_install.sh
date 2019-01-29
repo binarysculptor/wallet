@@ -24,7 +24,7 @@ fi
 
 travis_retry DOCKER_EXEC useradd --create-home --home-dir /home/travis travis
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
-travis_retry DOCKER_EXEC usermod -aG travis
+DOCKER_EXEC usermod -aG travis
 
 travis_retry DOCKER_EXEC apt-get update
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
