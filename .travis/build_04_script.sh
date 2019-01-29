@@ -9,6 +9,9 @@ export LC_ALL=C.UTF-8
 TRAVIS_COMMIT_LOG=$(git log --format=fuller -1)
 export TRAVIS_COMMIT_LOG
 
+echo "list all users on docker?"
+DOCKER_EXEC cut -d: -f1 /etc/passwd
+
 echo "DOCKER_EXEC pwd"
 DOCKER_EXEC pwd
 ls -la
