@@ -41,16 +41,16 @@ ls -la ../
 echo "ls -la ../../ end listing"
 ls -la ../../
 
-sudo chattr -i /home/travis/build/project-liberty/wallet/Makefile.in
-sudo chattr -i /home/travis/build/project-liberty/wallet/configure
-sudo chattr -i /home/travis/build/project-liberty/wallet/allocal.m4
-sudo chattr -i /home/travis/build/project-liberty/wallet/build
+#sudo chattr -i /home/travis/build/project-liberty/wallet/Makefile.in
+#sudo chattr -i /home/travis/build/project-liberty/wallet/configure
+#sudo chattr -i /home/travis/build/project-liberty/wallet/allocal.m4
+#sudo chattr -i /home/travis/build/project-liberty/wallet/build
 
-chown travis:travis /home/travis/build/project-liberty/wallet/Makefile.in
-chown travis:travis /home/travis/build/project-liberty/wallet/configure
-chown travis:travis /home/travis/build/project-liberty/wallet/allocal.m4
+#chown travis:travis /home/travis/build/project-liberty/wallet/Makefile.in
+#chown travis:travis /home/travis/build/project-liberty/wallet/configure
+#chown travis:travis /home/travis/build/project-liberty/wallet/allocal.m4
 #chown travis:travis /home/travis/build/project-liberty/wallet/autom4te.cache
-chown travis:travis /home/travis/build/project-liberty/wallet/build
+#chown travis:travis /home/travis/build/project-liberty/wallet/build
 
 BEGIN_FOLD configure
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
