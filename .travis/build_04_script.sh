@@ -19,14 +19,14 @@ ls -la
 OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
 BITCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
 if [ -z "$NO_DEPENDS" ]; then
-  DOCKER_EXEC ccache --max-size=$CCACHE_SIZE
+  DOCKER_EXEC su -c travis -s ccache --max-size=$CCACHE_SIZE
 fi
 
 BEGIN_FOLD autogen
 if [ -n "$CONFIG_SHELL" ]; then
   DOCKER_EXEC "$CONFIG_SHELL" -c "./autogen.sh"
 else
-  DOCKER_EXEC ./autogen.sh
+  DOCKER_EXEC su -c travis -s ./autogen.sh
 fi
 END_FOLD
 
@@ -54,7 +54,7 @@ ls -la ../../
 
 BEGIN_FOLD configure
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
-  DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+  DOCKER_EXEC su -c travis -s ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
 END_FOLD
 
 echo "next is make VERSION=$HOST" 
@@ -78,7 +78,7 @@ ls -la ../../
 
 BEGIN_FOLD configure
    # DOCKER_EXEC CONFIG_SHELL= ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
-   DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
+   DOCKER_EXEC su -c travis -s ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
 END_FOLD
 
 pwd
@@ -87,7 +87,7 @@ ls -la ../
 ls -la ../../
 
 BEGIN_FOLD build
-   DOCKER_EXEC make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
+   DOCKER_EXEC su -c travis -s make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC su -c travis -s make $GOAL V=1 ; false )
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
