@@ -22,11 +22,27 @@ if [ -n "$DPKG_ADD_ARCH" ]; then
 fi
 
 
-travis_retry DOCKER_EXEC useradd --create-home --home-dir /home/travis travis
-travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
+
+
+
+FROM ubuntu:12.04
+
+RUN apt-get update && \
+      apt-get -y install sudo
+
+RUN 
+
+USER docker
+CMD /bin/bash
+
+
 #DOCKER_EXEC usermod -aG travis
 cat /etc/passwd
-travis_retry DOCKER_EXEC apt-get update
+travis_retry DOCKER_EXEC apt-get update 
+travis_retry DOCKER_EXEC apt-getapt-get -y install sudo
+travis_retry useradd -m travis && echo "travis:travis" | chpasswd && adduser travis sudo
+#travis_retry DOCKER_EXEC useradd --create-home --home-dir /home/travis travis
+travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
 
 
