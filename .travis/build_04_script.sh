@@ -24,9 +24,14 @@ fi
 
 BEGIN_FOLD autogen
 if [ -n "$CONFIG_SHELL" ]; then
-  DOCKER_EXEC "$CONFIG_SHELL -c './autogen.sh'"
+  echo "CONFIG_SHELL -c autogen.sh before"
+  DOCKER_EXEC $CONFIG_SHELL -c ./autogen.sh
+  echo "CONFIG_SHELL -c autogen.sh after"
 else
+  echo "else autogen.sh before"
   DOCKER_EXEC "su -c travis './autogen.sh'"
+  echo "else autogen.sh after"
+
 fi
 END_FOLD
 
