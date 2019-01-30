@@ -44,7 +44,11 @@ ls -la ../
 echo "ls -la ../../ end listing"
 ls -la ../../
 
-su travis -c  "mkdir build"
+pwd
+DOCKER_EXEC pwd
+
+sudo -u travis "mkdir build"
+
 chown -R 1000:1000 build
 #DOCKER_EXEC "sudo -u \#1000 'mkdir build'"
 cd build || (echo "could not enter build directory"; exit 1)
