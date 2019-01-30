@@ -25,7 +25,8 @@ fi
 cat /etc/passwd
 travis_retry DOCKER_EXEC apt-get update 
 travis_retry DOCKER_EXEC apt-get -y install sudo
-travis_retry useradd -m travis && echo "travis:travis" | chpasswd && adduser travis sudo
+#travis_retry DOCKER_EXEC echo 'travis:travis' | chpasswd && adduser travis sudo"
+DOCKER_EXEC adduser travis sudo
 #DOCKER_EXEC usermod -aG travis
 #travis_retry DOCKER_EXEC useradd --create-home --home-dir /home/travis travis
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
