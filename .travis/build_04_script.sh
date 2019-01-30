@@ -19,7 +19,7 @@ ls -la
 OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
 BITCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
 if [ -z "$NO_DEPENDS" ]; then
-  DOCKER_EXEC su -c travis -s ccache --max-size=$CCACHE_SIZE
+  DOCKER_EXEC su -c travis "ccache --max-size=$CCACHE_SIZE"
 fi
 
 BEGIN_FOLD autogen
