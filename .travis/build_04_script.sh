@@ -69,8 +69,10 @@ ls -la ../../
 #chown travis:travis /home/travis/build/project-liberty/wallet/build
 
 BEGIN_FOLD configure
+echo "first configure begin"
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
   DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
+  echo "first configure end"
 END_FOLD
 
 echo "next is make VERSION=$HOST" 
@@ -82,7 +84,9 @@ ls -la ../../
 
 BEGIN_FOLD distdir
 #DOCKER_EXEC make VERSION=$HOST
-   DOCKER_EXEC make VERSION=$HOST
+echo "make VERSION=$HOST begin"
+   DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
+   echo "make VERSION=$HOST end"
 END_FOLD
 
 DOCKER_EXEC cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
@@ -93,8 +97,10 @@ ls -la ../
 ls -la ../../
 
 BEGIN_FOLD configure
+   echo "second configure begin"
    # DOCKER_EXEC CONFIG_SHELL= ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
-   DOCKER_EXEC "sudo -u \#1000 './configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
+   DOCKER_EXEC "sudo -u \#1000 './configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG'" #|| ( cat config.log && false)
+   echo "second configure begin"
 END_FOLD
 
 pwd
@@ -103,8 +109,10 @@ ls -la ../
 ls -la ../../
 
 BEGIN_FOLD build
+echo "build begin"
    DOCKER_EXEC "sudo -u \#1000  'make $MAKEJOBS $GOAL'" 
    #|| ( echo "Build failure. Verbose build follows." && DOCKER_EXEC "su -c travis -s make $GOAL V=1 ; false" )'"
+   echo "build end"
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
