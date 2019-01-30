@@ -30,7 +30,7 @@ if [ -n "$CONFIG_SHELL" ]; then
 else
   echo "else autogen.sh before"
   #DOCKER_EXEC "su -c travis './autogen.sh'"
-  DOCKER_EXEC "sudo -u #1000 -c './autogen.sh'"
+  DOCKER_EXEC "sudo -u \#1000 './autogen.sh'"
   echo "else autogen.sh after"
 
 fi
