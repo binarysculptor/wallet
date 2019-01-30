@@ -36,7 +36,7 @@ else
 fi
 END_FOLD
 
-mkdir build
+DOCKER_EXEC "sudo -u \#1000 'mkdir build'"
 cd build || (echo "could not enter build directory"; exit 1)
 
 pwd
@@ -60,7 +60,7 @@ ls -la ../../
 
 BEGIN_FOLD configure
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
-  DOCKER_EXEC "su -c travis '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
+  DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
 END_FOLD
 
 echo "next is make VERSION=$HOST" 
@@ -84,7 +84,7 @@ ls -la ../../
 
 BEGIN_FOLD configure
    # DOCKER_EXEC CONFIG_SHELL= ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
-   DOCKER_EXEC "su -c travis './configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
+   DOCKER_EXEC "sudo -u \#1000 './configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
 END_FOLD
 
 pwd
@@ -93,7 +93,7 @@ ls -la ../
 ls -la ../../
 
 BEGIN_FOLD build
-   DOCKER_EXEC "su -c travis  'make $MAKEJOBS $GOAL'" 
+   DOCKER_EXEC "sudo -u \#1000  'make $MAKEJOBS $GOAL'" 
    #|| ( echo "Build failure. Verbose build follows." && DOCKER_EXEC "su -c travis -s make $GOAL V=1 ; false" )'"
 END_FOLD
 
