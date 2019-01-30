@@ -36,7 +36,17 @@ else
 fi
 END_FOLD
 
-DOCKER_EXEC "sudo -u \#1000 'mkdir build'"
+pwd
+echo "ls -la"
+ls -la
+echo "ls -la ../"
+ls -la ../
+echo "ls -la ../../ end listing"
+ls -la ../../
+
+sudo mkdir build
+chown -R 1000:1000 build
+#DOCKER_EXEC "sudo -u \#1000 'mkdir build'"
 cd build || (echo "could not enter build directory"; exit 1)
 
 pwd
