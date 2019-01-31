@@ -27,15 +27,14 @@ DOCKER_EXEC mkdir -p depends/SDKs depends/sdk-sources
 #DOCKER_EXEC usermod -aG travis
 cat /etc/passwd
 travis_retry DOCKER_EXEC apt-get update
-#travis_retry DOCKER_EXEC apt-get -y install software-properties-common
-#travis_retry DOCKER_EXEC apt-get update
-#travis_retry DOCKER_EXEC add-apt-repository ppa:bitcoin/bitcoin
-#travis_retry DOCKER_EXEC apt-get update
-#travis_retry DOCKER_EXEC apt-get -y install libdb4.8-dev libdb4.8++-dev
+travis_retry DOCKER_EXEC apt-get -y install software-properties-common
+travis_retry DOCKER_EXEC apt-get update
+travis_retry DOCKER_EXEC add-apt-repository ppa:bitcoin/bitcoin
+travis_retry DOCKER_EXEC apt-get update
+travis_retry DOCKER_EXEC apt-get -y install libdb4.8-dev libdb4.8++-dev
 travis_retry DOCKER_EXEC apt-get -y install sudo
-
-travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
 #
 travis_retry DOCKER_EXEC useradd -m -s /bin/bash travis
 DOCKER_EXEC adduser travis sudo
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
+travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
