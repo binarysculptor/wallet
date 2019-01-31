@@ -47,12 +47,13 @@ echo "ls -la after cd build"
 ls -la
 
 whoami
+#sudo chown -R travis:travis /home/travis
 
 BEGIN_FOLD configure
 echo "first configure begin"
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
   #DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
-  sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'
+  DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG'"
   echo "first configure end"
 END_FOLD
 
@@ -62,8 +63,8 @@ echo "next is make VERSION=$HOST"
 BEGIN_FOLD distdir
 #DOCKER_EXEC make VERSION=$HOST
 echo "make VERSION=$HOST begin"
-   #DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
-   sudo -u \#1000 'make VERSION=$HOST'
+   #DOCKER_EXEC "make VERSION=$HOST"
+  DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
    echo "make VERSION=$HOST end"
 END_FOLD
 
