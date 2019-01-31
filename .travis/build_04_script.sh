@@ -67,11 +67,12 @@ ls -la ../../
 #chown travis:travis /home/travis/build/project-liberty/wallet/allocal.m4
 #chown travis:travis /home/travis/build/project-liberty/wallet/autom4te.cache
 #chown travis:travis /home/travis/build/project-liberty/wallet/build
-
+whoami
 BEGIN_FOLD configure
 echo "first configure begin"
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
-  DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
+  #DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
+  sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'
   echo "first configure end"
 END_FOLD
 
@@ -86,6 +87,7 @@ BEGIN_FOLD distdir
 #DOCKER_EXEC make VERSION=$HOST
 echo "make VERSION=$HOST begin"
    DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
+   sudo -u \#1000 'make VERSION=$HOST'
    echo "make VERSION=$HOST end"
 END_FOLD
 
