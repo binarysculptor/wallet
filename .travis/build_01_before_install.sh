@@ -8,7 +8,7 @@ export LC_ALL=C.UTF-8
 
 PATH=$(echo $PATH | tr ':' "\n" | sed '/\/opt\/python/d' | tr "\n" ":" | sed "s|::|:|g")
 export PATH
-
+pwd
 BEGIN_FOLD () {
   echo ""
   CURRENT_FOLD_NAME=$1
