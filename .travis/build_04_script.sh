@@ -51,7 +51,7 @@ whoami
 
 BEGIN_FOLD configure
 echo "first configure begin"
-   DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
+   DOCKER_EXEC su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST"
   #DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
   #DOCKER_EXEC "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG"
   echo "first configure end"
@@ -75,8 +75,9 @@ ls -la
 
 BEGIN_FOLD configure
    echo "second configure begin"
+     DOCKER_EXEC "su travis -c 'CONFIG_SHELL= make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS'"
   # DOCKER_EXEC CONFIG_SHELL= ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
-   DOCKER_EXEC ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)
+   DOCKER_EXEC su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"
    #DOCKER_EXEC "sudo -u \#1000 './configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG'" #|| ( cat config.log && false)
    echo "second configure begin"
 END_FOLD
@@ -85,7 +86,7 @@ ls -la
 BEGIN_FOLD build
 echo "build begin"
   # DOCKER_EXEC "sudo -u \#1000  'make $MAKEJOBS $GOAL'" 
-    DOCKER_EXEC make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )
+    DOCKER_EXEC su travis -c "make $MAKEJOBS $GOAL || ( echo "Build failure. Verbose build follows." && DOCKER_EXEC make $GOAL V=1 ; false )"
    echo "build end"
 END_FOLD
 
