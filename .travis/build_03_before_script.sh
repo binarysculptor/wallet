@@ -8,7 +8,7 @@ export LC_ALL=C.UTF-8
 
 #DOCKER_EXEC echo \> \$HOME/.pivx  # Make sure default datadir does not exist and is never read by creating a dummy file
 
-DOCKER_EXEC mkdir -p depends/SDKs depends/sdk-sources
+#DOCKER_EXEC mkdir -p depends/SDKs depends/sdk-sources
 
 if [ -n "$OSX_SDK" -a ! -f depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz ]; then
   curl --location --fail $SDK_URL/MacOSX${OSX_SDK}.sdk.tar.gz -o depends/sdk-sources/MacOSX${OSX_SDK}.sdk.tar.gz
@@ -23,4 +23,3 @@ if [ -z "$NO_DEPENDS" ]; then
   echo "script03 NO_DEPENDS - CONFIG_SHELL= make"
   DOCKER_EXEC "su travis -c 'CONFIG_SHELL= make $MAKEJOBS -C depends HOST=$HOST $DEP_OPTS'"
 fi
-
