@@ -33,6 +33,4 @@ travis_retry DOCKER_EXEC useradd --create-home --home-dir /home/travis travis
 DOCKER_EXEC adduser travis sudo
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
-pwd
-ls -la
 

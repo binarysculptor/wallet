@@ -45,9 +45,7 @@ echo "ls -la ../../ end listing"
 ls -la ../../
 
 pwd
-DOCKER_EXEC pwd
 
-chown -R 1000:1000 build
 #DOCKER_EXEC "sudo -u \#1000 'mkdir build'"
 cd build || (echo "could not enter build directory"; exit 1)
 
