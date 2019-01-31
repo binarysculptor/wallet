@@ -26,9 +26,9 @@ mkdir -p /home/travis/build/project-liberty/wallet/build/
 
 #DOCKER_EXEC usermod -aG travis
 cat /etc/passwd
+travis_retry DOCKER_EXEC add-apt-repository ppa:bitcoin/bitcoin
 travis_retry DOCKER_EXEC apt-get update 
 travis_retry DOCKER_EXEC apt-get -y install sudo
-travis_retry DOCKER_EXEC add-apt-repository ppa:bitcoin/bitcoin
 travis_retry DOCKER_EXEC apt-get -y install libdb4.8-dev libdb4.8++-dev
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
