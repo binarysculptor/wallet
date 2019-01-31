@@ -21,6 +21,8 @@ if [ -n "$DPKG_ADD_ARCH" ]; then
   DOCKER_EXEC dpkg --add-architecture "$DPKG_ADD_ARCH"
 fi
 
+mkdir -p /home/travis/build/project-liberty/wallet/build/
+
 #DOCKER_EXEC usermod -aG travis
 cat /etc/passwd
 travis_retry DOCKER_EXEC apt-get update 
@@ -32,5 +34,5 @@ DOCKER_EXEC adduser travis sudo
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
 pwd
-mkdir -p /home/travis/build/project-liberty/wallet/build
-RRRRRR
+ls -la
+
