@@ -30,8 +30,7 @@ travis_retry DOCKER_EXEC apt-get update
 travis_retry DOCKER_EXEC apt-get -y install sudo
 #travis_retry DOCKER_EXEC echo 'travis:travis' | chpasswd && adduser travis sudo"
 #DOCKER_EXEC usermod -aG travis
-travis_retry DOCKER_EXEC useradd --create-home --home-dir /home/travis travis
-DOCKER_EXEC adduser travis sudo
+#DOCKER_EXEC adduser travis sudo
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
 travis_retry DOCKER_EXEC apt-get -y install libdb++-dev
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
