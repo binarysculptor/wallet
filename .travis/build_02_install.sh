@@ -32,5 +32,5 @@ DOCKER_EXEC adduser travis sudo
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis
 travis_retry DOCKER_EXEC apt-get install --no-install-recommends --no-upgrade -qq $PACKAGES $DOCKER_PACKAGES
 pwd
-mkdir /home/travis/build/project-liberty/wallet/build
-???
+mkdir -p /home/travis/build/project-liberty/wallet/build
+RRRRRR
