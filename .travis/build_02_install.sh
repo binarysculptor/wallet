@@ -26,7 +26,9 @@ mkdir -p /home/travis/build/project-liberty/wallet/build/
 
 #DOCKER_EXEC usermod -aG travis
 cat /etc/passwd
+travis_retry DOCKER_EXEC apt-get update
 travis_retry DOCKER_EXEC apt-get -y install software-properties-common
+travis_retry DOCKER_EXEC apt-get update
 travis_retry DOCKER_EXEC add-apt-repository ppa:bitcoin/bitcoin
 travis_retry DOCKER_EXEC apt-get update 
 travis_retry DOCKER_EXEC apt-get -y install sudo
