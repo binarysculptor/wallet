@@ -51,7 +51,7 @@ whoami
 
 BEGIN_FOLD configure
 echo "first configure begin"
-   DOCKER_EXEC "su travis -c '"../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'"
+   DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
   #DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
   #DOCKER_EXEC "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG"
   echo "first configure end"

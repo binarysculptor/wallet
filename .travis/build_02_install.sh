@@ -22,6 +22,7 @@ if [ -n "$DPKG_ADD_ARCH" ]; then
 fi
 
 mkdir -p /home/travis/build/project-liberty/wallet/build/
+#DOCKER_EXEC mkdir -p depends/SDKs depends/sdk-sources
 
 #DOCKER_EXEC usermod -aG travis
 cat /etc/passwd
