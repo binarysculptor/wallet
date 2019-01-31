@@ -37,37 +37,17 @@ fi
 END_FOLD
 
 pwd
-echo "ls -la"
+echo "ls -la before cd build"
 ls -la
-echo "ls -la ../"
-ls -la ../
-echo "ls -la ../../ end listing"
-ls -la ../../
-
-pwd
-
 #DOCKER_EXEC "sudo -u \#1000 'mkdir build'"
 cd build || (echo "could not enter build directory"; exit 1)
 
 pwd
-echo "ls -la"
+echo "ls -la after cd build"
 ls -la
-echo "ls -la ../"
-ls -la ../
-echo "ls -la ../../ end listing"
-ls -la ../../
 
-#sudo chattr -i /home/travis/build/project-liberty/wallet/Makefile.in
-#sudo chattr -i /home/travis/build/project-liberty/wallet/configure
-#sudo chattr -i /home/travis/build/project-liberty/wallet/allocal.m4
-#sudo chattr -i /home/travis/build/project-liberty/wallet/build
-
-#chown travis:travis /home/travis/build/project-liberty/wallet/Makefile.in
-#chown travis:travis /home/travis/build/project-liberty/wallet/configure
-#chown travis:travis /home/travis/build/project-liberty/wallet/allocal.m4
-#chown travis:travis /home/travis/build/project-liberty/wallet/autom4te.cache
-#chown travis:travis /home/travis/build/project-liberty/wallet/build
 whoami
+
 BEGIN_FOLD configure
 echo "first configure begin"
    # DOCKER_EXEC ../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) && make VERSION=$HOST
@@ -78,15 +58,11 @@ END_FOLD
 
 echo "next is make VERSION=$HOST" 
 
-pwd
-ls -la
-ls -la ../
-ls -la ../../
 
 BEGIN_FOLD distdir
 #DOCKER_EXEC make VERSION=$HOST
 echo "make VERSION=$HOST begin"
-   DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
+   #DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
    sudo -u \#1000 'make VERSION=$HOST'
    echo "make VERSION=$HOST end"
 END_FOLD
@@ -94,9 +70,8 @@ END_FOLD
 DOCKER_EXEC cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 pwd
+echo "ls -la before second configure"
 ls -la
-ls -la ../
-ls -la ../../
 
 BEGIN_FOLD configure
    echo "second configure begin"
@@ -105,10 +80,6 @@ BEGIN_FOLD configure
    echo "second configure begin"
 END_FOLD
 
-pwd
-ls -la
-ls -la ../
-ls -la ../../
 
 BEGIN_FOLD build
 echo "build begin"
