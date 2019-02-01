@@ -32,7 +32,7 @@ END_FOLD
 #cd ..
 pwd
 ls -la
-find /home/travis/build/project-liberty/wallet  -maxdepth 7 -name "Makefile"
+echo "1. config.status"
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
@@ -47,6 +47,8 @@ BEGIN_FOLD configure
 END_FOLD
 pwd
 ls -la
+echo "2. config.status"
+cat ../config.status
 
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'Makefile'"
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'makefile'"
@@ -62,11 +64,11 @@ echo "ls -la /home/travis/build/project-liberty/"
 DOCKER_EXEC "ls -la /home/travis/build/project-liberty/"
 
 BEGIN_FOLD build
-    DOCKER_EXEC "su travis -c 'make -f Makefile.in $MAKEJOBS $GOAL'"
+    DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
     #DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends $MAKEJOBS $GOAL'"
     #DOCKER_EXEC "su travis -c 'make $MAKEJOBS'"
     #DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
-    DOCKER_EXEC "su travis -c 'make -f Makefile.in $GOAL V=1 ; false )'"
+    DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
