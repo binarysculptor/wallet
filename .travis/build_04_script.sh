@@ -22,15 +22,16 @@ BEGIN_FOLD autogen
     DOCKER_EXEC "su travis -c ./autogen.sh"
   fi
 END_FOLD
+DOCKER_EXEC "su travis -c ./autoreconf -if"
 
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
-   DOCKER_EXEC 'su travis -c "../autoreconf -if"'
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
    DOCKER_EXEC "find /home/travis -name 'config.status'"
 END_FOLD
 
+DOCKER_EXEC "su travis -c ./autoreconf -if"
 #cd ..
 pwd
 ls -la
