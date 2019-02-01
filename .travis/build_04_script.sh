@@ -59,8 +59,9 @@ END_FOLD
 
 echo "next is make VERSION=$HOST" 
 
-echo "pwd travis host"
+echo "pwd ls travis host"
 pwd
+ls -la
 
 BEGIN_FOLD distdir
 echo "make VERSION=$HOST begin"
