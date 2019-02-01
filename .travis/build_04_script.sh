@@ -33,8 +33,8 @@ END_FOLD
 pwd
 ls -la
 echo "1. config.status"
-cat ../config.status
-cat "/home/travis/build/project-liberty/wallet/config.status"
+./config.status
+/home/travis/build/project-liberty/wallet/config.status"
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
