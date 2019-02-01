@@ -9,13 +9,6 @@ export LC_ALL=C.UTF-8
 TRAVIS_COMMIT_LOG=$(git log --format=fuller -1)
 export TRAVIS_COMMIT_LOG
 
-echo "list all users on docker?"
-DOCKER_EXEC cut -d: -f1 /etc/passwd
-
-echo "DOCKER_EXEC pwd"
-DOCKER_EXEC pwd
-ls -la
-
 OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
 BITCOIN_CONFIG_ALL="--disable-dependency-tracking --prefix=$TRAVIS_BUILD_DIR/depends/$HOST --bindir=$OUTDIR/bin --libdir=$OUTDIR/lib"
 if [ -z "$NO_DEPENDS" ]; then
@@ -23,78 +16,33 @@ if [ -z "$NO_DEPENDS" ]; then
 fi
 
 BEGIN_FOLD autogen
-if [ -n "$CONFIG_SHELL" ]; then
-  echo "CONFIG_SHELL -c autogen.sh before"
-  DOCKER_EXEC $CONFIG_SHELL -c ./autogen.sh
-  echo "CONFIG_SHELL -c autogen.sh after"
-else
-  echo "else autogen.sh before"
-  #DOCKER_EXEC "su -c travis './autogen.sh'"
-  DOCKER_EXEC "su travis -c ./autogen.sh"
-  echo "else autogen.sh after"
-
-fi
+  if [ -n "$CONFIG_SHELL" ]; then
+    DOCKER_EXEC $CONFIG_SHELL -c ./autogen.sh
+  else
+    DOCKER_EXEC "su travis -c ./autogen.sh"
+  fi
 END_FOLD
 
-pwd
-echo "ls -la before cd build"
-ls -la
-#DOCKER_EXEC "sudo -u \#1000 'mkdir build'"
 cd build || (echo "could not enter build directory"; exit 1)
 
-pwd
-echo "ls -la after cd build"
-ls -la
-
-whoami
-#sudo chown -R travis:travis /home/travis
-
 BEGIN_FOLD configure
-echo "first configure begin"
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-  #DOCKER_EXEC "sudo -u \#1000 '../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)'"
-  #DOCKER_EXEC "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG"
-  echo "first configure end"
 END_FOLD
 
-echo "next is make VERSION=$HOST" 
-
-echo "pwd ls travis host"
-pwd
-ls -la
-
 BEGIN_FOLD distdir
-echo "make VERSION=$HOST begin"
-DOCKER_EXEC pwd
-DOCKER_EXEC ls -la
    DOCKER_EXEC "su travis -c 'make distdir VERSION=$HOST'"
-  #DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
-   echo "make VERSION=$HOST end"
 END_FOLD
 
 DOCKER_EXEC cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
-pwd
-echo "ls -la before second configure"
-ls -la
-
 BEGIN_FOLD configure
-   echo "second configure begin"
-  # DOCKER_EXEC CONFIG_SHELL= ./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false) 
    DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-   #DOCKER_EXEC "sudo -u \#1000 './configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG'" #|| ( cat config.log && false)
-   echo "second configure end"
 END_FOLD
 
 ls -la
 BEGIN_FOLD build
-echo "build begin"
-DOCKER_EXEC pwd
-DOCKER_EXEC ls -la
-  # DOCKER_EXEC "sudo -u \#1000  'make $MAKEJOBS $GOAL'" 
     DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
     DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
-   echo "build end"
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
