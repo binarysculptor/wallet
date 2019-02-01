@@ -40,7 +40,7 @@ DOCKER_EXEC "../config.status"
 
 BEGIN_FOLD distdir
    #DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends VERSION=$HOST'"
-   DOCKER_EXEC "su travis -c 'make -f Makefile.in VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
