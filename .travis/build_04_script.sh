@@ -29,6 +29,8 @@ BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
 END_FOLD
 
+cd ..
+
 BEGIN_FOLD distdir
    DOCKER_EXEC "su travis -c 'make distdir VERSION=$HOST'"
 END_FOLD
