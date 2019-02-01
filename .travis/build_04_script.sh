@@ -37,7 +37,8 @@ BEGIN_FOLD distdir
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
-
+pwd
+ls -la
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
 END_FOLD
