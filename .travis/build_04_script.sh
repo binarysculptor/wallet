@@ -61,7 +61,7 @@ echo "ls -la /home/travis/build/project-liberty/"
 DOCKER_EXEC "ls -la /home/travis/build/project-liberty/"
 
 BEGIN_FOLD build
-    DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends/Makefile $MAKEJOBS $GOAL'"
+    DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends $MAKEJOBS $GOAL'"
     #DOCKER_EXEC "su travis -c 'make $MAKEJOBS'"
     DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
 END_FOLD
