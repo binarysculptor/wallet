@@ -22,7 +22,7 @@ BEGIN_FOLD autogen
     DOCKER_EXEC "su travis -c ./autogen.sh"
   fi
 END_FOLD
-DOCKER_EXEC "su travis -c './autoreconf -f'"
+#DOCKER_EXEC "su travis -c './autoreconf -f'"
 
 cd build || (echo "could not enter build directory"; exit 1)
 
@@ -31,7 +31,7 @@ BEGIN_FOLD configure
    DOCKER_EXEC "find /home/travis -name 'config.status'"
 END_FOLD
 
-DOCKER_EXEC "su travis -c './autoreconf -f'"
+#DOCKER_EXEC "su travis -c './autoreconf -f'"
 #cd ..
 pwd
 ls -la
