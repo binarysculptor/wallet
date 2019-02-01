@@ -23,26 +23,32 @@ BEGIN_FOLD autogen
   fi
 END_FOLD
 
-cd build || (echo "could not enter build directory"; exit 1)
+#cd build || (echo "could not enter build directory"; exit 1)
 
-BEGIN_FOLD configure
-   DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-END_FOLD
+#BEGIN_FOLD configure
+ #  DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
+#END_FOLD
 
-cd ..
+#cd ..
 pwd
 ls -la
-BEGIN_FOLD distdir
-   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
-END_FOLD
+#find /home/travis/build/project-liberty/wallet -name "Makefile" -maxdepth 3
+#find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
-cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
-pwd
-ls -la
+#BEGIN_FOLD distdir
+#   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
+#END_FOLD
+
+#cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
+
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
 END_FOLD
+pwd
+ls -la
 
+find /home/travis/build/project-liberty/wallet -name "Makefile" -maxdepth 3
+find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 ls -la
 BEGIN_FOLD build
     DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
