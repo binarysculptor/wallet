@@ -64,7 +64,7 @@ BEGIN_FOLD distdir
 echo "make VERSION=$HOST begin"
 DOCKER_EXEC pwd
 DOCKER_EXEC ls -la
-   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make distdir VERSION=$HOST'"
   #DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
    echo "make VERSION=$HOST end"
 END_FOLD
