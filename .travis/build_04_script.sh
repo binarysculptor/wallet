@@ -47,10 +47,12 @@ END_FOLD
 pwd
 ls -la
 
-find /home/travis/build/project-liberty/wallet -maxdepth 3 -name "Makefile"
-find /home/travis/build/project-liberty/wallet -maxdepth 3 -name "makefile"
-find /home/travis/build/project-liberty/wallet -name "config.cache"
-ls -la /home/travis/build
+DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'Makefile'"
+DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'makefile'"
+DOCKER_EXEC "find /home/travis/build  -maxdepth 5 -name 'config.cache'"
+DOCKER_EXEC "ls -la /home/travis"
+DOCKER_EXEC "ls -la /home/travis/build"
+DOCKER_EXEC "ls home/travis/build/project-liberty/"
 
 BEGIN_FOLD build
     DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
