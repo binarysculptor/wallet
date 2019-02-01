@@ -33,6 +33,8 @@ END_FOLD
 pwd
 ls -la
 echo "1. config.status"
+cat ../config.status
+cat "/home/travis/build/project-liberty/wallet/config.status"
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
@@ -51,7 +53,7 @@ echo "2. config.status"
 cat ../config.status
 
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'Makefile'"
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'makefile'"
+DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'config.status'"
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'make'"
 #DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'Makefile'"
 #DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'makefile'"
