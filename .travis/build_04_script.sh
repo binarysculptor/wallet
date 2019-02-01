@@ -42,15 +42,15 @@ ls -la ../
 
 
 echo "find /homeMakefile src/Makefile doc/man/Makefile share/setup.nsi share/qt/Info.plist test/config.ini"
-
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'config.ini'"
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'Info.plist'"
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'setup.nsi'"
+DOCKER_EXEC "find /home/travis  -name 'Makefile'"
+DOCKER_EXEC "find /home/travis  -name 'config.ini'"
+DOCKER_EXEC "find /home/travis  -name 'Info.plist'"
+DOCKER_EXEC "find /home/travis  -name 'setup.nsi'"
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
    #DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends VERSION=$HOST'"
-   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
+   #DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
