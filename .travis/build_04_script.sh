@@ -22,7 +22,7 @@ BEGIN_FOLD autogen
     DOCKER_EXEC "su travis -c ./autogen.sh"
   fi
 END_FOLD
-DOCKER_EXEC "su travis -c ./autoreconf -if"
+DOCKER_EXEC "su travis -c './autoreconf -f'"
 
 cd build || (echo "could not enter build directory"; exit 1)
 
