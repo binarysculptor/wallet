@@ -36,7 +36,7 @@ ls -la
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
-   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends/Makefile VERSION=$HOST'"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
@@ -61,7 +61,7 @@ echo "ls -la /home/travis/build/project-liberty/"
 DOCKER_EXEC "ls -la /home/travis/build/project-liberty/"
 
 BEGIN_FOLD build
-    DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
+    DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends/Makefile $MAKEJOBS $GOAL'"
     #DOCKER_EXEC "su travis -c 'make $MAKEJOBS'"
     DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
 END_FOLD
