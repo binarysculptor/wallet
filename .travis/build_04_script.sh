@@ -26,6 +26,7 @@ END_FOLD
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
+   DOCKER_EXEC 'su travis -c "../autoreconf -if"'
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
    DOCKER_EXEC "find /home/travis -name 'config.status'"
 END_FOLD
@@ -33,7 +34,7 @@ END_FOLD
 #cd ..
 pwd
 ls -la
-
+ls -la ../
 
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
