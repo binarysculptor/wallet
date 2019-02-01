@@ -25,9 +25,9 @@ END_FOLD
 
 #cd build || (echo "could not enter build directory"; exit 1)
 
-#BEGIN_FOLD configure
- #  DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-#END_FOLD
+BEGIN_FOLD configure
+   DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
+END_FOLD
 
 #cd ..
 pwd
@@ -52,7 +52,7 @@ DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'm
 DOCKER_EXEC "find /home/travis/build  -maxdepth 5 -name 'config.cache'"
 DOCKER_EXEC "ls -la /home/travis"
 DOCKER_EXEC "ls -la /home/travis/build"
-DOCKER_EXEC "ls home/travis/build/project-liberty/"
+DOCKER_EXEC "ls /home/travis/build/project-liberty/"
 
 BEGIN_FOLD build
     DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
