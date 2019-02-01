@@ -32,11 +32,11 @@ END_FOLD
 #cd ..
 pwd
 ls -la
-#find /home/travis/build/project-liberty/wallet -name "Makefile" -maxdepth 3
+find /home/travis/build/project-liberty/wallet  -maxdepth 7 -name "Makefile"
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
-   DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends/Makefile VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends VERSION=$HOST'"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
