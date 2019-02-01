@@ -31,7 +31,7 @@ BEGIN_FOLD configure
    DOCKER_EXEC "find /home/travis -name 'config.status'"
 END_FOLD
 
-DOCKER_EXEC "su travis -c './autoreconf -if'"
+DOCKER_EXEC "su travis -c './autoreconf -f'"
 #cd ..
 pwd
 ls -la
