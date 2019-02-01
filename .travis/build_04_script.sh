@@ -49,7 +49,7 @@ ls -la
 
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'Makefile'"
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'makefile'"
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'make'"
+DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'liberty-$HOST'"
 #DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'Makefile'"
 #DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'makefile'"
 #DOCKER_EXEC "find /home/travis/build  -maxdepth 5 -name 'config.cache'" >> found /home/travis/build/project-liberty/config.cache
@@ -62,6 +62,7 @@ DOCKER_EXEC "ls -la /home/travis/build/project-liberty/"
 
 BEGIN_FOLD build
     DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
+    DOCKER_EXEC "su travis -c 'make $MAKEJOBS'"
     DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
 END_FOLD
 
