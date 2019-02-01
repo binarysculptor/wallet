@@ -62,7 +62,7 @@ echo "next is make VERSION=$HOST"
 
 BEGIN_FOLD distdir
 echo "make VERSION=$HOST begin"
-   DOCKER_EXEC 'su travic -c "make VERSION=$HOST"'
+   DOCKER_EXEC "su travic -c 'make VERSION=$HOST'"
   #DOCKER_EXEC "sudo -u \#1000 'make VERSION=$HOST'"
    echo "make VERSION=$HOST end"
 END_FOLD
@@ -85,8 +85,8 @@ ls -la
 BEGIN_FOLD build
 echo "build begin"
   # DOCKER_EXEC "sudo -u \#1000  'make $MAKEJOBS $GOAL'" 
-    DOCKER_EXEC 'su travis -c "make $MAKEJOBS $GOAL"'
-    DOCKER_EXEC 'su travis -c "make $GOAL V=1 ; false )"'
+    DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
+    DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
    echo "build end"
 END_FOLD
 
