@@ -36,7 +36,8 @@ find /home/travis/build/project-liberty/wallet  -maxdepth 7 -name "Makefile"
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
-   DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends VERSION=$HOST'"
+   #DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make -f Makefile.in VERSION=$HOST'"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
@@ -61,9 +62,11 @@ echo "ls -la /home/travis/build/project-liberty/"
 DOCKER_EXEC "ls -la /home/travis/build/project-liberty/"
 
 BEGIN_FOLD build
-    DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends $MAKEJOBS $GOAL'"
+    DOCKER_EXEC "su travis -c 'make -f Makefile.in $MAKEJOBS $GOAL'"
+    #DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends $MAKEJOBS $GOAL'"
     #DOCKER_EXEC "su travis -c 'make $MAKEJOBS'"
-    DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
+    #DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
+    DOCKER_EXEC "su travis -c 'make -f Makefile.in $GOAL V=1 ; false )'"
 END_FOLD
 
 if [ "$RUN_UNIT_TESTS" = "true" ]; then
