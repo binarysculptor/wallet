@@ -30,12 +30,13 @@ BEGIN_FOLD configure
 END_FOLD
 
 cd ..
-
+pwd
+ls -la
 BEGIN_FOLD distdir
-   DOCKER_EXEC "su travis -c 'make distdir VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
 END_FOLD
 
-DOCKER_EXEC cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
+cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
