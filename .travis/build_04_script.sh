@@ -34,6 +34,8 @@ END_FOLD
 #cd ..
 pwd
 ls -la
+echo "build/src"
+ls -la ./src
 ls -la ../
 
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
