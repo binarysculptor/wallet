@@ -29,6 +29,7 @@ cd build || (echo "could not enter build directory"; exit 1)
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
    DOCKER_EXEC "find /home/travis -name 'config.status'"
+   DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
    #DOCKER_EXEC "cat config.cache"
 END_FOLD
 
@@ -56,7 +57,7 @@ END_FOLD
 #cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 pwd
 BEGIN_FOLD configure
-   DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
+ #  DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
 END_FOLD
 pwd
 ls -la
