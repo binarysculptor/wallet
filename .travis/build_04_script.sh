@@ -23,7 +23,7 @@ BEGIN_FOLD autogen
   fi
 END_FOLD
 #DOCKER_EXEC "su travis -c './autoreconf -f'"
-
+DOCKER_EXEC "cat configure"
 DOCKER_EXEC pwd
 DOCKER_EXEC ls -la
 DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
@@ -33,7 +33,7 @@ cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-   DOCKER_EXEC "cat config.log"
+   #DOCKER_EXEC "cat config.log"
    #DOCKER_EXEC cd ..
    DOCKER_EXEC pwd
    ls -la
