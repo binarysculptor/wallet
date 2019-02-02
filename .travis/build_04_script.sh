@@ -35,14 +35,17 @@ echo "build/src"
 ls -la ./src
 ls -la ../
 
+DOCKER_EXEC "find /home/travis/ -type d -name '*-$HOST'"
+DOCKER_EXEC "find /home/travis/ -type d -name 'distdir'"
+
 BEGIN_FOLD distdir
    DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
 END_FOLD
 
 pwd
 ls -la
-DOCKER_EXEC "find /home/travis -name '*-$HOST'"
-DOCKER_EXEC "find /home/travis -name 'distdir'"
+DOCKER_EXEC "find /home/travis/ -type d -name '*-$HOST'"
+DOCKER_EXEC "find /home/travis/ -type d -name 'distdir'"
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
