@@ -24,19 +24,25 @@ BEGIN_FOLD autogen
 END_FOLD
 #DOCKER_EXEC "su travis -c './autoreconf -f'"
 
+DOCKER_EXEC pwd
+DOCKER_EXEC ls -la
+DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
+
+
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-   DOCKER_EXEC "find /home/travis -name 'config.status'"
-   DOCKER_EXEC cd ..
-   DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
-   DOCKER_EXEC 'su travis -c "./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
+   DOCKER_EXEC "cat config.log"
+   #DOCKER_EXEC cd ..
+   DOCKER_EXEC pwd
+   ls -la
+   #DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
+   #DOCKER_EXEC 'su travis -c "./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
    #DOCKER_EXEC "cat config.cache"
 END_FOLD
 
-#DOCKER_EXEC "su travis -c './autoreconf -f'"
-#cd ..
+
 pwd
 ls -la
 echo "build/src"
@@ -52,19 +58,18 @@ DOCKER_EXEC "find /home/travis  -name 'setup.nsi'"
 #find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
 
 BEGIN_FOLD distdir
-   #DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends VERSION=$HOST'"
    #DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
 END_FOLD
 
-#cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
+cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 pwd
 BEGIN_FOLD configure
- #  DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
+  DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
 END_FOLD
 pwd
 ls -la
 echo "2. config.status"
-cat ../config.status
+
 
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'Makefile'"
 DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'config.status'"
