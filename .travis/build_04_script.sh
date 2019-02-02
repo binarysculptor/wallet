@@ -42,6 +42,7 @@ END_FOLD
 pwd
 ls -la
 DOCKER_EXEC "find /home/travis -name '*-$HOST'"
+DOCKER_EXEC "find /home/travis -name 'distdir'"
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
