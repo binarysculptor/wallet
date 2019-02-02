@@ -29,8 +29,9 @@ cd build || (echo "could not enter build directory"; exit 1)
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
    DOCKER_EXEC "find /home/travis -name 'config.status'"
+   DOCKER_EXEC cd ..
    DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
-   DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
+   DOCKER_EXEC 'su travis -c "./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
    #DOCKER_EXEC "cat config.cache"
 END_FOLD
 
