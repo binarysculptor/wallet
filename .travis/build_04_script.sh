@@ -44,8 +44,11 @@ END_FOLD
 
 pwd
 ls -la
-DOCKER_EXEC "find /home/travis/ -type d -name '*-$HOST'"
-DOCKER_EXEC "find /home/travis/ -type d -name 'distdir'"
+echo "ls ../"
+ls -la ../
+DOCKER_EXEC "find /home/ -type d -name 'liberty-$HOST'"
+DOCKER_EXEC "find /home/ -type d -name '$HOST'"
+DOCKER_EXEC "find /home/ -type d -name 'distdir'"
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
