@@ -22,26 +22,12 @@ BEGIN_FOLD autogen
     DOCKER_EXEC "su travis -c ./autogen.sh"
   fi
 END_FOLD
-#DOCKER_EXEC "su travis -c './autoreconf -f'"
-
-DOCKER_EXEC pwd
-DOCKER_EXEC ls -la
-#DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
-
 
 cd build || (echo "could not enter build directory"; exit 1)
 
 BEGIN_FOLD configure
    DOCKER_EXEC 'su travis -c "../configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-   #DOCKER_EXEC "cat config.log"
-   #DOCKER_EXEC cd ..
-   DOCKER_EXEC pwd
-   ls -la
-   #DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
-   #DOCKER_EXEC 'su travis -c "./configure --cache-file=config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
-   #DOCKER_EXEC "cat config.cache"
 END_FOLD
-
 
 pwd
 ls -la
@@ -49,47 +35,19 @@ echo "build/src"
 ls -la ./src
 ls -la ../
 
-
-echo "find /homeMakefile src/Makefile doc/man/Makefile share/setup.nsi share/qt/Info.plist test/config.ini"
-DOCKER_EXEC "find /home/travis  -name 'Makefile'"
-DOCKER_EXEC "find /home/travis  -name 'config.ini'"
-DOCKER_EXEC "find /home/travis  -name 'Info.plist'"
-DOCKER_EXEC "find /home/travis  -name 'setup.nsi'"
-#find /home/travis/build/project-liberty/wallet -name "makefile" -maxdepth 3
-
 BEGIN_FOLD distdir
-   #DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
 END_FOLD
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
-pwd
+
 BEGIN_FOLD configure
   DOCKER_EXEC 'su travis -c "./configure --cache-file=../config.cache $BITCOIN_CONFIG_ALL $BITCOIN_CONFIG || ( cat config.log && false)"'
 END_FOLD
-pwd
-ls -la
-echo "2. config.status"
 
-
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'Makefile'"
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'config.status'"
-DOCKER_EXEC "find /home/travis/build/project-liberty/wallet  -name 'make'"
-#DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'Makefile'"
-#DOCKER_EXEC "find /home/travis/build/project-liberty/wallet -maxdepth 3 -name 'makefile'"
-#DOCKER_EXEC "find /home/travis/build  -maxdepth 5 -name 'config.cache'" >> found /home/travis/build/project-liberty/config.cache
-echo "ls -la /home/travis"
-DOCKER_EXEC "ls -la /home/travis"
-echo "ls -la /home/travis/build"
-DOCKER_EXEC "ls -la /home/travis/build"
-echo "ls -la /home/travis/build/project-liberty/"
-DOCKER_EXEC "ls -la /home/travis/build/project-liberty/"
-config.cache
 
 BEGIN_FOLD build
     DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
-    #DOCKER_EXEC "su travis -c 'make -C /home/travis/build/project-liberty/wallet/depends $MAKEJOBS $GOAL'"
-    #DOCKER_EXEC "su travis -c 'make $MAKEJOBS'"
-    #DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
     DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
 END_FOLD
 
