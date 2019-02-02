@@ -23,10 +23,10 @@ BEGIN_FOLD autogen
   fi
 END_FOLD
 #DOCKER_EXEC "su travis -c './autoreconf -f'"
-DOCKER_EXEC "cat configure"
+
 DOCKER_EXEC pwd
 DOCKER_EXEC ls -la
-DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
+#DOCKER_EXEC "su travis -c 'autoreconf --force --install'"
 
 
 cd build || (echo "could not enter build directory"; exit 1)
