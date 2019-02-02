@@ -123,13 +123,11 @@ jobs:
 #        DEP_OPTS="NO_WALLET=1"
 #        GOAL="install"
 #        BITCOIN_CONFIG="--enable-glibc-back-compat --enable-reduce-exports"
-#PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git qrencode berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5 zmq libevent
-
 # Cross-Mac
     - stage: build
       env: >-
         HOST=x86_64-apple-darwin14
-        PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git qrencode berkeley-db4 libtool boost miniupnpc openssl pkg-config protobuf qt5 zmq libevent
+        PACKAGES="cmake imagemagick libcap-dev librsvg2-bin libz-dev libbz2-dev libtiff-tools python-dev python3-setuptools-git qrencode
         OSX_SDK=10.11
         RUN_UNIT_TESTS=false
         RUN_FUNCTIONAL_TESTS=false
