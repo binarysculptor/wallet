@@ -39,7 +39,7 @@ DOCKER_EXEC "find /home/travis/ -type d -name '*-$HOST'"
 DOCKER_EXEC "find /home/travis/ -type d -name 'distdir'"
 
 BEGIN_FOLD distdir
-   DOCKER_EXEC "su travis -c 'make VERSION=$HOST'"
+   DOCKER_EXEC "su travis -c 'make distdir VERSION=$HOST'"
 END_FOLD
 
 pwd
