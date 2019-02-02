@@ -35,8 +35,6 @@ echo "build/src"
 ls -la ./src
 ls -la ../
 
-DOCKER_EXEC "find /home/travis/ -type d -name '*-$HOST'"
-DOCKER_EXEC "find /home/travis/ -type d -name 'distdir'"
 
 BEGIN_FOLD distdir
    DOCKER_EXEC "su travis -c 'make distdir VERSION=$HOST'"
@@ -46,9 +44,7 @@ pwd
 ls -la
 echo "ls ../"
 ls -la ../
-DOCKER_EXEC "find /home/ -type d -name 'liberty-$HOST'"
-DOCKER_EXEC "find /home/ -type d -name '$HOST'"
-DOCKER_EXEC "find /home/ -type d -name 'distdir'"
+
 
 cd "liberty-$HOST" || (echo "could not enter distdir liberty-$HOST"; exit 1)
 
@@ -59,12 +55,8 @@ END_FOLD
 
 BEGIN_FOLD build
     DOCKER_EXEC "su travis -c 'make $MAKEJOBS $GOAL'"
-    DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
+    #DOCKER_EXEC "su travis -c 'make $GOAL V=1 ; false )'"
 END_FOLD
-
-
-
-
 
 #if [ "$RUN_UNIT_TESTS" = "true" ]; then
   BEGIN_FOLD unit-tests

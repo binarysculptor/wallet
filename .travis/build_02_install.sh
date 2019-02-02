@@ -30,9 +30,8 @@ travis_retry DOCKER_EXEC apt-get -y install software-properties-common
 travis_retry DOCKER_EXEC apt-get update
 travis_retry DOCKER_EXEC add-apt-repository ppa:bitcoin/bitcoin
 travis_retry DOCKER_EXEC apt-get update
-travis_retry DOCKER_EXEC apt-get -y install libdb4.8-dev libdb4.8++-dev libboost-all-dev libssl1.0-dev libevent-dev libgmp3-dev libzmq3-dev doxygen autoconf
+travis_retry DOCKER_EXEC apt-get -y install libdb4.8-dev libdb4.8++-dev libboost-all-dev libssl1.0-dev libevent-dev libgmp3-dev libzmq3-dev zlib1g-dev libminiupnpc-dev libprotobuf-dev libqrencode-dev bsdmainutils protobuf-compiler 
 travis_retry DOCKER_EXEC apt-get -y install sudo
-#
 travis_retry DOCKER_EXEC useradd -m -s /bin/bash travis
 DOCKER_EXEC adduser travis sudo
 travis_retry DOCKER_EXEC chown -R travis:travis /home/travis

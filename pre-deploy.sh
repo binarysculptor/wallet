@@ -1,4 +1,14 @@
 #!/bin/bash
+docker container stop -30 DOCKER_ID
+sleep 60
+ls -la
+chown -R travis:travis /home/travis
+ls -la
+
+sleep 20
+OUTDIR=$BASE_OUTDIR/$TRAVIS_PULL_REQUEST/$TRAVIS_JOB_NUMBER-$HOST
+
+#############
 
 CONFIG_FILE=$TRAVIS_BUILD_DIR/src/config/liberty-config.h
 VERSION_MAJOR=`sed -n 's/#define CLIENT_VERSION_MAJOR \([0-9]*$\)/\1/p' $CONFIG_FILE`
