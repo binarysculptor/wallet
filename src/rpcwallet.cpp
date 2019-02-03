@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX Developers 
+// Copyright (c) 2015-2018 The PIVX Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,8 +22,8 @@
 #include <stdint.h>
 
 #include "libzerocoin/Coin.h"
-#include "spork.h"
 #include "primitives/deterministicmint.h"
+#include "spork.h"
 #include <boost/assign/list_of.hpp>
 #include <boost/thread/thread.hpp>
 
@@ -361,19 +361,19 @@ UniValue sendtoaddress(const UniValue& params, bool fHelp)
             "\nSend an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"libertyaddress\"  (string, required) The XLIB address to send to.\n"
-            "2. \"amount\"      (numeric, required) The amount in XLIB to send. eg 0.1\n"
-            "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
-            "                             This is not part of the transaction, just kept in your wallet.\n"
-            "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
-            "                             to which you're sending the transaction. This is not part of the \n"
-            "                             transaction, just kept in your wallet.\n"
+                                        "\nArguments:\n"
+                                        "1. \"libertyaddress\"  (string, required) The XLIB address to send to.\n"
+                                        "2. \"amount\"      (numeric, required) The amount in XLIB to send. eg 0.1\n"
+                                        "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
+                                        "                             This is not part of the transaction, just kept in your wallet.\n"
+                                        "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
+                                        "                             to which you're sending the transaction. This is not part of the \n"
+                                        "                             transaction, just kept in your wallet.\n"
 
-            "\nResult:\n"
-            "\"transactionid\"  (string) The transaction id.\n"
+                                        "\nResult:\n"
+                                        "\"transactionid\"  (string) The transaction id.\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("sendtoaddress", "\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\" 0.1") +
             HelpExampleCli("sendtoaddress", "\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\" 0.1 \"donation\" \"seans outpost\"") +
             HelpExampleRpc("sendtoaddress", "\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\", 0.1, \"donation\", \"seans outpost\""));
@@ -409,19 +409,19 @@ UniValue sendtoaddressix(const UniValue& params, bool fHelp)
             "\nSend an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"libertyaddress\"  (string, required) The XLIB address to send to.\n"
-            "2. \"amount\"      (numeric, required) The amount in XLIB to send. eg 0.1\n"
-            "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
-            "                             This is not part of the transaction, just kept in your wallet.\n"
-            "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
-            "                             to which you're sending the transaction. This is not part of the \n"
-            "                             transaction, just kept in your wallet.\n"
+                                        "\nArguments:\n"
+                                        "1. \"libertyaddress\"  (string, required) The XLIB address to send to.\n"
+                                        "2. \"amount\"      (numeric, required) The amount in XLIB to send. eg 0.1\n"
+                                        "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
+                                        "                             This is not part of the transaction, just kept in your wallet.\n"
+                                        "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
+                                        "                             to which you're sending the transaction. This is not part of the \n"
+                                        "                             transaction, just kept in your wallet.\n"
 
-            "\nResult:\n"
-            "\"transactionid\"  (string) The transaction id.\n"
+                                        "\nResult:\n"
+                                        "\"transactionid\"  (string) The transaction id.\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("sendtoaddressix", "\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\" 0.1") +
             HelpExampleCli("sendtoaddressix", "\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\" 0.1 \"donation\" \"seans outpost\"") +
             HelpExampleRpc("sendtoaddressix", "\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\", 0.1, \"donation\", \"seans outpost\""));
@@ -503,15 +503,15 @@ UniValue signmessage(const UniValue& params, bool fHelp)
             "\nSign a message with the private key of an address" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"libertyaddress\"  (string, required) The XLIB address to use for the private key.\n"
-            "2. \"message\"         (string, required) The message to create a signature of.\n"
+                                        "\nArguments:\n"
+                                        "1. \"libertyaddress\"  (string, required) The XLIB address to use for the private key.\n"
+                                        "2. \"message\"         (string, required) The message to create a signature of.\n"
 
-            "\nResult:\n"
-            "\"signature\"          (string) The signature of the message encoded in base 64\n"
+                                        "\nResult:\n"
+                                        "\"signature\"          (string) The signature of the message encoded in base 64\n"
 
-            "\nExamples:\n"
-            "\nUnlock the wallet for 30 seconds\n" +
+                                        "\nExamples:\n"
+                                        "\nUnlock the wallet for 30 seconds\n" +
             HelpExampleCli("walletpassphrase", "\"mypassphrase\" 30") +
             "\nCreate the signature\n" +
             HelpExampleCli("signmessage", "\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\" \"my message\"") +
@@ -767,7 +767,7 @@ UniValue getbalance(const UniValue& params, bool fHelp)
     return ValueFromAmount(nBalance);
 }
 
-UniValue getunconfirmedbalance(const UniValue &params, bool fHelp)
+UniValue getunconfirmedbalance(const UniValue& params, bool fHelp)
 {
     if (fHelp || params.size() > 0)
         throw runtime_error(
@@ -801,53 +801,53 @@ UniValue movecmd(const UniValue& params, bool fHelp)
             "\nMove 0.01 XLIB from the default account to the account named tabby\n" +
             HelpExampleCli("move", "\"\" \"tabby\" 0.01") +
             "\nMove 0.01 XLIB from timotei to akiko with a comment and funds have 6 confirmations\n" +
-            HelpExampleCli("move", "\"timotei\" \"akiko\" 0.01 6 \"happy birthday!\"") + 
+            HelpExampleCli("move", "\"timotei\" \"akiko\" 0.01 6 \"happy birthday!\"") +
             "\nAs a json rpc call\n" +
             HelpExampleRpc("move", "\"timotei\", \"akiko\", 0.01, 1, \"happt birthday!\""));
 
-            LOCK2(cs_main, pwalletMain->cs_wallet);
+    LOCK2(cs_main, pwalletMain->cs_wallet);
 
-            std::string strFrom = AccountFromValue(params[0]);
-            std::string strTo = AccountFromValue(params[1]);
-            CAmount nAmount = AmountFromValue(params[2]);
-            std::string strComment;
+    std::string strFrom = AccountFromValue(params[0]);
+    std::string strTo = AccountFromValue(params[1]);
+    CAmount nAmount = AmountFromValue(params[2]);
+    std::string strComment;
 
-            if(params.size() > 3 ){
-                (void)params[3].get_int();
-            }
-            if(params.size() > 4) {
-                strComment = params[4].get_str();
-            }
+    if (params.size() > 3) {
+        (void)params[3].get_int();
+    }
+    if (params.size() > 4) {
+        strComment = params[4].get_str();
+    }
 
-            CWalletDB walletdb(pwalletMain->strWalletFile);
-            if(!walletdb.TxnBegin())
-                throw JSONRPCError(RPC_DATABASE_ERROR, "database_error");
+    CWalletDB walletdb(pwalletMain->strWalletFile);
+    if (!walletdb.TxnBegin())
+        throw JSONRPCError(RPC_DATABASE_ERROR, "database_error");
 
-            int64_t nNow = GetAdjustedTime();
-            // Debit
-            CAccountingEntry debit;
-            debit.nOrderPos = pwalletMain->IncOrderPosNext(&walletdb);
-            debit.strAccount = strFrom;
-            debit.nCreditDebit = -nAmount;
-            debit.nTime = nNow;
-            debit.strOtherAccount = strTo;
-            debit.strComment = strComment;
-            pwalletMain->AddAccountingEntry(debit, walletdb);
+    int64_t nNow = GetAdjustedTime();
+    // Debit
+    CAccountingEntry debit;
+    debit.nOrderPos = pwalletMain->IncOrderPosNext(&walletdb);
+    debit.strAccount = strFrom;
+    debit.nCreditDebit = -nAmount;
+    debit.nTime = nNow;
+    debit.strOtherAccount = strTo;
+    debit.strComment = strComment;
+    pwalletMain->AddAccountingEntry(debit, walletdb);
 
-            // Credit
-            CAccountingEntry credit;
-            credit.nOrderPos = pwalletMain->IncOrderPosNext(&walletdb);
-            credit.strAccount = strTo;
-            credit.nCreditDebit = nAmount;
-            credit.nTime = nNow;
-            credit.strOtherAccount = strFrom;
-            credit.strComment = strComment;
-            pwalletMain->AddAccountingEntry(credit, walletdb);
+    // Credit
+    CAccountingEntry credit;
+    credit.nOrderPos = pwalletMain->IncOrderPosNext(&walletdb);
+    credit.strAccount = strTo;
+    credit.nCreditDebit = nAmount;
+    credit.nTime = nNow;
+    credit.strOtherAccount = strFrom;
+    credit.strComment = strComment;
+    pwalletMain->AddAccountingEntry(credit, walletdb);
 
-            if (!walletdb.TxnCommit())
-                throw JSONRPCError(RPC_DATABASE_ERROR, "database error");
+    if (!walletdb.TxnCommit())
+        throw JSONRPCError(RPC_DATABASE_ERROR, "database error");
 
-            return true;
+    return true;
 }
 
 
@@ -860,22 +860,22 @@ UniValue sendfrom(const UniValue& params, bool fHelp)
             "The amount is a real and is rounded to the nearest 0.00000001." +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
-            "2. \"tolibertyaddress\"  (string, required) The XLIB address to send funds to.\n"
-            "3. amount                (numeric, required) The amount in XLIB. (transaction fee is added on top).\n"
-            "4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
-            "5. \"comment\"           (string, optional) A comment used to store what the transaction is for. \n"
-            "                                     This is not part of the transaction, just kept in your wallet.\n"
-            "6. \"comment-to\"        (string, optional) An optional comment to store the name of the person or organization \n"
-            "                                     to which you're sending the transaction. This is not part of the transaction, \n"
-            "                                     it is just kept in your wallet.\n"
+                                        "\nArguments:\n"
+                                        "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
+                                        "2. \"tolibertyaddress\"  (string, required) The XLIB address to send funds to.\n"
+                                        "3. amount                (numeric, required) The amount in XLIB. (transaction fee is added on top).\n"
+                                        "4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
+                                        "5. \"comment\"           (string, optional) A comment used to store what the transaction is for. \n"
+                                        "                                     This is not part of the transaction, just kept in your wallet.\n"
+                                        "6. \"comment-to\"        (string, optional) An optional comment to store the name of the person or organization \n"
+                                        "                                     to which you're sending the transaction. This is not part of the transaction, \n"
+                                        "                                     it is just kept in your wallet.\n"
 
-            "\nResult:\n"
-            "\"transactionid\"        (string) The transaction id.\n"
+                                        "\nResult:\n"
+                                        "\"transactionid\"        (string) The transaction id.\n"
 
-            "\nExamples:\n"
-            "\nSend 0.01 XLIB from the default account to the address, must have at least 1 confirmation\n" +
+                                        "\nExamples:\n"
+                                        "\nSend 0.01 XLIB from the default account to the address, must have at least 1 confirmation\n" +
             HelpExampleCli("sendfrom", "\"\" \"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\" 0.01") +
             "\nSend 0.01 from the tabby account to the given address, funds must have at least 6 confirmations\n" +
             HelpExampleCli("sendfrom", "\"tabby\" \"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\" 0.01 6 \"donation\" \"seans outpost\"") +
@@ -921,22 +921,22 @@ UniValue sendmany(const UniValue& params, bool fHelp)
             "\nSend multiple times. Amounts are double-precision floating point numbers." +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"fromaccount\"         (string, required) The account to send the funds from, can be \"\" for the default account\n"
-            "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
-            "    {\n"
-            "      \"address\":amount   (numeric) The XLIB address is the key, the numeric amount in XLIB is the value\n"
-            "      ,...\n"
-            "    }\n"
-            "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
-            "4. \"comment\"             (string, optional) A comment\n"
+                                        "\nArguments:\n"
+                                        "1. \"fromaccount\"         (string, required) The account to send the funds from, can be \"\" for the default account\n"
+                                        "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
+                                        "    {\n"
+                                        "      \"address\":amount   (numeric) The XLIB address is the key, the numeric amount in XLIB is the value\n"
+                                        "      ,...\n"
+                                        "    }\n"
+                                        "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
+                                        "4. \"comment\"             (string, optional) A comment\n"
 
-            "\nResult:\n"
-            "\"transactionid\"          (string) The transaction id for the send. Only 1 transaction is created regardless of \n"
-            "                                    the number of addresses.\n"
+                                        "\nResult:\n"
+                                        "\"transactionid\"          (string) The transaction id for the send. Only 1 transaction is created regardless of \n"
+                                        "                                    the number of addresses.\n"
 
-            "\nExamples:\n"
-            "\nSend two amounts to two different addresses:\n" +
+                                        "\nExamples:\n"
+                                        "\nSend two amounts to two different addresses:\n" +
             HelpExampleCli("sendmany", "\"tabby\" \"{\\\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\\\":0.01,\\\"DAD3Y6ivr8nPQLT1NEPX84DxGCw9jz9Jvg\\\":0.02}\"") +
             "\nSend two amounts to two different addresses setting the confirmation and comment:\n" +
             HelpExampleCli("sendmany", "\"tabby\" \"{\\\"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\\\":0.01,\\\"DAD3Y6ivr8nPQLT1NEPX84DxGCw9jz9Jvg\\\":0.02}\" 6 \"testing\"") +
@@ -961,13 +961,13 @@ UniValue sendmany(const UniValue& params, bool fHelp)
 
     CAmount totalAmount = 0;
     vector<string> keys = sendTo.getKeys();
-    BOOST_FOREACH(const string& name_, keys) {
+    BOOST_FOREACH (const string& name_, keys) {
         CBitcoinAddress address(name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid XLIB address: ")+name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid XLIB address: ") + name_);
 
         if (setAddress.count(address))
-            throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+name_);
+            throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ") + name_);
         setAddress.insert(address);
 
         CScript scriptPubKey = GetScriptForDestination(address.Get());
@@ -1238,7 +1238,7 @@ UniValue listreceivedbyaccount(const UniValue& params, bool fHelp)
     return ListReceived(params, true);
 }
 
-static void MaybePushAddress(UniValue & entry, const CTxDestination &dest)
+static void MaybePushAddress(UniValue& entry, const CTxDestination& dest)
 {
     CBitcoinAddress addr;
     if (addr.Set(dest))
@@ -1407,7 +1407,7 @@ UniValue listtransactions(const UniValue& params, bool fHelp)
 
     UniValue ret(UniValue::VARR);
 
-    const CWallet::TxItems & txOrdered = pwalletMain->wtxOrdered;
+    const CWallet::TxItems& txOrdered = pwalletMain->wtxOrdered;
 
     // iterate backwards until we have nCount items to return:
     for (CWallet::TxItems::const_reverse_iterator it = txOrdered.rbegin(); it != txOrdered.rend(); ++it) {
@@ -1432,7 +1432,7 @@ UniValue listtransactions(const UniValue& params, bool fHelp)
     vector<UniValue>::iterator first = arrTmp.begin();
     std::advance(first, nFrom);
     vector<UniValue>::iterator last = arrTmp.begin();
-    std::advance(last, nFrom+nCount);
+    std::advance(last, nFrom + nCount);
 
     if (last != arrTmp.end()) arrTmp.erase(last, arrTmp.end());
     if (first != arrTmp.begin()) arrTmp.erase(arrTmp.begin(), first);
@@ -1511,7 +1511,7 @@ UniValue listaccounts(const UniValue& params, bool fHelp)
         }
     }
 
-    const list<CAccountingEntry> & acentries = pwalletMain->laccentries;
+    const list<CAccountingEntry>& acentries = pwalletMain->laccentries;
     BOOST_FOREACH (const CAccountingEntry& entry, acentries)
         mapAccountBalances[entry.strAccount] += entry.nCreditDebit;
 
@@ -1718,10 +1718,10 @@ UniValue keypoolrefill(const UniValue& params, bool fHelp)
             "\nFills the keypool." +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments\n"
-            "1. newsize     (numeric, optional, default=100) The new keypool size\n"
+                                        "\nArguments\n"
+                                        "1. newsize     (numeric, optional, default=100) The new keypool size\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("keypoolrefill", "") + HelpExampleRpc("keypoolrefill", ""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -1818,8 +1818,8 @@ UniValue walletpassphrase(const UniValue& params, bool fHelp)
     pwalletMain->TopUpKeyPool();
 
     if (nSleepTime > 0) {
-        nWalletUnlockTime = GetTime () + nSleepTime;
-        RPCRunLater ("lockwallet", boost::bind (LockWallet, pwalletMain), nSleepTime);
+        nWalletUnlockTime = GetTime() + nSleepTime;
+        RPCRunLater("lockwallet", boost::bind(LockWallet, pwalletMain), nSleepTime);
     }
 
     return NullUniValue;
@@ -2130,6 +2130,7 @@ UniValue getwalletinfo(const UniValue& params, bool fHelp)
             "  \"keypoolsize\": xxxx,        (numeric) how many new keys are pre-generated\n"
             "  \"unlocked_until\": ttt,      (numeric) the timestamp in seconds since epoch (midnight Jan 1 1970 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked\n"
             "  \"paytxfee\": x.xxxx,         (numeric) the transaction fee configuration, set in XLIB/kB\n"
+            "  \"automintaddresses\": status (boolean) the status of automint addresses (true if enabled, false if disabled)\n"
             "}\n"
 
             "\nExamples:\n" +
@@ -2145,7 +2146,8 @@ UniValue getwalletinfo(const UniValue& params, bool fHelp)
     obj.push_back(Pair("keypoolsize", (int)pwalletMain->GetKeyPoolSize()));
     if (pwalletMain->IsCrypted())
         obj.push_back(Pair("unlocked_until", nWalletUnlockTime));
-    obj.push_back(Pair("paytxfee",      ValueFromAmount(payTxFee.GetFeePerK())));
+    obj.push_back(Pair("paytxfee", ValueFromAmount(payTxFee.GetFeePerK())));
+    obj.push_back(Pair("automintaddresses", fEnableAutoConvert));
     return obj;
 }
 
@@ -2203,16 +2205,16 @@ UniValue setstakesplitthreshold(const UniValue& params, bool fHelp)
             "\nThis will set the output size of your stakes to never be below this number\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. value   (numeric, required) Threshold value between 1 and 999999\n"
+                                        "\nArguments:\n"
+                                        "1. value   (numeric, required) Threshold value between 1 and 999999\n"
 
-            "\nResult:\n"
-            "{\n"
-            "  \"threshold\": n,    (numeric) Threshold value set\n"
-            "  \"saved\": true|false    (boolean) 'true' if successfully saved to the wallet file\n"
-            "}\n"
+                                        "\nResult:\n"
+                                        "{\n"
+                                        "  \"threshold\": n,    (numeric) Threshold value set\n"
+                                        "  \"saved\": true|false    (boolean) 'true' if successfully saved to the wallet file\n"
+                                        "}\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("setstakesplitthreshold", "5000") + HelpExampleRpc("setstakesplitthreshold", "5000"));
 
     EnsureWalletIsUnlocked();
@@ -2499,7 +2501,7 @@ UniValue multisend(const UniValue& params, bool fHelp)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected valid percentage");
     if (pwalletMain->IsLocked())
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Error: Please enter the wallet passphrase with walletpassphrase first.");
-    unsigned int nPercent = (unsigned int) std::stoul(params[1].get_str().c_str());
+    unsigned int nPercent = (unsigned int)std::stoul(params[1].get_str().c_str());
 
     LOCK(pwalletMain->cs_wallet);
     {
@@ -2535,64 +2537,61 @@ UniValue multisend(const UniValue& params, bool fHelp)
 
 UniValue getzerocoinbalance(const UniValue& params, bool fHelp)
 {
-
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getzerocoinbalance\n"
             "\nReturn the wallet's total XLIBz balance.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nResult:\n"
-            "amount         (numeric) Total XLIBz balance.\n"
+                                        "\nResult:\n"
+                                        "amount         (numeric) Total XLIBz balance.\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("getzerocoinbalance", "") + HelpExampleRpc("getzerocoinbalance", ""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
     EnsureWalletIsUnlocked(true);
 
-        UniValue ret(UniValue::VOBJ);
-        ret.push_back(Pair("Total", ValueFromAmount(pwalletMain->GetZerocoinBalance(false))));
-        ret.push_back(Pair("Mature", ValueFromAmount(pwalletMain->GetZerocoinBalance(true))));
-        ret.push_back(Pair("Unconfirmed", ValueFromAmount(pwalletMain->GetUnconfirmedZerocoinBalance())));
-        ret.push_back(Pair("Immature", ValueFromAmount(pwalletMain->GetImmatureZerocoinBalance())));
-        return ret;
-
+    UniValue ret(UniValue::VOBJ);
+    ret.push_back(Pair("Total", ValueFromAmount(pwalletMain->GetZerocoinBalance(false))));
+    ret.push_back(Pair("Mature", ValueFromAmount(pwalletMain->GetZerocoinBalance(true))));
+    ret.push_back(Pair("Unconfirmed", ValueFromAmount(pwalletMain->GetUnconfirmedZerocoinBalance())));
+    ret.push_back(Pair("Immature", ValueFromAmount(pwalletMain->GetImmatureZerocoinBalance())));
+    return ret;
 }
 
 UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
 {
-
     if (fHelp || params.size() > 2)
         throw runtime_error(
             "listmintedzerocoins (fVerbose) (fMatureOnly)\n"
             "\nList all XLIBz mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. fVerbose      (boolean, optional, default=false) Output mints metadata.\n"
-            "2. fMatureOnly      (boolean, optional, default=false) List only mature mints. (Set only if fVerbose is specified)\n"
+                                        "\nArguments:\n"
+                                        "1. fVerbose      (boolean, optional, default=false) Output mints metadata.\n"
+                                        "2. fMatureOnly      (boolean, optional, default=false) List only mature mints. (Set only if fVerbose is specified)\n"
 
-            "\nResult (with fVerbose=false):\n"
-            "[\n"
-            "  \"xxx\"      (string) Pubcoin in hex format.\n"
-            "  ,...\n"
-            "]\n"
+                                        "\nResult (with fVerbose=false):\n"
+                                        "[\n"
+                                        "  \"xxx\"      (string) Pubcoin in hex format.\n"
+                                        "  ,...\n"
+                                        "]\n"
 
-            "\nResult (with fVerbose=true):\n"
-            "[\n"
-            "  {\n"
-            "    \"serial hash\": \"xxx\",   (string) Mint serial hash in hex format.\n"
-            "    \"version\": n,   (numeric) Zerocoin version number.\n"
-            "    \"XLIBz ID\": \"xxx\",   (string) Pubcoin in hex format.\n"
-            "    \"denomination\": n,   (numeric) Coin denomination.\n"
-            "    \"confirmations\": n   (numeric) Number of confirmations.\n"
-            "  }\n"
-            "  ,..."
-            "]\n"
+                                        "\nResult (with fVerbose=true):\n"
+                                        "[\n"
+                                        "  {\n"
+                                        "    \"serial hash\": \"xxx\",   (string) Mint serial hash in hex format.\n"
+                                        "    \"version\": n,   (numeric) Zerocoin version number.\n"
+                                        "    \"XLIBz ID\": \"xxx\",   (string) Pubcoin in hex format.\n"
+                                        "    \"denomination\": n,   (numeric) Coin denomination.\n"
+                                        "    \"confirmations\": n   (numeric) Number of confirmations.\n"
+                                        "  }\n"
+                                        "  ,..."
+                                        "]\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("listmintedzerocoins", "") + HelpExampleRpc("listmintedzerocoins", "") +
             HelpExampleCli("listmintedzerocoins", "true") + HelpExampleRpc("listmintedzerocoins", "true") +
             HelpExampleCli("listmintedzerocoins", "true true") + HelpExampleRpc("listmintedzerocoins", "true, true"));
@@ -2614,13 +2613,13 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
         for (const CMintMeta& m : setMints) {
             // Construct mint object
             UniValue objMint(UniValue::VOBJ);
-            objMint.push_back(Pair("serial hash", m.hashSerial.GetHex()));  // Serial hash
-            objMint.push_back(Pair("version", m.nVersion));                 // Zerocoin version
-            objMint.push_back(Pair("XLIBz ID", m.hashPubcoin.GetHex()));     // PubCoin
+            objMint.push_back(Pair("serial hash", m.hashSerial.GetHex())); // Serial hash
+            objMint.push_back(Pair("version", m.nVersion));                // Zerocoin version
+            objMint.push_back(Pair("XLIBz ID", m.hashPubcoin.GetHex()));   // PubCoin
             int denom = libzerocoin::ZerocoinDenominationToInt(m.denom);
-            objMint.push_back(Pair("denomination", denom));                 // Denomination
+            objMint.push_back(Pair("denomination", denom)); // Denomination
             int nConfirmations = (m.nHeight && nBestHeight > m.nHeight) ? nBestHeight - m.nHeight : 0;
-            objMint.push_back(Pair("confirmations", nConfirmations));       // Confirmations
+            objMint.push_back(Pair("confirmations", nConfirmations)); // Confirmations
             // Push back mint object
             jsonList.push_back(objMint);
         }
@@ -2634,23 +2633,22 @@ UniValue listmintedzerocoins(const UniValue& params, bool fHelp)
 
 UniValue listzerocoinamounts(const UniValue& params, bool fHelp)
 {
-
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "listzerocoinamounts\n"
             "\nGet information about your zerocoin amounts.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"denomination\": n,   (numeric) Denomination Value.\n"
-            "    \"mints\": n           (numeric) Number of mints.\n"
-            "  }\n"
-            "  ,..."
-            "]\n"
+                                        "\nResult:\n"
+                                        "[\n"
+                                        "  {\n"
+                                        "    \"denomination\": n,   (numeric) Denomination Value.\n"
+                                        "    \"mints\": n           (numeric) Number of mints.\n"
+                                        "  }\n"
+                                        "  ,..."
+                                        "]\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("listzerocoinamounts", "") + HelpExampleRpc("listzerocoinamounts", ""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -2663,7 +2661,8 @@ UniValue listzerocoinamounts(const UniValue& params, bool fHelp)
     std::map<libzerocoin::CoinDenomination, CAmount> spread;
     for (const auto& denom : libzerocoin::zerocoinDenomList)
         spread.insert(std::pair<libzerocoin::CoinDenomination, CAmount>(denom, 0));
-    for (auto& meta : setMints) spread.at(meta.denom)++;
+    for (auto& meta : setMints)
+        spread.at(meta.denom)++;
 
 
     UniValue ret(UniValue::VARR);
@@ -2678,20 +2677,19 @@ UniValue listzerocoinamounts(const UniValue& params, bool fHelp)
 
 UniValue listspentzerocoins(const UniValue& params, bool fHelp)
 {
-
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "listspentzerocoins\n"
             "\nList all the spent XLIBz mints in the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nResult:\n"
-            "[\n"
-            "  \"xxx\"      (string) Pubcoin in hex format.\n"
-            "  ,...\n"
-            "]\n"
+                                        "\nResult:\n"
+                                        "[\n"
+                                        "  \"xxx\"      (string) Pubcoin in hex format.\n"
+                                        "  ,...\n"
+                                        "]\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("listspentzerocoins", "") + HelpExampleRpc("listspentzerocoins", ""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -2717,33 +2715,33 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
             "\nMint the specified XLIBz amount\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. amount      (numeric, required) Enter an amount of XLIB to convert to XLIBz\n"
-            "2. utxos       (string, optional) A json array of objects.\n"
-            "                   Each object needs the txid (string) and vout (numeric)\n"
-            "  [\n"
-            "    {\n"
-            "      \"txid\":\"txid\",    (string) The transaction id\n"
-            "      \"vout\": n         (numeric) The output number\n"
-            "    }\n"
-            "    ,...\n"
-            "  ]\n"
+                                        "\nArguments:\n"
+                                        "1. amount      (numeric, required) Enter an amount of XLIB to convert to XLIBz\n"
+                                        "2. utxos       (string, optional) A json array of objects.\n"
+                                        "                   Each object needs the txid (string) and vout (numeric)\n"
+                                        "  [\n"
+                                        "    {\n"
+                                        "      \"txid\":\"txid\",    (string) The transaction id\n"
+                                        "      \"vout\": n         (numeric) The output number\n"
+                                        "    }\n"
+                                        "    ,...\n"
+                                        "  ]\n"
 
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"txid\": \"xxx\",         (string) Transaction ID.\n"
-            "    \"value\": amount,       (numeric) Minted amount.\n"
-            "    \"pubcoin\": \"xxx\",      (string) Pubcoin in hex format.\n"
-            "    \"randomness\": \"xxx\",   (string) Hex encoded randomness.\n"
-            "    \"serial\": \"xxx\",       (string) Serial in hex format.\n"
-            "    \"time\": nnn            (numeric) Time to mint this transaction.\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
+                                        "\nResult:\n"
+                                        "[\n"
+                                        "  {\n"
+                                        "    \"txid\": \"xxx\",         (string) Transaction ID.\n"
+                                        "    \"value\": amount,       (numeric) Minted amount.\n"
+                                        "    \"pubcoin\": \"xxx\",      (string) Pubcoin in hex format.\n"
+                                        "    \"randomness\": \"xxx\",   (string) Hex encoded randomness.\n"
+                                        "    \"serial\": \"xxx\",       (string) Serial in hex format.\n"
+                                        "    \"time\": nnn            (numeric) Time to mint this transaction.\n"
+                                        "  }\n"
+                                        "  ,...\n"
+                                        "]\n"
 
-            "\nExamples:\n"
-            "\nMint 50 from anywhere\n" +
+                                        "\nExamples:\n"
+                                        "\nMint 50 from anywhere\n" +
             HelpExampleCli("mintzerocoin", "50") +
             "\nMint 13 from a specific output\n" +
             HelpExampleCli("mintzerocoin", "13 \"[{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\"") +
@@ -2752,16 +2750,14 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
-    if (params.size() == 1)
-    {
+    if (params.size() == 1) {
         RPCTypeCheck(params, boost::assign::list_of(UniValue::VNUM));
-    } else
-    {
+    } else {
         RPCTypeCheck(params, boost::assign::list_of(UniValue::VNUM)(UniValue::VARR));
     }
 
     int64_t nTime = GetTimeMillis();
-    if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
+    if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
         throw JSONRPCError(RPC_WALLET_ERROR, "XLIBz is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked(true);
@@ -2773,8 +2769,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
     string strError;
     vector<COutPoint> vOutpts;
 
-    if (params.size() == 2)
-    {
+    if (params.size() == 2) {
         UniValue outputs = params[1].get_array();
         for (unsigned int idx = 0; idx < outputs.size(); idx++) {
             const UniValue& output = outputs[idx];
@@ -2796,8 +2791,7 @@ UniValue mintzerocoin(const UniValue& params, bool fHelp)
             vOutpts.push_back(outpt);
         }
         strError = pwalletMain->MintZerocoinFromOutPoint(nAmount, wtx, vDMints, vOutpts);
-    } else
-    {
+    } else {
         strError = pwalletMain->MintZerocoin(nAmount, wtx, vDMints);
     }
 
@@ -2828,56 +2822,56 @@ UniValue spendzerocoin(const UniValue& params, bool fHelp)
             "\nSpend XLIBz to a XLIB address.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. amount          (numeric, required) Amount to spend.\n"
-            "2. mintchange      (boolean, required) Re-mint any leftover change.\n"
-            "3. minimizechange  (boolean, required) Try to minimize the returning change  [false]\n"
-            "4. securitylevel   (numeric, required) Amount of checkpoints to add to the accumulator.\n"
-            "                       A checkpoint contains 10 blocks worth of zerocoinmints.\n"
-            "                       The more checkpoints that are added, the more untraceable the transaction.\n"
-            "                       Use [100] to add the maximum amount of checkpoints available.\n"
-            "                       Adding more checkpoints makes the minting process take longer\n"
-            "5. \"address\"     (string, optional, default=change) Send to specified address or to a new change address.\n"
-            "                       If there is change then an address is required\n"
+                                        "\nArguments:\n"
+                                        "1. amount          (numeric, required) Amount to spend.\n"
+                                        "2. mintchange      (boolean, required) Re-mint any leftover change.\n"
+                                        "3. minimizechange  (boolean, required) Try to minimize the returning change  [false]\n"
+                                        "4. securitylevel   (numeric, required) Amount of checkpoints to add to the accumulator.\n"
+                                        "                       A checkpoint contains 10 blocks worth of zerocoinmints.\n"
+                                        "                       The more checkpoints that are added, the more untraceable the transaction.\n"
+                                        "                       Use [100] to add the maximum amount of checkpoints available.\n"
+                                        "                       Adding more checkpoints makes the minting process take longer\n"
+                                        "5. \"address\"     (string, optional, default=change) Send to specified address or to a new change address.\n"
+                                        "                       If there is change then an address is required\n"
 
-            "\nResult:\n"
-            "{\n"
-            "  \"txid\": \"xxx\",             (string) Transaction hash.\n"
-            "  \"bytes\": nnn,              (numeric) Transaction size.\n"
-            "  \"fee\": amount,             (numeric) Transaction fee (if any).\n"
-            "  \"spends\": [                (array) JSON array of input objects.\n"
-            "    {\n"
-            "      \"denomination\": nnn,   (numeric) Denomination value.\n"
-            "      \"pubcoin\": \"xxx\",      (string) Pubcoin in hex format.\n"
-            "      \"serial\": \"xxx\",       (string) Serial number in hex format.\n"
-            "      \"acc_checksum\": \"xxx\", (string) Accumulator checksum in hex format.\n"
-            "    }\n"
-            "    ,...\n"
-            "  ],\n"
-            "  \"outputs\": [                 (array) JSON array of output objects.\n"
-            "    {\n"
-            "      \"value\": amount,         (numeric) Value in XLIB.\n"
-            "      \"address\": \"xxx\"         (string) XLIB address or \"zerocoinmint\" for reminted change.\n"
-            "    }\n"
-            "    ,...\n"
-            "  ]\n"
-            "}\n"
+                                        "\nResult:\n"
+                                        "{\n"
+                                        "  \"txid\": \"xxx\",             (string) Transaction hash.\n"
+                                        "  \"bytes\": nnn,              (numeric) Transaction size.\n"
+                                        "  \"fee\": amount,             (numeric) Transaction fee (if any).\n"
+                                        "  \"spends\": [                (array) JSON array of input objects.\n"
+                                        "    {\n"
+                                        "      \"denomination\": nnn,   (numeric) Denomination value.\n"
+                                        "      \"pubcoin\": \"xxx\",      (string) Pubcoin in hex format.\n"
+                                        "      \"serial\": \"xxx\",       (string) Serial number in hex format.\n"
+                                        "      \"acc_checksum\": \"xxx\", (string) Accumulator checksum in hex format.\n"
+                                        "    }\n"
+                                        "    ,...\n"
+                                        "  ],\n"
+                                        "  \"outputs\": [                 (array) JSON array of output objects.\n"
+                                        "    {\n"
+                                        "      \"value\": amount,         (numeric) Value in XLIB.\n"
+                                        "      \"address\": \"xxx\"         (string) XLIB address or \"zerocoinmint\" for reminted change.\n"
+                                        "    }\n"
+                                        "    ,...\n"
+                                        "  ]\n"
+                                        "}\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("spendzerocoin", "5000 false true 100 \"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\"") +
             HelpExampleRpc("spendzerocoin", "5000 false true 100 \"XRe9RPmHuBtiBA9iTUBWHRYtWPLR6zMxme\""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
-    if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
+    if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
         throw JSONRPCError(RPC_WALLET_ERROR, "XLIBz is currently disabled due to maintenance.");
 
     EnsureWalletIsUnlocked();
 
-    CAmount nAmount = AmountFromValue(params[0]);   // Spending amount
-    bool fMintChange = params[1].get_bool();        // Mint change to XLIBz
-    bool fMinimizeChange = params[2].get_bool();    // Minimize change
-    int nSecurityLevel = params[3].get_int();       // Security level
+    CAmount nAmount = AmountFromValue(params[0]); // Spending amount
+    bool fMintChange = params[1].get_bool();      // Mint change to XLIBz
+    bool fMinimizeChange = params[2].get_bool();  // Minimize change
+    int nSecurityLevel = params[3].get_int();     // Security level
     std::string address_str = params.size() > 4 ? params[4].get_str() : "";
 
     vector<CZerocoinMint> vMintsSelected;
@@ -2893,40 +2887,40 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
             "\nSpend XLIBz mints to a XLIB address.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. mints_list     (string, required) A json array of zerocoin mints serial hashes\n"
-            "2. \"address\"     (string, optional, default=change) Send to specified address or to a new change address.\n"
+                                        "\nArguments:\n"
+                                        "1. mints_list     (string, required) A json array of zerocoin mints serial hashes\n"
+                                        "2. \"address\"     (string, optional, default=change) Send to specified address or to a new change address.\n"
 
-            "\nResult:\n"
-            "{\n"
-            "  \"txid\": \"xxx\",             (string) Transaction hash.\n"
-            "  \"bytes\": nnn,              (numeric) Transaction size.\n"
-            "  \"fee\": amount,             (numeric) Transaction fee (if any).\n"
-            "  \"spends\": [                (array) JSON array of input objects.\n"
-            "    {\n"
-            "      \"denomination\": nnn,   (numeric) Denomination value.\n"
-            "      \"pubcoin\": \"xxx\",      (string) Pubcoin in hex format.\n"
-            "      \"serial\": \"xxx\",       (string) Serial number in hex format.\n"
-            "      \"acc_checksum\": \"xxx\", (string) Accumulator checksum in hex format.\n"
-            "    }\n"
-            "    ,...\n"
-            "  ],\n"
-            "  \"outputs\": [                 (array) JSON array of output objects.\n"
-            "    {\n"
-            "      \"value\": amount,         (numeric) Value in XLIB.\n"
-            "      \"address\": \"xxx\"         (string) XLIB address or \"zerocoinmint\" for reminted change.\n"
-            "    }\n"
-            "    ,...\n"
-            "  ]\n"
-            "}\n"
+                                        "\nResult:\n"
+                                        "{\n"
+                                        "  \"txid\": \"xxx\",             (string) Transaction hash.\n"
+                                        "  \"bytes\": nnn,              (numeric) Transaction size.\n"
+                                        "  \"fee\": amount,             (numeric) Transaction fee (if any).\n"
+                                        "  \"spends\": [                (array) JSON array of input objects.\n"
+                                        "    {\n"
+                                        "      \"denomination\": nnn,   (numeric) Denomination value.\n"
+                                        "      \"pubcoin\": \"xxx\",      (string) Pubcoin in hex format.\n"
+                                        "      \"serial\": \"xxx\",       (string) Serial number in hex format.\n"
+                                        "      \"acc_checksum\": \"xxx\", (string) Accumulator checksum in hex format.\n"
+                                        "    }\n"
+                                        "    ,...\n"
+                                        "  ],\n"
+                                        "  \"outputs\": [                 (array) JSON array of output objects.\n"
+                                        "    {\n"
+                                        "      \"value\": amount,         (numeric) Value in XLIB.\n"
+                                        "      \"address\": \"xxx\"         (string) XLIB address or \"zerocoinmint\" for reminted change.\n"
+                                        "    }\n"
+                                        "    ,...\n"
+                                        "  ]\n"
+                                        "}\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("spendzerocoinmints", "'[\"0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f\", \"dfe585659e265e6a509d93effb906d3d2a0ac2fe3464b2c3b6d71a3ef34c8ad7\"]' \"DMJRSsuU9zfyrvxVaAEFQqK4MxZg6vgeS6\"") +
             HelpExampleRpc("spendzerocoinmints", "[\"0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f\", \"dfe585659e265e6a509d93effb906d3d2a0ac2fe3464b2c3b6d71a3ef34c8ad7\"], \"DMJRSsuU9zfyrvxVaAEFQqK4MxZg6vgeS6\""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
 
-    if(GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
+    if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
         throw JSONRPCError(RPC_WALLET_ERROR, "XLIBz is currently disabled due to maintenance.");
 
     std::string address_str = "";
@@ -2944,12 +2938,11 @@ UniValue spendzerocoinmints(const UniValue& params, bool fHelp)
     if (arrMints.size() > 7)
         throw JSONRPCError(RPC_WALLET_ERROR, "Too many mints included. Maximum zerocoins per spend: 7");
 
-    CAmount nAmount(0);   // Spending amount
+    CAmount nAmount(0); // Spending amount
 
     // fetch mints and update nAmount
     vector<CZerocoinMint> vMintsSelected;
-    for(unsigned int i=0; i < arrMints.size(); i++) {
-
+    for (unsigned int i = 0; i < arrMints.size(); i++) {
         CZerocoinMint mint;
         std::string serialHash = arrMints[i].get_str();
 
@@ -2976,13 +2969,13 @@ extern UniValue DoXLibzSpend(const CAmount nAmount, bool fMintChange, bool fMini
     CZerocoinSpendReceipt receipt;
     bool fSuccess;
 
-    if(address_str != "") { // Spend to supplied destination address
+    if (address_str != "") { // Spend to supplied destination address
         address = CBitcoinAddress(address_str);
-        if(!address.IsValid())
+        if (!address.IsValid())
             throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid XLIB address");
-      
+
         fSuccess = pwalletMain->SpendZerocoin(nAmount, nSecurityLevel, wtx, receipt, vMintsSelected, fMintChange, fMinimizeChange, &address);
-    } else                   // Spend to newly generated local address
+    } else // Spend to newly generated local address
         fSuccess = pwalletMain->SpendZerocoin(nAmount, nSecurityLevel, wtx, receipt, vMintsSelected, fMintChange, fMinimizeChange);
 
     if (!fSuccess)
@@ -3010,9 +3003,9 @@ extern UniValue DoXLibzSpend(const CAmount nAmount, bool fMintChange, bool fMini
         nValueOut += txout.nValue;
 
         CTxDestination dest;
-        if(txout.scriptPubKey.IsZerocoinMint())
+        if (txout.scriptPubKey.IsZerocoinMint())
             out.push_back(Pair("address", "zerocoinmint"));
-        else if(ExtractDestination(txout.scriptPubKey, dest))
+        else if (ExtractDestination(txout.scriptPubKey, dest))
             out.push_back(Pair("address", CBitcoinAddress(dest).ToString()));
         vout.push_back(out);
     }
@@ -3039,23 +3032,23 @@ UniValue resetmintzerocoin(const UniValue& params, bool fHelp)
             "Update any meta-data that is incorrect. Archive any mints that are not able to be found.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. fullscan          (boolean, optional) Rescan each block of the blockchain.\n"
-            "                               WARNING - may take 30+ minutes!\n"
+                                        "\nArguments:\n"
+                                        "1. fullscan          (boolean, optional) Rescan each block of the blockchain.\n"
+                                        "                               WARNING - may take 30+ minutes!\n"
 
-            "\nResult:\n"
-            "{\n"
-            "  \"updated\": [       (array) JSON array of updated mints.\n"
-            "    \"xxx\"            (string) Hex encoded mint.\n"
-            "    ,...\n"
-            "  ],\n"
-            "  \"archived\": [      (array) JSON array of archived mints.\n"
-            "    \"xxx\"            (string) Hex encoded mint.\n"
-            "    ,...\n"
-            "  ]\n"
-            "}\n"
+                                        "\nResult:\n"
+                                        "{\n"
+                                        "  \"updated\": [       (array) JSON array of updated mints.\n"
+                                        "    \"xxx\"            (string) Hex encoded mint.\n"
+                                        "    ,...\n"
+                                        "  ],\n"
+                                        "  \"archived\": [      (array) JSON array of archived mints.\n"
+                                        "    \"xxx\"            (string) Hex encoded mint.\n"
+                                        "    ,...\n"
+                                        "  ]\n"
+                                        "}\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("resetmintzerocoin", "true") + HelpExampleRpc("resetmintzerocoin", "true"));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -3154,26 +3147,26 @@ UniValue resetspentzerocoin(const UniValue& params, bool fHelp)
 
 UniValue getarchivedzerocoin(const UniValue& params, bool fHelp)
 {
-    if(fHelp || params.size() != 0)
+    if (fHelp || params.size() != 0)
         throw runtime_error(
             "getarchivedzerocoin\n"
             "\nDisplay zerocoins that were archived because they were believed to be orphans.\n"
             "Provides enough information to recover mint if it was incorrectly archived.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"txid\": \"xxx\",           (string) Transaction ID for archived mint.\n"
-            "    \"denomination\": amount,  (numeric) Denomination value.\n"
-            "    \"serial\": \"xxx\",         (string) Serial number in hex format.\n"
-            "    \"randomness\": \"xxx\",     (string) Hex encoded randomness.\n"
-            "    \"pubcoin\": \"xxx\"         (string) Pubcoin in hex format.\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
+                                        "\nResult:\n"
+                                        "[\n"
+                                        "  {\n"
+                                        "    \"txid\": \"xxx\",           (string) Transaction ID for archived mint.\n"
+                                        "    \"denomination\": amount,  (numeric) Denomination value.\n"
+                                        "    \"serial\": \"xxx\",         (string) Serial number in hex format.\n"
+                                        "    \"randomness\": \"xxx\",     (string) Hex encoded randomness.\n"
+                                        "    \"pubcoin\": \"xxx\"         (string) Pubcoin in hex format.\n"
+                                        "  }\n"
+                                        "  ,...\n"
+                                        "]\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("getarchivedzerocoin", "") + HelpExampleRpc("getarchivedzerocoin", ""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -3211,33 +3204,33 @@ UniValue getarchivedzerocoin(const UniValue& params, bool fHelp)
 
 UniValue exportzerocoins(const UniValue& params, bool fHelp)
 {
-    if(fHelp || params.empty() || params.size() > 2)
+    if (fHelp || params.empty() || params.size() > 2)
         throw runtime_error(
             "exportzerocoins include_spent ( denomination )\n"
             "\nExports zerocoin mints that are held by this wallet.dat\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"include_spent\"        (bool, required) Include mints that have already been spent\n"
-            "2. \"denomination\"         (integer, optional) Export a specific denomination of XLIBz\n"
+                                        "\nArguments:\n"
+                                        "1. \"include_spent\"        (bool, required) Include mints that have already been spent\n"
+                                        "2. \"denomination\"         (integer, optional) Export a specific denomination of XLIBz\n"
 
-            "\nResult:\n"
-            "[                   (array of json object)\n"
-            "  {\n"
-            "    \"d\": n,         (numeric) the mint's zerocoin denomination \n"
-            "    \"p\": \"pubcoin\", (string) The public coin\n"
-            "    \"s\": \"serial\",  (string) The secret serial number\n"
-            "    \"r\": \"random\",  (string) The secret random number\n"
-            "    \"t\": \"txid\",    (string) The txid that the coin was minted in\n"
-            "    \"h\": n,         (numeric) The height the tx was added to the blockchain\n"
-            "    \"u\": used,      (boolean) Whether the mint has been spent\n"
-            "    \"v\": version,   (numeric) The version of the XLIBz\n"
-            "    \"k\": \"privkey\"  (string) The XLIBz private key (V2+ XLIBz only)\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
+                                        "\nResult:\n"
+                                        "[                   (array of json object)\n"
+                                        "  {\n"
+                                        "    \"d\": n,         (numeric) the mint's zerocoin denomination \n"
+                                        "    \"p\": \"pubcoin\", (string) The public coin\n"
+                                        "    \"s\": \"serial\",  (string) The secret serial number\n"
+                                        "    \"r\": \"random\",  (string) The secret random number\n"
+                                        "    \"t\": \"txid\",    (string) The txid that the coin was minted in\n"
+                                        "    \"h\": n,         (numeric) The height the tx was added to the blockchain\n"
+                                        "    \"u\": used,      (boolean) Whether the mint has been spent\n"
+                                        "    \"v\": version,   (numeric) The version of the XLIBz\n"
+                                        "    \"k\": \"privkey\"  (string) The XLIBz private key (V2+ XLIBz only)\n"
+                                        "  }\n"
+                                        "  ,...\n"
+                                        "]\n"
 
-            "\nExamples:\n" +
+                                        "\nExamples:\n" +
             HelpExampleCli("exportzerocoins", "false 5") + HelpExampleRpc("exportzerocoins", "false 5"));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -3287,7 +3280,7 @@ UniValue exportzerocoins(const UniValue& params, bool fHelp)
 
 UniValue importzerocoins(const UniValue& params, bool fHelp)
 {
-    if(fHelp || params.size() == 0)
+    if (fHelp || params.size() == 0)
         throw runtime_error(
             "importzerocoins importdata \n"
             "\n[{\"d\":denomination,\"p\":\"pubcoin_hex\",\"s\":\"serial_hex\",\"r\":\"randomness_hex\",\"t\":\"txid\",\"h\":height, \"u\":used},{\"d\":...}]\n"
@@ -3296,16 +3289,16 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
             "Note it is recommended to use the json export created from the exportzerocoins RPC call\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"importdata\"    (string, required) A json array of json objects containing zerocoin mints\n"
+                                        "\nArguments:\n"
+                                        "1. \"importdata\"    (string, required) A json array of json objects containing zerocoin mints\n"
 
-            "\nResult:\n"
-            "{\n"
-            "  \"added\": n,        (numeric) The quantity of zerocoin mints that were added\n"
-            "  \"value\": amount    (numeric) The total XLIBz value of zerocoin mints that were added\n"
-            "}\n"
+                                        "\nResult:\n"
+                                        "{\n"
+                                        "  \"added\": n,        (numeric) The quantity of zerocoin mints that were added\n"
+                                        "  \"value\": amount    (numeric) The total XLIBz value of zerocoin mints that were added\n"
+                                        "}\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("importzerocoins", "\'[{\"d\":100,\"p\":\"mypubcoin\",\"s\":\"myserial\",\"r\":\"randomness_hex\",\"t\":\"mytxid\",\"h\":104923, \"u\":false},{\"d\":5,...}]\'") +
             HelpExampleRpc("importzerocoins", "[{\"d\":100,\"p\":\"mypubcoin\",\"s\":\"myserial\",\"r\":\"randomness_hex\",\"t\":\"mytxid\",\"h\":104923, \"u\":false},{\"d\":5,...}]"));
 
@@ -3320,8 +3313,8 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
     int count = 0;
     CAmount nValue = 0;
     for (unsigned int idx = 0; idx < arrMints.size(); idx++) {
-        const UniValue &val = arrMints[idx];
-        const UniValue &o = val.get_obj();
+        const UniValue& val = arrMints[idx];
+        const UniValue& o = val.get_obj();
 
         const UniValue& vDenom = find_value(o, "d");
         if (!vDenom.isNum())
@@ -3379,24 +3372,24 @@ UniValue importzerocoins(const UniValue& params, bool fHelp)
 
 UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
 {
-    if(fHelp || !params.empty())
+    if (fHelp || !params.empty())
         throw runtime_error(
             "reconsiderzerocoins\n"
             "\nCheck archived XLIBz list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"txid\" : \"xxx\",           (string) the mint's zerocoin denomination \n"
-            "    \"denomination\" : amount,  (numeric) the mint's zerocoin denomination\n"
-            "    \"pubcoin\" : \"xxx\",        (string) The mint's public identifier\n"
-            "    \"height\" : n              (numeric) The height the tx was added to the blockchain\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
+                                        "\nResult:\n"
+                                        "[\n"
+                                        "  {\n"
+                                        "    \"txid\" : \"xxx\",           (string) the mint's zerocoin denomination \n"
+                                        "    \"denomination\" : amount,  (numeric) the mint's zerocoin denomination\n"
+                                        "    \"pubcoin\" : \"xxx\",        (string) The mint's public identifier\n"
+                                        "    \"height\" : n              (numeric) The height the tx was added to the blockchain\n"
+                                        "  }\n"
+                                        "  ,...\n"
+                                        "]\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("reconsiderzerocoins", "") + HelpExampleRpc("reconsiderzerocoins", ""));
 
     LOCK2(cs_main, pwalletMain->cs_wallet);
@@ -3430,19 +3423,19 @@ UniValue reconsiderzerocoins(const UniValue& params, bool fHelp)
 
 UniValue setxlibzseed(const UniValue& params, bool fHelp)
 {
-    if(fHelp || params.size() != 1)
+    if (fHelp || params.size() != 1)
         throw runtime_error(
             "setxlibzseed \"seed\"\n"
             "\nSet the wallet's deterministic xlibz seed to a specific value.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments:\n"
-            "1. \"seed\"        (string, required) The deterministic xlibz seed.\n"
+                                        "\nArguments:\n"
+                                        "1. \"seed\"        (string, required) The deterministic xlibz seed.\n"
 
-            "\nResult\n"
-            "\"success\" : b,  (boolean) Whether the seed was successfully set.\n"
+                                        "\nResult\n"
+                                        "\"success\" : b,  (boolean) Whether the seed was successfully set.\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("setxlibzseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5") +
             HelpExampleRpc("setxlibzseed", "63f793e7895dd30d99187b35fbfb314a5f91af0add9e0a4e5877036d1e392dd5"));
 
@@ -3464,16 +3457,16 @@ UniValue setxlibzseed(const UniValue& params, bool fHelp)
 
 UniValue getxlibzseed(const UniValue& params, bool fHelp)
 {
-    if(fHelp || !params.empty())
+    if (fHelp || !params.empty())
         throw runtime_error(
             "getxlibzseed\n"
             "\nCheck archived XLIBz list to see if any mints were added to the blockchain.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nResult\n"
-            "\"seed\" : s,  (string) The deterministic XLIBz seed.\n"
+                                        "\nResult\n"
+                                        "\"seed\" : s,  (string) The deterministic XLIBz seed.\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("getxlibzseed", "") + HelpExampleRpc("getxlibzseed", ""));
 
     EnsureWalletIsUnlocked();
@@ -3489,28 +3482,28 @@ UniValue getxlibzseed(const UniValue& params, bool fHelp)
 
 UniValue generatemintlist(const UniValue& params, bool fHelp)
 {
-    if(fHelp || params.size() != 2)
+    if (fHelp || params.size() != 2)
         throw runtime_error(
             "generatemintlist\n"
             "\nShow mints that are derived from the deterministic XLIBz seed.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments\n"
-            "1. \"count\"  : n,  (numeric) Which sequential XLIBz to start with.\n"
-            "2. \"range\"  : n,  (numeric) How many XLIBz to generate.\n"
+                                        "\nArguments\n"
+                                        "1. \"count\"  : n,  (numeric) Which sequential XLIBz to start with.\n"
+                                        "2. \"range\"  : n,  (numeric) How many XLIBz to generate.\n"
 
-            "\nResult:\n"
-            "[\n"
-            "  {\n"
-            "    \"count\": n,          (numeric) Deterministic Count.\n"
-            "    \"value\": \"xxx\",    (string) Hex encoded pubcoin value.\n"
-            "    \"randomness\": \"xxx\",   (string) Hex encoded randomness.\n"
-            "    \"serial\": \"xxx\"        (string) Hex encoded Serial.\n"
-            "  }\n"
-            "  ,...\n"
-            "]\n"
+                                        "\nResult:\n"
+                                        "[\n"
+                                        "  {\n"
+                                        "    \"count\": n,          (numeric) Deterministic Count.\n"
+                                        "    \"value\": \"xxx\",    (string) Hex encoded pubcoin value.\n"
+                                        "    \"randomness\": \"xxx\",   (string) Hex encoded randomness.\n"
+                                        "    \"serial\": \"xxx\"        (string) Hex encoded Serial.\n"
+                                        "  }\n"
+                                        "  ,...\n"
+                                        "]\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("generatemintlist", "1, 100") + HelpExampleRpc("generatemintlist", "1, 100"));
 
     EnsureWalletIsUnlocked();
@@ -3536,15 +3529,16 @@ UniValue generatemintlist(const UniValue& params, bool fHelp)
     return arrRet;
 }
 
-UniValue dxlibzstate(const UniValue& params, bool fHelp) {
+UniValue dxlibzstate(const UniValue& params, bool fHelp)
+{
     if (fHelp || params.size() != 0)
         throw runtime_error(
-                "dxlibzstate\n"
-                        "\nThe current state of the mintpool of the deterministic XLIBz wallet.\n" +
-                HelpRequiringPassphrase() + "\n"
+            "dxlibzstate\n"
+            "\nThe current state of the mintpool of the deterministic XLIBz wallet.\n" +
+            HelpRequiringPassphrase() + "\n"
 
-                        "\nExamples\n" +
-                HelpExampleCli("mintpoolstatus", "") + HelpExampleRpc("mintpoolstatus", ""));
+                                        "\nExamples\n" +
+            HelpExampleCli("mintpoolstatus", "") + HelpExampleRpc("mintpoolstatus", ""));
 
     CXlibzWallet* zwallet = pwalletMain->zwalletMain;
     UniValue obj(UniValue::VOBJ);
@@ -3564,7 +3558,7 @@ void static SearchThread(CXlibzWallet* zwallet, int nCountStart, int nCountEnd)
     try {
         uint256 seedMaster = zwallet->GetMasterSeed();
         uint256 hashSeed = Hash(seedMaster.begin(), seedMaster.end());
-        for(int i = nCountStart; i < nCountEnd; i++) {
+        for (int i = nCountStart; i < nCountEnd; i++) {
             boost::this_thread::interruption_point();
             CDataStream ss(SER_GETHASH, 0);
             ss << seedMaster << i;
@@ -3589,18 +3583,18 @@ void static SearchThread(CXlibzWallet* zwallet, int nCountStart, int nCountEnd)
 
 UniValue searchdxlibz(const UniValue& params, bool fHelp)
 {
-    if(fHelp || params.size() != 3)
+    if (fHelp || params.size() != 3)
         throw runtime_error(
             "searchdxlibz\n"
             "\nMake an extended search for deterministically generated XLIBz that have not yet been recognized by the wallet.\n" +
             HelpRequiringPassphrase() + "\n"
 
-            "\nArguments\n"
-            "1. \"count\"       (numeric) Which sequential XLIBz to start with.\n"
-            "2. \"range\"       (numeric) How many XLIBz to generate.\n"
-            "3. \"threads\"     (numeric) How many threads should this operation consume.\n"
+                                        "\nArguments\n"
+                                        "1. \"count\"       (numeric) Which sequential XLIBz to start with.\n"
+                                        "2. \"range\"       (numeric) How many XLIBz to generate.\n"
+                                        "3. \"threads\"     (numeric) How many threads should this operation consume.\n"
 
-            "\nExamples\n" +
+                                        "\nExamples\n" +
             HelpExampleCli("searchdxlibz", "1, 100, 2") + HelpExampleRpc("searchdxlibz", "1, 100, 2"));
 
     EnsureWalletIsUnlocked();
@@ -3622,7 +3616,8 @@ UniValue searchdxlibz(const UniValue& params, bool fHelp)
 
     int nPrevThreadEnd = nCount - 1;
     for (int i = 0; i < nThreads; i++) {
-        int nStart = nPrevThreadEnd + 1;;
+        int nStart = nPrevThreadEnd + 1;
+        ;
         int nEnd = nStart + nRangePerThread;
         nPrevThreadEnd = nEnd;
         dxlibzThreads->create_thread(boost::bind(&SearchThread, zwallet, nStart, nEnd));
@@ -3635,4 +3630,41 @@ UniValue searchdxlibz(const UniValue& params, bool fHelp)
 
     //todo: better response
     return "done";
+}
+
+UniValue enableautomintaddress(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw std::runtime_error(
+            "enableautomintaddress enable\n"
+            "\nEnables or disables automint address functionality\n"
+
+            "\nArguments\n"
+            "1. enable     (boolean, required) Enable or disable automint address functionality\n"
+
+            "\nExamples\n" +
+            HelpExampleCli("enableautomintaddress", "true") + HelpExampleRpc("enableautomintaddress", "false"));
+
+    fEnableAutoConvert = params[0].get_bool();
+
+    return NullUniValue;
+}
+
+UniValue createautomintaddress(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 0)
+        throw std::runtime_error(
+            "createautomintaddress\n"
+            "\nGenerates new auto mint address\n" +
+            HelpRequiringPassphrase() + "\n"
+
+                                        "\nResult\n"
+                                        "\"address\"     (string) XLIB address for auto minting\n" +
+            HelpExampleCli("createautomintaddress", "") +
+            HelpExampleRpc("createautomintaddress", ""));
+
+    EnsureWalletIsUnlocked();
+    LOCK(pwalletMain->cs_wallet);
+    CBitcoinAddress address = pwalletMain->GenerateNewAutoMintKey();
+    return address.ToString();
 }

@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX Developers 
+// Copyright (c) 2015-2018 The PIVX Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,8 +23,8 @@
 #include "validationinterface.h"
 #include "wallet_ismine.h"
 #include "walletdb.h"
-#include "xlibzwallet.h"
 #include "xlibztracker.h"
+#include "xlibzwallet.h"
 
 #include <algorithm>
 #include <map>
@@ -58,6 +58,8 @@ static const CAmount nHighTransactionMaxFeeWarning = 100 * nHighTransactionFeeWa
 static const unsigned int MAX_FREE_TRANSACTION_CREATE_SIZE = 1000;
 //! -custombackupthreshold default
 static const int DEFAULT_CUSTOMBACKUPTHRESHOLD = 1;
+//! -enableautoconvertaddress default
+static const bool DEFAULT_AUTOCONVERTADDRESS = true;
 
 // Zerocoin denomination which creates exactly one of each denominations:
 // 6666 = 1*5000 + 1*1000 + 1*500 + 1*100 + 1*50 + 1*10 + 1*5 + 1
@@ -85,29 +87,29 @@ enum AvailableCoinsType {
     ONLY_DENOMINATED = 2,
     ONLY_NOT10000IFMN = 3,
     ONLY_NONDENOMINATED_NOT10000IFMN = 4, // ONLY_NONDENOMINATED and not 10000 Liberty at the same time
-    ONLY_10000 = 5,                        // find masternode outputs including locked ones (use with caution)
-    STAKABLE_COINS = 6                          // UTXO's that are valid for staking
+    ONLY_10000 = 5,                       // find masternode outputs including locked ones (use with caution)
+    STAKABLE_COINS = 6                    // UTXO's that are valid for staking
 };
 
 // Possible states for XLIBz send
 enum ZerocoinSpendStatus {
-    ZXLIB_SPEND_OKAY = 0,                            // No error
-    ZXLIB_SPEND_ERROR = 1,                           // Unspecified class of errors, more details are (hopefully) in the returning text
-    ZXLIB_WALLET_LOCKED = 2,                         // Wallet was locked
-    ZXLIB_COMMIT_FAILED = 3,                         // Commit failed, reset status
-    ZXLIB_ERASE_SPENDS_FAILED = 4,                   // Erasing spends during reset failed
-    ZXLIB_ERASE_NEW_MINTS_FAILED = 5,                // Erasing new mints during reset failed
-    ZXLIB_TRX_FUNDS_PROBLEMS = 6,                    // Everything related to available funds
-    ZXLIB_TRX_CREATE = 7,                            // Everything related to create the transaction
-    ZXLIB_TRX_CHANGE = 8,                            // Everything related to transaction change
-    ZXLIB_TXMINT_GENERAL = 9,                        // General errors in MintToTxIn
-    ZXLIB_INVALID_COIN = 10,                         // Selected mint coin is not valid
-    ZXLIB_FAILED_ACCUMULATOR_INITIALIZATION = 11,    // Failed to initialize witness
-    ZXLIB_INVALID_WITNESS = 12,                      // Spend coin transaction did not verify
-    ZXLIB_BAD_SERIALIZATION = 13,                    // Transaction verification failed
-    ZXLIB_SPENT_USED_ZXLIB = 14,                      // Coin has already been spend
-    ZXLIB_TX_TOO_LARGE = 15,                          // The transaction is larger than the max tx size
-    ZXLIB_SPEND_V1_SEC_LEVEL                         // Spend is V1 and security level is not set to 100
+    ZXLIB_SPEND_OKAY = 0,                         // No error
+    ZXLIB_SPEND_ERROR = 1,                        // Unspecified class of errors, more details are (hopefully) in the returning text
+    ZXLIB_WALLET_LOCKED = 2,                      // Wallet was locked
+    ZXLIB_COMMIT_FAILED = 3,                      // Commit failed, reset status
+    ZXLIB_ERASE_SPENDS_FAILED = 4,                // Erasing spends during reset failed
+    ZXLIB_ERASE_NEW_MINTS_FAILED = 5,             // Erasing new mints during reset failed
+    ZXLIB_TRX_FUNDS_PROBLEMS = 6,                 // Everything related to available funds
+    ZXLIB_TRX_CREATE = 7,                         // Everything related to create the transaction
+    ZXLIB_TRX_CHANGE = 8,                         // Everything related to transaction change
+    ZXLIB_TXMINT_GENERAL = 9,                     // General errors in MintToTxIn
+    ZXLIB_INVALID_COIN = 10,                      // Selected mint coin is not valid
+    ZXLIB_FAILED_ACCUMULATOR_INITIALIZATION = 11, // Failed to initialize witness
+    ZXLIB_INVALID_WITNESS = 12,                   // Spend coin transaction did not verify
+    ZXLIB_BAD_SERIALIZATION = 13,                 // Transaction verification failed
+    ZXLIB_SPENT_USED_ZXLIB = 14,                  // Coin has already been spend
+    ZXLIB_TX_TOO_LARGE = 15,                      // The transaction is larger than the max tx size
+    ZXLIB_SPEND_V1_SEC_LEVEL                      // Spend is V1 and security level is not set to 100
 };
 
 struct CompactTallyItem {
@@ -205,7 +207,7 @@ public:
 
     // Zerocoin additions
     bool CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransaction& txNew, vector<CDeterministicMint>& vDMints, CReserveKey* reservekey, int64_t& nFeeRet, std::string& strFailReason, const CCoinControl* coinControl = NULL, const bool isZCSpendChange = false);
-    bool CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel, CWalletTx& wtxNew, CReserveKey& reserveKey, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vSelectedMints, vector<CDeterministicMint>& vNewMints, bool fMintChange,  bool fMinimizeChange, CBitcoinAddress* address = NULL);
+    bool CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel, CWalletTx& wtxNew, CReserveKey& reserveKey, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vSelectedMints, vector<CDeterministicMint>& vNewMints, bool fMintChange, bool fMinimizeChange, CBitcoinAddress* address = NULL);
     bool MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, const uint256& hashTxOut, CTxIn& newTxIn, CZerocoinSpendReceipt& receipt, libzerocoin::SpendType spendType, CBlockIndex* pindexCheckpoint = nullptr);
     std::string MintZerocoinFromOutPoint(CAmount nValue, CWalletTx& wtxNew, std::vector<CDeterministicMint>& vDMints, const vector<COutPoint> vOutpts);
     std::string MintZerocoin(CAmount nValue, CWalletTx& wtxNew, vector<CDeterministicMint>& vDMints, const CCoinControl* coinControl = NULL);
@@ -222,6 +224,7 @@ public:
     bool SetMintUnspent(const CBigNum& bnSerial);
     bool UpdateMint(const CBigNum& bnValue, const int& nHeight, const uint256& txid, const libzerocoin::CoinDenomination& denom);
     string GetUniqueWalletBackupName(bool fxlibzAuto) const;
+    void InitAutoConvertAddresses();
 
 
     /** Zerocin entry changed.
@@ -238,6 +241,8 @@ public:
     mutable CCriticalSection cs_wallet;
 
     CXlibzWallet* zwalletMain;
+
+    std::set<CBitcoinAddress> setAutoConvertAddresses;
 
     bool fFileBacked;
     bool fWalletUnlockAnonymizeOnly;
@@ -338,7 +343,7 @@ public:
 
     bool isZeromintEnabled()
     {
-        return fEnableZeromint;
+        return fEnableZeromint || fEnableAutoConvert;
     }
 
     void setXLIBzAutoBackups(bool fEnabled)
@@ -361,7 +366,7 @@ public:
     std::list<CAccountingEntry> laccentries;
 
     typedef std::pair<CWalletTx*, CAccountingEntry*> TxPair;
-    typedef std::multimap<int64_t, TxPair > TxItems;
+    typedef std::multimap<int64_t, TxPair> TxItems;
     TxItems wtxOrdered;
 
     int64_t nOrderPosNext;
@@ -405,6 +410,7 @@ public:
     //  keystore implementation
     // Generate a new key
     CPubKey GenerateNewKey();
+    CBitcoinAddress GenerateNewAutoMintKey();
 
     //! Adds a key to the store, and saves it to disk.
     bool AddKeyPubKey(const CKey& key, const CPubKey& pubkey);
@@ -500,7 +506,7 @@ public:
         CAmount nFeePay = 0);
     bool CreateTransaction(CScript scriptPubKey, const CAmount& nValue, CWalletTx& wtxNew, CReserveKey& reservekey, CAmount& nFeeRet, std::string& strFailReason, const CCoinControl* coinControl = NULL, AvailableCoinsType coin_type = ALL_COINS, bool useIX = false, CAmount nFeePay = 0);
     bool CommitTransaction(CWalletTx& wtxNew, CReserveKey& reservekey, std::string strCommand = "tx");
-    bool AddAccountingEntry(const CAccountingEntry&, CWalletDB & pwalletdb);
+    bool AddAccountingEntry(const CAccountingEntry&, CWalletDB& pwalletdb);
     std::string PrepareObfuscationDenominate(int minRounds, int maxRounds);
     int GenerateObfuscationOutputs(int nTotalValue, std::vector<CTxOut>& vout);
     bool CreateCollateralTransaction(CMutableTransaction& txCollateral, std::string& strReason);
@@ -509,6 +515,8 @@ public:
     bool MultiSend();
     void AutoCombineDust();
     void AutoZeromint();
+    void AutoZeromintForAddress();
+    void CreateAutoMintTransaction(const CAmount& nMintAmount, CCoinControl* coinControl = nullptr);
 
     static CFeeRate minTxFee;
     static CAmount GetMinimumFee(unsigned int nTxBytes, unsigned int nConfirmTarget, const CTxMemPool& pool);
@@ -528,7 +536,7 @@ public:
     std::set<CTxDestination> GetAccountAddresses(std::string strAccount) const;
 
     bool GetBudgetSystemCollateralTX(CWalletTx& tx, uint256 hash, bool useIX);
-    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization 
+    bool GetBudgetFinalizationCollateralTX(CWalletTx& tx, uint256 hash, bool useIX); // Only used for budget finalization
 
     // get the Obfuscation chain depth for a given input
     int GetRealInputObfuscationRounds(CTxIn in, int rounds) const;
@@ -675,7 +683,7 @@ public:
     boost::signals2::signal<void()> NotifyXLIBzReset;
 
     /** notify wallet file backed up */
-    boost::signals2::signal<void (const bool& fSuccess, const std::string& filename)> NotifyWalletBacked;
+    boost::signals2::signal<void(const bool& fSuccess, const std::string& filename)> NotifyWalletBacked;
 };
 
 

@@ -143,6 +143,7 @@ static const CRPCConvertParam vRPCConvertParams[] =
         {"searchdxlibz", 1},
         {"searchdxlibz", 2},
         {"getaccumulatorvalues", 0},
+        {"enableautomintaddress", 0},
         {"getfeeinfo", 0}
     };
 

@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015-2018 The PIVX Developers 
+// Copyright (c) 2015-2018 The PIVX Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -25,11 +25,11 @@ class CRPCCommand;
 
 namespace RPCServer
 {
-    void OnStarted(boost::function<void ()> slot);
-    void OnStopped(boost::function<void ()> slot);
-    void OnPreCommand(boost::function<void (const CRPCCommand&)> slot);
-    void OnPostCommand(boost::function<void (const CRPCCommand&)> slot);
-}
+void OnStarted(boost::function<void()> slot);
+void OnStopped(boost::function<void()> slot);
+void OnPreCommand(boost::function<void(const CRPCCommand&)> slot);
+void OnPostCommand(boost::function<void(const CRPCCommand&)> slot);
+} // namespace RPCServer
 
 class CBlockIndex;
 class CNetAddr;
@@ -65,14 +65,16 @@ bool RPCIsInWarmup(std::string* statusOut);
  * Use like:  RPCTypeCheck(params, boost::assign::list_of(str_type)(int_type)(obj_type));
  */
 void RPCTypeCheck(const UniValue& params,
-                  const std::list<UniValue::VType>& typesExpected, bool fAllowNull=false);
+    const std::list<UniValue::VType>& typesExpected,
+    bool fAllowNull = false);
 
 /**
  * Check for expected keys/value types in an Object.
  * Use like: RPCTypeCheckObj(object, boost::assign::map_list_of("name", str_type)("value", int_type));
  */
 void RPCTypeCheckObj(const UniValue& o,
-                  const std::map<std::string, UniValue::VType>& typesExpected, bool fAllowNull=false);
+    const std::map<std::string, UniValue::VType>& typesExpected,
+    bool fAllowNull = false);
 
 /** Opaque base class for timers returned by NewTimerFunc.
  * This provides no methods at the moment, but makes sure that delete
@@ -92,7 +94,7 @@ class RPCTimerInterface
 public:
     virtual ~RPCTimerInterface() {}
     /** Implementation name */
-    virtual const char *Name() = 0;
+    virtual const char* Name() = 0;
     /** Factory function for timers.
      * RPC will call the function to create a timer that will call func in *millis* milliseconds.
      * @note As the RPC mechanism is backend-neutral, it can use different implementations of timers.
@@ -103,11 +105,11 @@ public:
 };
 
 /** Set factory function for timers */
-void RPCSetTimerInterface(RPCTimerInterface *iface);
+void RPCSetTimerInterface(RPCTimerInterface* iface);
 /** Set factory function for timers, but only if unset */
-void RPCSetTimerInterfaceIfUnset(RPCTimerInterface *iface);
+void RPCSetTimerInterfaceIfUnset(RPCTimerInterface* iface);
 /** Unset factory function for timers */
-void RPCUnsetTimerInterface(RPCTimerInterface *iface);
+void RPCUnsetTimerInterface(RPCTimerInterface* iface);
 
 /**
  * Run func nSeconds from now.
@@ -115,7 +117,7 @@ void RPCUnsetTimerInterface(RPCTimerInterface *iface);
  */
 void RPCRunLater(const std::string& name, boost::function<void(void)> func, int64_t nSeconds);
 
-typedef UniValue(*rpcfn_type)(const UniValue& params, bool fHelp);
+typedef UniValue (*rpcfn_type)(const UniValue& params, bool fHelp);
 
 class CRPCCommand
 {
@@ -148,7 +150,7 @@ public:
      * @returns Result of the call.
      * @throws an exception (UniValue) when an error happens.
      */
-    UniValue execute(const std::string &method, const UniValue &params) const;
+    UniValue execute(const std::string& method, const UniValue& params) const;
 
     /**
     * Returns a list of registered commands
@@ -268,6 +270,8 @@ extern UniValue getxlibzseed(const UniValue& params, bool fHelp);
 extern UniValue generatemintlist(const UniValue& params, bool fHelp);
 extern UniValue searchdxlibz(const UniValue& params, bool fHelp);
 extern UniValue dxlibzstate(const UniValue& params, bool fHelp);
+extern UniValue enableautomintaddress(const UniValue& params, bool fHelp);
+extern UniValue createautomintaddress(const UniValue& params, bool fHelp);
 
 extern UniValue getrawtransaction(const UniValue& params, bool fHelp); // in rpc/rawtransaction.cpp
 extern UniValue listunspent(const UniValue& params, bool fHelp);
