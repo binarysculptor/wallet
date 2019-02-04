@@ -53,7 +53,7 @@ jobs:
 # Win64
     - stage: build
       env: >-
-      akakakakak  HOST=x86_64-w64-mingw32
+        HOST=x86_64-w64-mingw32
         DEP_OPTS="NO_QT=1"
         PACKAGES="python3 nsis g++-mingw-w64-x86-64 mingw-w64-x86-64-dev wine-binfmt wine64"
         GOAL=""
@@ -67,6 +67,7 @@ jobs:
         GOAL=""
         BITCOIN_CONFIG="--enable-zmq --enable-glibc-back-compat --enable-reduce-exports LDFLAGS=-static-libstdc++"
         CONFIG_SHELL="/bin/dash"
+
 # x86_64 Linux (uses qt5 dev package instead of depends Qt to speed up build and avoid timeout)
     - stage: build
       env: >-
@@ -86,7 +87,6 @@ jobs:
         RUN_FUNCTIONAL_TESTS=false
         GOAL="deploy"
         BITCOIN_CONFIG="--enable-gui --enable-reduce-exports --enable-werror"
-
 
 before_deploy:
     - ./pre-deploy.sh
