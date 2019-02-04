@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX Developers 
+// Copyright (c) 2015-2018 The PIVX Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -40,10 +40,12 @@
 
 #include <sstream>
 
+#include <atomic>
 #include <boost/algorithm/string/replace.hpp>
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/thread.hpp>
+#include <queue>
 
 using namespace boost;
 using namespace std;
@@ -96,6 +98,8 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 map<uint256, int64_t> mapRejectedBlocks;
 map<uint256, int64_t> mapZerocoinspends; //txid, time received
 
+/***/
+CLightWorker lightWorker;
 
 void EraseOrphansFor(NodeId peer);
 
@@ -897,16 +901,16 @@ bool ContextualCheckZerocoinSpend(const CTransaction& tx, const CoinSpend& spend
 {
     //Check to see if the XLIBz is properly signed
     //if (pindex->nHeight >= Params().Zerocoin_StartHeight()) {
-        if (!spend.HasValidSignature())
-            return error("%s: V2 XLIBz spend does not have a valid signature", __func__);
+    if (!spend.HasValidSignature())
+        return error("%s: V2 XLIBz spend does not have a valid signature", __func__);
 
-        libzerocoin::SpendType expectedType = libzerocoin::SpendType::SPEND;
-        if (tx.IsCoinStake())
-            expectedType = libzerocoin::SpendType::STAKE;
-        if (spend.getSpendType() != expectedType) {
-            return error("%s: trying to spend XLIBz without the correct spend type. txid=%s", __func__,
-                tx.GetHash().GetHex());
-        }
+    libzerocoin::SpendType expectedType = libzerocoin::SpendType::SPEND;
+    if (tx.IsCoinStake())
+        expectedType = libzerocoin::SpendType::STAKE;
+    if (spend.getSpendType() != expectedType) {
+        return error("%s: trying to spend XLIBz without the correct spend type. txid=%s", __func__,
+            tx.GetHash().GetHex());
+    }
     //}
 
     //Reject serial's that are already in the blockchain
@@ -1046,22 +1050,22 @@ bool CheckTransaction(const CTransaction& tx, CValidationState& state)
     }
 
     //if (fZerocoinActive) {
-        if (nZCSpendCount > Params().Zerocoin_MaxSpendsPerTransaction())
-            return state.DoS(100, error("CheckTransaction() : there are more zerocoin spends than are allowed in one transaction"));
+    if (nZCSpendCount > Params().Zerocoin_MaxSpendsPerTransaction())
+        return state.DoS(100, error("CheckTransaction() : there are more zerocoin spends than are allowed in one transaction"));
 
-        if (tx.IsZerocoinSpend()) {
-            //require that a zerocoinspend only has inputs that are zerocoins
-            for (const CTxIn& in : tx.vin) {
-                if (!in.scriptSig.IsZerocoinSpend())
-                    return state.DoS(100,
-                        error("CheckTransaction() : zerocoinspend contains inputs that are not zerocoins"));
-            }
-
-            // Do not require signature verification if this is initial sync and a block over 24 hours old
-            bool fVerifySignature = !IsInitialBlockDownload() && (GetTime() - chainActive.Tip()->GetBlockTime() < (60 * 60 * 24));
-            if (!CheckZerocoinSpend(tx, fVerifySignature, state))
-                return state.DoS(100, error("CheckTransaction() : invalid zerocoin spend"));
+    if (tx.IsZerocoinSpend()) {
+        //require that a zerocoinspend only has inputs that are zerocoins
+        for (const CTxIn& in : tx.vin) {
+            if (!in.scriptSig.IsZerocoinSpend())
+                return state.DoS(100,
+                    error("CheckTransaction() : zerocoinspend contains inputs that are not zerocoins"));
         }
+
+        // Do not require signature verification if this is initial sync and a block over 24 hours old
+        bool fVerifySignature = !IsInitialBlockDownload() && (GetTime() - chainActive.Tip()->GetBlockTime() < (60 * 60 * 24));
+        if (!CheckZerocoinSpend(tx, fVerifySignature, state))
+            return state.DoS(100, error("CheckTransaction() : invalid zerocoin spend"));
+    }
     //}
 
     // Check for duplicate inputs
@@ -2438,8 +2442,8 @@ bool ReindexAccumulators(list<uint256>& listMissingCheckpoints, string& strError
         CBlockIndex* pindex = chainActive[1];
         while (pindex) {
             uiInterface.ShowProgress(
-                _("Calculating missing accumulators..."), 
-                std::max(1, 
+                _("Calculating missing accumulators..."),
+                std::max(1,
                     std::min(99, (int)((double)pindex->nHeight / (double)chainActive.Height() * 100))));
 
             if (ShutdownRequested())
@@ -2542,8 +2546,12 @@ static int64_t nTimeCallbacks = 0;
 static int64_t nTimeTotal = 0;
 
 bool ConnectBlock(
-    const CBlock& block, CValidationState& state, CBlockIndex* pindex, 
-    CCoinsViewCache& view, bool fJustCheck, bool fAlreadyChecked)
+    const CBlock& block,
+    CValidationState& state,
+    CBlockIndex* pindex,
+    CCoinsViewCache& view,
+    bool fJustCheck,
+    bool fAlreadyChecked)
 {
     AssertLockHeld(cs_main);
     // Check it again in case a previous version let a bad block in
@@ -2728,7 +2736,7 @@ bool ConnectBlock(
     }
 
     //Track XLIBz money supply in the block index
-    if (!UpdateXLibzSupply(block, pindex,fJustCheck))
+    if (!UpdateXLibzSupply(block, pindex, fJustCheck))
         return state.DoS(100, error("%s: Failed to calculate new XLIBz supply for block=%s height=%d", __func__, block.GetHash().GetHex(), pindex->nHeight), REJECT_INVALID);
 
     // track money supply and mint amount info
@@ -2793,9 +2801,9 @@ bool ConnectBlock(
             // Send signal to wallet if this is ours
             if (pwalletMain->IsMyZerocoinSpend(pSpend.first.getCoinSerialNumber())) {
                 LogPrintf("%s: %s detected zerocoinspend in transaction %s \n", __func__,
-                          pSpend.first.getCoinSerialNumber().GetHex(), pSpend.second.GetHex());
+                    pSpend.first.getCoinSerialNumber().GetHex(), pSpend.second.GetHex());
                 pwalletMain->NotifyZerocoinChanged(pwalletMain, pSpend.first.getCoinSerialNumber().GetHex(), "Used",
-                                                   CT_UPDATED);
+                    CT_UPDATED);
 
                 //Don't add the same tx multiple times
                 if (setAddedTx.count(pSpend.second))
@@ -3892,7 +3900,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     // Reject block.nVersion=4 blocks when 95% (75% on testnet) of the network has upgraded:
     if (block.nVersion < 5 && CBlockIndex::IsSuperMajority(5, pindexPrev, Params().RejectBlockOutdatedMajority())) {
         return state.Invalid(error("%s : rejected nVersion=4 block", __func__),
-                             REJECT_OBSOLETE, "bad-version");
+            REJECT_OBSOLETE, "bad-version");
     }
 
     return true;
@@ -4268,7 +4276,7 @@ bool TestBlockValidity(CValidationState& state, const CBlock& block, CBlockIndex
 {
     AssertLockHeld(cs_main);
     //assert(pindexPrev == chainActive.Tip());
-    if(pindexPrev != chainActive.Tip()) {
+    if (pindexPrev != chainActive.Tip()) {
         LogPrint("Error: Block %s failed %s because the active tip is not what was expected.", block.GetHash().GetHex().c_str(), __func__);
         return false;
     }
@@ -4940,6 +4948,7 @@ bool static AlreadyHave(const CInv& inv)
     }
     case MSG_DSTX:
         return mapObfuscationBroadcastTxes.count(inv.hash);
+    case MSG_PUBCOINS:
     case MSG_BLOCK:
         return mapBlockIndex.count(inv.hash);
     case MSG_TXLOCK_REQUEST:
@@ -5090,6 +5099,49 @@ void static ProcessGetData(CNode* pfrom)
                         pushed = true;
                     }
                 }
+
+                if (nLocalServices & NODE_BLOOM_LIGHT_ZC) {
+                    if (!pushed && inv.type == MSG_PUBCOINS) {
+                        //std::cout << "asking for pubcoins, requested block hash: " << inv.hash.GetHex() << std::endl;
+
+                        bool send = false;
+                        BlockMap::iterator mi = mapBlockIndex.find(inv.hash);
+                        if (mi != mapBlockIndex.end()) {
+                            if (chainActive.Contains(mi->second)) {
+                                send = true;
+                            } else {
+                                // To prevent fingerprinting attacks, only send blocks outside of the active
+                                // chain if they are valid, and no more than a max reorg depth than the best header
+                                // chain we know about.
+                                send = mi->second->IsValid(BLOCK_VALID_SCRIPTS) && (pindexBestHeader != NULL) &&
+                                       (chainActive.Height() - mi->second->nHeight < Params().MaxReorganizationDepth());
+                                if (!send) {
+                                    LogPrintf(
+                                        "ProcessGetData(): ignoring request from peer=%i for old block that isn't in the main chain\n",
+                                        pfrom->GetId());
+                                }
+                            }
+                        }
+                        // Don't send not-validated blocks
+                        if (send && (mi->second->nStatus & BLOCK_HAVE_DATA)) {
+                            try {
+                                list<libzerocoin::PublicCoin> pubcoins = GetPubcoinFromBlock((*mi).second);
+                                CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+                                ss.reserve(2000);
+                                ss << inv.hash.Get32();
+                                ss << pubcoins.size();
+                                for (const libzerocoin::PublicCoin& pubcoin : pubcoins) {
+                                    ss << pubcoin.getValue();
+                                }
+                                pfrom->PushMessage("pubcoins", ss);
+                                pushed = true;
+                            } catch (std::exception& e) {
+                                PrintExceptionContinue(&e, "ProcessMessages()");
+                            }
+                        }
+                    }
+                }
+
                 if (!pushed && inv.type == MSG_TXLOCK_VOTE) {
                     if (mapTxLockVote.count(inv.hash)) {
                         CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
@@ -5836,6 +5888,59 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         }
     }
 
+    else if (strCommand == "accvalue") {
+        if (nLocalServices & NODE_BLOOM_LIGHT_ZC) {
+            try {
+                int height;
+                libzerocoin::CoinDenomination den;
+                vRecv >> height;
+                vRecv >> den;
+                CBigNum bnAccValue = 0;
+                //std::cout << "asking for checkpoint value in height: " << height << ", den: " << den << std::endl;
+                if (!GetAccumulatorValue(height, den, bnAccValue)) {
+                    LogPrint("zpiv", "peer misbehaving for request an invalid acc checkpoint \n", __func__);
+                    Misbehaving(pfrom->GetId(), 50);
+                } else {
+                    //std::cout << "Sending acc value, with checksum: " << GetChecksum(bnAccValue) << " for "
+                    //          << bnAccValue.GetDec() << std::endl;
+                    CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+                    ss << bnAccValue;
+                    ss << height;
+                    pfrom->PushMessage("accvalueresponse", ss);
+                }
+            } catch (std::exception& e) {
+                // TODO: Response with an error?
+                PrintExceptionContinue(&e, "ProcessMessages()");
+            }
+        }
+    }
+
+    else if (strCommand == "genwit") {
+        if (nLocalServices & NODE_BLOOM_LIGHT_ZC) {
+            try {
+                CGenWit gen;
+                vRecv >> gen;
+                gen.setPfrom(pfrom);
+                if (gen.isValid(chainActive.Height())) {
+                    if (!lightWorker.addWitWork(gen)) {
+                        LogPrint("zpiv", "%s : add genwit request failed \n", __func__);
+                        CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+                        // Invalid request only returns the message without a result.
+                        ss << gen.getRequestNum();
+                        pfrom->PushMessage("pubcoins", ss);
+                    }
+                } else {
+                    CDataStream ss(SER_NETWORK, PROTOCOL_VERSION);
+                    // Invalid request only returns the message without a result.
+                    ss << gen.getRequestNum();
+                    pfrom->PushMessage("pubcoins", ss);
+                }
+            } catch (std::exception& e) {
+                // TODO: Response with an error?
+                PrintExceptionContinue(&e, "ProcessMessages()");
+            }
+        }
+    }
 
     // This asymmetric behavior for inbound and outbound connections was introduced
     // to prevent a fingerprinting attack: an attacker can send specific fake addresses

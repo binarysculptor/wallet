@@ -104,7 +104,7 @@ enum ZerocoinSpendStatus {
     ZXLIB_TRX_CHANGE = 8,                         // Everything related to transaction change
     ZXLIB_TXMINT_GENERAL = 9,                     // General errors in MintToTxIn
     ZXLIB_INVALID_COIN = 10,                      // Selected mint coin is not valid
-    ZXLIB_FAILED_ACCUMULATOR_INITIALIZATION = 11, // Failed to initialize witness
+    XLIBZ_FAILED_ACCUMULATOR_INITIALIZATION = 11, // Failed to initialize witness
     ZXLIB_INVALID_WITNESS = 12,                   // Spend coin transaction did not verify
     ZXLIB_BAD_SERIALIZATION = 13,                 // Transaction verification failed
     ZXLIB_SPENT_USED_ZXLIB = 14,                  // Coin has already been spend
