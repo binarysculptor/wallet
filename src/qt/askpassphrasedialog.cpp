@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX Developers 
+// Copyright (c) 2015-2018 The PIVX Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -75,10 +75,9 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget* parent, WalletModel
     }
 
     // Set checkbox "For anonymization, automint, and staking only" depending on from where we were called
-    if (context == Context::Unlock_Menu || context == Context::Mint_XLIBz || context == Context::BIP_38) {
+    if (context == Context::Unlock_Menu || context == Context::Mint_XLIBz || context == Context::BIP_38 || context == Context::UI_Vote) {
         ui->anonymizationCheckBox->setChecked(true);
-    }
-    else {
+    } else {
         ui->anonymizationCheckBox->setChecked(false);
     }
 
