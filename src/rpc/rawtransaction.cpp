@@ -594,8 +594,8 @@ UniValue signrawtransaction(const UniValue& params, bool fHelp)
     // mergedTx will end up with all the signatures; it
     // starts as a clone of the rawtx:
     CMutableTransaction mergedTx(txVariants[0]);
-
     // Fetch previous transactions (inputs):
+    std::map<COutPoint, CScript> mapPrevOut;
     CCoinsView viewDummy;
     CCoinsViewCache view(&viewDummy);
     {
