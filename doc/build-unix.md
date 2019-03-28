@@ -106,7 +106,7 @@ If you want to build Liberty-Qt, make sure that the required packages for Qt dev
 GUI dependencies:
 
 
-If you want to build pivx-qt, make sure that the required packages for Qt development
+If you want to build liberty-qt, make sure that the required packages for Qt development
 >>>>>>> 51e7b2c4b... Merge #816: [Doc] Update build-unix.md
 are installed. Qt 5 is necessary to build the GUI.
 If both Qt 4 and Qt 5 are installed, Qt 5 will be used.

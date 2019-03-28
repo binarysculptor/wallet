@@ -1713,9 +1713,9 @@ Favor verificar o endereço e tente novamente.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/liberty-project/liberty-project-translations</source>
+https://www.transifex.com/project-liberty/project-liberty-translations</source>
         <translation>Linguagem não encontrada ou tradução incompleta? Ajude contribuido com traduções aqui:
-https://www.transifex.com/liberty-project/liberty-project-translations</translation>
+https://www.transifex.com/project-liberty/project-liberty-translations</translation>
     </message>
     <message>
         <source>Connect to the Liberty network through a SOCKS5 proxy.</source>

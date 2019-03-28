@@ -7,8 +7,6 @@
 
 #include "main.h"
 
-#include "accumulatormap.h"
-#include "accumulators.h"
 #include "addrman.h"
 #include "alert.h"
 #include "blocksignature.h"
@@ -33,10 +31,12 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #include "validationinterface.h"
+#include "xlibz/accumulatormap.h"
+#include "xlibz/accumulators.h"
 #include "xlibzchain.h"
 
 #include "libzerocoin/Denominations.h"
-#include "primitives/zerocoin.h"
+#include "xlibz/zerocoin.h"
 
 #include <sstream>
 
@@ -79,6 +79,12 @@ bool fCheckBlockIndex = false;
 bool fVerifyingBlocks = false;
 unsigned int nCoinCacheSize = 5000;
 bool fAlerts = DEFAULT_ALERTS;
+<<<<<<< HEAD
+=======
+bool fClearSpendCache = false;
+
+unsigned int nStakeMinAge = 60 * 60;
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs
 int64_t nReserveBalance = 0;
 
 /** Fees smaller than this (in uxlib) are considered zero fee (for relaying and mining)

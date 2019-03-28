@@ -1,16 +1,16 @@
 // Copyright (c) 2017-2018 The PIVX Developers
-// Copyright (c) 2018 The Liberty Developers 
+// Copyright (c) 2018 The Liberty Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef LIBERTY_XLIBZWALLET_H
 #define LIBERTY_XLIBZWALLET_H
 
-#include <map>
 #include "libzerocoin/Coin.h"
 #include "mintpool.h"
 #include "uint256.h"
-#include "primitives/zerocoin.h"
+#include "xlibz/zerocoin.h"
+#include <map>
 
 class CDeterministicMint;
 

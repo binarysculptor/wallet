@@ -1219,9 +1219,9 @@ Proszę sprawdzić adres i spróbować ponownie</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/liberty-project/liberty-project-translations</source>
+https://www.transifex.com/project-liberty/project-liberty-translations</source>
         <translation>Brakuje języka bądź nieukończona pełnego tłumaczenia? Pomóż w tłumaczeniu tutaj:
-https://www.transifex.com/liberty-project/liberty-project-translations </translation>
+https://www.transifex.com/project-liberty/project-liberty-translations </translation>
     </message>
     <message>
         <source>Connect to the Liberty network through a SOCKS5 proxy.</source>

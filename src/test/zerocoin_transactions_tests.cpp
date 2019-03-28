@@ -1,16 +1,16 @@
 // Copyright (c) 2017-2018 The PIVX Developers
-// Copyright (c) 2018 The Liberty Developers 
+// Copyright (c) 2018 The Liberty Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "libzerocoin/Denominations.h"
 #include "amount.h"
 #include "chainparams.h"
 #include "coincontrol.h"
+#include "libzerocoin/Denominations.h"
 #include "main.h"
+#include "txdb.h"
 #include "wallet.h"
 #include "walletdb.h"
-#include "txdb.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>
 
@@ -24,7 +24,7 @@ static CWallet cWallet("unlocked.dat");
 BOOST_AUTO_TEST_CASE(zerocoin_spend_test)
 {
     SelectParams(CBaseChainParams::MAIN);
-    ZerocoinParams *ZCParams = Params().Zerocoin_Params();
+    ZerocoinParams* ZCParams = Params().Zerocoin_Params();
     (void)ZCParams;
 
     bool fFirstRun;
@@ -32,27 +32,25 @@ BOOST_AUTO_TEST_CASE(zerocoin_spend_test)
     cWallet.xlibzTracker = unique_ptr<CXlibzTracker>(new CXlibzTracker(cWallet.strWalletFile));
     CMutableTransaction tx;
     CWalletTx* wtx = new CWalletTx(&cWallet, tx);
-    bool fMintChange=true;
-    bool fMinimizeChange=true;
+    bool fMintChange = true;
+    bool fMinimizeChange = true;
     std::vector<CZerocoinSpend> vSpends;
     std::vector<CZerocoinMint> vMints;
     CAmount nAmount = COIN;
-    int nSecurityLevel = 100;
 
     CZerocoinSpendReceipt receipt;
-    cWallet.SpendZerocoin(nAmount, nSecurityLevel, *wtx, receipt, vMints, fMintChange, fMinimizeChange);
+    cWallet.SpendZerocoin(nAmount, *wtx, receipt, vMints, fMintChange, fMinimizeChange);
 
-    BOOST_CHECK_MESSAGE(receipt.GetStatus() == ZXLIB_TRX_FUNDS_PROBLEMS, "Failed Invalid Amount Check");
+    BOOST_CHECK_MESSAGE(receipt.GetStatus() == XLIBZ_TRX_FUNDS_PROBLEMS, "Failed Invalid Amount Check");
 
     nAmount = 1;
     CZerocoinSpendReceipt receipt2;
-    cWallet.SpendZerocoin(nAmount, nSecurityLevel, *wtx, receipt2, vMints, fMintChange, fMinimizeChange);
+    cWallet.SpendZerocoin(nAmount, *wtx, receipt2, vMints, fMintChange, fMinimizeChange);
 
     // if using "wallet.dat", instead of "unlocked.dat" need this
     /// BOOST_CHECK_MESSAGE(vString == "Error: Wallet locked, unable to create transaction!"," Locked Wallet Check Failed");
 
-    BOOST_CHECK_MESSAGE(receipt2.GetStatus() == ZXLIB_TRX_FUNDS_PROBLEMS, "Failed Invalid Amount Check");
-
+    BOOST_CHECK_MESSAGE(receipt2.GetStatus() == XLIBZ_TRX_FUNDS_PROBLEMS, "Failed Invalid Amount Check");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

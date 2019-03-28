@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2016-2018 The PIVX Developers 
+// Copyright (c) 2016-2018 The PIVX Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,7 +9,7 @@
 #include "main.h"
 #include "pow.h"
 #include "uint256.h"
-#include "accumulators.h"
+#include "xlibz/accumulators.h"
 
 #include <stdint.h>
 
@@ -271,9 +271,9 @@ bool CBlockTreeDB::LoadBlockIndexGuts()
                     setStakeSeen.insert(make_pair(pindexNew->prevoutStake, pindexNew->nStakeTime));
 
                 //populate accumulator checksum map in memory
-                if(pindexNew->nAccumulatorCheckpoint != 0 && pindexNew->nAccumulatorCheckpoint != nPreviousCheckpoint) {
+                if (pindexNew->nAccumulatorCheckpoint != 0 && pindexNew->nAccumulatorCheckpoint != nPreviousCheckpoint) {
                     //if (pindexNew->nHeight >= Params().Zerocoin_StartHeight())
-                        LoadAccumulatorValuesFromDB(pindexNew->nAccumulatorCheckpoint);
+                    LoadAccumulatorValuesFromDB(pindexNew->nAccumulatorCheckpoint);
 
                     nPreviousCheckpoint = pindexNew->nAccumulatorCheckpoint;
                 }
@@ -298,7 +298,7 @@ bool CZerocoinDB::WriteCoinMintBatch(const std::vector<std::pair<libzerocoin::Pu
 {
     CLevelDBBatch batch;
     size_t count = 0;
-    for (std::vector<std::pair<libzerocoin::PublicCoin, uint256> >::const_iterator it=mintInfo.begin(); it != mintInfo.end(); it++) {
+    for (std::vector<std::pair<libzerocoin::PublicCoin, uint256> >::const_iterator it = mintInfo.begin(); it != mintInfo.end(); it++) {
         PublicCoin pubCoin = it->first;
         uint256 hash = GetPubCoinHash(pubCoin.getValue());
         batch.Write(make_pair('m', hash), it->second);
@@ -329,7 +329,7 @@ bool CZerocoinDB::WriteCoinSpendBatch(const std::vector<std::pair<libzerocoin::C
 {
     CLevelDBBatch batch;
     size_t count = 0;
-    for (std::vector<std::pair<libzerocoin::CoinSpend, uint256> >::const_iterator it=spendInfo.begin(); it != spendInfo.end(); it++) {
+    for (std::vector<std::pair<libzerocoin::CoinSpend, uint256> >::const_iterator it = spendInfo.begin(); it != spendInfo.end(); it++) {
         CBigNum bnSerial = it->first.getCoinSerialNumber();
         CDataStream ss(SER_GETHASH, 0);
         ss << bnSerial;
@@ -351,7 +351,7 @@ bool CZerocoinDB::ReadCoinSpend(const CBigNum& bnSerial, uint256& txHash)
     return Read(make_pair('s', hash), txHash);
 }
 
-bool CZerocoinDB::ReadCoinSpend(const uint256& hashSerial, uint256 &txHash)
+bool CZerocoinDB::ReadCoinSpend(const uint256& hashSerial, uint256& txHash)
 {
     return Read(make_pair('s', hashSerial), txHash);
 }
@@ -410,7 +410,7 @@ bool CZerocoinDB::WipeCoins(std::string strType)
 
 bool CZerocoinDB::WriteAccumulatorValue(const uint32_t& nChecksum, const CBigNum& bnValue)
 {
-    LogPrint("zero","%s : checksum:%d val:%s\n", __func__, nChecksum, bnValue.GetHex());
+    LogPrint("zero", "%s : checksum:%d val:%s\n", __func__, nChecksum, bnValue.GetHex());
     return Write(make_pair('2', nChecksum), bnValue);
 }
 

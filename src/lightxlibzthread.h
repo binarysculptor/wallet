@@ -4,14 +4,14 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 //
 
-#ifndef PIVX_LIGHTZPIVTHREAD_H
-#define PIVX_LIGHTZPIVTHREAD_H
+#ifndef LIBERTY_LIGHTXLIBZTHREAD_H
+#define LIBERTY_LIGHTXLIBZTHREAD_H
 
-#include <atomic>
-#include "genwit.h"
-#include "accumulators.h"
-#include "concurrentqueue.h"
 #include "chainparams.h"
+#include "concurrentqueue.h"
+#include "genwit.h"
+#include "xlibz/accumulators.h"
+#include <atomic>
 #include <boost/function.hpp>
 #include <boost/thread.hpp>
 
@@ -22,17 +22,16 @@ const int COMP_MAX_AMOUNT = 60 * 24 * 60;
 
 /****** Thread ********/
 
-class CLightWorker{
-
+class CLightWorker
+{
 private:
-
     concurrentqueue<CGenWit> requestsQueue;
     std::atomic<bool> isWorkerRunning;
     boost::thread threadIns;
 
 public:
-
-    CLightWorker() {
+    CLightWorker()
+    {
         isWorkerRunning = false;
     }
 
@@ -41,31 +40,32 @@ public:
         NON_DETERMINED = 1
     };
 
-    bool addWitWork(CGenWit wit) {
+    bool addWitWork(CGenWit wit)
+    {
         if (!isWorkerRunning) {
-            LogPrintf("%s not running trying to add wit work \n", "pivx-light-thread");
+            LogPrintf("%s not running trying to add wit work \n", "xlibz-light-thread");
             return false;
         }
         requestsQueue.push(wit);
         return true;
     }
 
-    void StartLightZpivThread(boost::thread_group& threadGroup) {
-        LogPrintf("%s thread start\n", "pivx-light-thread");
-        threadIns = boost::thread(boost::bind(&CLightWorker::ThreadLightZPIVSimplified, this));
+    void StartLightXlibzThread(boost::thread_group& threadGroup)
+    {
+        LogPrintf("%s thread start\n", "xlibz-light-thread");
+        threadIns = boost::thread(boost::bind(&CLightWorker::ThreadLightXLibzSimplified, this));
     }
 
-    void StopLightZpivThread() {
+    void StopLightXlibzThread()
+    {
         threadIns.interrupt();
-        LogPrintf("%s thread interrupted\n", "pivx-light-thread");
+        LogPrintf("%s thread interrupted\n", "xlibz-light-thread");
     }
 
 private:
-
-    void ThreadLightZPIVSimplified();
+    void ThreadLightXLibzSimplified();
 
     void rejectWork(CGenWit& wit, int blockHeight, uint32_t errorNumber);
-
 };
 
-#endif //PIVX_LIGHTZPIVTHREAD_H
+#endif //LIBERTY_LIGHTXLIBZTHREAD_H

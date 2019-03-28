@@ -1,11 +1,11 @@
-// Copyright (c) 2018 The PIVX Developers 
+// Copyright (c) 2018 The PIVX Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #ifndef LIBERTY_XLIBZTRACKER_H
 #define LIBERTY_XLIBZTRACKER_H
 
-#include "primitives/zerocoin.h"
+#include "xlibz/zerocoin.h"
 #include <list>
 
 class CDeterministicMint;
@@ -19,6 +19,7 @@ private:
     std::map<uint256, CMintMeta> mapSerialHashes;
     std::map<uint256, uint256> mapPendingSpends; //serialhash, txid of spend
     bool UpdateStatusInternal(const std::set<uint256>& setMempool, CMintMeta& mint);
+
 public:
     CXlibzTracker(std::string strWalletFile);
     ~CXlibzTracker();

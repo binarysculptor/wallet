@@ -85,7 +85,7 @@ This means you should not use a directory that is located directly on the host W
 
 Acquire the source in the usual way:
 
-    git clone https://github.com/PIVX-Project/PIVX.git
+    git clone https://github.com/liberty-Project/PIVX.git
 
 Once the source code is ready the build steps are below.
 
@@ -113,7 +113,7 @@ This means you should not use a directory that is located directly on the host W
 
 Acquire the source in the usual way:
 
-    git clone https://github.com/PIVX-Project/PIVX.git
+    git clone https://github.com/liberty-Project/PIVX.git
 
 Then build using:
 

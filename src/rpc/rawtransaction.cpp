@@ -20,7 +20,7 @@
 #include "swifttx.h"
 #include "uint256.h"
 #include "utilmoneystr.h"
-#include "xlibzchain.h"
+#include "xlibz/xlibzchain.h"
 #ifdef ENABLE_WALLET
 #include "wallet.h"
 #endif
@@ -855,3 +855,90 @@ UniValue getspentzerocoinamount(const UniValue& params, bool fHelp)
     CAmount nValue = libzerocoin::ZerocoinDenominationToAmount(spend.getDenomination());
     return FormatMoney(nValue);
 }
+<<<<<<< HEAD
+=======
+
+#ifdef ENABLE_WALLET
+    UniValue
+    createrawzerocoinstake(const UniValue& params, bool fHelp)
+{
+    if (fHelp || params.size() != 1)
+        throw runtime_error(
+            "createrawzerocoinstake mint_input \n"
+            "\nCreates raw zPIV coinstakes (without MN output).\n" +
+            HelpRequiringPassphrase() + "\n"
+
+                                        "\nArguments:\n"
+                                        "1. mint_input      (hex string, required) serial hash of the mint used as input\n"
+
+                                        "\nResult:\n"
+                                        "{\n"
+                                        "   \"hex\": \"xxx\",           (hex string) raw coinstake transaction\n"
+                                        "   \"private-key\": \"xxx\"    (hex string) private key of the input mint [needed to\n"
+                                        "                                            sign a block with this stake]"
+                                        "}\n"
+                                        "\nExamples\n" +
+            HelpExampleCli("createrawzerocoinstake", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f") +
+            HelpExampleRpc("createrawzerocoinstake", "0d8c16eee7737e3cc1e4e70dc006634182b175e039700931283b202715a0818f"));
+
+
+    assert(pwalletMain != NULL);
+    LOCK2(cs_main, pwalletMain->cs_wallet);
+
+    if (GetAdjustedTime() > GetSporkValue(SPORK_16_ZEROCOIN_MAINTENANCE_MODE))
+        throw JSONRPCError(RPC_WALLET_ERROR, "zPIV is currently disabled due to maintenance.");
+
+    std::string serial_hash = params[0].get_str();
+    if (!IsHex(serial_hash))
+        throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid parameter, expected hex serial hash");
+
+    EnsureWalletIsUnlocked();
+
+    uint256 hashSerial(serial_hash);
+    CZerocoinMint input_mint;
+    if (!pwalletMain->GetMint(hashSerial, input_mint)) {
+        std::string strErr = "Failed to fetch mint associated with serial hash " + serial_hash;
+        throw JSONRPCError(RPC_WALLET_ERROR, strErr);
+    }
+
+    CMutableTransaction coinstake_tx;
+
+    // create the zerocoinmint output (one spent denom + three 1-zPIV denom)
+    libzerocoin::CoinDenomination staked_denom = input_mint.GetDenomination();
+    std::vector<CTxOut> vOutMint(5);
+    // Mark coin stake transaction
+    CScript scriptEmpty;
+    scriptEmpty.clear();
+    vOutMint[0] = CTxOut(0, scriptEmpty);
+    CDeterministicMint dMint;
+    if (!pwalletMain->CreateZPIVOutPut(staked_denom, vOutMint[1], dMint))
+        throw JSONRPCError(RPC_WALLET_ERROR, "failed to create new zpiv output");
+
+    for (int i = 2; i < 5; i++) {
+        if (!pwalletMain->CreateZPIVOutPut(libzerocoin::ZQ_ONE, vOutMint[i], dMint))
+            throw JSONRPCError(RPC_WALLET_ERROR, "failed to create new zpiv output");
+    }
+    coinstake_tx.vout = vOutMint;
+
+    //hash with only the output info in it to be used in Signature of Knowledge
+    uint256 hashTxOut = coinstake_tx.GetHash();
+    CZerocoinSpendReceipt receipt;
+
+    // create the zerocoinspend input
+    CTxIn newTxIn;
+    // !TODO: mint checks
+    if (!pwalletMain->MintToTxIn(input_mint, hashTxOut, newTxIn, receipt, libzerocoin::SpendType::STAKE))
+        throw JSONRPCError(RPC_WALLET_ERROR, "failed to create zc-spend stake input");
+
+    coinstake_tx.vin.push_back(newTxIn);
+
+    UniValue ret(UniValue::VOBJ);
+    ret.push_back(Pair("hex", EncodeHexTx(coinstake_tx)));
+    CPrivKey pk = input_mint.GetPrivKey();
+    CKey key;
+    key.SetPrivKey(pk, true);
+    ret.push_back(Pair("private-key", HexStr(key)));
+    return ret;
+}
+#endif
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs

@@ -1,15 +1,14 @@
 // Copyright (c) 2017-2018 The PIVX Developers
-// Copyright (c) 2018 The Liberty Developers 
+// Copyright (c) 2018 The Liberty Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "accumulators.h"
-#include "chain.h"
-#include "denomination_functions.h"
-#include "main.h"
-#include "primitives/deterministicmint.h"
 #include "stakeinput.h"
+#include "chain.h"
+#include "main.h"
 #include "wallet.h"
+#include "xlibz/accumulators.h"
+#include "xlibz/deterministicmint.h"
 
 CXlibzStake::CXlibzStake(const libzerocoin::CoinSpend& spend)
 {
@@ -81,7 +80,7 @@ bool CXlibzStake::GetModifier(uint64_t& nStakeModifier)
 
     int64_t nTimeBlockFrom = pindex->GetBlockTime();
     while (true) {
-        if (pindex->GetBlockTime() - nTimeBlockFrom > 60*60) {
+        if (pindex->GetBlockTime() - nTimeBlockFrom > 60 * 60) {
             nStakeModifier = pindex->nAccumulatorCheckpoint.Get64();
             return true;
         }
@@ -114,9 +113,8 @@ bool CXlibzStake::CreateTxIn(CWallet* pwallet, CTxIn& txIn, uint256 hashTxOut)
     if (libzerocoin::ExtractVersionFromSerial(mint.GetSerialNumber()) < 2)
         return error("%s: serial extract is less than v2", __func__);
 
-    int nSecurityLevel = 100;
     CZerocoinSpendReceipt receipt;
-    if (!pwallet->MintToTxIn(mint, nSecurityLevel, hashTxOut, txIn, receipt, libzerocoin::SpendType::STAKE, GetIndexFrom()))
+    if (!pwallet->MintToTxIn(mint, hashTxOut, txIn, receipt, libzerocoin::SpendType::STAKE, pindexCheckpoint))
         return error("%s\n", receipt.GetStatusMessage());
 
     return true;
@@ -140,7 +138,7 @@ bool CXlibzStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount n
     CAmount masternodeReward = GetMasternodePayment(chainActive.Height(), nTotal, true);
     CAmount XLIBzToMint = nTotal - masternodeReward;
 
-    LogPrintf("%s: Total=%d Masternode=%d Staker=%d\r\n", __func__, (nTotal / COIN), (masternodeReward / COIN), (XLIBzToMint / COIN));   
+    LogPrintf("%s: Total=%d Masternode=%d Staker=%d\r\n", __func__, (nTotal / COIN), (masternodeReward / COIN), (XLIBzToMint / COIN));
 
     std::map<libzerocoin::CoinDenomination, int> mintMap = calculateOutputs(XLIBzToMint);
     std::map<libzerocoin::CoinDenomination, int>::iterator it = mintMap.begin();
@@ -150,15 +148,15 @@ bool CXlibzStake::CreateTxOuts(CWallet* pwallet, vector<CTxOut>& vout, CAmount n
         while (numberToMint > 0) {
             CTxOut out;
             CDeterministicMint dMintReward;
-            
+
             if (!pwallet->CreateZXLIBOutPut(denom, out, dMintReward))
                 return error("%s: failed to create XLIBz output", __func__);
-            
+
             vout.emplace_back(out);
 
             if (!pwallet->DatabaseMint(dMintReward))
                 return error("%s: failed to database mint reward", __func__);
-            
+
             --numberToMint;
         }
         it++;
@@ -172,7 +170,7 @@ bool CXlibzStake::GetTxFrom(CTransaction& tx)
     return false;
 }
 
-bool CXlibzStake::MarkSpent(CWallet *pwallet, const uint256& txid)
+bool CXlibzStake::MarkSpent(CWallet* pwallet, const uint256& txid)
 {
     CXlibzTracker* xlibzTracker = pwallet->xlibzTracker.get();
     CMintMeta meta;

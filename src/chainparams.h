@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Copyright (c) 2014-2015 The Dash developers
-// Copyright (c) 2015-2018 The PIVX Developers 
+// Copyright (c) 2015-2018 The PIVX Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -49,7 +49,7 @@ public:
     const MessageStartChars& MessageStart() const { return pchMessageStart; }
     const std::vector<unsigned char>& AlertKey() const { return vAlertPubKey; }
     int GetP2PPort() const { return nP2pPort; }
-    int GetRpcPort() const { return nRpcPort;}
+    int GetRpcPort() const { return nRpcPort; }
     const uint256& ProofOfWorkLimit() const { return bnProofOfWorkLimit; }
     /** Used to check majorities for block version upgrade */
     int EnforceBlockUpgradeMajority() const { return nEnforceBlockUpgradeMajority; }
@@ -105,9 +105,14 @@ public:
     int Zerocoin_RequiredStakeDepth() const { return nZerocoinRequiredStakeDepth; }
     uint64_t CheckLockTimeVerify_StartTime() const { return nCheckLockTimeVerify_StartTime; }
     /** Height or Time Based Activations **/
-    int Last_PoW_Block() const { return nLastPoWBlock; }
+    int Last_PoW_Block() const
+    {
+        return nLastPoWBlock;
+    }
     unsigned int Stake_Min_Age() const { return nStakeMinAge; }
-
+    // fake serial attack
+    int Zerocoin_Block_EndFakeSerial() const { return nFakeSerialBlockheightEnd; }
+    CAmount GetSupplyBeforeFakeSerial() const { return nSupplyBeforeFakeSerial; }
 
 protected:
     CChainParams() {}
@@ -156,6 +161,8 @@ protected:
     int nZerocoinRequiredStakeDepth;
     unsigned int nStakeMinAge;
     uint64_t nCheckLockTimeVerify_StartTime;
+    int nFakeSerialBlockheightEnd = 0;
+    CAmount nSupplyBeforeFakeSerial = 0;
 };
 
 /**

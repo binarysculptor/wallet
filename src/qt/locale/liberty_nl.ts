@@ -1939,9 +1939,9 @@ Waas alsjeblieft geduldig nadat u op importeren hebt geklikt.</translation>
     </message>
     <message>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/liberty-project/liberty-project-translations</source>
+https://www.transifex.com/project-liberty/project-liberty-translations</source>
         <translation>Taal ontbreekt of vertaling onvolledig? Help om bij te dragen aan vertalingen:
-https://www.transifex.com/liberty-project/liberty-project-translations</translation>
+https://www.transifex.com/project-liberty/project-liberty-translations</translation>
     </message>
     <message>
         <source>Map port using &amp;UPnP</source>

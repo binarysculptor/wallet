@@ -4,18 +4,20 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "accumulators.h"
+#include "accumulatorcheckpoints.h"
 #include "accumulatormap.h"
 #include "chainparams.h"
 #include "init.h"
 #include "main.h"
 #include "spork.h"
-#include "txdb.h"
-#include "xlibzchain.h"
+#include "tinyformat.h"
+#include "zpivchain.h"
 
 using namespace libzerocoin;
 
 std::map<uint32_t, CBigNum> mapAccumulatorValues;
 std::list<uint256> listAccCheckpointsNoDB;
+
 
 uint32_t ParseChecksum(uint256 nChecksum, CoinDenomination denomination)
 {
@@ -25,7 +27,12 @@ uint32_t ParseChecksum(uint256 nChecksum, CoinDenomination denomination)
     return nChecksum.Get32();
 }
 
+<<<<<<< HEAD:src/accumulators.cpp
 uint32_t GetChecksum(const CBigNum& bnValue)
+=======
+
+uint32_t GetChecksum(const CBigNum& bnValue)
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
 {
     CDataStream ss(SER_GETHASH, 0);
     ss << bnValue;
@@ -33,6 +40,7 @@ uint32_t GetChecksum(const CBigNum& bnValue)
 
     return hash.Get32();
 }
+
 
 // Find the first occurance of a certain accumulator checksum. Return 0 if not found.
 int GetChecksumHeight(uint32_t nChecksum, CoinDenomination denomination)
@@ -60,6 +68,7 @@ int GetChecksumHeight(uint32_t nChecksum, CoinDenomination denomination)
     return 0;
 }
 
+
 bool GetAccumulatorValueFromChecksum(uint32_t nChecksum, bool fMemoryOnly, CBigNum& bnAccValue)
 {
     if (mapAccumulatorValues.count(nChecksum)) {
@@ -77,19 +86,26 @@ bool GetAccumulatorValueFromChecksum(uint32_t nChecksum, bool fMemoryOnly, CBigN
     return true;
 }
 
+
 bool GetAccumulatorValueFromDB(uint256 nCheckpoint, CoinDenomination denom, CBigNum& bnAccValue)
 {
     uint32_t nChecksum = ParseChecksum(nCheckpoint, denom);
     return GetAccumulatorValueFromChecksum(nChecksum, false, bnAccValue);
 }
 
+<<<<<<< HEAD:src/accumulators.cpp
 void AddAccumulatorChecksum(const uint32_t nChecksum, const CBigNum& bnValue)
+=======
+
+void AddAccumulatorChecksum(const uint32_t nChecksum, const CBigNum& bnValue)
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
 {
     //if (chainActive.Height() >= Params().Zerocoin_StartHeight()) {
     zerocoinDB->WriteAccumulatorValue(nChecksum, bnValue);
     mapAccumulatorValues.insert(make_pair(nChecksum, bnValue));
     //}
 }
+
 
 void DatabaseChecksums(AccumulatorMap& mapAccumulators)
 {
@@ -101,6 +117,7 @@ void DatabaseChecksums(AccumulatorMap& mapAccumulators)
         nCheckpoint = nCheckpoint << 32 | nCheckSum;
     }
 }
+
 
 bool EraseChecksum(uint32_t nChecksum)
 {
@@ -126,6 +143,7 @@ bool EraseAccumulatorValues(const uint256& nCheckpointErase, const uint256& nChe
     return true;
 }
 
+
 bool LoadAccumulatorValuesFromDB(const uint256 nCheckpoint)
 {
     for (auto& denomination : zerocoinDenomList) {
@@ -143,6 +161,7 @@ bool LoadAccumulatorValuesFromDB(const uint256 nCheckpoint)
     }
     return true;
 }
+
 
 //Erase accumulator checkpoints for a certain block range
 bool EraseCheckpoints(int nStartHeight, int nEndHeight)
@@ -180,6 +199,7 @@ bool EraseCheckpoints(int nStartHeight, int nEndHeight)
     return true;
 }
 
+
 bool InitializeAccumulators(const int nHeight, int& nHeightCheckpoint, AccumulatorMap& mapAccumulators)
 {
     mapAccumulators.Reset();
@@ -200,6 +220,7 @@ bool InitializeAccumulators(const int nHeight, int& nHeightCheckpoint, Accumulat
     nHeightCheckpoint = nHeight;
     return true;
 }
+
 
 //Get checkpoint value for a specific block height
 bool CalculateAccumulatorCheckpoint(int nHeight, uint256& nCheckpoint, AccumulatorMap& mapAccumulators)
@@ -282,20 +303,9 @@ bool ValidateAccumulatorCheckpoint(const CBlock& block, CBlockIndex* pindex, Acc
     return true;
 }
 
-void RandomizeSecurityLevel(int& nSecurityLevel)
-{
-    //security level: this is an important prevention of tracing the coins via timing. Security level represents how many checkpoints
-    //of accumulated coins are added *beyond* the checkpoint that the mint being spent was added too. If each spend added the exact same
-    //amounts of checkpoints after the mint was accumulated, then you could know the range of blocks that the mint originated from.
-    if (nSecurityLevel < 100) {
-        //add some randomness to the user's selection so that it is not always the same
-        nSecurityLevel += CBigNum::randBignum(10).getint();
 
-        //security level 100 represents adding all available coins that have been accumulated - user did not select this
-        if (nSecurityLevel >= 100)
-            nSecurityLevel = 99;
-    }
-}
+//########################## Witness
+
 
 //Compute how many coins were added to an accumulator up to the end height
 int ComputeAccumulatedCoins(int nHeightEnd, libzerocoin::CoinDenomination denom)
@@ -310,8 +320,14 @@ int ComputeAccumulatedCoins(int nHeightEnd, libzerocoin::CoinDenomination denom)
     return n;
 }
 
+<<<<<<< HEAD:src/accumulators.cpp
 list<PublicCoin> GetPubcoinFromBlock(const CBlockIndex* pindex)
 {
+=======
+
+list<PublicCoin> GetPubcoinFromBlock(const CBlockIndex* pindex)
+{
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
     //grab mints from this block
     CBlock block;
     if (!ReadBlockFromDisk(block, pindex))
@@ -322,23 +338,24 @@ list<PublicCoin> GetPubcoinFromBlock(const CBlockIndex* pindex)
     return listPubcoins;
 }
 
+<<<<<<< HEAD:src/accumulators.cpp
 int AddBlockMintsToAccumulator(const CoinDenomination den, const CBloomFilter filter, const CBlockIndex* pindex, libzerocoin::Accumulator* accumulator, bool isWitness, list<CBigNum>& notAddedCoins)
+=======
+
+
+int AddBlockMintsToAccumulator(const CoinDenomination den, const CBloomFilter filter, const CBlockIndex* pindex, libzerocoin::Accumulator* accumulator, bool isWitness, list<CBigNum>& notAddedCoins)
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
 {
     // if this block contains mints of the denomination that is being spent, then add them to the witness
     int nMintsAdded = 0;
     if (pindex->MintedDenomination(den)) {
-        //grab mints from this block
-        list<PublicCoin> listPubcoins = GetPubcoinFromBlock(pindex);
-
         //add the mints to the witness
-        for (const PublicCoin& pubcoin : listPubcoins) {
+        for (const PublicCoin& pubcoin : GetPubcoinFromBlock(pindex)) {
             if (pubcoin.getDenomination() != den) {
                 continue;
             }
 
-            bool filterContains = filter.contains(pubcoin.getValue().getvch());
-
-            if (isWitness && filterContains) {
+            if (isWitness && filter.contains(pubcoin.getValue().getvch())) {
                 notAddedCoins.emplace_back(pubcoin.getValue());
                 continue;
             }
@@ -351,16 +368,17 @@ int AddBlockMintsToAccumulator(const CoinDenomination den, const CBloomFilter fi
     return nMintsAdded;
 }
 
+<<<<<<< HEAD:src/accumulators.cpp
 int AddBlockMintsToAccumulator(const libzerocoin::PublicCoin& coin, const int nHeightMintAdded, const CBlockIndex* pindex, libzerocoin::Accumulator* accumulator, bool isWitness)
+=======
+int AddBlockMintsToAccumulator(const libzerocoin::PublicCoin& coin, const int nHeightMintAdded, const CBlockIndex* pindex, libzerocoin::Accumulator* accumulator, bool isWitness)
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
 {
     // if this block contains mints of the denomination that is being spent, then add them to the witness
     int nMintsAdded = 0;
     if (pindex->MintedDenomination(coin.getDenomination())) {
-        //grab mints from this block
-        list<PublicCoin> listPubcoins = GetPubcoinFromBlock(pindex);
-
         //add the mints to the witness
-        for (const PublicCoin& pubcoin : listPubcoins) {
+        for (const PublicCoin& pubcoin : GetPubcoinFromBlock(pindex)) {
             if (pubcoin.getDenomination() != coin.getDenomination())
                 continue;
 
@@ -375,6 +393,19 @@ int AddBlockMintsToAccumulator(const libzerocoin::PublicCoin& coin, const int nH
     return nMintsAdded;
 }
 
+
+int AddBlockMintsToAccumulator(CoinWitnessData* coinWitness, const CBlockIndex* pindex, bool isWitness)
+{
+    // TODO: This should be the witness..
+    return AddBlockMintsToAccumulator(
+        *coinWitness->coin.get(),
+        coinWitness->nHeightMintAdded,
+        pindex,
+        coinWitness->pAccumulator.get(),
+        isWitness);
+}
+
+
 bool GetAccumulatorValue(int& nHeight, const libzerocoin::CoinDenomination denom, CBigNum& bnAccValue)
 {
     if (nHeight > chainActive.Height())
@@ -387,6 +418,9 @@ bool GetAccumulatorValue(int& nHeight, const libzerocoin::CoinDenomination denom
     else
         return true;
 }
+
+
+//############ Witness Generation
 
 /**
  * TODO: Why we are locking the wallet in this way?
@@ -410,6 +444,7 @@ bool LockMethod()
     return true;
 }
 
+<<<<<<< HEAD:src/accumulators.cpp
 std::list<CBlockIndex*> calculateAccumulatedBlocksFor(
     int startHeight,
     int nHeightStop,
@@ -421,15 +456,145 @@ std::list<CBlockIndex*> calculateAccumulatedBlocksFor(
     int nSecurityLevel)
 {
     std::list<CBlockIndex*> blocksToInclude;
-    int amountOfScannedBlocks = 0;
-    bool fDoubleCounted = false;
-    while (pindex) {
-        if (pindex->nHeight != startHeight && pindex->pprev->nAccumulatorCheckpoint != pindex->nAccumulatorCheckpoint)
-            ++nCheckpointsAdded;
+=======
+int SearchMintHeightOf(CBigNum value)
+{
+    uint256 txid;
+    if (!zerocoinDB->ReadCoinMint(value, txid))
+        throw searchMintHeightException("searchForMintHeightOf:: failed to read mint from db");
 
-        //If the security level is satisfied, or the stop height is reached, then initialize the accumulator from here
-        bool fSecurityLevelSatisfied = (nSecurityLevel != 100 && nCheckpointsAdded >= nSecurityLevel);
-        if (pindex->nHeight >= nHeightStop || fSecurityLevelSatisfied) {
+    CTransaction txMinted;
+    uint256 hashBlock;
+    if (!GetTransaction(txid, txMinted, hashBlock))
+        throw searchMintHeightException("searchForMintHeightOf:: failed to read tx");
+
+    int nHeightTest;
+    if (!IsTransactionInChain(txid, nHeightTest))
+        throw searchMintHeightException("searchForMintHeightOf:: mint tx " + txid.GetHex() + " is not in chain");
+
+    return mapBlockIndex[hashBlock]->nHeight;
+}
+
+
+void AccumulateRange(CoinWitnessData* coinWitness, int nHeightEnd)
+{
+    bool fDoubleCounted = false;
+    int64_t nTimeStart = GetTimeMicros();
+    int nHeightStart = std::max(coinWitness->nHeightAccStart, coinWitness->nHeightAccEnd + 1);
+    CBlockIndex* pindex = chainActive[nHeightStart];
+
+    LogPrint("zero", "%s: start=%d end=%d\n", __func__, nHeightStart, nHeightEnd);
+    while (pindex && pindex->nHeight <= nHeightEnd) {
+        coinWitness->nMintsAdded += AddBlockMintsToAccumulator(coinWitness, pindex, true);
+        coinWitness->nHeightAccEnd = pindex->nHeight;
+
+        // 10 blocks were accumulated twice when zPIV v2 was activated
+        if (pindex->nHeight == Params().Zerocoin_Block_Double_Accumulated() + 10 && !fDoubleCounted) {
+            pindex = chainActive[Params().Zerocoin_Block_Double_Accumulated()];
+            fDoubleCounted = true;
+            continue;
+        }
+
+        pindex = chainActive.Next(pindex);
+    }
+    int64_t nTimeEnd = GetTimeMicros();
+    LogPrint("bench", "        - Range accumulation completed in %.2fms\n", 0.001 * (nTimeEnd - nTimeStart));
+}
+
+
+bool GenerateAccumulatorWitness(CoinWitnessData* coinWitness, AccumulatorMap& mapAccumulators, CBlockIndex* pindexCheckpoint)
+{
+    try {
+        // Lock
+        LogPrint("zero", "%s: generating\n", __func__);
+        if (!LockMethod()) return false;
+        LogPrint("zero", "%s: after lock\n", __func__);
+
+        int64_t nTimeStart = GetTimeMicros();
+
+        //If there is a Acc End height filled in, then this has already been partially accumulated.
+        if (!coinWitness->nHeightAccEnd) {
+            LogPrintf("RESET ACC\n");
+            coinWitness->pAccumulator = std::unique_ptr<Accumulator>(new Accumulator(Params().Zerocoin_Params(false), coinWitness->denom));
+            coinWitness->pWitness = std::unique_ptr<AccumulatorWitness>(new AccumulatorWitness(Params().Zerocoin_Params(false), *coinWitness->pAccumulator, *coinWitness->coin));
+        }
+
+        // Mint added height
+        coinWitness->SetHeightMintAdded(SearchMintHeightOf(coinWitness->coin->getValue()));
+
+        // Set the initial state of the witness accumulator for this coin.
+        CBigNum bnAccValue = 0;
+        if (!coinWitness->nHeightAccEnd && GetAccumulatorValue(coinWitness->nHeightCheckpoint, coinWitness->coin->getDenomination(), bnAccValue)) {
+            libzerocoin::Accumulator witnessAccumulator(Params().Zerocoin_Params(false), coinWitness->denom, bnAccValue);
+            coinWitness->pAccumulator->setValue(witnessAccumulator.getValue());
+        }
+
+        //add the pubcoins from the blockchain up to the next checksum starting from the block
+        int nChainHeight = chainActive.Height();
+        int nHeightMax = nChainHeight % 10;
+        nHeightMax = nChainHeight - nHeightMax - 20; // at least two checkpoints deep
+
+        // Determine the height to stop at
+        int nHeightStop;
+        if (pindexCheckpoint) {
+            nHeightStop = pindexCheckpoint->nHeight - 10;
+            nHeightStop -= nHeightStop % 10;
+            LogPrint("zero", "%s: using checkpoint height %d\n", __func__, pindexCheckpoint->nHeight);
+        } else {
+            nHeightStop = nHeightMax;
+        }
+
+        if (nHeightStop > coinWitness->nHeightAccEnd)
+            AccumulateRange(coinWitness, nHeightStop - 1);
+
+        mapAccumulators.Load(chainActive[nHeightStop + 10]->nAccumulatorCheckpoint);
+        coinWitness->pWitness->resetValue(*coinWitness->pAccumulator, *coinWitness->coin);
+        if (!coinWitness->pWitness->VerifyWitness(mapAccumulators.GetAccumulator(coinWitness->denom), *coinWitness->coin))
+            return error("%s: failed to verify witness", __func__);
+
+        // A certain amount of accumulated coins are required
+        if (coinWitness->nMintsAdded < Params().Zerocoin_RequiredAccumulation())
+            return error("%s : Less than %d mints added, unable to create spend. %s", __func__, Params().Zerocoin_RequiredAccumulation(), coinWitness->ToString());
+
+        // calculate how many mints of this denomination existed in the accumulator we initialized
+        coinWitness->nMintsAdded += ComputeAccumulatedCoins(coinWitness->nHeightAccStart, coinWitness->denom);
+        LogPrint("zero", "%s : %d mints added to witness\n", __func__, coinWitness->nMintsAdded);
+
+        int64_t nTime1 = GetTimeMicros();
+        LogPrint("bench", "        - Witness generated in %.2fms\n", 0.001 * (nTime1 - nTimeStart));
+
+        return true;
+
+        // TODO: I know that could merge all of this exception but maybe it's not really good.. think if we should have a different treatment for each one
+    } catch (searchMintHeightException e) {
+        return error("%s: searchMintHeightException: %s", __func__, e.message);
+    } catch (ChecksumInDbNotFoundException e) {
+        return error("%s: ChecksumInDbNotFoundException: %s", __func__, e.message);
+    } catch (GetPubcoinException e) {
+        return error("%s: GetPubcoinException: %s", __func__, e.message);
+    }
+}
+
+bool calculateAccumulatedBlocksFor(
+    int startHeight,
+    int nHeightStop,
+    CBlockIndex* pindex,
+    CBigNum& bnAccValue,
+    libzerocoin::Accumulator& accumulator,
+    libzerocoin::CoinDenomination den,
+    CBloomFilter filter,
+    libzerocoin::Accumulator& witnessAccumulator,
+    list<CBigNum>& ret,
+    string& strError)
+{
+    bool fDoubleCounted = false;
+    int nMintsAdded = 0;
+    while (pindex) {
+        if (pindex->nHeight >= nHeightStop) {
+            //If this height is within the invalid range (when fraudulent coins were being minted), then continue past this range
+            if (InvalidCheckpointRange(pindex->nHeight))
+                continue;
+
             bnAccValue = 0;
             uint256 nCheckpointSpend = chainActive[pindex->nHeight + 10]->nAccumulatorCheckpoint;
             if (!GetAccumulatorValueFromDB(nCheckpointSpend, den, bnAccValue) || bnAccValue == 0) {
@@ -440,17 +605,94 @@ std::list<CBlockIndex*> calculateAccumulatedBlocksFor(
             break;
         }
 
+        nMintsAdded += AddBlockMintsToAccumulator(den, filter, pindex, &witnessAccumulator, true, ret);
+
+        // 10 blocks were accumulated twice when zPIV v2 was activated
+        if (pindex->nHeight == 1050010 && !fDoubleCounted) {
+            pindex = chainActive[1050000];
+            fDoubleCounted = true;
+            continue;
+        }
+
+        pindex = chainActive.Next(pindex);
+    }
+
+    // A certain amount of accumulated coins are required
+    if (nMintsAdded < Params().Zerocoin_RequiredAccumulation()) {
+        strError = _(strprintf("Less than %d mints added, unable to create spend",
+            Params().Zerocoin_RequiredAccumulation())
+                         .c_str());
+        throw NotEnoughMintsException(strError);
+    }
+
+    LogPrintf("calculateAccumulatedBlocksFor() : nMintsAdded %d", nMintsAdded);
+
+    return true;
+}
+
+bool calculateAccumulatedBlocksFor(
+    int startHeight,
+    int nHeightStop,
+    int nHeightMintAdded,
+    CBlockIndex* pindex,
+    int& nCheckpointsAdded,
+    CBigNum& bnAccValue,
+    libzerocoin::Accumulator& accumulator,
+    libzerocoin::Accumulator& witnessAccumulator,
+    libzerocoin::PublicCoin coin,
+    string& strError)
+{
+
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
+    int amountOfScannedBlocks = 0;
+    bool fDoubleCounted = false;
+    int nMintsAdded = 0;
+    while (pindex) {
+
+<<<<<<< HEAD:src/accumulators.cpp
+        //If the security level is satisfied, or the stop height is reached, then initialize the accumulator from here
+        bool fSecurityLevelSatisfied = (nSecurityLevel != 100 && nCheckpointsAdded >= nSecurityLevel);
+        if (pindex->nHeight >= nHeightStop || fSecurityLevelSatisfied) {
+=======
+        if (pindex->nHeight >= nHeightStop) {
+            //If this height is within the invalid range (when fraudulent coins were being minted), then continue past this range
+            if (InvalidCheckpointRange(pindex->nHeight))
+                continue;
+
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
+            bnAccValue = 0;
+            uint256 nCheckpointSpend = chainActive[pindex->nHeight + 10]->nAccumulatorCheckpoint;
+            if (!GetAccumulatorValueFromDB(nCheckpointSpend, coin.getDenomination(), bnAccValue) || bnAccValue == 0) {
+                throw new ChecksumInDbNotFoundException(
+                    "calculateAccumulatedBlocksFor : failed to find checksum in database for accumulator");
+            }
+            accumulator.setValue(bnAccValue);
+            break;
+        }
+
         // Add it
-        blocksToInclude.push_back(pindex);
+        nMintsAdded += AddBlockMintsToAccumulator(coin, nHeightMintAdded, pindex, &witnessAccumulator, true);
 
         amountOfScannedBlocks++;
         pindex = chainActive.Next(pindex);
     }
 
-    return blocksToInclude;
+    // A certain amount of accumulated coins are required
+    if (nMintsAdded < Params().Zerocoin_RequiredAccumulation()) {
+        strError = _(strprintf("Less than %d mints added, unable to create spend",
+            Params().Zerocoin_RequiredAccumulation())
+                         .c_str());
+        throw NotEnoughMintsException(strError);
+    }
+
+    LogPrintf("calculateAccumulatedBlocksFor() : nMintsAdded %d", nMintsAdded);
+
+    return true;
 }
 
+
 bool CalculateAccumulatorWitnessFor(
+<<<<<<< HEAD:src/accumulators.cpp
     const ZerocoinParams* params,
     int startHeight,
     int maxCalulationRange,
@@ -464,6 +706,20 @@ bool CalculateAccumulatorWitnessFor(
     list<CBigNum>& ret,
     int& heightStop)
 {
+=======
+    const ZerocoinParams* params,
+    int startHeight,
+    int maxCalulationRange,
+    CoinDenomination den,
+    const CBloomFilter& filter,
+    Accumulator& accumulator,
+    AccumulatorWitness& witness,
+    int& nMintsAdded,
+    string& strError,
+    list<CBigNum>& ret,
+    int& heightStop)
+{
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
     // Lock
     if (!LockMethod()) return false;
 
@@ -477,7 +733,6 @@ bool CalculateAccumulatorWitnessFor(
         int nHeightCheckpoint = startHeight + (10 - (startHeight % 10));
 
         // Get the base accumulator
-        //CBigNum bnAccValue = accumulator.getValue();
         // TODO: This needs to be changed to the partial witness calculation on the next version.
         CBigNum bnAccValue = 0;
         if (GetAccumulatorValue(nHeightCheckpoint, den, bnAccValue)) {
@@ -498,13 +753,12 @@ bool CalculateAccumulatorWitnessFor(
         }
         heightStop = nHeightStop;
 
-        // Iterate through the chain and calculate the witness
-        int nCheckpointsAdded = 0;
         nMintsAdded = 0;
-        RandomizeSecurityLevel(nSecurityLevel); //make security level not always the same and predictable
+
         // Starts on top of the witness that the node sent
         libzerocoin::Accumulator witnessAccumulator(params, den, witness.getValue());
 
+<<<<<<< HEAD:src/accumulators.cpp
         std::list<CBlockIndex*> blocksToInclude = calculateAccumulatedBlocksFor(
             startHeight,
             nHeightStop,
@@ -528,6 +782,22 @@ bool CalculateAccumulatorWitnessFor(
             throw NotEnoughMintsException(strError);
         }
 
+=======
+        if (!calculateAccumulatedBlocksFor(
+                startHeight,
+                nHeightStop,
+                pindex,
+                bnAccValue,
+                accumulator,
+                den,
+                filter,
+                witnessAccumulator,
+                ret,
+                strError))
+            return error("CalculateAccumulatorWitnessFor(): Calculate accumulated coins failed");
+
+        // reset the value
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
         witness.resetValue(witnessAccumulator, temp);
 
         // calculate how many mints of this denomination existed in the accumulator we initialized
@@ -543,6 +813,7 @@ bool CalculateAccumulatorWitnessFor(
     }
 }
 
+<<<<<<< HEAD:src/accumulators.cpp
 
 int SearchMintHeightOf(CBigNum value)
 {
@@ -571,6 +842,15 @@ bool GenerateAccumulatorWitness(
     int& nMintsAdded,
     string& strError,
     CBlockIndex* pindexCheckpoint)
+=======
+bool GenerateAccumulatorWitness(
+    const PublicCoin& coin,
+    Accumulator& accumulator,
+    AccumulatorWitness& witness,
+    int& nMintsAdded,
+    string& strError,
+    CBlockIndex* pindexCheckpoint)
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
 {
     try {
         // Lock
@@ -604,9 +884,9 @@ bool GenerateAccumulatorWitness(
         //Iterate through the chain and calculate the witness
         int nCheckpointsAdded = 0;
         nMintsAdded = 0;
-        RandomizeSecurityLevel(nSecurityLevel); //make security level not always the same and predictable
         libzerocoin::Accumulator witnessAccumulator = accumulator;
 
+<<<<<<< HEAD:src/accumulators.cpp
         std::list<CBlockIndex*> blocksToInclude = calculateAccumulatedBlocksFor(
             nAccStartHeight,
             nHeightStop,
@@ -620,6 +900,20 @@ bool GenerateAccumulatorWitness(
         // Now accumulate the coins
         for (const CBlockIndex* blockIndex : blocksToInclude) {
             nMintsAdded += AddBlockMintsToAccumulator(coin, nHeightMintAdded, blockIndex, &witnessAccumulator, true);
+=======
+        if (!calculateAccumulatedBlocksFor(
+                nAccStartHeight,
+                nHeightStop,
+                nHeightMintAdded,
+                pindex,
+                nCheckpointsAdded,
+                bnAccValue,
+                accumulator,
+                witnessAccumulator,
+                coin,
+                strError)) {
+            return error("GenerateAccumulatorWitness(): Calculate accumulated coins failed");
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs:src/xlibz/accumulators.cpp
         }
 
         witness.resetValue(witnessAccumulator, coin);
