@@ -17,16 +17,16 @@
 #include "main.h"
 #include "primitives/block.h"
 #include "primitives/transaction.h"
-#include "primitives/zerocoin.h"
 #include "ui_interface.h"
 #include "util.h"
 #include "validationinterface.h"
 #include "wallet_ismine.h"
 #include "walletdb.h"
-#include "xlibztracker.h"
-#include "xlibzwallet.h"
+#include "xlibz/xlibztracker.h"
+#include "xlibz/xlibzwallet.h"
+#include "xlibz/zerocoin.h"
 
-#include <algorithm>
+#include < algorithm >
 #include <map>
 #include <set>
 #include <stdexcept>
@@ -45,6 +45,7 @@ extern bool bSpendZeroConfChange;
 extern bool bdisableSystemnotifications;
 extern bool fSendFreeTransactions;
 extern bool fPayAtLeastCustomFee;
+extern bool fGlobalUnlockSpendCache; // Bool used for letting the precomputing thread know that xlibz spends need to use the cs_spendcache
 
 //! -paytxfee default
 static const CAmount DEFAULT_TRANSACTION_FEE = 0;
@@ -93,23 +94,23 @@ enum AvailableCoinsType {
 
 // Possible states for XLIBz send
 enum ZerocoinSpendStatus {
-    ZXLIB_SPEND_OKAY = 0,                         // No error
-    ZXLIB_SPEND_ERROR = 1,                        // Unspecified class of errors, more details are (hopefully) in the returning text
-    ZXLIB_WALLET_LOCKED = 2,                      // Wallet was locked
-    ZXLIB_COMMIT_FAILED = 3,                      // Commit failed, reset status
-    ZXLIB_ERASE_SPENDS_FAILED = 4,                // Erasing spends during reset failed
-    ZXLIB_ERASE_NEW_MINTS_FAILED = 5,             // Erasing new mints during reset failed
-    ZXLIB_TRX_FUNDS_PROBLEMS = 6,                 // Everything related to available funds
-    ZXLIB_TRX_CREATE = 7,                         // Everything related to create the transaction
-    ZXLIB_TRX_CHANGE = 8,                         // Everything related to transaction change
-    ZXLIB_TXMINT_GENERAL = 9,                     // General errors in MintToTxIn
-    ZXLIB_INVALID_COIN = 10,                      // Selected mint coin is not valid
+    XLIBZ_SPEND_OKAY = 0,                         // No error
+    XLIBZ_SPEND_ERROR = 1,                        // Unspecified class of errors, more details are (hopefully) in the returning text
+    XLIBZ_WALLET_LOCKED = 2,                      // Wallet was locked
+    XLIBZ_COMMIT_FAILED = 3,                      // Commit failed, reset status
+    XLIBZ_ERASE_SPENDS_FAILED = 4,                // Erasing spends during reset failed
+    XLIBZ_ERASE_NEW_MINTS_FAILED = 5,             // Erasing new mints during reset failed
+    XLIBZ_TRX_FUNDS_PROBLEMS = 6,                 // Everything related to available funds
+    XLIBZ_TRX_CREATE = 7,                         // Everything related to create the transaction
+    XLIBZ_TRX_CHANGE = 8,                         // Everything related to transaction change
+    XLIBZ_TXMINT_GENERAL = 9,                     // General errors in MintToTxIn
+    XLIBZ_INVALID_COIN = 10,                      // Selected mint coin is not valid
     XLIBZ_FAILED_ACCUMULATOR_INITIALIZATION = 11, // Failed to initialize witness
-    ZXLIB_INVALID_WITNESS = 12,                   // Spend coin transaction did not verify
-    ZXLIB_BAD_SERIALIZATION = 13,                 // Transaction verification failed
-    ZXLIB_SPENT_USED_ZXLIB = 14,                  // Coin has already been spend
-    ZXLIB_TX_TOO_LARGE = 15,                      // The transaction is larger than the max tx size
-    ZXLIB_SPEND_V1_SEC_LEVEL                      // Spend is V1 and security level is not set to 100
+    XLIBZ_INVALID_WITNESS = 12,                   // Spend coin transaction did not verify
+    XLIBZ_BAD_SERIALIZATION = 13,                 // Transaction verification failed
+    XLIBZ_SPENT_USED_ZXLIB = 14,                  // Coin has already been spend
+    XLIBZ_TX_TOO_LARGE = 15,                      // The transaction is larger than the max tx size
+    XLIBZ_SPEND_V1_SEC_LEVEL                      // Spend is V1 and security level is not set to 100
 };
 
 struct CompactTallyItem {
@@ -195,7 +196,7 @@ private:
 
 public:
     bool MintableCoins();
-    bool SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount);
+    bool SelectStakeCoins(std::list<std::unique_ptr<CStakeInput> >& listInputs, CAmount nTargetAmount, bool fPrecompute = false);
     bool SelectCoinsDark(CAmount nValueMin, CAmount nValueMax, std::vector<CTxIn>& setCoinsRet, CAmount& nValueRet, int nObfuscationRoundsMin, int nObfuscationRoundsMax) const;
     bool SelectCoinsByDenominations(int nDenom, CAmount nValueMin, CAmount nValueMax, std::vector<CTxIn>& vCoinsRet, std::vector<COutput>& vCoinsRet2, CAmount& nValueRet, int nObfuscationRoundsMin, int nObfuscationRoundsMax);
     bool SelectCoinsDarkDenominated(CAmount nTargetValue, std::vector<CTxIn>& setCoinsRet, CAmount& nValueRet) const;
@@ -207,11 +208,13 @@ public:
 
     // Zerocoin additions
     bool CreateZerocoinMintTransaction(const CAmount nValue, CMutableTransaction& txNew, vector<CDeterministicMint>& vDMints, CReserveKey* reservekey, int64_t& nFeeRet, std::string& strFailReason, const CCoinControl* coinControl = NULL, const bool isZCSpendChange = false);
-    bool CreateZerocoinSpendTransaction(CAmount nValue, int nSecurityLevel, CWalletTx& wtxNew, CReserveKey& reserveKey, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vSelectedMints, vector<CDeterministicMint>& vNewMints, bool fMintChange, bool fMinimizeChange, CBitcoinAddress* address = NULL);
-    bool MintToTxIn(CZerocoinMint zerocoinSelected, int nSecurityLevel, const uint256& hashTxOut, CTxIn& newTxIn, CZerocoinSpendReceipt& receipt, libzerocoin::SpendType spendType, CBlockIndex* pindexCheckpoint = nullptr);
+    bool CreateZerocoinSpendTransaction(CAmount nValue, CWalletTx& wtxNew, CReserveKey& reserveKey, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vSelectedMints, vector<CDeterministicMint>& vNewMints, bool fMintChange, bool fMinimizeChange, CBitcoinAddress* address = NULL);
+    bool CheckCoinSpend(libzerocoin::CoinSpend& spend, libzerocoin::Accumulator& accumulator, CZerocoinSpendReceipt& receipt);
+    bool MintToTxIn(CZerocoinMint mint, const uint256& hashTxOut, CTxIn& newTxIn, CZerocoinSpendReceipt& receipt, libzerocoin::SpendType spendType, CBlockIndex* pindexCheckpoint = nullptr);
+    bool MintsToInputVector(std::map<CBigNum, CZerocoinMint>& mapMintsSelected, const uint256& hashTxOut, std::vector<CTxIn>& vin, CZerocoinSpendReceipt& receipt, libzerocoin::SpendType spendType, CBlockIndex* pindexCheckpoint = nullptr);
     std::string MintZerocoinFromOutPoint(CAmount nValue, CWalletTx& wtxNew, std::vector<CDeterministicMint>& vDMints, const vector<COutPoint> vOutpts);
     std::string MintZerocoin(CAmount nValue, CWalletTx& wtxNew, vector<CDeterministicMint>& vDMints, const CCoinControl* coinControl = NULL);
-    bool SpendZerocoin(CAmount nValue, int nSecurityLevel, CWalletTx& wtxNew, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vMintsSelected, bool fMintChange, bool fMinimizeChange, CBitcoinAddress* addressTo = NULL);
+    bool SpendZerocoin(CAmount nValue, CWalletTx& wtxNew, CZerocoinSpendReceipt& receipt, vector<CZerocoinMint>& vMintsSelected, bool fMintChange, bool fMinimizeChange, CBitcoinAddress* addressTo = NULL);
     std::string ResetMintZerocoin();
     std::string ResetSpentZerocoin();
     void ReconsiderZerocoins(std::list<CZerocoinMint>& listMintsRestored, std::list<CDeterministicMint>& listDMintsRestored);
@@ -381,6 +384,8 @@ public:
     int64_t nTimeFirstKey;
 
     const CWalletTx* GetWalletTx(const uint256& hash) const;
+
+    void PrecomputeSpends();
 
     //! check whether we are allowed to upgrade (or already support) to the named feature
     bool CanSupportFeature(enum WalletFeature wf)
@@ -1230,5 +1235,7 @@ public:
 private:
     std::vector<char> _ssExtra;
 };
+
+void ThreadPrecomputeSpends();
 
 #endif // BITCOIN_WALLET_H

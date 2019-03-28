@@ -1,11 +1,11 @@
 // Copyright (c) 2017-2018 The PIVX Developers
-// Copyright (c) 2018 The Liberty Developers 
+// Copyright (c) 2018 The Liberty Developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "blocksignature.h"
 #include "main.h"
-#include "xlibzchain.h"
+#include "xlibz/xlibzchain.h"
 
 bool SignBlockWithKey(CBlock& block, const CKey& key)
 {
@@ -35,7 +35,7 @@ bool SignBlock(CBlock& block, const CKeyStore& keystore)
     CKeyID keyID;
     if (block.IsProofOfWork()) {
         bool fFoundID = false;
-        for (const CTxOut& txout :block.vtx[0].vout) {
+        for (const CTxOut& txout : block.vtx[0].vout) {
             if (!GetKeyIDFromUTXO(txout, keyID))
                 continue;
             fFoundID = true;

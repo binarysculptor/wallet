@@ -8,15 +8,24 @@
 #include "chainparams.h"
 #include "main.h"
 #include "txdb.h"
-#include "primitives/deterministicmint.h"
+#include "xlibz/deterministicmint.h"
 #include "key.h"
+<<<<<<< HEAD
+=======
+#include "xlibz/accumulatorcheckpoints.h"
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs
 #include "libzerocoin/bignum.h"
 #include <boost/test/unit_test.hpp>
 #include <iostream>
-#include <accumulators.h>
+#include <xlibz/accumulators.h>
 #include "wallet.h"
+<<<<<<< HEAD
 #include "xlibzwallet.h"
 #include "xlibzchain.h"
+=======
+#include "xlibz/zpivwallet.h"
+#include "zpivchain.h"
+>>>>>>> c6c84fe85... Merge #842: [Wallet] [zPIV] Precomputed Zerocoin Proofs
 
 using namespace libzerocoin;
 

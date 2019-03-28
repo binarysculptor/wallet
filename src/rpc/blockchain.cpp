@@ -5,8 +5,6 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "accumulatormap.h"
-#include "accumulators.h"
 #include "base58.h"
 #include "checkpoints.h"
 #include "clientversion.h"
@@ -19,7 +17,10 @@
 #include "util.h"
 #include "utilmoneystr.h"
 #include "wallet.h"
-#include <fstream>
+#include "xlibz/accumulatormap.h"
+#include "xlibz/accumulators.h"
+#include "xlibz/xlibzchain.h"
+#include < fstream >
 #include <iostream>
 #include <stdint.h>
 #include <univalue.h>
@@ -1058,7 +1059,8 @@ UniValue getaccumulatorwitness(const UniValue& params, bool fHelp)
     string strFailReason = "";
     int nMintsAdded = 0;
     CZerocoinSpendReceipt receipt;
-    if (!GenerateAccumulatorWitness(pubCoin, accumulator, witness, 100, nMintsAdded, strFailReason)) {
+
+    if (!GenerateAccumulatorWitness(pubCoin, accumulator, witness, nMintsAdded, strFailReason)) {
         receipt.SetStatus(_(strFailReason.c_str()), XLIBZ_FAILED_ACCUMULATOR_INITIALIZATION);
         throw JSONRPCError(RPC_DATABASE_ERROR, receipt.GetStatusMessage());
     }

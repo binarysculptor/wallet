@@ -98,9 +98,7 @@ BITCOIN_CORE_H = \
   compat/sanity.h \
   compressor.h \
   primitives/block.h \
-  primitives/deterministicmint.h \
   primitives/transaction.h \
-  primitives/zerocoin.h \
   core_io.h \
   crypter.h \
   denomination_functions.h \
@@ -126,7 +124,6 @@ BITCOIN_CORE_H = \
   masternodeconfig.h \
   merkleblock.h \
   miner.h \
-  mintpool.h \
   mruset.h \
   netbase.h \
   net.h \
@@ -173,11 +170,17 @@ BITCOIN_CORE_H = \
   wallet_ismine.h \
   walletdb.h \
   xlibzchain.h \
-  xlibztracker.h \
-  xlibzwallet.h \
+  xlibz/accumulators.h \
+  xlibz/accumulatormap.h \
+  xlibz/deterministicmint.h \
+  xlibz/mintpool.h \
+  xlibz/witness.h \
+  xlibz/zerocoin.h \
+  xlibz/xlibztracker.h \
+  xlibz/xlibzwallet.h \
   genwit.h \
   concurrentqueue.h \
-  lightzpivthread.h \
+  lightxlibzthread.h \
   zmq/zmqabstractnotifier.h \
   zmq/zmqconfig.h \
   zmq/zmqnotificationinterface.h \
@@ -256,20 +259,22 @@ libbitcoin_wallet_a_SOURCES = \
   masternode-sync.cpp \
   masternodeconfig.cpp \
   masternodeman.cpp \
-  mintpool.cpp \
   rpcdump.cpp \
-  primitives/deterministicmint.cpp \
-  primitives/zerocoin.cpp \
+  xlibz/deterministicmint.cpp \
+  xlibz/zerocoin.cpp \
   rpcwallet.cpp \
   kernel.cpp \
   wallet.cpp \
   wallet_ismine.cpp \
   walletdb.cpp \
-  xlibzwallet.cpp \
-  xlibztracker.cpp \
+  xlibz/accumulators.cpp \
+  xlibz/mintpool.cpp \
+  xlibz/witness.cpp \
+  xlibz/xlibzwallet.cpp \
+  xlibz/xlibztracker.cpp \
   stakeinput.cpp \
   genwit.cpp \
-  lightzpivthread.cpp \
+  lightxlibzthread.cpp \
   $(BITCOIN_CORE_H)
 
 # crypto primitives library
@@ -338,8 +343,8 @@ libzerocoin_libbitcoin_zerocoin_a_SOURCES = \
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
-  accumulators.cpp \
-  accumulatormap.cpp \
+  xlibz/accumulators.cpp \
+  xlibz/accumulatormap.cpp \
   allocators.cpp \
   amount.cpp \
   base58.cpp \
@@ -348,9 +353,9 @@ libbitcoin_common_a_SOURCES = \
   coins.cpp \
   compressor.cpp \
   primitives/block.cpp \
-  primitives/deterministicmint.cpp \
+  xlibz/deterministicmint.cpp \
   primitives/transaction.cpp \
-  primitives/zerocoin.cpp \
+  xlibz/zerocoin.cpp \
   core_read.cpp \
   core_write.cpp \
   hash.cpp \

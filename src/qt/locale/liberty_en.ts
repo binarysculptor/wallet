@@ -2491,7 +2491,7 @@ Please be patient after clicking import.</source>
     <message>
         <location line="+21"/>
         <source>Language missing or translation incomplete? Help contributing translations here:
-https://www.transifex.com/liberty-project/liberty-project-translations</source>
+https://www.transifex.com/project-liberty/project-liberty-translations</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
